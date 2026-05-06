@@ -1,60 +1,65 @@
 import { useEffect, useRef, useState } from 'react';
 import { createWhatsAppUrl } from '@/lib/whatsapp';
 
-const points = [
-  'Avaliação do ambiente antes de indicar o serviço.',
-  'Orientação de preparo e retorno conforme produto e protocolo.',
-  'Cuidados comunicados com foco em crianças, pets e rotina do imóvel.',
+const POINTS = [
+  { n: '01', title: 'Diagnóstico real', desc: 'Avaliamos o ambiente antes de qualquer indicação.' },
+  { n: '02', title: 'Insumo certo', desc: 'Produto premium adequado ao local, praga e rotina.' },
+  { n: '03', title: 'Retorno garantido', desc: 'Orientação pós-serviço e renovação com Selo Sentinela.' },
 ];
 
 export default function Plans() {
   const ref = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
       { threshold: 0.1 },
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   return (
-    <section ref={ref} id="plans" className="sentinel-section bg-white" aria-labelledby="plans-h">
+    <section ref={ref} id="plans" className="sentinel-section bg-[#001228]" aria-labelledby="plans-h">
       <div className="sentinel-container">
-        <div className={`grid gap-10 rounded-[36px] bg-sentinel-stone p-7 transition-all duration-700 md:p-12 lg:grid-cols-[.95fr_1.05fr] lg:items-center ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <div
+          className={`grid gap-10 overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-8 transition-all duration-700 backdrop-blur-sm md:p-12 lg:grid-cols-[1fr_1fr] lg:items-center ${
+            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
           <div>
-            <span className="text-[.7rem] font-bold uppercase tracking-[.18em] text-sentinel-forest">Eco-Health</span>
-            <h2 id="plans-h" className="sentinel-heading-xl mt-4 text-sentinel-forest">
-              Controle pensado para a rotina real da família e da empresa.
+            <span className="text-[.65rem] font-black uppercase tracking-[.2em] text-[#E6FFFA]/60">
+              Eco-Health Protocol
+            </span>
+            <h2 id="plans-h" className="sentinel-heading-xl mt-3 text-white">
+              Saúde ambiental real. Não improviso.
             </h2>
-            <p className="sentinel-body mt-5">
-              A Sentinela Saúde Ambiental trata o controle de pragas como saúde ambiental:
-              menos improviso, mais orientação e decisões compatíveis com o uso do espaço.
+            <p className="mt-4 text-[.95rem] leading-[1.8] text-white/55 max-w-[440px]">
+              Tratamos controle de pragas como medicina preventiva: protocolo, produto certo e orientação clara.
             </p>
             <a
-              href={createWhatsAppUrl('Quero entender o protocolo Eco-Health da Sentinela Saúde Ambiental')}
+              href={createWhatsAppUrl('Quero entender o Protocolo Eco-Health da Sentinela em Franca SP')}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex min-h-12 items-center rounded-full bg-sentinel-forest px-7 text-sm font-bold text-white transition-colors hover:bg-sentinel-forest-2"
+              className="mt-8 inline-flex min-h-11 items-center rounded-full border border-[#E6FFFA]/30 bg-[#E6FFFA]/8 px-7 text-sm font-bold text-[#E6FFFA] transition-all hover:bg-[#E6FFFA]/16"
             >
-              Falar com a Sentinela
+              Saber mais
             </a>
           </div>
 
           <div className="grid gap-3">
-            {points.map((point, i) => (
-              <div key={point} className="rounded-2xl border border-white bg-white/75 p-5 shadow-sm">
-                <span className="text-xs font-bold uppercase tracking-[.16em] text-sentinel-ink-5">
-                  0{i + 1}
+            {POINTS.map((p) => (
+              <div key={p.n} className="flex items-start gap-4 rounded-2xl border border-white/8 bg-white/[0.04] p-5">
+                <span className="mt-0.5 text-[.6rem] font-black uppercase tracking-[.16em] text-[#E6FFFA]/40 shrink-0">
+                  {p.n}
                 </span>
-                <p className="mt-3 text-[1rem] leading-[1.7] text-sentinel-ink">{point}</p>
+                <div>
+                  <strong className="block text-sm font-bold text-white/90">{p.title}</strong>
+                  <span className="mt-0.5 block text-[.82rem] text-white/45">{p.desc}</span>
+                </div>
               </div>
             ))}
           </div>

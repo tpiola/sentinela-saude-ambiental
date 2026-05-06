@@ -1,57 +1,47 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-const trustItems = [
-  { icon: '🛡️', label: 'Insumos Certificados ANVISA' },
-  { icon: '🧪', label: 'Referência CRQ' },
-  { icon: '⚡', label: 'Resposta Imediata' },
-  { icon: '🐾', label: 'Seguro para Pets & Crianças' },
-  { icon: '📋', label: 'Selo com Validade Real' },
-  { icon: '🏆', label: '11 Anos de Autoridade' },
+const ITEMS = [
+  { icon: '🛡️', label: 'ANVISA Certificado' },
+  { icon: '⚡', label: 'Atendimento Imediato' },
+  { icon: '🐾', label: 'Seguro para Pets' },
+  { icon: '🧪', label: 'Insumos Premium' },
+  { icon: '📋', label: 'Selo com Validade' },
+  { icon: '🏆', label: '11 Anos em Franca' },
 ];
 
 export default function AlertSection() {
-  const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.1 },
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   return (
-    <section
-      ref={ref}
-      className="relative overflow-hidden border-y border-[#E6FFFA]/10 bg-[#002D62]"
-      aria-labelledby="alert-h"
-    >
-      {/* Subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#001228]/50 via-transparent to-[#001228]/50" />
-
+    <section ref={ref} className="border-y border-white/[0.06] bg-[#001A3D]" aria-label="Credenciais Sentinela">
       <div
-        className={`sentinel-container relative flex flex-col gap-5 py-5 transition-all duration-700 md:flex-row md:items-center md:justify-between ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        className={`sentinel-container flex flex-wrap items-center justify-between gap-4 py-4 transition-all duration-600 ${
+          visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
         }`}
       >
-        <h2 id="alert-h" className="text-[.72rem] font-black uppercase tracking-[.18em] text-[#E6FFFA]/70">
-          Padrão Sentinela de Qualidade
-        </h2>
-        <div className="flex flex-wrap items-center gap-2">
-          {trustItems.map((item) => (
+        <span className="hidden text-[.6rem] font-black uppercase tracking-[.2em] text-[#E6FFFA]/40 sm:block">
+          Padrão Sentinela
+        </span>
+        <div className="flex flex-wrap gap-2">
+          {ITEMS.map(({ icon, label }) => (
             <span
-              key={item.label}
-              className="inline-flex items-center gap-1.5 rounded-full border border-[#E6FFFA]/10 bg-[#E6FFFA]/5 px-3.5 py-1.5 text-[.62rem] font-bold uppercase tracking-[.1em] text-[#E6FFFA]/60"
+              key={label}
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/8 bg-white/[0.04] px-3 py-1.5 text-[.6rem] font-bold uppercase tracking-[.1em] text-white/50"
             >
-              <span aria-hidden="true">{item.icon}</span>
-              {item.label}
+              <span aria-hidden="true">{icon}</span>
+              {label}
             </span>
           ))}
         </div>
