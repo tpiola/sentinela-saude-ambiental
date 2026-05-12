@@ -2,6 +2,8 @@
 
 Site para serviços de saúde ambiental — Rogério.
 
+**Fluxo de trabalho:** o projeto **permanece neste repositório**. Abra esta pasta no Cursor e desenvolva aqui; para guardar no GitHub use `git commit` e `git push`. Não é necessário clonar de novo no dia a dia — clone só para criar uma cópia nova em outro lugar ou computador (veja [`docs/configuracao-local.md`](docs/configuracao-local.md)).
+
 ## Estrutura
 
 - [`site/`](site/) — aplicação **Next.js** com **Tailwind**, demonstrações de **parallax** (Framer Motion), **Three.js / React Three Fiber** e embed **Google Maps** (com fallback quando não há chave).

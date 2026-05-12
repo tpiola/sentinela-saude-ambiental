@@ -2,6 +2,15 @@
 
 Este guia complementa o repositório: execute estes passos **no seu computador**. O agente remoto não pode instalar o Cursor nem criar atalhos na sua máquina.
 
+## Como você pode trabalhar (sem depender de clone)
+
+O **projeto é este repositório**: o código “oficial” fica aqui no GitHub, e o fluxo natural é **abrir esta pasta no Cursor** (ou usar um workspace na nuvem que já aponta para ele) e **editar, commitar e dar push** sempre no mesmo lugar.
+
+- **Não é obrigatório** usar `git clone` no dia a dia. Clone só faz sentido quando você precisa de uma **cópia nova** em outro disco ou máquina (por exemplo, primeiro uso num PC novo). Depois disso, você continua trabalhando **nessa mesma pasta**, puxando e enviando alterações com `git pull` e `git push`.
+- **Salvar o trabalho no repositório remoto:** `git add` → `git commit` → `git push`. Assim o histórico e os arquivos ficam guardados no GitHub **neste** repo, sem duplicar o fluxo em outro clone.
+
+Se o Cursor já abriu **esta** pasta como projeto, considere-a a sua base permanente de trabalho.
+
 ## 1. GitHub no Cursor
 
 1. Abra o **Cursor**.
@@ -27,11 +36,21 @@ git config --global user.email "seu-email@exemplo.com"
 ### HTTPS com token
 
 1. **GitHub → Settings → Developer settings → Personal access tokens**: crie um token com escopo `repo`.
-2. Ao fazer `git push` ou clone via HTTPS, use o token como senha (ou configure o gerenciador de credenciais do seu SO).
+2. Ao fazer `git push` pela primeira vez via HTTPS (ou em máquina nova), use o token como senha (ou configure o gerenciador de credenciais do seu SO).
 
-## 3. Repositório remoto (origin)
+## 3. Repositório remoto (`origin`) e fluxo diário
 
-Após criar o repositório vazio no GitHub:
+Na maior parte do tempo o remoto **já está** configurado (`origin` apontando para o GitHub). O fluxo habitual é:
+
+```bash
+git pull origin <sua-branch>   # antes de começar, se outras pessoas ou agentes enviaram commits
+# ... editar arquivos ...
+git add -A
+git commit -m "descreva a alteração"
+git push -u origin <sua-branch>
+```
+
+**Só na primeira vez** que o repositório foi criado no GitHub (ou se `origin` não existir), configure:
 
 ```bash
 git remote add origin git@github.com:USUARIO/REPO.git
@@ -42,6 +61,8 @@ git push -u origin main
 ```
 
 Substitua `USUARIO` e `REPO` pelos seus valores.
+
+**`git clone`** use apenas quando precisar de uma **nova cópia** do zero em outro caminho ou máquina — não substitui trabalhar sempre na mesma pasta que você já usa no Cursor.
 
 ## 4. Atalho do Cursor na área de trabalho
 
