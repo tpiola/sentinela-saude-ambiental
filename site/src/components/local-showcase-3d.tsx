@@ -8,14 +8,14 @@ function LogoCube() {
   return (
     <mesh rotation={[0.35, 0.55, 0]}>
       <boxGeometry args={[1.2, 1.2, 1.2]} />
-      <meshStandardMaterial color="#2563eb" metalness={0.35} roughness={0.45} />
+      <meshStandardMaterial color="#76bc21" metalness={0.28} roughness={0.42} />
     </mesh>
   );
 }
 
 export function LocalShowcase3D() {
   return (
-    <div className="h-72 w-full overflow-hidden rounded-2xl bg-zinc-950 shadow-inner ring-1 ring-white/10">
+    <div className="h-full min-h-[288px] w-full overflow-hidden rounded-2xl bg-zinc-950 shadow-inner ring-1 ring-white/10">
       <Canvas camera={{ position: [2.4, 1.8, 3.2], fov: 45 }}>
         <color attach="background" args={["#09090b"]} />
         <ambientLight intensity={0.55} />
