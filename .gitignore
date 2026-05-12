@@ -1,0 +1,2 @@
+# Evita commit acidental de pacotes ZIP grandes na raiz do repositório.
+*.zip
