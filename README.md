@@ -88,7 +88,27 @@ npm run build
 npm run start
 ```
 
+## Deploy na Vercel (recomendado)
+
+1. No [Vercel Dashboard](https://vercel.com), importe o repositório **tpiola/sentinela-saude-ambiental** (ou o fork) e o conecte ao GitHub.
+2. **Root Directory:** `app` (a pasta onde está `package.json` e `vercel.json`).
+3. **Framework Preset:** Other / ou detecção automática — o [`app/vercel.json`](app/vercel.json) define `buildCommand`, `outputDirectory` e `installCommand`.
+4. **Variáveis de ambiente** no projeto Vercel (Production e Preview):
+   - Todas as colunas **runtime** da tabela acima (`APP_*`, `DATABASE_URL`, `KIMI_*`, etc.).
+   - As `VITE_*` em **Build** (marcar “Disponível no build” / _Exposure_ conforme a UI) — o build da Vercel roda `npm run build` e fixa esses valores no bundle.
+5. **Banco MySQL:** a `DATABASE_URL` deve apontar para um host acessível a partir da internet (ex.: PlanetScale, RDS, Aiven, instância com TLS e firewall que permita conexões de saída da Vercel). Rode migrações Drizzle localmente ou num job CI (`npm run db:migrate`) antes ou depois do primeiro deploy.
+6. **OAuth Kimi:** registre no provedor a URL de callback de produção: `https://<seu-dominio-vercel>/api/oauth/callback`.
+7. **Extensões úteis no Cursor/VS Code:** [Vercel](https://marketplace.visualstudio.com/items?itemName=Vercel.vercel-vscode) para pré-visualizar deployments e variáveis (opcional; não substitui configurar o projeto no dashboard).
+
+### Como isto funciona no projeto
+
+- O front-end é servido a partir de `dist/public` (build Vite).
+- As rotas `/api/*` (tRPC, OAuth) são tratadas pela Serverless Function em [`app/api/[...path].ts`](app/api/[...path].ts), que reutiliza a mesma app Hono definida em [`app/server/`](app/server/).
+- O servidor único em Docker (`npm run start` → `server/boot.ts`) continua disponível para self-hosting; na Vercel ele **não** é usado.
+
 ## Estrutura
 
-- `app/` — aplicação web (frontend + `api/` backend integrado ao Vite em dev)
+- `app/` — aplicação web (Vite + React)
+- `app/server/` — API Hono, tRPC, OAuth (usada no dev, no build Node e na função Vercel)
+- `app/api/` — entrada [`[...path].ts`](app/api/[...path].ts) só para a Vercel (adapter `hono/vercel`)
 - `LICENSE` — licença do repositório

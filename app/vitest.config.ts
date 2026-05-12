@@ -14,7 +14,7 @@ export default defineConfig({
   },
   test: {
     environment: "node",
-    include: ["api/**/*.test.ts", "api/**/*.spec.ts"],
+    include: ["server/**/*.test.ts", "server/**/*.spec.ts"],
     passWithNoTests: true,
   },
 });
