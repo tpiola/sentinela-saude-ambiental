@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { LogoBrandFull } from "@/components/logo-sentinel";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 type HeroVideoProps = {
@@ -44,24 +45,24 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[color:var(--brand-navy)]/90 via-transparent to-[color:var(--brand-green)]/25"
+          className="absolute inset-0 bg-gradient-to-r from-[color:var(--brand-navy)]/90 via-transparent to-[color:var(--brand-lime)]/28"
           aria-hidden
         />
       </motion.div>
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 mx-auto max-w-4xl px-4 py-24 text-center md:px-8"
+        className="relative z-10 mx-auto max-w-4xl px-4 py-20 text-center md:px-8 md:py-24"
       >
-        <p className="mb-4 font-[family-name:var(--font-heading)] text-xs font-semibold tracking-[0.35em] text-[color:var(--brand-green-light)] uppercase md:text-sm">
-          Controle integrado de pragas
-        </p>
+        <div className="mb-10 rounded-2xl bg-white/95 px-5 py-7 shadow-2xl ring-1 ring-white/60 backdrop-blur-md md:px-10 md:py-9">
+          <LogoBrandFull />
+        </div>
         <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.12] font-bold tracking-tight text-balance text-white md:text-5xl lg:text-6xl">
           Proteção que você sente. Resultados que você vê.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-pretty text-white/90 md:text-xl">
           {BRAND.tagline}{" "}
-          <span className="text-[color:var(--brand-green-light)]">
+          <span className="text-[color:var(--brand-green-light)] drop-shadow-sm">
             Orçamento ágil pelo WhatsApp — sem burocracia.
           </span>
         </p>
@@ -70,7 +71,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
             href={whatsappHref()}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex min-h-[52px] min-w-[240px] items-center justify-center rounded-full bg-[color:var(--brand-green)] px-8 py-3 font-[family-name:var(--font-heading)] text-base font-bold tracking-wide text-[color:var(--brand-navy)] shadow-xl ring-2 shadow-black/25 ring-white/20 transition hover:bg-[color:var(--brand-green-light)]"
+            className="inline-flex min-h-[52px] min-w-[240px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-[family-name:var(--font-heading)] text-base font-bold tracking-wide text-[color:var(--brand-navy-heading)] shadow-xl ring-2 shadow-black/25 ring-white/25 transition hover:bg-[color:var(--brand-green-light)]"
           >
             Quero meu diagnóstico gratuito
           </motion.a>

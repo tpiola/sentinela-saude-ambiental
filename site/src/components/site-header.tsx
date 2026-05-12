@@ -1,31 +1,13 @@
 import Link from "next/link";
+import { LogoBrandCompact } from "@/components/logo-sentinel";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:var(--brand-border)] bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-[color:var(--brand-border)] bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
-        <Link href="/#inicio" className="group flex items-center gap-3">
-          <span
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[color:var(--brand-green)] to-[color:var(--brand-green-deep)] shadow-md ring-2 ring-[color:var(--brand-navy)]/15"
-            aria-hidden
-          >
-            <svg
-              viewBox="0 0 32 32"
-              className="h-7 w-7 text-white"
-              fill="currentColor"
-            >
-              <path d="M16 2L4 8v10c0 8 6 12 12 14 6-2 12-6 12-14V8L16 2z" />
-            </svg>
-          </span>
-          <span className="flex flex-col leading-tight">
-            <span className="font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide text-[color:var(--brand-navy)] uppercase">
-              Sentinela
-            </span>
-            <span className="text-xs font-medium tracking-wide text-[color:var(--brand-muted)]">
-              Saúde ambiental
-            </span>
-          </span>
+        <Link href="/#inicio" className="group min-w-0 shrink">
+          <LogoBrandCompact />
         </Link>
 
         <nav
@@ -83,7 +65,7 @@ export function SiteHeader() {
           </a>
           <a
             href={whatsappHref()}
-            className="rounded-full bg-[color:var(--brand-green)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy)] shadow-md transition hover:bg-[color:var(--brand-green-light)]"
+            className="rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy-heading)] shadow-md ring-1 ring-black/5 transition hover:bg-[color:var(--brand-green-light)]"
           >
             Orçamento no WhatsApp
           </a>

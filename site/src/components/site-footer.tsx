@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoBrandFull } from "@/components/logo-sentinel";
 import { BRAND } from "@/lib/brand";
 import { MapEmbed } from "@/components/map-embed";
 
@@ -10,13 +11,8 @@ export function SiteFooter() {
 
         <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-16">
           <div>
-            <p className="font-[family-name:var(--font-heading)] text-xl font-bold tracking-wide text-[color:var(--brand-navy)] uppercase">
-              Sentinela
-            </p>
-            <p className="mt-1 text-sm font-medium text-[color:var(--brand-muted)]">
-              Saúde ambiental
-            </p>
-            <p className="mt-4 max-w-md leading-relaxed text-[color:var(--brand-muted)]">
+            <LogoBrandFull align="left" />
+            <p className="mt-6 max-w-md leading-relaxed text-[color:var(--brand-muted)]">
               {BRAND.tagline}
             </p>
           </div>

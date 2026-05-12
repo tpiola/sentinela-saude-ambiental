@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 :root {
+  /* Paleta alinhada ao logo Sentinela (lima + navy + cinzas + azul médio). */
+  --brand-navy-heading: #001a33;
   --brand-navy: #002d5b;
   --brand-navy-soft: #003366;
-  --brand-green: #76bc21;
-  --brand-green-deep: #5a9319;
-  --brand-green-light: #8cc63f;
+  --brand-lime: #9fd938;
+  --brand-lime-deep: #7fc016;
+  --brand-green: var(--brand-lime);
+  --brand-green-deep: var(--brand-lime-deep);
+  --brand-green-light: #c5f075;
+  --brand-accent-blue: #2d7ab8;
   --brand-muted: #5c6570;
+  --brand-tagline-grey: #6b7280;
   --brand-border: #e2e8f0;
-  --brand-surface: #f8fafc;
+  --brand-silver: #b8c2ce;
+  --brand-surface: #f5f7fa;
   --background: #ffffff;
   --foreground: #1a2332;
 }
@@ -36,6 +43,6 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--brand-green) 35%, white);
-  color: var(--brand-navy);
+  background: color-mix(in srgb, var(--brand-lime) 35%, white);
+  color: var(--brand-navy-heading);
 }
