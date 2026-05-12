@@ -28,8 +28,8 @@ export function ParallaxHero() {
           Site rápido, mapa integrado e experiência memorável
         </h1>
         <p className="mt-5 text-lg text-pretty text-blue-50/90">
-          Base Next.js + Tailwind com demonstrações de parallax, 3D e embed do
-          Google Maps.
+          Stack Next.js e Tailwind com parallax, cena 3D e mapa do Google
+          incorporado.
         </p>
       </div>
     </section>

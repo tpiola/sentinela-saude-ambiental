@@ -1,4 +1,4 @@
-# Valida o mesmo fluxo que a Vercel usa em produção (install → lint → build).
+# Mesmo fluxo que a produção na Vercel costuma usar: instalar → lint → build.
 name: CI
 
 on:
@@ -27,8 +27,8 @@ jobs:
       - name: ESLint
         run: npm run lint
 
-      - name: Prettier (check)
+      - name: Prettier (verificação)
         run: npm run format:check
 
-      - name: Build Next.js (produção)
+      - name: Compilação Next.js (produção)
         run: npm run build

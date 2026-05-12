@@ -14,7 +14,7 @@ Se o Cursor já abriu **esta** pasta como projeto, considere-a a sua base perman
 ## 1. GitHub no Cursor
 
 1. Abra o **Cursor**.
-2. Vá em **Cursor → Settings → Cursor Settings** (ou **Accounts**, conforme a versão).
+2. Vá em **Cursor → Configurações → Cursor Settings** (em inglês na interface: **Settings**; ou **Accounts**, conforme a versão).
 3. Conecte sua conta **GitHub** (útil para sincronização e integrações).
 4. Opcional: habilite recursos que dependem de login, se aparecerem nas configurações.
 
@@ -84,7 +84,7 @@ Substitua `USUARIO` e `REPO` pelos seus valores.
 
 ## 5. Extensões recomendadas
 
-Ao abrir esta pasta no Cursor, você deve ver sugestão para instalar extensões definidas em `.vscode/extensions.json`. Instale também manualmente pelo painel **Extensions** (`Ctrl+Shift+X`) se necessário:
+Ao abrir esta pasta no Cursor, você deve ver sugestão para instalar extensões definidas em `.vscode/extensions.json`. Instale também manualmente pelo painel **Extensões** (`Ctrl+Shift+X`) se necessário:
 
 - **ESLint** — análise de código JavaScript/TypeScript.
 - **Prettier** — formatação (alinhado ao projeto).
@@ -98,7 +98,7 @@ Para **3D** (Three.js), use principalmente a documentação oficial e tipagem Ty
 
 1. Crie um projeto em [Google Cloud Console](https://console.cloud.google.com/).
 2. Ative **Maps JavaScript API**, **Places API**, **Geocoding API** conforme necessidade.
-3. Crie uma chave de API restrita (HTTP referrers para seu domínio em produção).
+3. Crie uma chave de API restrita (referências HTTP / URLs permitidas para o seu domínio em produção).
 4. Copie `.env.example` para `.env.local` e preencha `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` (veja README na raiz do projeto).
 
 O perfil público do estabelecimento é configurado no **Google Business Profile**, fora do código.

@@ -2,7 +2,7 @@ type MapEmbedProps = {
   title?: string;
 };
 
-// Embed oficial (Maps Embed API). Sem chave, mostramos instruções em vez de quebrar o build.
+// Incorporação oficial (Maps Embed API). Sem chave, exibimos instruções em vez de falhar o build.
 export function MapEmbed({ title = "Como nos encontrar" }: MapEmbedProps) {
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   const query =

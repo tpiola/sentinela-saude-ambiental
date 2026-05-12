@@ -40,8 +40,8 @@ export default function Home() {
               >
                 Google Cloud Console
               </a>{" "}
-              para habilitar Maps Embed / Places e restringir a chave ao seu
-              domínio.
+              para habilitar as APIs Maps Embed e Places e restringir a chave ao
+              seu domínio.
             </li>
             <li>
               Consulte{" "}

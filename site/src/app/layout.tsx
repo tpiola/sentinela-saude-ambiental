@@ -13,8 +13,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sentinela — Saúde ambiental",
-  description: "Site para serviços de saúde ambiental e presença local.",
+  title: {
+    default: "Sentinela — Saúde ambiental",
+    template: "%s | Sentinela — Saúde ambiental",
+  },
+  description:
+    "Serviços de saúde ambiental e presença digital para o seu negócio local.",
+  openGraph: {
+    title: "Sentinela — Saúde ambiental",
+    description:
+      "Serviços de saúde ambiental e presença digital para o seu negócio local.",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

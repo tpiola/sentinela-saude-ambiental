@@ -1,7 +1,7 @@
 <!-- BEGIN:nextjs-agent-rules -->
 
-# This is NOT the Next.js you know
+# Next.js neste projeto
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
+Esta versão pode diferir do que você conhece — APIs, convenções e estrutura de pastas mudam com o tempo. Antes de alterar código, consulte o guia em `node_modules/next/dist/docs/` e observe avisos de descontinuação.
 
 <!-- END:nextjs-agent-rules -->
