@@ -84,7 +84,13 @@ Substitua `USUARIO` e `REPO` pelos seus valores.
 
 ## 5. Extensões recomendadas
 
-Ao abrir esta pasta no Cursor, você deve ver sugestão para instalar extensões definidas em `.vscode/extensions.json`. Instale também manualmente pelo painel **Extensions** (`Ctrl+Shift+X`) se necessário:
+Ao abrir esta pasta no Cursor, você deve ver sugestão para instalar extensões definidas em `.vscode/extensions.json`. Alternativa no terminal (requer o comando `cursor` ou `code` na PATH):
+
+```bash
+./scripts/install-recommended-extensions.sh
+```
+
+Instale também manualmente pelo painel **Extensions** (`Ctrl+Shift+X`) se necessário:
 
 - **ESLint** — análise de código JavaScript/TypeScript.
 - **Prettier** — formatação (alinhado ao projeto).
