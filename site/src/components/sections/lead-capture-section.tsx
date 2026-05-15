@@ -56,10 +56,10 @@ export function LeadCaptureSection() {
             Contato
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
-            Deixe seus dados
+            Fale com a Sentinela
           </h2>
           <p className="mt-4 text-[color:var(--brand-muted)]">
-            A equipe retoma o contato após o cadastro. Não fazemos envio direto
+            Preencha seus dados e nossa equipe retorna em breve pelo WhatsApp.
             para edição de planilha (API inválida); use o formulário Google
             abaixo ou envie pelo WhatsApp.
           </p>
