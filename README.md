@@ -6,7 +6,7 @@ Site para serviços de saúde ambiental — Rogério.
 
 ## Estrutura
 
-- [`site/`](site/) — aplicação **Next.js** com **Tailwind**, demonstrações de **parallax** (Framer Motion), **Three.js / React Three Fiber** e embed **Google Maps** (com fallback quando não há chave).
+- [`site/`](site/) — landing **Next.js** + **Tailwind** com **hero em vídeo**, scroll animado (Framer Motion), **Three.js** sob carregamento tardio, **mapa no rodapé**, botão flutuante **WhatsApp**, galeria ligada às redes e SEO/geo local (JSON-LD).
 - [`docs/configuracao-local.md`](docs/configuracao-local.md) — GitHub no Cursor, atalho na área de trabalho, Git e lista de extensões.
 - [`.vscode/extensions.json`](.vscode/extensions.json) — recomendações de extensões ao abrir o projeto no Cursor.
 
@@ -17,7 +17,7 @@ Na primeira vez:
 ```bash
 cd site
 npm install
-cp .env.example .env.local   # opcional: preencher NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+cp .env.example .env.local   # NEXT_PUBLIC_SITE_URL, maps API key, consulta do lugar
 npm run dev
 ```
 
