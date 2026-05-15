@@ -1,12 +1,14 @@
 "use client";
 
-import { useId } from "react";
+import Image from "next/image";
+import { useId, useState } from "react";
+import { BRAND } from "@/lib/brand";
 
 type LogoProps = {
   className?: string;
 };
 
-/** Escudo com gradiente lima → navy, check branco e borda metálica (ajuste fino ao logo oficial). */
+/** Escudo com gradiente lima → navy (fallback quando o PNG oficial não carrega). */
 export function LogoShieldMark({
   className,
   size = 52,
@@ -39,7 +41,6 @@ export function LogoShieldMark({
           <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.35" />
         </filter>
       </defs>
-      {/* Brilho circular atrás do check */}
       <ellipse cx="50" cy="54" rx="22" ry="24" fill="#60a5fa" opacity="0.22" />
       <path
         d="M50 10 L84 28.5 L84 69 Q84 96 50 108 Q16 96 16 69 L16 28.5 Z"
@@ -88,43 +89,90 @@ export function LogoSwoosh({ className }: LogoProps) {
   );
 }
 
-/** Header / navegação — escudo + duas linhas de marca. */
+type LogoImageMarkProps = LogoProps & {
+  alt?: string;
+  priority?: boolean;
+  sizes?: string;
+  /** Tamanho do escudo SVG se a imagem falhar ao carregar */
+  fallbackShieldSize?: number;
+};
+
+/**
+ * Marca oficial (PNG em `BRAND.logoPath`).
+ * Em caso de erro no carregamento, exibe o escudo vetorial como fallback.
+ */
+export function LogoImageMark({
+  className,
+  alt = BRAND.name,
+  priority,
+  sizes = "200px",
+  fallbackShieldSize = 52,
+}: LogoImageMarkProps) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed) {
+    return <LogoShieldMark size={fallbackShieldSize} className={className} />;
+  }
+
+  return (
+    <Image
+      src={BRAND.logoPath}
+      alt={alt}
+      width={1024}
+      height={1024}
+      className={className}
+      priority={priority}
+      sizes={sizes}
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
+/** Header — apenas o PNG oficial, responsivo. */
 export function LogoBrandCompact({ className }: LogoProps) {
   return (
-    <div className={`flex items-center gap-3 ${className ?? ""}`}>
-      <LogoShieldMark
-        size={48}
-        className="shrink-0 drop-shadow-sm md:size-[52px]"
+    <div className={className ?? ""}>
+      <LogoImageMark
+        className="h-10 w-auto object-contain sm:h-12"
+        alt={BRAND.name}
+        priority
+        fallbackShieldSize={44}
+        sizes="(max-width: 640px) 120px, 144px"
       />
-      <div className="min-w-0 leading-none">
-        <p className="font-[family-name:var(--font-heading)] text-[0.95rem] font-extrabold tracking-[0.12em] text-[color:var(--brand-navy-heading)] uppercase md:text-[1.05rem]">
-          Sentinela
-        </p>
-        <p className="mt-1 font-[family-name:var(--font-heading)] text-[0.58rem] font-semibold tracking-[0.22em] text-[color:var(--brand-lime)] uppercase md:text-[0.62rem]">
-          Saúde ambiental
-        </p>
-      </div>
     </div>
   );
 }
 
-/** Hero / rodapé — lockup completo com tagline e swoosh. */
+/** Hero / rodapé — PNG oficial + tipografia complementar + swoosh. */
 export function LogoBrandFull({
   className,
   align = "center",
-}: LogoProps & { align?: "left" | "center" }) {
+  markClassName = "max-h-28 w-auto object-contain md:max-h-32 lg:max-h-36",
+  markPriority,
+}: LogoProps & {
+  align?: "left" | "center";
+  /** Classes Tailwind só no `<Image>` da marca (ex.: altura máxima maior no hero). */
+  markClassName?: string;
+  /** Só o hero usa `false`; header compacto usa marca via `LogoBrandCompact` com priority. */
+  markPriority?: boolean;
+}) {
   const a =
     align === "center" ? "items-center text-center" : "items-start text-left";
+  const imageWrap =
+    align === "center"
+      ? "flex justify-center drop-shadow-md"
+      : "drop-shadow-md";
+
   return (
     <div className={`flex flex-col gap-3 ${a} ${className ?? ""}`}>
-      <div
-        className={
-          align === "center"
-            ? "flex justify-center drop-shadow-md"
-            : "drop-shadow-md"
-        }
-      >
-        <LogoShieldMark size={80} />
+      <div className={imageWrap}>
+        <LogoImageMark
+          className={markClassName}
+          alt={BRAND.name}
+          sizes="(max-width: 768px) 200px, 240px"
+          fallbackShieldSize={72}
+          priority={markPriority}
+        />
       </div>
       <div className={`flex flex-col gap-1 ${a}`}>
         <p className="font-[family-name:var(--font-heading)] text-2xl font-extrabold tracking-[0.14em] text-[color:var(--brand-navy-heading)] uppercase md:text-3xl">

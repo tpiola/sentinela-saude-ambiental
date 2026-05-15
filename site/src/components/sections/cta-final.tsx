@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { whatsappHref } from "@/lib/brand";
+import { BRAND, whatsappHref } from "@/lib/brand";
 
 export function CtaFinal() {
   return (
@@ -20,7 +20,7 @@ export function CtaFinal() {
           viewport={{ once: true }}
           className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-[color:var(--brand-navy)] md:text-4xl"
         >
-          Pronto para um ambiente mais seguro — começando agora?
+          Escorpião, barata ou exigência da fiscal — não deixe virar emergência
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -29,8 +29,10 @@ export function CtaFinal() {
           transition={{ delay: 0.06 }}
           className="mx-auto mt-5 max-w-2xl text-lg text-[color:var(--brand-navy)]/90"
         >
-          Um clique no WhatsApp é suficiente para tirar o problema da cabeça e
-          colocar solução na agenda.
+          {BRAND.experienceYearsLabel} de atuação em Franca e região com laudo e
+          transparência. Chame no WhatsApp: diagnóstico gratuito e resposta
+          rápida para colocar prevenção na agenda — antes do pico de escorpiões
+          ou da autuação.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}

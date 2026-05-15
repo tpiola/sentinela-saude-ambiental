@@ -1,12 +1,17 @@
 import { HeroVideo } from "@/components/hero-video";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { TrustStrip } from "@/components/sections/trust-strip";
+import { StatsMarquee } from "@/components/sections/stats-marquee";
+import { AboutSection } from "@/components/sections/about-section";
 import { ServicesGrid } from "@/components/sections/services-grid";
-import { GallerySocial } from "@/components/gallery-social";
+import { PrevencaoB2BSection } from "@/components/sections/prevencao-b2b-section";
+import { DiagnosticFunnel } from "@/components/sections/diagnostic-funnel";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
-import { Showcase3DLazy } from "@/components/sections/showcase-3d-lazy";
+import { B2bSection } from "@/components/sections/b2b-section";
+import { FaqSection } from "@/components/sections/faq-section";
 import { CtaFinal } from "@/components/sections/cta-final";
+import { GoogleCalendarBookingSection } from "@/components/sections/google-calendar-booking-section";
+import { LeadCaptureSection } from "@/components/sections/lead-capture-section";
 import { SiteFooter } from "@/components/site-footer";
 
 export default function Home() {
@@ -15,12 +20,17 @@ export default function Home() {
       <SiteHeader />
       <main>
         <HeroVideo />
-        <TrustStrip />
+        <StatsMarquee />
+        <AboutSection />
         <ServicesGrid />
-        <GallerySocial />
+        <DiagnosticFunnel />
+        <PrevencaoB2BSection />
         <ProcessTimeline />
-        <Showcase3DLazy />
+        <B2bSection />
+        <FaqSection />
         <CtaFinal />
+        <GoogleCalendarBookingSection />
+        <LeadCaptureSection />
       </main>
       <SiteFooter />
       <WhatsAppFloat />

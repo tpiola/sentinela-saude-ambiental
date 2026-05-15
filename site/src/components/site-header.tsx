@@ -1,76 +1,178 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { LogoBrandCompact } from "@/components/logo-sentinel";
+import {
+  FacebookBrandIcon,
+  InstagramBrandIcon,
+} from "@/components/social-brand-icons";
 import { BRAND, whatsappHref } from "@/lib/brand";
+import { calendarBookingHref } from "@/lib/integrations";
+
+const navLinks = [
+  { href: "#sobre", label: "Sobre" },
+  { href: "#servicos", label: "Serviços" },
+  { href: "#diagnostico", label: "Diagnóstico" },
+  { href: "#empresas", label: "Empresas" },
+  { href: "#faq", label: "Dúvidas" },
+  { href: "#mapa", label: "Como chegar" },
+];
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const agendaHref = calendarBookingHref();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:var(--brand-border)] bg-white/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
-        <Link href="/#inicio" className="group min-w-0 shrink">
+    <header
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-[color:var(--brand-border)] bg-white/95 py-2 shadow-md backdrop-blur-md"
+          : "bg-white/90 py-3 backdrop-blur-sm"
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 md:px-6">
+        <Link
+          href="/#inicio"
+          className="min-w-0 shrink"
+          onClick={() => setOpen(false)}
+        >
           <LogoBrandCompact />
         </Link>
 
         <nav
-          className="hidden items-center gap-6 text-sm font-medium text-[color:var(--brand-navy)] md:flex"
+          className="hidden items-center gap-5 text-sm font-semibold text-[color:var(--brand-navy)] lg:flex"
           aria-label="Principal"
         >
-          <a
-            href="#servicos"
-            className="transition hover:text-[color:var(--brand-green-deep)]"
-          >
-            Serviços
-          </a>
-          <a
-            href="#como-trabalhamos"
-            className="transition hover:text-[color:var(--brand-green-deep)]"
-          >
-            Como trabalhamos
-          </a>
-          <a
-            href="#resultados"
-            className="transition hover:text-[color:var(--brand-green-deep)]"
-          >
-            Resultados
-          </a>
-          <a
-            href="#mapa"
-            className="transition hover:text-[color:var(--brand-green-deep)]"
-          >
-            Como chegar
-          </a>
+          {navLinks.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="transition hover:text-[color:var(--brand-green-deep)]"
+            >
+              {l.label}
+            </a>
+          ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a
             href={BRAND.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden text-[color:var(--brand-muted)] hover:text-[color:var(--brand-navy)] sm:inline"
+            className="hidden text-[color:var(--brand-muted)] hover:text-[color:var(--brand-navy)] md:inline-flex"
             aria-label="Instagram"
           >
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-            </svg>
+            <InstagramBrandIcon className="h-5 w-5" />
           </a>
           <a
             href={BRAND.facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden text-[color:var(--brand-muted)] hover:text-[color:var(--brand-navy)] sm:inline"
+            className="hidden text-[color:var(--brand-muted)] hover:text-[color:var(--brand-navy)] md:inline-flex"
             aria-label="Facebook"
           >
-            <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
+            <FacebookBrandIcon className="h-5 w-5" />
+          </a>
+          <a
+            href={agendaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-bold text-[color:var(--brand-navy-heading)] shadow-md ring-1 ring-black/5 transition hover:bg-[color:var(--brand-green-light)] sm:inline-flex"
+          >
+            Agendar agora
+          </a>
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[color:var(--brand-border)] text-[color:var(--brand-navy)] lg:hidden"
+            aria-expanded={open}
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <CloseIcon /> : <MenuIcon />}
+          </button>
+        </div>
+      </div>
+
+      <div
+        className={`overflow-hidden border-t border-[color:var(--brand-border)] bg-white transition-all duration-300 lg:hidden ${
+          open ? "max-h-[min(85vh,520px)] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="flex flex-col gap-1 px-4 py-4" aria-label="Mobile">
+          {navLinks.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-3 text-base font-semibold text-[color:var(--brand-navy)] hover:bg-[color:var(--brand-surface)]"
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href={agendaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 flex min-h-[48px] items-center justify-center rounded-xl bg-[color:var(--brand-lime)] font-bold text-[color:var(--brand-navy-heading)]"
+            onClick={() => setOpen(false)}
+          >
+            Agendar agora
           </a>
           <a
             href={whatsappHref()}
-            className="rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy-heading)] shadow-md ring-1 ring-black/5 transition hover:bg-[color:var(--brand-green-light)]"
+            className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-[color:var(--brand-navy)] font-semibold text-[color:var(--brand-navy)]"
+            onClick={() => setOpen(false)}
           >
-            Orçamento no WhatsApp
+            WhatsApp — diagnóstico gratuito
           </a>
-        </div>
+        </nav>
       </div>
     </header>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      aria-hidden
+    >
+      <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg
+      className="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      aria-hidden
+    >
+      <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
+    </svg>
   );
 }

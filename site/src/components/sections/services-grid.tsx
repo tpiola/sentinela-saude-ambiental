@@ -1,31 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BRAND, whatsappHref } from "@/lib/brand";
 
-const services = [
-  {
-    title: "Dedetização e desinsetização",
-    desc: "Tratamentos alinhados ao seu cenário — sem improviso, com produtos adequados e segurança para família e pets quando aplicável.",
-  },
-  {
-    title: "Controle integrado",
-    desc: "Diagnóstico + plano + execução: menos retrabalho, mais previsibilidade e tranquilidade no seu ambiente.",
-  },
-  {
-    title: "Empresas e condomínios",
-    desc: "Rotinas que combinam discrição, documentação e foco em conformidade para operações que não podem parar.",
-  },
-  {
-    title: "Orientação clara",
-    desc: "Você entende o que será feito e por quê — linguagem direta, sem termos vazios nem pressão desnecessária.",
-  },
-];
+const iconMap: Record<string, string> = {
+  bug: "🪳",
+  rat: "🐀",
+  shield: "🛡️",
+  droplet: "💧",
+  alert: "⚠️",
+  building: "🏢",
+};
 
 export function ServicesGrid() {
   return (
     <section
       id="servicos"
-      className="scroll-mt-24 bg-[color:var(--brand-surface)] py-20 md:py-28"
+      className="scroll-mt-28 bg-[color:var(--brand-surface)] py-20 md:py-28"
     >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <motion.div
@@ -34,40 +25,50 @@ export function ServicesGrid() {
           viewport={{ once: true }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-[color:var(--brand-navy)] md:text-4xl">
-            O que você realmente contrata
+          <p className="text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase">
+            Nossas soluções
+          </p>
+          <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
+            Controle integrado — método, não só aplicação
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-[color:var(--brand-muted)]">
-            Quando o problema é pragas, hesitar custa caro — financeiro e em
-            saúde. Aqui o foco é{" "}
-            <strong className="text-[color:var(--brand-navy)]">
-              eliminar incerteza
-            </strong>
-            : método, transparência e deslocamento na região.
+          <p className="mt-4 text-lg text-[color:var(--brand-muted)]">
+            Diagnóstico, plano e documentação para residências e empresas na
+            região de Franca — com laudo técnico e foco em Vigilância Sanitária
+            quando o seu segmento exige comprovação.
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {services.map((s, i) => (
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {BRAND.services.map((s, i) => (
             <motion.article
-              key={s.title}
+              key={s.id}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: i * 0.06 }}
-              className="rounded-2xl border border-[color:var(--brand-border)] bg-white p-8 shadow-sm ring-1 ring-black/[0.03] transition hover:shadow-md"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ y: -6 }}
+              className="group flex flex-col rounded-3xl border border-[color:var(--brand-border)] bg-white p-7 shadow-sm transition-shadow hover:shadow-xl"
             >
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[color:var(--brand-green)]/15 text-[color:var(--brand-navy)]">
-                <span className="font-[family-name:var(--font-heading)] text-lg font-bold">
-                  {i + 1}
-                </span>
-              </div>
-              <h3 className="font-[family-name:var(--font-heading)] text-xl font-semibold text-[color:var(--brand-navy)]">
+              <span
+                className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[color:var(--brand-surface)] text-2xl transition group-hover:bg-[color:var(--brand-lime)]/30"
+                aria-hidden
+              >
+                {iconMap[s.icon] ?? "✓"}
+              </span>
+              <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-navy)]">
                 {s.title}
               </h3>
-              <p className="mt-3 leading-relaxed text-[color:var(--brand-muted)]">
+              <p className="mt-3 flex-grow text-sm leading-relaxed text-[color:var(--brand-muted)]">
                 {s.desc}
               </p>
+              <a
+                href={whatsappHref(
+                  `Olá! Quero saber mais sobre ${s.title} em Franca SP.`,
+                )}
+                className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-[color:var(--brand-green-deep)] transition group-hover:gap-2"
+              >
+                Saber mais →
+              </a>
             </motion.article>
           ))}
         </div>
