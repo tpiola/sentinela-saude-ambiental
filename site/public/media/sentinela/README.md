@@ -1,12 +1,12 @@
 # Mídia Sentinela Saúde Ambiental (`public/media/sentinela`)
 
-Pasta oficial para cópias **locais** de fotos e vídeos usados no site. A marca comercial é **Sentinela Saúde Ambiental**; a página no Facebook mantém o slug legado **Better Controle de Pragas** — mesmo perfil/conteúdo.
+Pasta oficial para cópias **locais** de fotos e vídeos usados no site (**Sentinela Saúde Ambiental**).
 
 ## Layout
 
 | Caminho             | Conteúdo                                                                |
 | ------------------- | ----------------------------------------------------------------------- |
-| `facebook/images/`  | Fotos públicas da página no Facebook (galeria + capa / poster do hero). |
+| `facebook/images/`  | Fotos referenciadas no código (paths fixos — galeria e poster do hero). |
 | `facebook/videos/`  | Reservado para MP4 baixáveis (Reels costumam exigir login/Meta).        |
 | `instagram/images/` | Miniaturas ou exportações do Instagram (@sentinelasaudeambiental).      |
 | `instagram/videos/` | Reels em MP4, se obtidos com licença e download estável.                |
@@ -38,7 +38,7 @@ As URLs do `fbcdn.net` são **assinadas e temporárias**. O fluxo recomendado:
 O perfil público não oferece API sem autenticação; automatizar o grid costuma encontrar **mural de login** ou URLs que expiram.
 
 - Preferência: exportar pelo app (Arquivados / suas atividades / download de dados) ou salvar arte aprovada manualmente para `instagram/images/` (`01-grid-....jpg`).
-- Liste os caminhos em `instagramGalleryImages` em `src/lib/brand.ts`; a segunda fileira da seção «Presença real nas redes» aparece quando houver itens.
+- Liste os caminhos em `instagramGalleryImages` em `src/lib/brand.ts`; qualquer futura linha da galeria no site lerá esse array quando houver itens.
 
 ## Vídeo (Facebook / Reels)
 

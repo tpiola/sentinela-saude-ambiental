@@ -133,9 +133,9 @@ export function LogoBrandCompact({ className }: LogoProps) {
   return (
     <div className={className ?? ""}>
       <LogoImageMark
-        className="h-10 w-auto object-contain sm:h-12"
+        className="h-9 w-auto max-w-[min(100%,220px)] object-contain sm:h-11 md:h-12"
         alt={BRAND.name}
-        priority
+        priority={false}
         fallbackShieldSize={44}
         sizes="(max-width: 640px) 120px, 144px"
       />

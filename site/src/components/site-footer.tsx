@@ -1,11 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { LogoBrandFull } from "@/components/logo-sentinel";
-import {
-  FacebookBrandIcon,
-  InstagramBrandIcon,
-} from "@/components/social-brand-icons";
-import { BRAND, mapsDirectionsUrl, whatsappHref } from "@/lib/brand";
+import { InstagramBrandIcon } from "@/components/social-brand-icons";
+import { BRAND, formatCnpj, whatsappHref } from "@/lib/brand";
 import { MapEmbed } from "@/components/map-embed";
 import { calendarBookingHref } from "@/lib/integrations";
 
@@ -13,35 +10,53 @@ const quickLinks = [
   { href: "#inicio", label: "Início" },
   { href: "#sobre", label: "Quem somos" },
   { href: "#servicos", label: "Serviços" },
+  { href: "#pragas-urbanas", label: "Pragas urbanas" },
   { href: "#empresas", label: "Para empresas" },
   { href: "#faq", label: "Dúvidas" },
 ];
 
 export function SiteFooter() {
+  const cnpjFmt = formatCnpj(BRAND.cnpjDigits);
+
   return (
     <footer
       id="contato"
       className="scroll-mt-28 border-t border-[color:var(--brand-border)] bg-slate-950 text-slate-300"
     >
       <div className="mx-auto max-w-6xl px-4 pt-16 pb-8 md:px-6">
-        <div id="mapa" className="scroll-mt-28">
-          <MapEmbed title="Onde estamos — toque para abrir o GPS" />
-        </div>
-
-        <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div
+          id="mapa"
+          className="scroll-mt-28 grid gap-10 md:grid-cols-2 xl:grid-cols-4"
+        >
           <div>
-            <LogoBrandFull align="left" />
+            <LogoBrandFull
+              align="left"
+              markClassName="max-h-[4.5rem] w-auto object-contain sm:max-h-20 md:max-h-24"
+            />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-slate-400">
-              {BRAND.shortTagline} {BRAND.coverageSummary}
+              Atuação preventiva com ética profissional, laudo técnico quando
+              aplicável e foco em empresas e residências em Franca e região.{" "}
+              <span className="text-slate-300">
+                CNPJ {cnpjFmt}. {BRAND.coverageSummary}
+              </span>
             </p>
             <div className="mt-6 flex gap-3">
-              <SocialLink href={BRAND.facebookUrl} label="Facebook">
-                <FacebookBrandIcon className="h-5 w-5" />
-              </SocialLink>
               <SocialLink href={BRAND.instagramUrl} label="Instagram">
                 <InstagramBrandIcon className="h-5 w-5" />
               </SocialLink>
             </div>
+            <p className="mt-4 text-xs text-slate-500">
+              Acompanhe publicações em{" "}
+              <a
+                href={BRAND.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[color:var(--brand-lime)] hover:underline"
+              >
+                instagram.com/sentinelasaudeambiental
+              </a>
+              .
+            </p>
           </div>
 
           <div>
@@ -62,9 +77,9 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div>
             <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold text-white">
-              Atendimento (NAP)
+              Atendimento
             </h3>
             <ul className="mt-4 space-y-4 text-sm">
               <li className="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
@@ -84,6 +99,10 @@ export function SiteFooter() {
                 >
                   {BRAND.email}
                 </a>
+              </li>
+              <li>
+                <span className="block font-bold text-white">CNPJ</span>
+                <span className="text-slate-400">{cnpjFmt}</span>
               </li>
               <li>
                 <span className="block font-bold text-white">Horário</span>
@@ -109,17 +128,15 @@ export function SiteFooter() {
                   Agendar agora
                 </a>
               </li>
-              <li>
-                <a
-                  href={mapsDirectionsUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-[color:var(--brand-lime)] hover:underline"
-                >
-                  Traçar rota no GPS →
-                </a>
-              </li>
             </ul>
+          </div>
+
+          <div>
+            <MapEmbed
+              compact
+              title="Onde estamos"
+              compactMapsLink={BRAND.mapsShortUrl}
+            />
           </div>
         </div>
 
@@ -132,6 +149,8 @@ export function SiteFooter() {
             <span>ANVISA RDC 622/2022</span>
             <span>·</span>
             <span>CNAE 8122-2/00</span>
+            <span>·</span>
+            <span>CNPJ {cnpjFmt}</span>
             <span>·</span>
             <span>Franca — SP</span>
           </p>

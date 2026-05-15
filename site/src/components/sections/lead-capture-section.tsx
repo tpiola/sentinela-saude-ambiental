@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import {
   INTEGRATIONS,
@@ -12,6 +12,7 @@ import {
 type Audience = "residencial" | "empresa";
 
 export function LeadCaptureSection() {
+  const reduce = useReducedMotion();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -47,9 +48,10 @@ export function LeadCaptureSection() {
     <section id="contato-lead" className="scroll-mt-28 bg-white py-16 md:py-24">
       <div className="mx-auto max-w-3xl px-4 md:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={reduce ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: reduce ? 0 : 0.42 }}
           className="text-center"
         >
           <p className="text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase">
@@ -59,22 +61,28 @@ export function LeadCaptureSection() {
             Deixe seus dados
           </h2>
           <p className="mt-4 text-[color:var(--brand-muted)]">
-            A equipe retoma o contato após o cadastro. Não fazemos envio direto
-            para edição de planilha (API inválida); use o formulário Google
-            abaixo ou envie pelo WhatsApp.
+            Preencha seus dados com segurança: um único fluxo de envio (Google
+            Forms incorporado abaixo ou formulário local). A equipe retorna em
+            horário comercial — ou fale agora pelo WhatsApp.
           </p>
         </motion.div>
 
         {embedUrl ? (
           <>
             <p className="mt-6 text-center text-sm text-[color:var(--brand-muted)]">
-              Depois do envio, a equipe entra em contato conforme a fila e o
-              horário comercial.
+              O iframe abaixo é um documento separado (sem formulário HTML pai
+              envolvendo-o). Depois do envio, a equipe entra em contato conforme
+              a fila e o horário comercial.
             </p>
-            <div className="mt-6 overflow-hidden rounded-2xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] shadow-lg">
+            <div
+              role="region"
+              aria-label="Formulário Google incorporado"
+              className="mt-6 overflow-hidden rounded-2xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] shadow-lg"
+            >
               <iframe
                 title="Formulário de contato Sentinela"
                 src={embedUrl}
+                loading="lazy"
                 className="min-h-[640px] w-full border-0 sm:min-h-[720px]"
               />
             </div>

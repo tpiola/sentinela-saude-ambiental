@@ -3,10 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LogoBrandCompact } from "@/components/logo-sentinel";
-import {
-  FacebookBrandIcon,
-  InstagramBrandIcon,
-} from "@/components/social-brand-icons";
+import { InstagramBrandIcon } from "@/components/social-brand-icons";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import { calendarBookingHref } from "@/lib/integrations";
 
@@ -76,18 +73,9 @@ export function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden text-[color:var(--brand-muted)] hover:text-[color:var(--brand-navy)] md:inline-flex"
-            aria-label="Instagram"
+            aria-label="Instagram — acompanhe publicações"
           >
             <InstagramBrandIcon className="h-5 w-5" />
-          </a>
-          <a
-            href={BRAND.facebookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden text-[color:var(--brand-muted)] hover:text-[color:var(--brand-navy)] md:inline-flex"
-            aria-label="Facebook"
-          >
-            <FacebookBrandIcon className="h-5 w-5" />
           </a>
           <a
             href={agendaHref}

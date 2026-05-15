@@ -1,31 +1,77 @@
-import {
-  BRAND,
-  mapsDirectionsUrl,
-  mapsEmbedUrl,
-  mapsSearchUrl,
-} from "@/lib/brand";
+import { BRAND, mapsEmbedUrl, mapsSearchUrl } from "@/lib/brand";
 
 type MapEmbedProps = {
   title?: string;
+  /** Rodapé / cartão: mapa baixo, área toda clicável para o link do Maps. */
+  compact?: boolean;
+  /** Destino do clique na variante compacta (padrão: `BRAND.mapsShortUrl`). */
+  compactMapsLink?: string;
+  className?: string;
 };
 
 export function MapEmbed({
   title = "Como chegar — mapa interativo",
+  compact = false,
+  compactMapsLink,
+  className,
 }: MapEmbedProps) {
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const embedOrigin = process.env.NEXT_PUBLIC_GOOGLE_MAP_EMBED_ORIGIN?.trim();
+  const placeQueryEnv = process.env.NEXT_PUBLIC_GOOGLE_MAPS_PLACE_QUERY?.trim();
   const query =
-    process.env.NEXT_PUBLIC_GOOGLE_MAPS_PLACE_QUERY ?? BRAND.mapsPlaceQuery;
+    embedOrigin || placeQueryEnv || BRAND.mapsPlaceQuery;
 
   const embedSrc = apiKey
     ? `https://www.google.com/maps/embed/v1/place?key=${encodeURIComponent(apiKey)}&q=${encodeURIComponent(query)}&language=pt-BR&zoom=16`
-    : mapsEmbedUrl();
+    : null;
 
-  const directionsUrl = mapsDirectionsUrl();
+  const mapsLink = compactMapsLink ?? BRAND.mapsShortUrl;
   const searchUrl = mapsSearchUrl();
+
+  if (compact) {
+    return (
+      <div className={className}>
+        <p
+          id="footer-mapa-titulo"
+          className="mb-3 font-[family-name:var(--font-heading)] text-sm font-bold text-white"
+        >
+          {title}
+        </p>
+        <div
+          className="relative h-[180px] min-h-[180px] w-full overflow-hidden rounded-2xl bg-slate-900 ring-1 ring-slate-700/80 sm:h-[200px] sm:min-h-[200px] md:h-[210px]"
+          aria-labelledby="footer-mapa-titulo"
+        >
+          {apiKey && embedSrc ? (
+            <iframe
+              src={embedSrc}
+              title={`Mapa — ${BRAND.name}`}
+              className="pointer-events-none h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          ) : (
+            <CompactMapFallback />
+          )}
+          <a
+            href={mapsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 z-10 rounded-2xl"
+            aria-label="Abrir mapa da Sentinela no Google Maps"
+          >
+            <span className="sr-only">Abrir no Google Maps</span>
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  const fallbackEmbed = mapsEmbedUrl();
 
   return (
     <section
-      className="overflow-hidden rounded-2xl ring-1 ring-black/5"
+      className={`overflow-hidden rounded-2xl ring-1 ring-black/5 ${className ?? ""}`}
       aria-labelledby="mapa-titulo"
     >
       <div className="border-b border-[color:var(--brand-border)] bg-white px-4 py-5 sm:px-6">
@@ -44,13 +90,13 @@ export function MapEmbed({
           </div>
           <div className="flex flex-wrap gap-2">
             <a
-              href={directionsUrl}
+              href={mapsLink}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-5 py-2.5 text-sm font-bold text-[color:var(--brand-navy-heading)] shadow-md transition hover:bg-[color:var(--brand-green-light)]"
             >
               <GpsIcon />
-              Abrir GPS / Rotas
+              Abrir no Google Maps
             </a>
             <a
               href={searchUrl}
@@ -58,7 +104,7 @@ export function MapEmbed({
               rel="noopener noreferrer"
               className="inline-flex min-h-[44px] items-center justify-center rounded-full border-2 border-[color:var(--brand-navy)] px-5 py-2.5 text-sm font-semibold text-[color:var(--brand-navy)] transition hover:bg-[color:var(--brand-surface)]"
             >
-              Ver no Google Maps
+              Ver local
             </a>
           </div>
         </div>
@@ -70,7 +116,7 @@ export function MapEmbed({
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen
-        src={embedSrc}
+        src={apiKey && embedSrc ? embedSrc : fallbackEmbed}
       />
 
       {!apiKey && (
@@ -79,10 +125,52 @@ export function MapEmbed({
           <code className="rounded bg-white px-1">
             NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
           </code>{" "}
+          e opcionalmente{" "}
+          <code className="rounded bg-white px-1">
+            NEXT_PUBLIC_GOOGLE_MAPS_PLACE_QUERY
+          </code>{" "}
+          ou{" "}
+          <code className="rounded bg-white px-1">
+            NEXT_PUBLIC_GOOGLE_MAP_EMBED_ORIGIN
+          </code>{" "}
           em <code className="rounded bg-white px-1">.env.local</code>.
         </p>
       )}
     </section>
+  );
+}
+
+function CompactMapFallback() {
+  return (
+    <div className="flex h-full min-h-[180px] w-full flex-col items-center justify-center gap-2 bg-slate-800 px-4 text-center ring-1 ring-slate-700/80">
+      <MapsPinIcon className="h-9 w-9 text-[color:var(--brand-lime)]" />
+      <span className="text-sm font-semibold text-white">
+        Abrir no Google Maps
+      </span>
+      <span className="max-w-[14rem] text-xs text-slate-400">
+        Toque em qualquer lugar desta área para abrir o ponto no app.
+      </span>
+    </div>
+  );
+}
+
+function MapsPinIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.6}
+      aria-hidden
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 21s7-4.35 7-11a7 7 0 10-14 0c0 6.65 7 11 7 11z"
+      />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
   );
 }
 

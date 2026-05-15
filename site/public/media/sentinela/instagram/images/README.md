@@ -1,9 +1,15 @@
 # Instagram — imagens
 
-Coloque aqui JPG/WEBP estáveis nomeados em ASCII, por exemplo `01-feed-lancamento.jpg`, exportados pelo time de marketing ou pelo Instagram (download de dados / arte aprovada).
+Coloque JPG/WEBP estáveis nomeados em ASCII aqui — **três slots típicos** para grid:
+
+| Arquivo sugerido (exemplo) | Uso |
+| --------------------------- | --- |
+| `01-feed-servico.jpg` | Fotos de trabalho |
+| `02-feed-equipe.jpg` | Equipe / identidade |
+| `03-feed-resultado.jpg` | Campanha ou antes/depois (com autorização) |
 
 Depois atualize em `site/src/lib/brand.ts`:
 
-- `instagramGalleryImages`: array `{ src: "/media/sentinela/instagram/images/...", alt: "…" }`.
+- `instagramGalleryImages`: `{ src: "/media/sentinela/instagram/images/01-….jpg", alt: "…" }`.
 
-O site **não** preencheu esta pasta automaticamente: o perfil público não expõe CDN confiável sem login.
+O perfil público é [instagram.com/sentinelasaudeambiental](https://instagram.com/sentinelasaudeambiental): **acompanhe publicações**; não há obrigação de hotlink.

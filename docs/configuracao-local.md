@@ -94,11 +94,58 @@ Ao abrir esta pasta no Cursor, você deve ver sugestão para instalar extensões
 
 Para **3D** (Three.js), use principalmente a documentação oficial e tipagem TypeScript; extensões de snippets são opcionais.
 
-## 6. APIs Google (negócios locais)
+## 6. Site Sentinela (`site/`) — rodar localmente
+
+O site está em **Next.js** na pasta `site/`. Se o Node.js do sistema não estiver no PATH, o projeto inclui Node portátil em `site/.node/` (gerado na primeira configuração).
+
+```powershell
+cd site
+.\.node\npm.cmd install
+.\.node\npm.cmd run dev
+```
+
+Abra **http://localhost:3000** no navegador.
+
+Build de produção: `.\.node\npm.cmd run build` e `.\.node\npm.cmd start`.
+
+### Logo e fotos das redes
+
+- Coloque o logo oficial em `site/public/brand/logo-sentinela.png` (PNG com fundo transparente ou branco).
+- Substitua as fotos em `site/public/brand/gallery/1.jpg` … `4.jpg` por imagens exportadas oficialmente pelo time ou baixadas de [Instagram](https://instagram.com/sentinelasaudeambiental) (use arquivos locais em `site/public/media/sentinela/` — URLs de redes não servem como hotlink estável).
+
+## 7. Variáveis de ambiente (`.env.local`)
+
+Na pasta `site/`:
+
+```powershell
+copy .env.example .env.local
+```
+
+Edite `site/.env.local` (nunca commite este arquivo):
+
+| Variável | Uso |
+|----------|-----|
+| `NEXT_PUBLIC_SITE_URL` | URL canónica (SEO, Open Graph, JSON-LD) |
+| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | Mapa embed personalizado (opcional) |
+| `NEXT_PUBLIC_GOOGLE_MAPS_PLACE_QUERY` | Busca do lugar (`q`) no embed |
+| `NEXT_PUBLIC_GOOGLE_MAP_EMBED_ORIGIN` | Opcional: texto de lugar que sobrescreve o `PLACE_QUERY` no iframe |
+| `NEXT_PUBLIC_GOOGLE_CALENDAR_URL` | Link de agendamento (Google Calendar Appointment Schedule) |
+| `NEXT_PUBLIC_GOOGLE_FORM_EMBED_URL` | Formulário Google incorporado (?embedded=true) |
+| `NEXT_PUBLIC_GOOGLE_CONTACT_FORM_OPEN_URL` | Link para abrir o formulário na aba (fallback) |
+| `NEXT_PUBLIC_N8N_WEBHOOK_LEAD` | Webhook n8n para leads do formulário diagnóstico |
+| `NEXT_PUBLIC_N8N_WEBHOOK_WHATSAPP` | Webhook n8n para eventos WhatsApp (opcional) |
+| `NEXT_PUBLIC_N8N_WEBHOOK_META` | Webhook n8n para redes (opcional) |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4 |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager |
+| `NEXT_PUBLIC_HERO_VIDEO_URL` | Vídeo MP4 do hero (royalty-free; default em `brand.ts`) |
+
+Reinicie o `npm run dev` após alterar `.env.local`.
+
+## 8. APIs Google (negócios locais)
 
 1. Crie um projeto em [Google Cloud Console](https://console.cloud.google.com/).
-2. Ative **Maps JavaScript API**, **Places API**, **Geocoding API** conforme necessidade.
+2. Ative **Maps Embed API**, **Places API** e **Geocoding API** conforme necessidade.
 3. Crie uma chave de API restrita (HTTP referrers para seu domínio em produção).
-4. Copie `.env.example` para `.env.local` e preencha `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` (veja README na raiz do projeto).
+4. Preencha `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` em `site/.env.local`.
 
-O perfil público do estabelecimento é configurado no **Google Business Profile**, fora do código.
+O perfil público do estabelecimento é configurado no **Google Business Profile**, fora do código. Mantenha nome, telefone e endereço alinhados entre o perfil e o site para SEO local consistente.

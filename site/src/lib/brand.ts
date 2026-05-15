@@ -1,9 +1,8 @@
 /** Identidade e dados públicos da marca (conferir periodicamente com as redes). */
 export const BRAND = {
   name: "Sentinela Saúde Ambiental",
-  legalHint: "Better Controle de Pragas",
   tagline:
-    "Controle integrado de pragas com laudo técnico e transparência — referência em qualidade e ética frente à dedetizadora genérica. Atendimento alinhado à Vigilância Sanitária.",
+    "Controle integrado de pragas com laudo técnico e transparência — referência em qualidade e ética para residências e empresas em Franca e região. Atendimento alinhado à Vigilância Sanitária.",
   shortTagline:
     "Qualidade, ética e método em controle de pragas para Franca e região — residencial e empresarial.",
   /** Cobertura honesta para copy, SEO e JSON-LD (raio a partir da base em Franca). */
@@ -19,10 +18,12 @@ export const BRAND = {
   phoneDisplay: "(16) 99374-7147",
   /** E.164 sem símbolos — WhatsApp direto */
   phoneE164: "5516993747147",
-  email: "bettercontroladoradepragas@hotmail.com",
-  instagramUrl: "https://www.instagram.com/sentinelasaudeambiental/",
-  /** Página oficial (slug antigo Better Controle de Pragas — mesma marca e conteúdo). */
-  facebookUrl: "https://www.facebook.com/Bettercontroledepragas",
+  email: "sentinelasaudeambiental@gmail.com",
+  /** Link curto estável do Google Maps (Meu Negócio / lugar). */
+  mapsShortUrl: "https://maps.app.goo.gl/VULbTJVHDhd6oscFA",
+  /** CNPJ apenas com dígitos — use `formatCnpj()` para exibir. */
+  cnpjDigits: "30438427000137",
+  instagramUrl: "https://instagram.com/sentinelasaudeambiental",
   /** Centro de Franca SP — ajuste com endereço exato do Google Meu Negócio */
   address: {
     streetAddress: "Atendimento em Franca e região",
@@ -54,48 +55,45 @@ export const BRAND = {
     "Restinga",
   ],
   /**
-   * Vídeo de fundo do hero (MP4).
-   * Facebook não expõe MP4 direto sem login; use um reel baixado e coloque em
-   * /public/brand/hero.mp4 ou defina NEXT_PUBLIC_HERO_VIDEO_URL.
+   * Vídeo de fundo do hero (MP4, royalty-free Pexels).
+   * Sobrescreva com NEXT_PUBLIC_HERO_VIDEO_URL ou arquivo em `/public/brand/hero.mp4`.
    */
   heroVideoUrl:
-    "https://videos.pexels.com/video-files/2616634/2616634-hd_1920_1080_24fps.mp4",
+    "https://videos.pexels.com/video-files/3253272/3253272-hd_1920_1080_24fps.mp4",
   /** Capa do vídeo (foto principal da página no Facebook, cópia local). */
   heroVideoPosterUrl: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
   logoPath: "/brand/logo-sentinela.png",
   /**
-   * Fotos públicas da página no Facebook (slug legado Better Controle de Pragas).
-   * Arquivos em `public/media/sentinela/facebook/images/` — ver README da pasta.
+   * Fotos locais em `public/media/sentinela/facebook/images/` (arquivos estáticos do site).
    */
   galleryImages: [
     {
       src: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
-      alt: "Sentinela Saúde Ambiental — equipe e identidade (Facebook)",
+      alt: "Sentinela Saúde Ambiental — equipe e identidade",
     },
     {
       src: "/media/sentinela/facebook/images/02-trabalho-campo.jpg",
-      alt: "Trabalho de campo — controle integrado de pragas (Facebook)",
+      alt: "Trabalho de campo — controle integrado de pragas",
     },
     {
       src: "/media/sentinela/facebook/images/03-atendimento-sentinela.jpg",
-      alt: "Atendimento Sentinela — saúde ambiental (Facebook)",
+      alt: "Atendimento Sentinela — saúde ambiental",
     },
     {
       src: "/media/sentinela/facebook/images/04-controle-pragas.jpg",
-      alt: "Controle de pragas — resultado profissional (Facebook)",
+      alt: "Controle de pragas — resultado profissional",
     },
     {
       src: "/media/sentinela/facebook/images/05-servico-campo.jpg",
-      alt: "Serviço em campo — Sentinela (Facebook)",
+      alt: "Serviço em campo — Sentinela",
     },
     {
       src: "/media/sentinela/facebook/images/06-controle-integrado.jpg",
-      alt: "Controle integrado de pragas — Sentinela (Facebook)",
+      alt: "Controle integrado de pragas — Sentinela",
     },
   ],
   /**
-   * Miniaturas do Instagram (@sentinelasaudeambiental), cópias locais.
-   * Hoje vazio — o perfil não expõe CDN estável para bots; exporte manualmente (README).
+   * Miniaturas locais para galeria (opcional). Ver `public/media/sentinela/instagram/images/README.md`.
    */
   instagramGalleryImages: [] as ReadonlyArray<{
     readonly src: string;
@@ -188,6 +186,13 @@ export const BRAND = {
   ],
 } as const;
 
+/** Formata 14 dígitos no padrão brasileiro (00.000.000/0000-00). */
+export function formatCnpj(digits: string): string {
+  const d = digits.replace(/\D/g, "");
+  if (d.length !== 14) return digits;
+  return `${d.slice(0, 2)}.${d.slice(2, 5)}.${d.slice(5, 8)}/${d.slice(8, 12)}-${d.slice(12)}`;
+}
+
 export function whatsappHref(prefill?: string): string {
   const text =
     prefill ??
@@ -195,15 +200,13 @@ export function whatsappHref(prefill?: string): string {
   return `https://wa.me/${BRAND.phoneE164}?text=${encodeURIComponent(text)}`;
 }
 
-/** Abre rotas no Google Maps / GPS do celular */
+/** Abre o ponto no Google Maps (link curto do negócio, quando disponível). */
 export function mapsDirectionsUrl(): string {
-  const { latitude, longitude } = BRAND.geo;
-  const q = encodeURIComponent(BRAND.mapsPlaceQuery);
-  return `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&destination_place_id=&travelmode=driving&query=${q}`;
+  return BRAND.mapsShortUrl;
 }
 
 export function mapsSearchUrl(): string {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BRAND.mapsPlaceQuery)}`;
+  return BRAND.mapsShortUrl;
 }
 
 /** Embed sem API key (fallback) */

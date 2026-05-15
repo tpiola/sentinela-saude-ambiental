@@ -1,5 +1,5 @@
 /**
- * Baixa JPGs públicos da página Better Controle de Pragas (CDN assinado).
+ * Baixa JPGs públicos da página Meta de origem conhecida (CDN assinado).
  *
  * Como o fbcdn usa URLs efêmeras, atualize `fb-gallery-urls.json` quando
  * o download falhar (novos links no HTML público ou Meta Business Suite).

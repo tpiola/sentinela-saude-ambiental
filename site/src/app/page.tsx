@@ -4,10 +4,11 @@ import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { StatsMarquee } from "@/components/sections/stats-marquee";
 import { AboutSection } from "@/components/sections/about-section";
 import { ServicesGrid } from "@/components/sections/services-grid";
-import { PrevencaoB2BSection } from "@/components/sections/prevencao-b2b-section";
+import { PragasUrbanasCards } from "@/components/sections/pragas-urbanas-cards";
+import { EmpresasConformidadeSection } from "@/components/sections/empresas-conformidade-section";
 import { DiagnosticFunnel } from "@/components/sections/diagnostic-funnel";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
-import { B2bSection } from "@/components/sections/b2b-section";
+import { EmpresasVigilanciaLaudosSection } from "@/components/sections/empresas-vigilancia-laudos-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { GoogleCalendarBookingSection } from "@/components/sections/google-calendar-booking-section";
@@ -21,13 +22,14 @@ export default function Home() {
       <main>
         <HeroVideo />
         <StatsMarquee />
+        <EmpresasConformidadeSection />
         <AboutSection />
         <ServicesGrid />
+        <PragasUrbanasCards />
         <DiagnosticFunnel />
-        <PrevencaoB2BSection />
         <ProcessTimeline />
-        <B2bSection />
         <FaqSection />
+        <EmpresasVigilanciaLaudosSection />
         <CtaFinal />
         <GoogleCalendarBookingSection />
         <LeadCaptureSection />

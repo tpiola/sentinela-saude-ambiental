@@ -1,4 +1,4 @@
-import { BRAND } from "@/lib/brand";
+import { BRAND, formatCnpj } from "@/lib/brand";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
@@ -12,11 +12,16 @@ export function buildLocalBusinessGraph() {
         "@type": "PestControlService",
         "@id": `${siteUrl}/#organization`,
         name: BRAND.name,
-        alternateName: BRAND.legalHint,
         description: BRAND.tagline,
         url: siteUrl,
         telephone: `+${BRAND.phoneE164}`,
         email: BRAND.email,
+        hasMap: BRAND.mapsShortUrl,
+        identifier: {
+          "@type": "PropertyValue",
+          name: "CNPJ",
+          value: formatCnpj(BRAND.cnpjDigits),
+        },
         image: `${siteUrl}${BRAND.logoPath}`,
         logo: `${siteUrl}${BRAND.logoPath}`,
         priceRange: BRAND.priceRange,
@@ -58,7 +63,7 @@ export function buildLocalBusinessGraph() {
           })),
         ],
         openingHours: BRAND.openingHours.schema,
-        sameAs: [BRAND.instagramUrl, BRAND.facebookUrl],
+        sameAs: [BRAND.instagramUrl],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Serviços de controle de pragas",
