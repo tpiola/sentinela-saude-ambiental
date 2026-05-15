@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
+import { Analytics } from "@/components/analytics";
+import { BRAND } from "@/lib/brand";
 
 const heading = Montserrat({
   variable: "--font-heading",
@@ -19,6 +21,8 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   "https://www.sentinelasaudeambiental.com.br";
 
+const absoluteLogoUrl = new URL(BRAND.logoPath, siteUrl).href;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -27,17 +31,26 @@ export const metadata: Metadata = {
     template: "%s | Sentinela Saúde Ambiental",
   },
   description:
-    "Ambientes protegidos com segurança e responsabilidade. Controle integrado de pragas — residencial e empresarial. Orçamento rápido pelo WhatsApp em Franca SP.",
+    "Mais de 11 anos de experiência em Franca e região: controle integrado de pragas com laudo técnico e transparência para exigências da Vigilância Sanitária. Desinsetização, desratização e prevenção de escorpiões — resposta rápida no WhatsApp.",
   keywords: [
-    "dedetização Franca",
-    "controle de pragas Franca SP",
-    "dedetizadora Franca",
-    "cupins Franca",
-    "ratos insetos empresa",
-    "Sentinela Saúde Ambiental",
+    "controle de pragas Franca",
+    "controle de pragas região Franca",
+    "dedetizadora Franca SP",
+    "desinsetização Franca",
+    "desratização Franca",
+    "descupinização Franca",
+    "escorpião Franca",
+    "limpeza caixa d'água Franca",
+    "laudo Vigilância Sanitária Franca",
+    "contrato empresa controle de pragas",
+    "Batatais",
+    "Orlândia",
+    "sentinela saúde ambiental",
   ],
-  authors: [{ name: "Sentinela Saúde Ambiental" }],
-  creator: "Sentinela Saúde Ambiental",
+  authors: [{ name: BRAND.name, url: siteUrl }],
+  creator: BRAND.name,
+  publisher: BRAND.name,
+  category: "Saúde ambiental",
   alternates: {
     canonical: "/",
   },
@@ -45,25 +58,47 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: siteUrl,
-    siteName: "Sentinela Saúde Ambiental",
-    title: "Sentinela Saúde Ambiental — Controle integrado de pragas",
-    description:
-      "Atendimento residencial e empresarial em Franca e região. Orçamento ágil pelo WhatsApp.",
+    siteName: BRAND.name,
+    title: `${BRAND.name} — Controle integrado de pragas`,
+    description: BRAND.tagline,
+    images: [
+      {
+        url: absoluteLogoUrl,
+        width: 1024,
+        height: 1024,
+        alt: BRAND.name,
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sentinela Saúde Ambiental",
-    description:
-      "Controle de pragas com método e transparência. Franca SP e região.",
+    title: BRAND.name,
+    description: BRAND.shortTagline,
+    images: [absoluteLogoUrl],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // google: "cole-o-código-do-search-console",
   },
   other: {
     "geo.region": "BR-SP",
     "geo.placename": "Franca",
-    ICBM: "-20.5386, -47.4008",
+    "geo.position": `${BRAND.geo.latitude};${BRAND.geo.longitude}`,
+    ICBM: `${BRAND.geo.latitude}, ${BRAND.geo.longitude}`,
+    "business:contact_data:locality": "Franca",
+    "business:contact_data:region": "SP",
+    "business:contact_data:country_name": "Brasil",
+    "business:contact_data:phone_number": BRAND.phoneDisplay,
   },
 };
 
@@ -83,8 +118,13 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${heading.variable} ${body.variable} h-full scroll-smooth antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+      </head>
       <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)]">
         <JsonLdLocalBusiness />
+        <Analytics />
         {children}
       </body>
     </html>
