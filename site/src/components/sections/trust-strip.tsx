@@ -6,7 +6,7 @@ import { BRAND } from "@/lib/brand";
 const items = [
   { label: "Resposta no WhatsApp", value: "Ágil" },
   { label: "Atendimento", value: "Residencial & empresarial" },
-  { label: "Cobertura", value: "Região de Franca" },
+  { label: "Cobertura", value: BRAND.region },
 ];
 
 export function TrustStrip() {
