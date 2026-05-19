@@ -1,0 +1,17 @@
+---
+description: Sentinela Saúde Ambiental — Next.js em site/
+globs: ["site/**/*.{ts,tsx,js,mjs,css,md}", "docs/**/*.md"]
+alwaysApply: true
+---
+
+# Sentinela — regras do agente
+
+- App Next.js em `site/` — comandos: `cd site && npm run dev|build|lint|format`.
+- Comentários em português do Brasil; código formatado com Prettier.
+- Nunca commitar `.env.local`, tokens ou chaves de API.
+- Marca e copy centralizados em `site/src/lib/brand.ts`.
+- SEO local: JSON-LD, sitemap, robots, OG 1200×630, meta geo, FAQ visível.
+- Deploy: Vercel com **Root Directory = site**.
+- Layout: evitar `position:absolute` que invada seções vizinhas em mobile; `scroll-mt-28` em âncoras.
+- Integrações Google/Meta via env — ver `site/.env.example` e `docs/google-meta-checklist.md`.
+- Three.js e vídeos: lazy load; respeitar `prefers-reduced-motion`.

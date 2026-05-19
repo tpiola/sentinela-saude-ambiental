@@ -59,6 +59,16 @@ export function buildLocalBusinessGraph() {
         ],
         openingHours: BRAND.openingHours.schema,
         sameAs: [BRAND.instagramUrl, BRAND.facebookUrl],
+        hasMap: `${siteUrl}/#mapa`,
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: `+${BRAND.phoneE164}`,
+          email: BRAND.email,
+          contactType: "customer service",
+          areaServed: "BR",
+          availableLanguage: ["Portuguese"],
+        },
+        knowsAbout: BRAND.services.map((s) => s.title),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Serviços de controle de pragas",

@@ -4,6 +4,8 @@
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
     "editorconfig.editorconfig",
-    "rangav.vscode-thunder-client"
+    "rangav.vscode-thunder-client",
+    "usernamehw.errorlens",
+    "eamodio.gitlens"
   ]
 }

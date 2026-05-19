@@ -8,7 +8,6 @@ type LogoProps = {
   className?: string;
 };
 
-/** Escudo com gradiente lima → navy (fallback quando o PNG oficial não carrega). */
 export function LogoShieldMark({
   className,
   size = 52,
@@ -62,7 +61,6 @@ export function LogoShieldMark({
   );
 }
 
-/** Linhas swoosh decorativas (lima em cima, azul médio em baixo). */
 export function LogoSwoosh({ className }: LogoProps) {
   return (
     <svg
@@ -93,14 +91,9 @@ type LogoImageMarkProps = LogoProps & {
   alt?: string;
   priority?: boolean;
   sizes?: string;
-  /** Tamanho do escudo SVG se a imagem falhar ao carregar */
   fallbackShieldSize?: number;
 };
 
-/**
- * Marca oficial (PNG em `BRAND.logoPath`).
- * Em caso de erro no carregamento, exibe o escudo vetorial como fallback.
- */
 export function LogoImageMark({
   className,
   alt = BRAND.name,
@@ -123,12 +116,12 @@ export function LogoImageMark({
       className={className}
       priority={priority}
       sizes={sizes}
+      quality={90}
       onError={() => setFailed(true)}
     />
   );
 }
 
-/** Header — apenas o PNG oficial, responsivo. */
 export function LogoBrandCompact({ className }: LogoProps) {
   return (
     <div className={className ?? ""}>
@@ -143,17 +136,16 @@ export function LogoBrandCompact({ className }: LogoProps) {
   );
 }
 
-/** Hero / rodapé — PNG oficial + tipografia complementar + swoosh. */
 export function LogoBrandFull({
   className,
   align = "center",
+  variant = "full",
   markClassName = "max-h-28 w-auto object-contain md:max-h-32 lg:max-h-36",
   markPriority,
 }: LogoProps & {
   align?: "left" | "center";
-  /** Classes Tailwind só no `<Image>` da marca (ex.: altura máxima maior no hero). */
+  variant?: "full" | "imageOnly" | "footer";
   markClassName?: string;
-  /** Só o hero usa `false`; header compacto usa marca via `LogoBrandCompact` com priority. */
   markPriority?: boolean;
 }) {
   const a =
@@ -162,6 +154,14 @@ export function LogoBrandFull({
     align === "center"
       ? "flex justify-center drop-shadow-md"
       : "drop-shadow-md";
+  const titleClass =
+    variant === "footer"
+      ? "text-white"
+      : "text-[color:var(--brand-navy-heading)]";
+  const taglineClass =
+    variant === "footer"
+      ? "text-slate-400"
+      : "text-[color:var(--brand-tagline-grey)]";
 
   return (
     <div className={`flex flex-col gap-3 ${a} ${className ?? ""}`}>
@@ -174,26 +174,34 @@ export function LogoBrandFull({
           priority={markPriority}
         />
       </div>
-      <div className={`flex flex-col gap-1 ${a}`}>
-        <p className="font-[family-name:var(--font-heading)] text-2xl font-extrabold tracking-[0.14em] text-[color:var(--brand-navy-heading)] uppercase md:text-3xl">
-          Sentinela
-        </p>
-        <p className="font-[family-name:var(--font-heading)] text-sm font-semibold tracking-[0.28em] text-[color:var(--brand-lime)] uppercase md:text-base">
-          Saúde ambiental
-        </p>
-      </div>
-      <div
-        className={
-          align === "center"
-            ? "mx-auto w-full max-w-[280px]"
-            : "w-full max-w-[280px]"
-        }
-      >
-        <LogoSwoosh />
-      </div>
-      <p className="max-w-md font-[family-name:var(--font-heading)] text-[0.65rem] font-medium tracking-[0.18em] text-[color:var(--brand-tagline-grey)] uppercase md:text-xs">
-        Controle integrado de pragas
-      </p>
+      {variant !== "imageOnly" && (
+        <>
+          <div className={`flex flex-col gap-1 ${a}`}>
+            <p
+              className={`font-[family-name:var(--font-heading)] text-2xl font-extrabold tracking-[0.14em] uppercase md:text-3xl ${titleClass}`}
+            >
+              Sentinela
+            </p>
+            <p className="font-[family-name:var(--font-heading)] text-sm font-semibold tracking-[0.28em] text-[color:var(--brand-lime)] uppercase md:text-base">
+              Saúde ambiental
+            </p>
+          </div>
+          <div
+            className={
+              align === "center"
+                ? "mx-auto w-full max-w-[280px]"
+                : "w-full max-w-[280px]"
+            }
+          >
+            <LogoSwoosh />
+          </div>
+          <p
+            className={`max-w-md font-[family-name:var(--font-heading)] text-[0.65rem] font-medium tracking-[0.18em] uppercase md:text-xs ${taglineClass}`}
+          >
+            Controle integrado de pragas
+          </p>
+        </>
+      )}
     </div>
   );
 }

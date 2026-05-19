@@ -30,7 +30,7 @@ export function SiteFooter() {
 
         <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <LogoBrandFull align="left" />
+            <LogoBrandFull align="left" variant="footer" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-slate-400">
               {BRAND.shortTagline} {BRAND.coverageSummary}
             </p>

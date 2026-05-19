@@ -60,8 +60,7 @@ export function LeadCaptureSection() {
           </h2>
           <p className="mt-4 text-[color:var(--brand-muted)]">
             Preencha seus dados e nossa equipe retorna em breve pelo WhatsApp.
-            para edição de planilha (API inválida); use o formulário Google
-            abaixo ou envie pelo WhatsApp.
+            Você também pode usar o formulário Google abaixo.
           </p>
         </motion.div>
 

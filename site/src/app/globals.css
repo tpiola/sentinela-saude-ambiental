@@ -67,4 +67,20 @@ body {
     width: 100%;
     justify-content: center;
   }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Áreas de toque confortáveis em mobile */
+@media (max-width: 640px) {
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
 }

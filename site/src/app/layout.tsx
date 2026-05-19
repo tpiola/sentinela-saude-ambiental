@@ -3,6 +3,7 @@ import { DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
+import { CookieConsent } from "@/components/cookie-consent";
 import { BRAND } from "@/lib/brand";
 
 const heading = Montserrat({
@@ -21,7 +22,9 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   "https://www.sentinelasaudeambiental.com.br";
 
-const absoluteLogoUrl = new URL(BRAND.logoPath, siteUrl).href;
+const absoluteOgImageUrl = new URL(BRAND.ogImagePath, siteUrl).href;
+const googleVerification =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -31,20 +34,13 @@ export const metadata: Metadata = {
     template: "%s | Sentinela Saúde Ambiental",
   },
   description:
-    "Mais de 11 anos de experiência em Franca e região: controle integrado de pragas com laudo técnico e transparência para exigências da Vigilância Sanitária. Desinsetização, desratização e prevenção de escorpiões — resposta rápida no WhatsApp.",
+    "Mais de 11 anos em Franca e região: controle integrado de pragas com laudo técnico. Valores a partir de R$ 150 para apartamentos. Atendemos toda a região de Franca mediante agendamento.",
   keywords: [
     "controle de pragas Franca",
-    "controle de pragas região Franca",
     "dedetizadora Franca SP",
     "desinsetização Franca",
     "desratização Franca",
-    "descupinização Franca",
     "escorpião Franca",
-    "limpeza caixa d'água Franca",
-    "laudo Vigilância Sanitária Franca",
-    "contrato empresa controle de pragas",
-    "Batatais",
-    "Orlândia",
     "sentinela saúde ambiental",
   ],
   authors: [{ name: BRAND.name, url: siteUrl }],
@@ -63,11 +59,10 @@ export const metadata: Metadata = {
     description: BRAND.tagline,
     images: [
       {
-        url: absoluteLogoUrl,
-        width: 1024,
-        height: 1024,
-        alt: BRAND.name,
-        type: "image/png",
+        url: absoluteOgImageUrl,
+        width: 1200,
+        height: 630,
+        alt: `${BRAND.name} — controle de pragas em Franca SP`,
       },
     ],
   },
@@ -75,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: BRAND.name,
     description: BRAND.shortTagline,
-    images: [absoluteLogoUrl],
+    images: [absoluteOgImageUrl],
   },
   robots: {
     index: true,
@@ -87,9 +82,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    // google: "cole-o-código-do-search-console",
-  },
+  verification: googleVerification ? { google: googleVerification } : undefined,
   other: {
     "geo.region": "BR-SP",
     "geo.placename": "Franca",
@@ -106,6 +99,7 @@ export const viewport: Viewport = {
   themeColor: "#002d5b",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -122,9 +116,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
-      <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)]">
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-white text-[color:var(--foreground)]">
         <JsonLdLocalBusiness />
         <Analytics />
+        <CookieConsent />
         {children}
       </body>
     </html>

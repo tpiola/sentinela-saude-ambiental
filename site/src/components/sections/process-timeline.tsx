@@ -22,7 +22,7 @@ export function ProcessTimeline() {
   return (
     <section
       id="como-trabalhamos"
-      className="scroll-mt-24 bg-[color:var(--brand-navy)] py-20 text-white md:py-28"
+      className="scroll-mt-28 bg-[color:var(--brand-navy)] py-16 text-white sm:py-20 md:py-28"
     >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <motion.div

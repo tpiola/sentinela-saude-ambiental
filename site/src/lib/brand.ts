@@ -6,26 +6,22 @@ export const BRAND = {
     "Controle integrado de pragas com laudo técnico e transparência — referência em qualidade e ética frente à dedetizadora genérica. Atendimento alinhado à Vigilância Sanitária.",
   shortTagline:
     "Qualidade, ética e método em controle de pragas para Franca e região — residencial e empresarial.",
-  /** Cobertura honesta para copy, SEO e JSON-LD (raio a partir da base em Franca). */
+  /** Cobertura para copy, SEO e JSON-LD */
   radiusKm: 40 as const,
   coverageSummary:
-    "Atendimento em até 40 km da região de Franca — São Paulo (confirmar disponibilidade no WhatsApp).",
-  region: "Franca e região — SP",
-  /** Anos mínimos citados no site (uso: “11+”, “mais de 11 anos”). */
+    "Atendemos toda a região de Franca mediante agendamento — confirme disponibilidade no WhatsApp.",
+  region: "Toda a região de Franca — SP",
   experienceYears: 11,
   experienceYearsShort: "11+",
   experienceYearsLabel: "Mais de 11 anos",
   experienceHeadline: "Mais de 11 anos de experiência em Franca e região",
   phoneDisplay: "(16) 99374-7147",
-  /** E.164 sem símbolos — WhatsApp direto */
   phoneE164: "5516993747147",
-  email: "bettercontroladoradepragas@hotmail.com",
+  email: "sentinelasaudeambiental@gmail.com",
   instagramUrl: "https://www.instagram.com/sentinelasaudeambiental/",
-  /** Página oficial (slug antigo Better Controle de Pragas — mesma marca e conteúdo). */
   facebookUrl: "https://www.facebook.com/Bettercontroledepragas",
-  /** Centro de Franca SP — ajuste com endereço exato do Google Meu Negócio */
   address: {
-    streetAddress: "Atendimento em Franca e região",
+    streetAddress: "Atendimento em toda a região de Franca",
     addressLocality: "Franca",
     addressRegion: "SP",
     postalCode: "14400-000",
@@ -40,7 +36,10 @@ export const BRAND = {
     sunday: "Domingo: 08:00 às 17:00",
     schema: ["Mo-Sa 07:00-19:00", "Su 08:00-17:00"],
   },
-  priceRange: "R$250-R$2000",
+  /** Schema.org — valores a partir de R$150 (apartamento); casas sob orçamento */
+  priceRange: "R$150+",
+  pricingSummary:
+    "Valores a partir de R$ 150 para apartamentos. Casas e imóveis maiores variam conforme metragem e praga — solicite orçamento sem compromisso.",
   mapsPlaceQuery: "Sentinela Saúde Ambiental Franca SP",
   areaServed: [
     "Franca",
@@ -53,20 +52,11 @@ export const BRAND = {
     "Patrocínio Paulista",
     "Restinga",
   ],
-  /**
-   * Vídeo de fundo do hero (MP4).
-   * Facebook não expõe MP4 direto sem login; use um reel baixado e coloque em
-   * /public/brand/hero.mp4 ou defina NEXT_PUBLIC_HERO_VIDEO_URL.
-   */
   heroVideoUrl:
     "https://videos.pexels.com/video-files/2616634/2616634-hd_1920_1080_24fps.mp4",
-  /** Capa do vídeo (foto principal da página no Facebook, cópia local). */
   heroVideoPosterUrl: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
   logoPath: "/brand/logo-sentinela.png",
-  /**
-   * Fotos públicas da página no Facebook (slug legado Better Controle de Pragas).
-   * Arquivos em `public/media/sentinela/facebook/images/` — ver README da pasta.
-   */
+  ogImagePath: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
   galleryImages: [
     {
       src: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
@@ -93,10 +83,6 @@ export const BRAND = {
       alt: "Controle integrado de pragas — Sentinela (Facebook)",
     },
   ],
-  /**
-   * Miniaturas do Instagram (@sentinelasaudeambiental), cópias locais.
-   * Hoje vazio — o perfil não expõe CDN estável para bots; exporte manualmente (README).
-   */
   instagramGalleryImages: [] as ReadonlyArray<{
     readonly src: string;
     readonly alt: string;
@@ -148,12 +134,12 @@ export const BRAND = {
     {
       question: "Qual é o período crítico de escorpiões em Franca?",
       answer:
-        "De outubro a março, com pico no verão chuvoso. A proteção preventiva deve começar em setembro, antes do período de maior incidência na região.",
+        "De outubro a março, com pico no verão chuvoso. A proteção preventiva deve começar antes do período de maior incidência na região.",
     },
     {
       question: "A Sentinela atende só Franca ou também cidades próximas?",
       answer:
-        "Atendemos Franca como base e cidades da região em até 40 km — Batatais, Cristais Paulista, Orlândia, Ituverava, São Joaquim da Barra, Pedregulho e outras conforme disponibilidade. Confirme no WhatsApp a sua localização.",
+        "Atendemos toda a região de Franca mediante agendamento. Batatais, Cristais Paulista, Orlândia, Ituverava e outras localidades conforme disponibilidade na agenda — confirme no WhatsApp.",
     },
     {
       question: "Quanto tempo depois da aplicação posso voltar ao ambiente?",
@@ -168,7 +154,7 @@ export const BRAND = {
     {
       question: "Quanto custa a dedetização em Franca SP?",
       answer:
-        "Residências: entre R$250 e R$500 conforme tamanho e tipo de praga. Empresas e condomínios sob orçamento após diagnóstico gratuito; em horário comercial buscamos retorno rápido pelo WhatsApp — o tempo exato depende da demanda.",
+        "Apartamentos a partir de R$ 150, conforme tamanho e tipo de praga. Casas e imóveis maiores têm valor variável — depende da metragem, infestação e método. Solicite orçamento gratuito pelo WhatsApp; não há teto fixo porque cada imóvel é diferente.",
     },
     {
       question: "É seguro para crianças e pets?",
@@ -178,12 +164,12 @@ export const BRAND = {
     {
       question: "Com que frequência fazer dedetização preventiva?",
       answer:
-        "Residências: a cada 3 meses, com reforço em setembro. Empresas alimentícias: bimestral ou mensal. Caixa d'água: a cada 6 meses ou após contaminação.",
+        "Residências: em geral a cada 3 meses, conforme avaliação técnica do ambiente. Empresas alimentícias: bimestral ou mensal. Caixa d'água: a cada 6 meses ou após contaminação.",
     },
     {
       question: "Quais cidades além de Franca são atendidas?",
       answer:
-        "Franca e cidades em até 40 km da região: Batatais, Cristais Paulista, Orlândia, Ituverava, São Joaquim da Barra, Pedregulho e entorno. Consulte disponibilidade para outras localidades.",
+        "Toda a região de Franca mediante agendamento: Franca, Batatais, Cristais Paulista, Orlândia, Ituverava, São Joaquim da Barra, Pedregulho e entorno. Consulte disponibilidade para outras localidades.",
     },
   ],
 } as const;
@@ -195,7 +181,6 @@ export function whatsappHref(prefill?: string): string {
   return `https://wa.me/${BRAND.phoneE164}?text=${encodeURIComponent(text)}`;
 }
 
-/** Abre rotas no Google Maps / GPS do celular */
 export function mapsDirectionsUrl(): string {
   const { latitude, longitude } = BRAND.geo;
   const q = encodeURIComponent(BRAND.mapsPlaceQuery);
@@ -206,7 +191,6 @@ export function mapsSearchUrl(): string {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BRAND.mapsPlaceQuery)}`;
 }
 
-/** Embed sem API key (fallback) */
 export function mapsEmbedUrl(): string {
   const { latitude, longitude } = BRAND.geo;
   return `https://maps.google.com/maps?q=${latitude},${longitude}&hl=pt-BR&z=16&output=embed`;

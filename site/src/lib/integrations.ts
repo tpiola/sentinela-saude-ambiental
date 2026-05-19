@@ -30,14 +30,15 @@ export const INTEGRATIONS = {
   gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
 } as const;
 
-/** Agenda: env ou fallback para URL canónica do site (configurar NEXT_PUBLIC_SITE_URL). */
+/** Agenda: URL do Calendar ou âncora #agendar na mesma página. */
 export function calendarBookingHref(): string {
   const direct = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL?.trim();
   if (direct) return direct;
-  const site =
-    process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "https://www.sentinelasaudeambiental.com.br";
-  return site;
+  return "#agendar";
+}
+
+export function isExternalCalendarHref(href: string): boolean {
+  return href.startsWith("http://") || href.startsWith("https://");
 }
 
 export type LeadPayload = {

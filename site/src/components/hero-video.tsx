@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { LogoBrandFull } from "@/components/logo-sentinel";
+import { LogoImageMark } from "@/components/logo-sentinel";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 type HeroVideoProps = {
@@ -16,9 +16,9 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.2]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.25]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   const src = videoSrc ?? envSrc ?? BRAND.heroVideoUrl;
 
@@ -26,9 +26,12 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
     <section
       ref={ref}
       id="inicio"
-      className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-[color:var(--brand-navy)] pt-20"
+      className="relative isolate flex min-h-[100dvh] min-h-[100svh] items-center justify-center overflow-hidden bg-[color:var(--brand-navy)] pt-[4.5rem] sm:pt-20"
     >
-      <motion.div style={{ y, scale }} className="absolute inset-0">
+      <motion.div
+        style={{ y, scale }}
+        className="absolute inset-0 motion-reduce:transform-none"
+      >
         <video
           className="absolute inset-0 h-full w-full object-cover"
           autoPlay
@@ -42,78 +45,78 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           <source src={src} type="video/mp4" />
         </video>
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-navy)] via-[color:var(--brand-navy)]/80 to-[color:var(--brand-navy)]/40"
+          className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-navy)] via-[color:var(--brand-navy)]/85 to-[color:var(--brand-navy)]/50"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[color:var(--brand-navy)]/95 via-transparent to-[color:var(--brand-lime)]/20"
+          className="absolute inset-0 bg-gradient-to-r from-[color:var(--brand-navy)]/95 via-transparent to-[color:var(--brand-lime)]/15"
           aria-hidden
         />
       </motion.div>
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:px-8 lg:grid-cols-[1fr_auto] lg:py-20"
+        className="relative z-10 mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16 md:px-8 lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-10 lg:py-20"
       >
         <div className="text-center lg:text-left">
-          <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.08] font-bold tracking-tight text-balance text-white sm:text-5xl lg:text-6xl">
+          <h1 className="xs:text-3xl font-[family-name:var(--font-heading)] text-[1.65rem] leading-[1.12] font-bold tracking-tight text-balance text-white sm:text-4xl lg:text-5xl xl:text-6xl">
             Controle de pragas com método — além da dedetizadora genérica
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-pretty text-white/85 lg:mx-0">
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-pretty text-white/85 sm:mt-6 sm:text-lg lg:mx-0">
             {BRAND.shortTagline}{" "}
             <strong className="text-white">
-              Temporada de escorpiões e fiscalizações mais rigorosas
-            </strong>{" "}
-            pedem resposta rápida e documentação adequada. Chame no WhatsApp e
-            reduza risco à saúde e autuações relacionadas a pragas vetores.
+              Atendemos toda a região de Franca mediante agendamento.
+            </strong>
           </p>
-          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:justify-center lg:justify-start">
             <motion.a
               href={whatsappHref()}
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex min-h-[52px] w-full min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-xl sm:w-auto"
+              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-6 py-3.5 font-[family-name:var(--font-heading)] text-sm font-bold text-[color:var(--brand-navy-heading)] shadow-xl sm:min-w-[260px] sm:px-8 sm:text-base"
             >
               Diagnóstico gratuito no WhatsApp
             </motion.a>
             <a
               href="#servicos"
-              className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:w-auto"
+              className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:px-8"
             >
               Ver serviços
             </a>
           </div>
-          <ul className="mt-10 flex flex-wrap justify-center gap-4 text-xs text-white/60 lg:justify-start">
+          <ul className="mt-8 flex flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] text-white/65 sm:mt-10 sm:text-xs lg:justify-start">
+            <li>✓ A partir de R$ 150 (apt.)</li>
             <li>✓ ANVISA RDC 622</li>
-            <li>✓ Produtos seguros</li>
-            <li>✓ {BRAND.coverageSummary}</li>
+            <li>✓ {BRAND.region}</li>
           </ul>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.35, duration: 0.7 }}
-          className="mx-auto w-full max-w-sm rounded-2xl bg-white/95 px-6 py-8 shadow-2xl ring-1 ring-white/30 backdrop-blur-sm lg:max-w-xs"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mx-auto mt-10 w-full max-w-[280px] rounded-2xl bg-white/95 p-5 shadow-2xl ring-1 ring-white/30 backdrop-blur-sm sm:max-w-sm sm:p-6 lg:mt-0 lg:max-w-xs"
         >
-          <LogoBrandFull
-            markClassName="max-h-36 w-auto object-contain sm:max-h-40 md:max-h-44"
-            markPriority={false}
+          <LogoImageMark
+            className="mx-auto max-h-32 w-auto object-contain sm:max-h-36 md:max-h-40"
+            priority
+            sizes="(max-width: 640px) 260px, 300px"
+            fallbackShieldSize={72}
           />
         </motion.div>
       </motion.div>
 
       <div
-        className="pointer-events-none absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 text-white/45"
+        className="pointer-events-none absolute bottom-24 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-1 text-white/40 motion-reduce:hidden sm:bottom-20 md:bottom-8 md:flex"
         aria-hidden
       >
         <span className="text-[10px] tracking-widest uppercase">scroll</span>
         <motion.span
-          animate={{ y: [0, 8, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="h-8 w-5 rounded-full border-2 border-white/30"
+          className="h-7 w-4 rounded-full border-2 border-white/30 sm:h-8 sm:w-5"
         >
-          <span className="mx-auto mt-1 block h-2 w-1 rounded-full bg-white/50" />
+          <span className="mx-auto mt-1 block h-1.5 w-1 rounded-full bg-white/50" />
         </motion.span>
       </div>
     </section>

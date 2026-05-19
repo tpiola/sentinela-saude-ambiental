@@ -265,15 +265,13 @@ export function DiagnosticFunnel() {
         </div>
 
         <p className="mt-6 text-center text-sm">
-            <a
-              href={calendarBookingHref()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-[color:var(--brand-navy)] underline-offset-4 hover:underline"
-            >
-              Ou agende visita técnica no Google Agenda
-            </a>
-          </p>
+          <a
+            href={calendarBookingHref()}
+            className="font-semibold text-[color:var(--brand-navy)] underline-offset-4 hover:underline"
+          >
+            Ou agende visita técnica
+          </a>
+        </p>
       </div>
     </section>
   );

@@ -2,7 +2,7 @@
 
 Site para serviços de saúde ambiental — Rogério.
 
-**Fluxo de trabalho:** o projeto **permanece neste repositório**. Abra esta pasta no Cursor e desenvolva aqui; para guardar no GitHub use `git commit` e `git push`. Não é necessário clonar de novo no dia a dia — clone só para criar uma cópia nova em outro lugar ou computador (veja [`docs/configuracao-local.md`](docs/configuracao-local.md)).
+**Fluxo de trabalho (nuvem):** o projeto **permanece neste repositório**. Abra esta pasta no Cursor (Cloud Agent ou workspace fixo), edite, `git commit` e `git push` — a Vercel publica automaticamente. Não é necessário clonar de novo no dia a dia. Veja [`docs/configuracao-local.md`](docs/configuracao-local.md) e [`docs/deploy-vercel.md`](docs/deploy-vercel.md).
 
 ## Estrutura
 

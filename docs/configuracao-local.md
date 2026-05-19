@@ -102,3 +102,18 @@ Para **3D** (Three.js), use principalmente a documentação oficial e tipagem Ty
 4. Copie `.env.example` para `.env.local` e preencha `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` (veja README na raiz do projeto).
 
 O perfil público do estabelecimento é configurado no **Google Business Profile**, fora do código.
+
+## 7. Preview local e na Vercel
+
+**No workspace (nuvem ou local):**
+
+```bash
+cd site
+npm install
+cp .env.example .env.local   # primeira vez
+npm run dev
+```
+
+Abra `http://localhost:3000`.
+
+**Preview de produção:** cada `git push` na branch conectada à Vercel gera deploy; PRs recebem URL de preview. Veja [`deploy-vercel.md`](deploy-vercel.md).
