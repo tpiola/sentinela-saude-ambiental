@@ -30,14 +30,14 @@ export const INTEGRATIONS = {
   gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
 } as const;
 
-/** Agenda: env ou fallback para URL canónica do site (configurar NEXT_PUBLIC_SITE_URL). */
+/** Agenda: env ou fallback para página /agendar do próprio site. */
 export function calendarBookingHref(): string {
   const direct = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL?.trim();
   if (direct) return direct;
   const site =
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "https://www.sentinelasaudeambiental.com.br";
-  return site;
+    "https://sentinelasaudeambiental.vercel.app";
+  return `${site}/agendar`;
 }
 
 export type LeadPayload = {
