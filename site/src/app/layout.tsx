@@ -3,6 +3,7 @@ import { DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
+import { CookieBanner } from "@/components/cookie-banner";
 import { BRAND } from "@/lib/brand";
 
 const heading = Montserrat({
@@ -19,7 +20,7 @@ const body = DM_Sans({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://www.sentinelasaudeambiental.com.br";
+  "https://sentinelasaudeambiental.vercel.app";
 
 const absoluteLogoUrl = new URL(BRAND.logoPath, siteUrl).href;
 
@@ -126,6 +127,7 @@ export default function RootLayout({
         <JsonLdLocalBusiness />
         <Analytics />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
