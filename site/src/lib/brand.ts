@@ -19,10 +19,10 @@ export const BRAND = {
   phoneDisplay: "(16) 99374-7147",
   /** E.164 sem símbolos — WhatsApp direto */
   phoneE164: "5516993747147",
-  email: "bettercontroladoradepragas@hotmail.com",
+  email: "sentinelasaudeambiental@gmail.com",
   instagramUrl: "https://www.instagram.com/sentinelasaudeambiental/",
-  /** Página oficial (slug antigo Better Controle de Pragas — mesma marca e conteúdo). */
-  facebookUrl: "https://www.facebook.com/Bettercontroledepragas",
+  /** Página oficial da Sentinela Saúde Ambiental. */
+  facebookUrl: "https://www.facebook.com/sentinelasaudeambiental",
   /** Centro de Franca SP — ajuste com endereço exato do Google Meu Negócio */
   address: {
     streetAddress: "Atendimento em Franca e região",
