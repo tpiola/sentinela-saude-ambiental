@@ -126,4 +126,6 @@ npm run dev
 
 Abra `http://localhost:3000`.
 
-**Preview de produção:** cada `git push` na branch conectada à Vercel gera deploy; PRs recebem URL de preview. Veja [`deploy-vercel.md`](deploy-vercel.md).
+> **Cursor Cloud:** `localhost` no seu browser **não** aponta para o workspace remoto. Use o painel **Ports** → porta **3000** → **Open in Browser**. Ou use a URL pública de produção: https://sentinelasaudeambiental.vercel.app
+
+**Preview de produção:** cada `git push` na branch conectada à Vercel gera deploy; PRs recebem URL de preview. Veja [`deploy-vercel.md`](deploy-vercel.md) (seção “Preview não abre”).
