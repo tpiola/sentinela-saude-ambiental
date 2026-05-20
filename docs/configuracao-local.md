@@ -103,7 +103,17 @@ Para **3D** (Three.js), use principalmente a documentação oficial e tipagem Ty
 
 O perfil público do estabelecimento é configurado no **Google Business Profile**, fora do código.
 
-## 7. Preview local e na Vercel
+## 7. MCP Magnific (imagens no Cursor)
+
+Este repo inclui [`.cursor/mcp.json`](../.cursor/mcp.json) para o servidor **Magnific** (busca/geração de imagens e ícones).
+
+1. **Cursor → Settings → MCP** — verifique o servidor `magnific`.
+2. Informe sua `MAGNIFIC_API_KEY` no campo `env` do servidor (ou em `~/.cursor/mcp.json`).
+3. Clique em **Refresh** e reinicie o Cursor se necessário.
+
+Guia completo: [`mcp-magnific.md`](mcp-magnific.md). Para outros projetos, copie `.cursor/mcp.json` e a seção MCP de [`cursor-rules-template.md`](cursor-rules-template.md).
+
+## 8. Preview local e na Vercel
 
 **No workspace (nuvem ou local):**
 

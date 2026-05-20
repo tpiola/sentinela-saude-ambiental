@@ -9,6 +9,7 @@ Site para serviços de saúde ambiental — Rogério.
 - [`site/`](site/) — landing **Next.js** + **Tailwind** com **hero em vídeo**, scroll animado (Framer Motion), **Three.js** sob carregamento tardio, **mapa no rodapé**, botão flutuante **WhatsApp**, galeria ligada às redes e SEO/geo local (JSON-LD).
 - [`docs/configuracao-local.md`](docs/configuracao-local.md) — GitHub no Cursor, atalho na área de trabalho, Git e lista de extensões.
 - [`.vscode/extensions.json`](.vscode/extensions.json) — recomendações de extensões ao abrir o projeto no Cursor.
+- [`.cursor/mcp.json`](.cursor/mcp.json) — MCP **Magnific** (imagens/ícones); ver [`docs/mcp-magnific.md`](docs/mcp-magnific.md).
 
 ## Desenvolvimento
 

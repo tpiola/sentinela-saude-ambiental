@@ -15,3 +15,4 @@ alwaysApply: true
 - Layout: evitar `position:absolute` que invada seções vizinhas em mobile; `scroll-mt-28` em âncoras.
 - Integrações Google/Meta via env — ver `site/.env.example` e `docs/google-meta-checklist.md`.
 - Three.js e vídeos: lazy load; respeitar `prefers-reduced-motion`.
+- MCP Magnific: `.cursor/mcp.json` — imagens/ícones via API; chave só no Cursor, ver `docs/mcp-magnific.md`.

@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "magnific": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://api.magnific.com/mcp",
+        "--header",
+        "x-magnific-api-key:${MAGNIFIC_API_KEY}"
+      ],
+      "env": {
+        "MAGNIFIC_API_KEY": "cole_sua_chave_magnific_aqui"
+      }
+    }
+  }
+}

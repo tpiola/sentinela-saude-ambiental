@@ -21,3 +21,29 @@ alwaysApply: true
 ```
 
 Ajuste `globs` e o nome do arquivo conforme o stack (PHP, WordPress, etc.).
+
+## MCP Magnific (opcional — imagens e ícones)
+
+Copie para `.cursor/mcp.json` na raiz do projeto (ou mescle com servidores existentes):
+
+```json
+{
+  "mcpServers": {
+    "magnific": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://api.magnific.com/mcp",
+        "--header",
+        "x-magnific-api-key:${MAGNIFIC_API_KEY}"
+      ],
+      "env": {
+        "MAGNIFIC_API_KEY": ""
+      }
+    }
+  }
+}
+```
+
+Preencha a chave em **Cursor → Settings → MCP** (nunca no Git). Detalhes: [`docs/mcp-magnific.md`](mcp-magnific.md).
