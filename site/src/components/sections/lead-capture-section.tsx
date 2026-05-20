@@ -17,6 +17,7 @@ export function LeadCaptureSection() {
   const [phone, setPhone] = useState("");
   const [audience, setAudience] = useState<Audience>("residencial");
   const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
 
   const embedUrl = INTEGRATIONS.googleFormEmbedUrl.trim();
   const openFormUrl = INTEGRATIONS.googleContactFormOpenUrl.trim();
@@ -60,8 +61,6 @@ export function LeadCaptureSection() {
           </h2>
           <p className="mt-4 text-[color:var(--brand-muted)]">
             Preencha seus dados e nossa equipe retorna em breve pelo WhatsApp.
-            para edição de planilha (API inválida); use o formulário Google
-            abaixo ou envie pelo WhatsApp.
           </p>
         </motion.div>
 
@@ -191,9 +190,32 @@ export function LeadCaptureSection() {
                   placeholder="Descreva a necessidade (pragas, laudo, urgência…)"
                 />
               </div>
+              <div className="flex items-start gap-3">
+                <input
+                  id="lead-consent"
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  required
+                  className="mt-1 h-4 w-4 cursor-pointer accent-[color:var(--brand-lime)]"
+                />
+                <label htmlFor="lead-consent" className="text-xs text-[color:var(--brand-muted)]">
+                  Concordo com o tratamento dos meus dados pessoais conforme a{" "}
+                  <a
+                    href="/privacidade"
+                    className="underline hover:text-[color:var(--brand-navy)]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Política de Privacidade
+                  </a>{" "}
+                  da Sentinela Saúde Ambiental (LGPD — Lei 13.709/2018).
+                </label>
+              </div>
               <button
                 type="submit"
-                className="w-full rounded-full bg-[#25D366] py-3.5 font-bold text-white shadow-md"
+                disabled={!consent}
+                className="w-full rounded-full bg-[#25D366] py-3.5 font-bold text-white shadow-md disabled:opacity-50"
               >
                 Enviar e falar no WhatsApp
               </button>
