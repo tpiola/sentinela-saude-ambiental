@@ -41,11 +41,23 @@ export function GoogleCalendarBookingSection() {
               Agendar agora no Google Agenda
             </a>
           ) : (
-            <p className="mt-8 text-sm text-[color:var(--brand-muted)]">
-              Para agendar online, configure{" "}
-              <code className="text-xs">NEXT_PUBLIC_GOOGLE_CALENDAR_URL</code>{" "}
-              na Vercel ou chame no WhatsApp.
-            </p>
+            <div className="mt-8 flex flex-col items-center gap-4">
+              <p className="text-sm text-[color:var(--brand-muted)]">
+                Para agendar online, escolha um horário diretamente no calendário abaixo ou entre em contato pelo WhatsApp.
+              </p>
+              <div className="w-full max-w-4xl overflow-hidden rounded-2xl border border-[color:var(--brand-border)] bg-white p-2 shadow-inner">
+                <iframe
+                  src="https://calendar.google.com/calendar/embed?src=sentinelasaudeambiental%40gmail.com&ctz=America%2FSao_Paulo"
+                  style={{ border: 0 }}
+                  width="100%"
+                  height="600"
+                  frameBorder="0"
+                  scrolling="no"
+                  className="min-h-[450px] sm:min-h-[600px]"
+                  title="Calendário de Agendamento Sentinela"
+                />
+              </div>
+            </div>
           )}
         </motion.div>
       </div>

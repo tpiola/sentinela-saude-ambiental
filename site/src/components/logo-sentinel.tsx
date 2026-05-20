@@ -124,7 +124,7 @@ export function LogoImageMark({
 
 export function LogoBrandCompact({ className }: LogoProps) {
   return (
-    <div className={className ?? ""}>
+    <div className={`flex items-center gap-3 ${className ?? ""}`}>
       <LogoImageMark
         className="h-10 w-auto object-contain sm:h-12"
         alt={BRAND.name}
@@ -132,6 +132,14 @@ export function LogoBrandCompact({ className }: LogoProps) {
         fallbackShieldSize={44}
         sizes="(max-width: 640px) 120px, 144px"
       />
+      <div className="flex flex-col select-none">
+        <span className="font-[family-name:var(--font-heading)] text-lg font-black tracking-[0.12em] text-[color:var(--brand-navy-heading)] uppercase leading-none sm:text-xl">
+          Sentinela
+        </span>
+        <span className="font-[family-name:var(--font-heading)] text-[10px] font-extrabold tracking-[0.24em] text-[color:var(--brand-lime)] uppercase leading-none mt-1 sm:text-[11px]">
+          Saúde Ambiental
+        </span>
+      </div>
     </div>
   );
 }
@@ -162,6 +170,37 @@ export function LogoBrandFull({
     variant === "footer"
       ? "text-slate-400"
       : "text-[color:var(--brand-tagline-grey)]";
+
+  // Se o alinhamento for esquerdo (como no footer), posicionamos o escudo e o nome nominativo lado a lado para maior harmonia.
+  if (align === "left" && variant !== "imageOnly") {
+    return (
+      <div className={`flex flex-col gap-4 ${className ?? ""}`}>
+        <div className="flex items-center gap-4">
+          <LogoImageMark
+            className={markClassName}
+            alt={BRAND.name}
+            sizes="(max-width: 768px) 150px, 180px"
+            fallbackShieldSize={64}
+            priority={markPriority}
+          />
+          <div className="flex flex-col">
+            <p className={`font-[family-name:var(--font-heading)] text-xl font-extrabold tracking-[0.14em] uppercase sm:text-2xl ${titleClass}`}>
+              Sentinela
+            </p>
+            <p className="font-[family-name:var(--font-heading)] text-xs font-semibold tracking-[0.24em] text-[color:var(--brand-lime)] uppercase mt-0.5">
+              Saúde ambiental
+            </p>
+          </div>
+        </div>
+        <div className="w-full max-w-[240px]">
+          <LogoSwoosh />
+        </div>
+        <p className={`max-w-sm font-[family-name:var(--font-heading)] text-[0.65rem] font-medium tracking-[0.18em] uppercase ${taglineClass}`}>
+          Controle integrado de pragas
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className={`flex flex-col gap-3 ${a} ${className ?? ""}`}>
