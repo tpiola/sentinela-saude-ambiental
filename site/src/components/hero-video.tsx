@@ -98,6 +98,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           className="mx-auto mt-10 w-full max-w-[280px] rounded-2xl bg-white/95 p-5 shadow-2xl ring-1 ring-white/30 backdrop-blur-sm sm:max-w-sm sm:p-6 lg:mt-0 lg:max-w-xs"
         >
           <LogoImageMark
+            src="/brand/logo-sentinela-full.png"
             className="mx-auto max-h-32 w-auto object-contain sm:max-h-36 md:max-h-40"
             priority
             sizes="(max-width: 640px) 260px, 300px"

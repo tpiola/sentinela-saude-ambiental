@@ -100,7 +100,8 @@ export function LogoImageMark({
   priority,
   sizes = "200px",
   fallbackShieldSize = 52,
-}: LogoImageMarkProps) {
+  src,
+}: LogoImageMarkProps & { src?: string }) {
   const [failed, setFailed] = useState(false);
 
   if (failed) {
@@ -109,7 +110,7 @@ export function LogoImageMark({
 
   return (
     <Image
-      src={BRAND.logoPath}
+      src={src ?? BRAND.logoPath}
       alt={alt}
       width={1024}
       height={1024}
@@ -126,6 +127,7 @@ export function LogoBrandCompact({ className }: LogoProps) {
   return (
     <div className={`flex items-center gap-3 ${className ?? ""}`}>
       <LogoImageMark
+        src="/brand/logo-sentinela-escudo.png"
         className="h-10 w-auto object-contain sm:h-12"
         alt={BRAND.name}
         priority
@@ -177,6 +179,7 @@ export function LogoBrandFull({
       <div className={`flex flex-col gap-4 ${className ?? ""}`}>
         <div className="flex items-center gap-4">
           <LogoImageMark
+            src="/brand/logo-sentinela-escudo.png"
             className={markClassName}
             alt={BRAND.name}
             sizes="(max-width: 768px) 150px, 180px"
@@ -206,6 +209,7 @@ export function LogoBrandFull({
     <div className={`flex flex-col gap-3 ${a} ${className ?? ""}`}>
       <div className={imageWrap}>
         <LogoImageMark
+          src="/brand/logo-sentinela-escudo.png"
           className={markClassName}
           alt={BRAND.name}
           sizes="(max-width: 768px) 200px, 240px"
