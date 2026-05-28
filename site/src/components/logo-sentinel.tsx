@@ -130,27 +130,55 @@ export function LogoImageMark({
 
 /** Header — logo (brasão) + texto "Sentinela / Saúde Ambiental" em linha. */
 export function LogoBrandCompact({ className }: LogoProps) {
-    return (
-          <div className={`flex items-center gap-2 ${className ?? ""}`}>
-                  <LogoImageMark
-                            className="h-10 w-auto object-contain sm:h-12"
-                            alt={BRAND.name}
-                            priority
-                            fallbackShieldSize={44}
-                            sizes="(max-width: 640px) 44px, 52px"
-                          />
-                  <div className="flex flex-col leading-tight">
-                          <span className="font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.12em] text-[color:var(--brand-navy-heading)] uppercase sm:text-base">
-                                    Sentinela
-                          </span>
-                          <span className="font-[family-name:var(--font-heading)] text-[0.6rem] font-semibold tracking-[0.18em] text-[color:var(--brand-lime)] uppercase sm:text-xs">
-                                    Saúde Ambiental
-                          </span>
-                  </div>
-          </div>
-        );
+  return (
+    <div className={`flex items-center gap-2 ${className ?? ""}`}>
+      <LogoImageMark
+        className="h-10 w-auto object-contain sm:h-12"
+        alt={BRAND.name}
+        priority
+        fallbackShieldSize={44}
+        sizes="(max-width: 640px) 44px, 52px"
+      />
+      <div className="flex flex-col leading-tight">
+        <span className="font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.12em] text-[color:var(--brand-navy-heading)] uppercase sm:text-base">
+          Sentinela
+        </span>
+        <span className="font-[family-name:var(--font-heading)] text-[0.6rem] font-semibold tracking-[0.18em] text-[color:var(--brand-lime)] uppercase sm:text-xs">
+          Saúde Ambiental
+        </span>
+      </div>
+    </div>
+  );
 }
-/** Hero / rodapé — PNG oficial + tipografia complementar + swoosh. */
+/** Hero — escudo + marca nominativa lado a lado com visual glassmorphism. */
+export function LogoBrandHero({ className }: LogoProps) {
+  return (
+    <div className={`flex items-center gap-5 sm:gap-6 ${className ?? ""}`}>
+      <LogoImageMark
+        className="h-24 w-auto shrink-0 object-contain drop-shadow-[0_4px_24px_rgba(118,188,33,0.3)] sm:h-28 md:h-32"
+        alt=""
+        fallbackShieldSize={80}
+        sizes="(max-width: 640px) 96px, 128px"
+      />
+      <div className="flex flex-col gap-1 select-none">
+        <p className="font-[family-name:var(--font-heading)] text-2xl leading-none font-black tracking-[0.12em] text-white uppercase sm:text-3xl md:text-4xl">
+          Sentinela
+        </p>
+        <p className="font-[family-name:var(--font-heading)] text-xs leading-none font-bold tracking-[0.22em] text-[color:var(--brand-lime)] uppercase sm:text-sm md:text-base">
+          Saúde Ambiental
+        </p>
+        <div className="mt-1.5 w-full max-w-[200px] sm:max-w-[240px]">
+          <LogoSwoosh />
+        </div>
+        <p className="mt-1 font-[family-name:var(--font-heading)] text-[9px] font-medium tracking-[0.18em] text-white/50 uppercase sm:text-[10px]">
+          Controle integrado de pragas
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/** Rodapé e uso geral — PNG oficial + tipografia complementar + swoosh. */
 export function LogoBrandFull({
   className,
   align = "center",

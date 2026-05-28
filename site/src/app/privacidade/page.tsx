@@ -35,18 +35,24 @@ export default function PrivacidadePage() {
             </p>
 
             <h2>2. Dados coletados</h2>
-            <p>Coletamos apenas os dados necessários para prestar nossos serviços:</p>
+            <p>
+              Coletamos apenas os dados necessários para prestar nossos
+              serviços:
+            </p>
             <ul>
               <li>
-                <strong>Dados de contato:</strong> nome, e-mail, telefone/WhatsApp.
+                <strong>Dados de contato:</strong> nome, e-mail,
+                telefone/WhatsApp.
               </li>
               <li>
-                <strong>Dados de atendimento:</strong> endereço do imóvel (apenas
-                cidade/bairro para diagnóstico), tipo de praga, urgência.
+                <strong>Dados de atendimento:</strong> endereço do imóvel
+                (apenas cidade/bairro para diagnóstico), tipo de praga,
+                urgência.
               </li>
               <li>
                 <strong>Dados de navegação:</strong> cookies de análise (Google
-                Analytics 4) para melhorar o site — somente após seu consentimento.
+                Analytics 4) para melhorar o site — somente após seu
+                consentimento.
               </li>
             </ul>
 
@@ -69,8 +75,8 @@ export default function PrivacidadePage() {
 
             <h2>4. Compartilhamento de dados</h2>
             <p>
-              Seus dados <strong>não são vendidos</strong>. Podemos compartilhá-los
-              apenas com:
+              Seus dados <strong>não são vendidos</strong>. Podemos
+              compartilhá-los apenas com:
             </p>
             <ul>
               <li>
@@ -81,9 +87,7 @@ export default function PrivacidadePage() {
                 Ferramentas de análise (Google Analytics) — somente com seu
                 consentimento e com dados anonimizados.
               </li>
-              <li>
-                Autoridades competentes, quando exigido por lei.
-              </li>
+              <li>Autoridades competentes, quando exigido por lei.</li>
             </ul>
 
             <h2>5. Retenção de dados</h2>
@@ -95,12 +99,15 @@ export default function PrivacidadePage() {
 
             <h2>6. Seus direitos (LGPD)</h2>
             <p>
-              Você pode, a qualquer momento, solicitar via e-mail ({BRAND.email}):
+              Você pode, a qualquer momento, solicitar via e-mail ({BRAND.email}
+              ):
             </p>
             <ul>
               <li>Acesso aos seus dados pessoais.</li>
               <li>Correção de dados incompletos ou inexatos.</li>
-              <li>Eliminação dos seus dados (quando não houver obrigação legal).</li>
+              <li>
+                Eliminação dos seus dados (quando não houver obrigação legal).
+              </li>
               <li>Portabilidade dos dados.</li>
               <li>Revogação do consentimento.</li>
               <li>Informação sobre compartilhamento com terceiros.</li>
@@ -109,10 +116,10 @@ export default function PrivacidadePage() {
 
             <h2>7. Cookies</h2>
             <p>
-              Utilizamos cookies estritamente necessários (funcionamento do site) e
-              cookies analíticos (Google Analytics 4), estes últimos apenas com seu
-              consentimento explícito. Você pode recusar cookies analíticos a
-              qualquer momento.
+              Utilizamos cookies estritamente necessários (funcionamento do
+              site) e cookies analíticos (Google Analytics 4), estes últimos
+              apenas com seu consentimento explícito. Você pode recusar cookies
+              analíticos a qualquer momento.
             </p>
 
             <h2>8. Segurança</h2>
@@ -132,7 +139,10 @@ export default function PrivacidadePage() {
             <p>
               Dúvidas ou solicitações relacionadas à privacidade:{" "}
               <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a> ou WhatsApp{" "}
-              <a href={`https://wa.me/${BRAND.phoneE164}`}>{BRAND.phoneDisplay}</a>.
+              <a href={`https://wa.me/${BRAND.phoneE164}`}>
+                {BRAND.phoneDisplay}
+              </a>
+              .
             </p>
           </div>
 

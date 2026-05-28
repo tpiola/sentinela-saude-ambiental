@@ -17,12 +17,6 @@ export const INTEGRATIONS = {
   /** Webhook n8n — lead do formulário diagnóstico (POST JSON) */
   n8nWebhookLead: process.env.NEXT_PUBLIC_N8N_WEBHOOK_LEAD ?? "",
 
-  /** Webhook n8n — eventos WhatsApp Business (opcional, server-side ideal) */
-  n8nWebhookWhatsapp: process.env.NEXT_PUBLIC_N8N_WEBHOOK_WHATSAPP ?? "",
-
-  /** Webhook n8n — Meta (Facebook/Instagram) lead ads ou messenger */
-  n8nWebhookMeta: process.env.NEXT_PUBLIC_N8N_WEBHOOK_META ?? "",
-
   /** Google Analytics 4 */
   gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "",
 
