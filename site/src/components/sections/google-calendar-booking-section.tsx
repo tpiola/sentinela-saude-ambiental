@@ -43,7 +43,8 @@ export function GoogleCalendarBookingSection() {
           ) : (
             <div className="mt-8 flex flex-col items-center gap-4">
               <p className="text-sm text-[color:var(--brand-muted)]">
-                Para agendar online, escolha um horário diretamente no calendário abaixo ou entre em contato pelo WhatsApp.
+                Para agendar online, escolha um horário diretamente no
+                calendário abaixo ou entre em contato pelo WhatsApp.
               </p>
               <div className="w-full max-w-4xl overflow-hidden rounded-2xl border border-[color:var(--brand-border)] bg-white p-2 shadow-inner">
                 <iframe
