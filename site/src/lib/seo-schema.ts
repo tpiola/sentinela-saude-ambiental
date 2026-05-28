@@ -19,6 +19,7 @@ export function buildLocalBusinessGraph() {
         email: BRAND.email,
         image: `${siteUrl}${BRAND.logoPath}`,
         logo: `${siteUrl}${BRAND.logoPath}`,
+        taxID: BRAND.cnpj,
         address: {
           "@type": "PostalAddress",
           streetAddress: BRAND.address.streetAddress,

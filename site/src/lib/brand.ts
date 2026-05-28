@@ -21,17 +21,18 @@ export const BRAND = {
   instagramUrl: "https://www.instagram.com/sentinelasaudeambiental/",
   /** Página oficial da Sentinela Saúde Ambiental. */
   facebookUrl: "https://www.facebook.com/sentinelasaudeambiental",
-  /** Centro de Franca SP — ajuste com endereço exato do Google Meu Negócio */
+  cnpj: "30.438.427/0001-37",
   address: {
-    streetAddress: "Atendimento em Franca e região",
+    streetAddress: "Av. Pedro Calandria Fernandes, 1300",
     addressLocality: "Franca",
     addressRegion: "SP",
-    postalCode: "14400-000",
+    postalCode: "14407-350",
     addressCountry: "BR",
   },
+  addressFull: "Av. Pedro Calandria Fernandes, 1300 — Franca/SP, CEP 14407-350",
   geo: {
-    latitude: -20.5386,
-    longitude: -47.4008,
+    latitude: -20.5401,
+    longitude: -47.4009,
   },
   openingHours: {
     weekdays: "Segunda a Sábado: 07:00 às 19:00",

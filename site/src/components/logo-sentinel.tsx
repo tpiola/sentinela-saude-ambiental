@@ -143,7 +143,7 @@ export function LogoBrandCompact({ className }: LogoProps) {
         <span className="font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.12em] text-[color:var(--brand-navy-heading)] uppercase sm:text-base">
           Sentinela
         </span>
-        <span className="font-[family-name:var(--font-heading)] text-[0.6rem] font-semibold tracking-[0.18em] text-[color:var(--brand-lime)] uppercase sm:text-xs">
+        <span className="font-[family-name:var(--font-heading)] text-[0.6rem] font-bold tracking-[0.18em] text-[color:var(--brand-lime)] uppercase drop-shadow-[0_1px_2px_rgba(0,45,91,0.6)] sm:text-xs">
           Saúde Ambiental
         </span>
       </div>

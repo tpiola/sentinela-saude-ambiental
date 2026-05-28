@@ -97,6 +97,15 @@ export function SiteFooter() {
                 </span>
               </li>
               <li>
+                <span className="block font-bold text-white">Telefone</span>
+                <a
+                  href={`tel:+${BRAND.phoneE164}`}
+                  className="hover:text-[color:var(--brand-lime)]"
+                >
+                  {BRAND.phoneDisplay}
+                </a>
+              </li>
+              <li>
                 <span className="block font-bold text-white">Área</span>
                 <span className="text-slate-400">
                   Atendimento em Franca e Região.
@@ -126,18 +135,28 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-500 md:flex-row">
+        <div className="mt-10 rounded-xl border border-slate-800 bg-slate-900/60 px-5 py-4 text-xs text-slate-400">
+          <p className="font-semibold text-slate-300">{BRAND.addressFull}</p>
+          <p className="mt-1">CNPJ {BRAND.cnpj} · CNAE 8122-2/00</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            <span className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1 text-[11px] font-semibold text-slate-300">
+              ✓ ANVISA RDC 622/2022
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1 text-[11px] font-semibold text-slate-300">
+              ✓ Empresa licenciada
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border border-slate-700 px-3 py-1 text-[11px] font-semibold text-slate-300">
+              ✓ Vigilância Sanitária
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 text-xs text-slate-500 md:flex-row">
           <p>
             © {new Date().getFullYear()} {BRAND.name}. Todos os direitos
             reservados.
           </p>
-          <p className="flex flex-wrap justify-center gap-3">
-            <span>ANVISA RDC 622/2022</span>
-            <span>·</span>
-            <span>CNAE 8122-2/00</span>
-            <span>·</span>
-            <span>Franca — SP</span>
-          </p>
+          <p>Franca — SP</p>
         </div>
 
         <Link
