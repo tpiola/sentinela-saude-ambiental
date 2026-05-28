@@ -28,11 +28,11 @@ export function AboutSection() {
             />
             <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
               <Image
-                src={BRAND.galleryImages[0].src}
-                alt="Equipe Sentinela Saúde Ambiental em Franca SP"
+                src={BRAND.galleryImages[2].src}
+                alt={BRAND.galleryImages[2].alt}
                 width={800}
-                height={600}
-                className="h-[240px] w-full object-cover sm:h-[320px] md:h-[400px] lg:h-[440px]"
+                height={1067}
+                className="h-[240px] w-full object-cover object-top sm:h-[320px] md:h-[400px] lg:h-[440px]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 quality={90}
               />

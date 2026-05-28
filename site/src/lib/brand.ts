@@ -60,27 +60,27 @@ export const BRAND = {
   galleryImages: [
     {
       src: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
-      alt: "Sentinela Saúde Ambiental — equipe e identidade (Facebook)",
+      alt: "Sentinela Saúde Ambiental — equipe e identidade visual",
     },
     {
-      src: "/media/sentinela/facebook/images/02-trabalho-campo.jpg",
-      alt: "Trabalho de campo — controle integrado de pragas (Facebook)",
+      src: "/media/sentinela/campo/trabalho-telhado-escada.jpg",
+      alt: "Profissional Sentinela aplicando controle de pragas em telhado de madeira com escada",
     },
     {
-      src: "/media/sentinela/facebook/images/03-atendimento-sentinela.jpg",
-      alt: "Atendimento Sentinela — saúde ambiental (Facebook)",
+      src: "/media/sentinela/campo/aplicacao-forro-residencial.jpg",
+      alt: "Técnico Sentinela com equipamento pulverizador tratando forro de residência",
+    },
+    {
+      src: "/media/sentinela/campo/servico-altura-completo.jpg",
+      alt: "Serviço de controle de pragas em altura — tratamento completo de estrutura",
     },
     {
       src: "/media/sentinela/facebook/images/04-controle-pragas.jpg",
-      alt: "Controle de pragas — resultado profissional (Facebook)",
+      alt: "Controle de pragas — resultado profissional",
     },
     {
       src: "/media/sentinela/facebook/images/05-servico-campo.jpg",
-      alt: "Serviço em campo — Sentinela (Facebook)",
-    },
-    {
-      src: "/media/sentinela/facebook/images/06-controle-integrado.jpg",
-      alt: "Controle integrado de pragas — Sentinela (Facebook)",
+      alt: "Serviço em campo — Sentinela",
     },
   ],
   instagramGalleryImages: [] as ReadonlyArray<{

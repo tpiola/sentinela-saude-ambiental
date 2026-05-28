@@ -100,11 +100,12 @@ export function B2bSection() {
             <div className="relative overflow-hidden rounded-3xl shadow-2xl">
               <Image
                 src={BRAND.galleryImages[1].src}
-                alt="Controle de pragas empresarial em Franca"
+                alt={BRAND.galleryImages[1].alt}
                 width={800}
-                height={600}
+                height={1067}
                 className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[480px]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={85}
               />
             </div>
           </motion.div>
