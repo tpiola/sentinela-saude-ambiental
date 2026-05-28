@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { LogoBrandFull } from "@/components/logo-sentinel";
+import { LogoBrandHero } from "@/components/logo-sentinel";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 type HeroVideoProps = {
@@ -94,12 +94,9 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.35, duration: 0.7 }}
-          className="mx-auto w-full max-w-sm rounded-2xl bg-white/95 px-6 py-8 shadow-2xl ring-1 ring-white/30 backdrop-blur-sm lg:max-w-xs"
+          className="mx-auto w-full max-w-sm rounded-2xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-md sm:p-8 lg:max-w-md"
         >
-          <LogoBrandFull
-            markClassName="max-h-36 w-auto object-contain sm:max-h-40 md:max-h-44"
-            markPriority={false}
-          />
+          <LogoBrandHero />
         </motion.div>
       </motion.div>
 

@@ -27,19 +27,12 @@ export function FaqSection() {
           </h2>
         </motion.div>
 
-        <ul
-          className="mt-12 space-y-3"
-          itemScope
-          itemType="https://schema.org/FAQPage"
-        >
+        <ul className="mt-12 space-y-3">
           {BRAND.faq.map((item, index) => {
             const open = openIndex === index;
             return (
               <li
                 key={item.question}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
                 className="overflow-hidden rounded-2xl border border-[color:var(--brand-border)] bg-white shadow-sm"
               >
                 <button
@@ -47,7 +40,6 @@ export function FaqSection() {
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold text-[color:var(--brand-navy)]"
                   aria-expanded={open}
                   onClick={() => setOpenIndex(open ? null : index)}
-                  itemProp="name"
                 >
                   {item.question}
                   <span
@@ -64,14 +56,8 @@ export function FaqSection() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25 }}
-                      itemScope
-                      itemProp="acceptedAnswer"
-                      itemType="https://schema.org/Answer"
                     >
-                      <p
-                        className="border-t border-[color:var(--brand-border)] px-5 pt-3 pb-4 leading-relaxed text-[color:var(--brand-muted)]"
-                        itemProp="text"
-                      >
+                      <p className="border-t border-[color:var(--brand-border)] px-5 pt-3 pb-4 leading-relaxed text-[color:var(--brand-muted)]">
                         {item.answer}
                       </p>
                     </motion.div>

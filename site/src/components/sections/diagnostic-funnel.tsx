@@ -213,37 +213,64 @@ export function DiagnosticFunnel() {
               <p className="font-semibold text-[color:var(--brand-navy)]">
                 Como podemos te contatar?
               </p>
-              <input
-                type="text"
-                placeholder="Seu nome"
-                value={form.name}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, name: e.target.value }))
-                }
-                className="w-full rounded-xl border border-[color:var(--brand-border)] bg-white px-4 py-3"
-              />
-              <input
-                type="tel"
-                placeholder="WhatsApp / telefone"
-                value={form.phone}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, phone: e.target.value }))
-                }
-                className="w-full rounded-xl border border-[color:var(--brand-border)] bg-white px-4 py-3"
-              />
-              <select
-                value={form.city}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, city: e.target.value }))
-                }
-                className="w-full rounded-xl border border-[color:var(--brand-border)] bg-white px-4 py-3"
-              >
-                {BRAND.areaServed.map((city) => (
-                  <option key={city} value={city}>
-                    {city}
-                  </option>
-                ))}
-              </select>
+              <div>
+                <label
+                  htmlFor="diag-name"
+                  className="mb-1 block text-sm font-medium text-[color:var(--brand-navy)]"
+                >
+                  Nome
+                </label>
+                <input
+                  id="diag-name"
+                  type="text"
+                  placeholder="Seu nome"
+                  value={form.name}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, name: e.target.value }))
+                  }
+                  className="w-full rounded-xl border border-[color:var(--brand-border)] bg-white px-4 py-3"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="diag-phone"
+                  className="mb-1 block text-sm font-medium text-[color:var(--brand-navy)]"
+                >
+                  WhatsApp / telefone
+                </label>
+                <input
+                  id="diag-phone"
+                  type="tel"
+                  placeholder="(16) 99999-9999"
+                  value={form.phone}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, phone: e.target.value }))
+                  }
+                  className="w-full rounded-xl border border-[color:var(--brand-border)] bg-white px-4 py-3"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="diag-city"
+                  className="mb-1 block text-sm font-medium text-[color:var(--brand-navy)]"
+                >
+                  Cidade
+                </label>
+                <select
+                  id="diag-city"
+                  value={form.city}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, city: e.target.value }))
+                  }
+                  className="w-full rounded-xl border border-[color:var(--brand-border)] bg-white px-4 py-3"
+                >
+                  {BRAND.areaServed.map((city) => (
+                    <option key={city} value={city}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <div className="flex gap-3 pt-4">
                 <button
                   type="button"
@@ -265,15 +292,15 @@ export function DiagnosticFunnel() {
         </div>
 
         <p className="mt-6 text-center text-sm">
-            <a
-              href={calendarBookingHref()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-[color:var(--brand-navy)] underline-offset-4 hover:underline"
-            >
-              Ou agende visita técnica no Google Agenda
-            </a>
-          </p>
+          <a
+            href={calendarBookingHref()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[color:var(--brand-navy)] underline-offset-4 hover:underline"
+          >
+            Ou agende visita técnica no Google Agenda
+          </a>
+        </p>
       </div>
     </section>
   );

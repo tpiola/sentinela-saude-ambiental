@@ -5,42 +5,35 @@ import Link from "next/link";
 
 const STORAGE_KEY = "sentinela-cookie-consent";
 
-type ConsentStatus = "accepted" | "declined" | null;
-
 export function CookieBanner() {
-  const [status, setStatus] = useState<ConsentStatus>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as ConsentStatus | null;
+    const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) {
-      // Small delay so it doesn't pop immediately on page load
       const t = setTimeout(() => setVisible(true), 1000);
       return () => clearTimeout(t);
     }
-    setStatus(stored);
   }, []);
 
   function handleAccept() {
     localStorage.setItem(STORAGE_KEY, "accepted");
-    setStatus("accepted");
     setVisible(false);
   }
 
   function handleDecline() {
     localStorage.setItem(STORAGE_KEY, "declined");
-    setStatus("declined");
     setVisible(false);
   }
 
-  if (!visible || status !== null) return null;
+  if (!visible) return null;
 
   return (
     <div
       role="dialog"
       aria-label="Aviso de cookies"
       aria-live="polite"
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[color:var(--brand-border)] bg-white shadow-2xl md:bottom-4 md:left-4 md:right-auto md:max-w-md md:rounded-2xl md:border"
+      className="fixed right-0 bottom-0 left-0 z-50 border-t border-[color:var(--brand-border)] bg-white shadow-2xl md:right-auto md:bottom-4 md:left-4 md:max-w-md md:rounded-2xl md:border"
     >
       <div className="p-5">
         <p className="text-sm font-semibold text-[color:var(--brand-navy)]">
