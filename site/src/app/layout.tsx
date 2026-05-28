@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Sentinela Saúde Ambiental",
   },
   description:
-    "Mais de 11 anos de experiência em Franca e região: controle integrado de pragas com laudo técnico e transparência para exigências da Vigilância Sanitária. Desinsetização, desratização e prevenção de escorpiões — resposta rápida no WhatsApp.",
+    "Dedetizadora em Franca SP com mais de 11 anos. Desinsetização, desratização, escorpiões e limpeza de caixa d'água com laudo técnico ANVISA. Orçamento grátis no WhatsApp.",
   keywords: [
     "controle de pragas Franca",
     "controle de pragas região Franca",
@@ -94,10 +94,12 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "BR-SP",
     "geo.placename": "Franca",
-    "geo.position": `${BRAND.geo.latitude};${BRAND.geo.longitude}`,
-    ICBM: `${BRAND.geo.latitude}, ${BRAND.geo.longitude}`,
+    "geo.position": "-20.5401;-47.4009",
+    ICBM: "-20.5401, -47.4009",
+    "business:contact_data:street_address": BRAND.address.streetAddress,
     "business:contact_data:locality": "Franca",
     "business:contact_data:region": "SP",
+    "business:contact_data:postal_code": BRAND.address.postalCode,
     "business:contact_data:country_name": "Brasil",
     "business:contact_data:phone_number": BRAND.phoneDisplay,
   },
@@ -120,7 +122,6 @@ export default function RootLayout({
       className={`${heading.variable} ${body.variable} h-full scroll-smooth antialiased`}
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
       <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)]">
