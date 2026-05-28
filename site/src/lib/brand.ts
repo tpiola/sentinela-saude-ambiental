@@ -7,8 +7,7 @@ export const BRAND = {
   shortTagline:
     "Qualidade, ética e método em controle de pragas para Franca e região — residencial e empresarial.",
   /** Cobertura honesta para copy, SEO e JSON-LD. */
-  coverageSummary:
-    "Atendimento em Franca e Região — São Paulo, mediante agendamento (confirmar disponibilidade no WhatsApp).",
+  coverageSummary: "Atendimento em Franca e Região.",
   region: "Franca e região — SP",
   /** Anos mínimos citados no site (uso: "11+", "mais de 11 anos"). */
   experienceYears: 11,
@@ -60,7 +59,7 @@ export const BRAND = {
     "https://videos.pexels.com/video-files/2616634/2616634-hd_1920_1080_24fps.mp4",
   /** Capa do vídeo (foto principal da página no Facebook, cópia local). */
   heroVideoPosterUrl: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
-  logoPath: "/brand/logo-sentinela.png",
+  logoPath: "/brand/logo-brasao.png",
   /**
    * Fotos públicas da página no Facebook (slug legado Better Controle de Pragas).
    * Arquivos em `public/media/sentinela/facebook/images/` — ver README da pasta.

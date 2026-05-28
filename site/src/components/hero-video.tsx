@@ -57,15 +57,11 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
       >
         <div className="text-center lg:text-left">
           <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.08] font-bold tracking-tight text-balance text-white sm:text-5xl lg:text-6xl">
-            Controle de pragas com método — além da dedetizadora genérica
+            Controle de pragas profissional em Franca SP
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-pretty text-white/85 lg:mx-0">
-            {BRAND.shortTagline}{" "}
-            <strong className="text-white">
-              Temporada de escorpiões e fiscalizações mais rigorosas
-            </strong>{" "}
-            pedem resposta rápida e documentação adequada. Chame no WhatsApp e
-            reduza risco à saúde e autuações relacionadas a pragas vetores.
+            Desinsetização, desratização e prevenção de escorpiões com laudo
+            técnico e resposta rápida no WhatsApp.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
             <motion.a

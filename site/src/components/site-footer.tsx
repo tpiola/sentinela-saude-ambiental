@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { LogoBrandFull } from "@/components/logo-sentinel";
 import {
   FacebookBrandIcon,
   InstagramBrandIcon,
@@ -28,13 +27,15 @@ export function SiteFooter() {
           <MapEmbed title="Onde estamos — toque para abrir o GPS" />
         </div>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <LogoBrandFull align="left" />
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-slate-400">
-              {BRAND.shortTagline} {BRAND.coverageSummary}
+            <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold text-white">
+              {BRAND.name}
+            </h3>
+            <p className="mt-3 text-sm text-slate-400">
+              Controle de pragas profissional em Franca e região.
             </p>
-            <div className="mt-6 flex gap-3">
+            <div className="mt-5 flex gap-3">
               <SocialLink href={BRAND.facebookUrl} label="Facebook">
                 <FacebookBrandIcon className="h-5 w-5" />
               </SocialLink>
@@ -62,9 +63,9 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div>
             <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold text-white">
-              Atendimento (NAP)
+              Atendimento
             </h3>
             <ul className="mt-4 space-y-4 text-sm">
               <li className="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
@@ -97,7 +98,9 @@ export function SiteFooter() {
               </li>
               <li>
                 <span className="block font-bold text-white">Área</span>
-                <span className="text-slate-400">{BRAND.coverageSummary}</span>
+                <span className="text-slate-400">
+                  Atendimento em Franca e Região.
+                </span>
               </li>
               <li>
                 <a
