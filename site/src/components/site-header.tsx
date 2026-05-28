@@ -11,12 +11,12 @@ import { BRAND, whatsappHref } from "@/lib/brand";
 import { calendarBookingHref } from "@/lib/integrations";
 
 const navLinks = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#diagnostico", label: "Diagnóstico" },
-  { href: "#empresas", label: "Empresas" },
-  { href: "#faq", label: "Dúvidas" },
-  { href: "#mapa", label: "Como chegar" },
+  { href: "/#sobre", label: "Sobre" },
+  { href: "/#servicos", label: "Serviços" },
+  { href: "/#diagnostico", label: "Diagnóstico" },
+  { href: "/#empresas", label: "Empresas" },
+  { href: "/#faq", label: "Dúvidas" },
+  { href: "/#mapa", label: "Como chegar" },
 ];
 
 export function SiteHeader() {
