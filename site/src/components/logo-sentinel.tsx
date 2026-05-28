@@ -128,21 +128,28 @@ export function LogoImageMark({
   );
 }
 
-/** Header — apenas o PNG oficial, responsivo. */
+/** Header — logo (brasão) + texto "Sentinela / Saúde Ambiental" em linha. */
 export function LogoBrandCompact({ className }: LogoProps) {
-  return (
-    <div className={className ?? ""}>
-      <LogoImageMark
-        className="h-10 w-auto object-contain sm:h-12"
-        alt={BRAND.name}
-        priority
-        fallbackShieldSize={44}
-        sizes="(max-width: 640px) 120px, 144px"
-      />
-    </div>
-  );
+    return (
+          <div className={`flex items-center gap-2 ${className ?? ""}`}>
+                  <LogoImageMark
+                            className="h-10 w-auto object-contain sm:h-12"
+                            alt={BRAND.name}
+                            priority
+                            fallbackShieldSize={44}
+                            sizes="(max-width: 640px) 44px, 52px"
+                          />
+                  <div className="flex flex-col leading-tight">
+                          <span className="font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.12em] text-[color:var(--brand-navy-heading)] uppercase sm:text-base">
+                                    Sentinela
+                          </span>
+                          <span className="font-[family-name:var(--font-heading)] text-[0.6rem] font-semibold tracking-[0.18em] text-[color:var(--brand-lime)] uppercase sm:text-xs">
+                                    Saúde Ambiental
+                          </span>
+                  </div>
+          </div>
+        );
 }
-
 /** Hero / rodapé — PNG oficial + tipografia complementar + swoosh. */
 export function LogoBrandFull({
   className,
