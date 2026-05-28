@@ -7,7 +7,7 @@ const stats = [
   { num: "Comercial", label: "Retorno no WhatsApp" },
   { num: "ANVISA", label: "RDC 622/2022" },
   { num: "Laudo", label: "Vigilância Sanitária" },
-  { num: "40 km", label: "Raio de atendimento" },
+  { num: "Franca", label: "e Região, agendamento" },
   { num: "CIP", label: "Controle integrado" },
 ];
 
