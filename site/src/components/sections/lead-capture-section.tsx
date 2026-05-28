@@ -148,11 +148,11 @@ export function LeadCaptureSection() {
                   placeholder="(16) 99999-9999"
                 />
               </div>
-              <div>
-                <span className="mb-2 block text-sm font-semibold text-[color:var(--brand-navy)]">
+              <fieldset>
+                <legend className="mb-2 block text-sm font-semibold text-[color:var(--brand-navy)]">
                   Tipo
-                </span>
-                <div className="flex gap-3">
+                </legend>
+                <div className="flex gap-3" role="radiogroup">
                   {(
                     [
                       ["residencial", "Residencial"],
@@ -163,6 +163,7 @@ export function LeadCaptureSection() {
                       key={id}
                       type="button"
                       onClick={() => setAudience(id)}
+                      aria-pressed={audience === id}
                       className={`flex-1 rounded-xl border-2 px-4 py-3 text-sm font-semibold transition ${
                         audience === id
                           ? "border-[color:var(--brand-lime)] bg-white text-[color:var(--brand-navy)]"
@@ -173,7 +174,7 @@ export function LeadCaptureSection() {
                     </button>
                   ))}
                 </div>
-              </div>
+              </fieldset>
               <div>
                 <label
                   htmlFor="lead-msg"

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Sentinela Saúde Ambiental",
   },
   description:
-    "Mais de 11 anos em Franca e região: controle integrado de pragas com laudo técnico. Valores a partir de R$ 150 para apartamentos. Atendemos toda a região de Franca mediante agendamento.",
+    "Mais de 11 anos em Franca e região: controle integrado de pragas com laudo técnico e transparência. Orçamento gratuito pelo WhatsApp. Atendemos toda a região de Franca, mediante agendamento.",
   keywords: [
     "controle de pragas Franca",
     "dedetizadora Franca SP",
@@ -113,7 +113,6 @@ export default function RootLayout({
       className={`${heading.variable} ${body.variable} h-full scroll-smooth antialiased`}
     >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
       <body className="flex min-h-full flex-col overflow-x-hidden bg-white text-[color:var(--foreground)]">

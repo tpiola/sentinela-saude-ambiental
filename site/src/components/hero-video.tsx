@@ -26,7 +26,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
     <section
       ref={ref}
       id="inicio"
-      className="relative isolate flex min-h-[100dvh] min-h-[100svh] items-center justify-center overflow-hidden bg-[color:var(--brand-navy)] pt-[4.5rem] sm:pt-20"
+      className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-[color:var(--brand-navy)] pt-[4.5rem] sm:pt-20"
     >
       <motion.div
         style={{ y, scale }}
@@ -59,14 +59,12 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
         className="relative z-10 mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16 md:px-8 lg:grid lg:grid-cols-[1fr_auto] lg:items-center lg:gap-10 lg:py-20"
       >
         <div className="text-center lg:text-left">
-          <h1 className="xs:text-3xl font-[family-name:var(--font-heading)] text-[1.65rem] leading-[1.12] font-bold tracking-tight text-balance text-white sm:text-4xl lg:text-5xl xl:text-6xl">
+          <h1 className="font-[family-name:var(--font-heading)] text-[1.65rem] leading-[1.12] font-bold tracking-tight text-balance text-white sm:text-4xl lg:text-5xl xl:text-6xl">
             Controle de pragas com método — além da dedetizadora genérica
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-pretty text-white/85 sm:mt-6 sm:text-lg lg:mx-0">
             {BRAND.shortTagline}{" "}
-            <strong className="text-white">
-              Atendemos toda a região de Franca mediante agendamento.
-            </strong>
+            <strong className="text-white">{BRAND.coverageSummary}</strong>
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:justify-center lg:justify-start">
             <motion.a
@@ -85,7 +83,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
             </a>
           </div>
           <ul className="mt-8 flex flex-wrap justify-center gap-x-4 gap-y-2 text-[11px] text-white/65 sm:mt-10 sm:text-xs lg:justify-start">
-            <li>✓ A partir de R$ 150 (apt.)</li>
+            <li>✓ Orçamento gratuito no WhatsApp</li>
             <li>✓ ANVISA RDC 622</li>
             <li>✓ {BRAND.region}</li>
           </ul>

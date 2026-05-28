@@ -7,7 +7,10 @@ import {
 } from "@/components/social-brand-icons";
 import { BRAND, mapsDirectionsUrl, whatsappHref } from "@/lib/brand";
 import { MapEmbed } from "@/components/map-embed";
-import { calendarBookingHref } from "@/lib/integrations";
+import {
+  calendarBookingHref,
+  isExternalCalendarHref,
+} from "@/lib/integrations";
 
 const quickLinks = [
   { href: "#inicio", label: "Início" },
@@ -100,14 +103,21 @@ export function SiteFooter() {
                 <span className="text-slate-400">{BRAND.coverageSummary}</span>
               </li>
               <li>
-                <a
-                  href={calendarBookingHref()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center rounded-full border border-[color:var(--brand-lime)]/50 px-5 py-2 font-semibold text-[color:var(--brand-lime)] hover:bg-[color:var(--brand-lime)]/10"
-                >
-                  Agendar agora
-                </a>
+                {(() => {
+                  const href = calendarBookingHref();
+                  const external = isExternalCalendarHref(href);
+                  return (
+                    <a
+                      href={href}
+                      {...(external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="inline-flex min-h-[44px] items-center rounded-full border border-[color:var(--brand-lime)]/50 px-5 py-2 font-semibold text-[color:var(--brand-lime)] hover:bg-[color:var(--brand-lime)]/10"
+                    >
+                      Agendar agora
+                    </a>
+                  );
+                })()}
               </li>
               <li>
                 <a

@@ -9,7 +9,7 @@ export const BRAND = {
   /** Cobertura para copy, SEO e JSON-LD */
   radiusKm: 40 as const,
   coverageSummary:
-    "Atendemos toda a região de Franca mediante agendamento — confirme disponibilidade no WhatsApp.",
+    "Atendemos toda a região de Franca, mediante agendamento — confirme disponibilidade no WhatsApp.",
   region: "Toda a região de Franca — SP",
   experienceYears: 11,
   experienceYearsShort: "11+",
@@ -36,10 +36,10 @@ export const BRAND = {
     sunday: "Domingo: 08:00 às 17:00",
     schema: ["Mo-Sa 07:00-19:00", "Su 08:00-17:00"],
   },
-  /** Schema.org — valores a partir de R$150 (apartamento); casas sob orçamento */
-  priceRange: "R$150+",
+  /** Schema.org — preços sob consulta via WhatsApp */
+  priceRange: "Sob consulta",
   pricingSummary:
-    "Valores a partir de R$ 150 para apartamentos. Casas e imóveis maiores variam conforme metragem e praga — solicite orçamento sem compromisso.",
+    "Cada ambiente é diferente — o valor depende da metragem, tipo de praga e método. Solicite orçamento gratuito pelo WhatsApp, sem compromisso.",
   mapsPlaceQuery: "Sentinela Saúde Ambiental Franca SP",
   areaServed: [
     "Franca",
@@ -139,7 +139,7 @@ export const BRAND = {
     {
       question: "A Sentinela atende só Franca ou também cidades próximas?",
       answer:
-        "Atendemos toda a região de Franca mediante agendamento. Batatais, Cristais Paulista, Orlândia, Ituverava e outras localidades conforme disponibilidade na agenda — confirme no WhatsApp.",
+        "Atendemos toda a região de Franca, mediante agendamento: Batatais, Cristais Paulista, Orlândia, Ituverava, São Joaquim da Barra, Pedregulho, Patrocínio Paulista, Restinga e entorno. Confirme disponibilidade no WhatsApp.",
     },
     {
       question: "Quanto tempo depois da aplicação posso voltar ao ambiente?",
@@ -154,7 +154,7 @@ export const BRAND = {
     {
       question: "Quanto custa a dedetização em Franca SP?",
       answer:
-        "Apartamentos a partir de R$ 150, conforme tamanho e tipo de praga. Casas e imóveis maiores têm valor variável — depende da metragem, infestação e método. Solicite orçamento gratuito pelo WhatsApp; não há teto fixo porque cada imóvel é diferente.",
+        "O valor depende do tamanho do imóvel, tipo de praga e método aplicado — cada caso é avaliado individualmente. Solicite orçamento gratuito pelo WhatsApp, sem compromisso.",
     },
     {
       question: "É seguro para crianças e pets?",
@@ -165,11 +165,6 @@ export const BRAND = {
       question: "Com que frequência fazer dedetização preventiva?",
       answer:
         "Residências: em geral a cada 3 meses, conforme avaliação técnica do ambiente. Empresas alimentícias: bimestral ou mensal. Caixa d'água: a cada 6 meses ou após contaminação.",
-    },
-    {
-      question: "Quais cidades além de Franca são atendidas?",
-      answer:
-        "Toda a região de Franca mediante agendamento: Franca, Batatais, Cristais Paulista, Orlândia, Ituverava, São Joaquim da Barra, Pedregulho e entorno. Consulte disponibilidade para outras localidades.",
     },
   ],
 } as const;
