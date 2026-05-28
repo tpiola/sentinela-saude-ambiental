@@ -129,7 +129,19 @@ export function LogoImageMark({
 }
 
 /** Header — logo (brasão) + texto "Sentinela / Saúde Ambiental" em linha. */
-export function LogoBrandCompact({ className }: LogoProps) {
+export function LogoBrandCompact({
+  className,
+  variant = "light",
+}: LogoProps & { variant?: "light" | "dark" }) {
+  const titleColor =
+    variant === "dark"
+      ? "text-white"
+      : "text-[color:var(--brand-navy-heading)]";
+  const subtitleColor =
+    variant === "dark"
+      ? "text-[color:var(--brand-lime)]"
+      : "text-[color:var(--brand-lime-deep)]";
+
   return (
     <div className={`flex items-center gap-2 ${className ?? ""}`}>
       <LogoImageMark
@@ -140,10 +152,14 @@ export function LogoBrandCompact({ className }: LogoProps) {
         sizes="(max-width: 640px) 44px, 52px"
       />
       <div className="flex flex-col leading-tight">
-        <span className="font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.12em] text-[color:var(--brand-navy-heading)] uppercase sm:text-base">
+        <span
+          className={`font-[family-name:var(--font-heading)] text-sm font-extrabold tracking-[0.12em] uppercase sm:text-base ${titleColor}`}
+        >
           Sentinela
         </span>
-        <span className="font-[family-name:var(--font-heading)] text-[0.6rem] font-semibold tracking-[0.18em] text-[color:var(--brand-lime)] uppercase sm:text-xs">
+        <span
+          className={`font-[family-name:var(--font-heading)] text-[0.6rem] font-bold tracking-[0.18em] uppercase sm:text-xs ${subtitleColor}`}
+        >
           Saúde Ambiental
         </span>
       </div>

@@ -20,6 +20,17 @@
   --foreground: #1a2332;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-muted: #94a3b8;
+    --brand-tagline-grey: #94a3b8;
+    --brand-border: #1e293b;
+    --brand-surface: #0f172a;
+    --background: #0a0f1a;
+    --foreground: #e2e8f0;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

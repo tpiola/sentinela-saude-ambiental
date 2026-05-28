@@ -81,8 +81,9 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           </div>
           <ul className="mt-10 flex flex-wrap justify-center gap-4 text-xs text-white/60 lg:justify-start">
             <li>✓ ANVISA RDC 622</li>
-            <li>✓ Produtos seguros</li>
-            <li>✓ {BRAND.coverageSummary}</li>
+            <li>✓ Empresa licenciada</li>
+            <li>✓ +11 anos em Franca</li>
+            <li>✓ Orçamento grátis</li>
           </ul>
         </div>
 

@@ -11,12 +11,12 @@ import { BRAND, whatsappHref } from "@/lib/brand";
 import { calendarBookingHref } from "@/lib/integrations";
 
 const navLinks = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#diagnostico", label: "Diagnóstico" },
-  { href: "#empresas", label: "Empresas" },
-  { href: "#faq", label: "Dúvidas" },
-  { href: "#mapa", label: "Como chegar" },
+  { href: "/#sobre", label: "Sobre" },
+  { href: "/#servicos", label: "Serviços" },
+  { href: "/#diagnostico", label: "Diagnóstico" },
+  { href: "/#empresas", label: "Empresas" },
+  { href: "/#faq", label: "Dúvidas" },
+  { href: "/#mapa", label: "Como chegar" },
 ];
 
 export function SiteHeader() {
@@ -42,8 +42,8 @@ export function SiteHeader() {
     <header
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-[color:var(--brand-border)] bg-white/95 py-2 shadow-md backdrop-blur-md"
-          : "bg-white/90 py-3 backdrop-blur-sm"
+          ? "border-b border-white/10 bg-[color:var(--brand-navy)]/95 py-2 shadow-lg backdrop-blur-md"
+          : "bg-[color:var(--brand-navy)]/90 py-3 backdrop-blur-sm"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 md:px-6">
@@ -52,18 +52,18 @@ export function SiteHeader() {
           className="min-w-0 shrink"
           onClick={() => setOpen(false)}
         >
-          <LogoBrandCompact />
+          <LogoBrandCompact variant="dark" />
         </Link>
 
         <nav
-          className="hidden items-center gap-5 text-sm font-semibold text-[color:var(--brand-navy)] lg:flex"
+          className="hidden items-center gap-5 text-sm font-semibold text-white/90 lg:flex"
           aria-label="Principal"
         >
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="transition hover:text-[color:var(--brand-green-deep)]"
+              className="transition hover:text-[color:var(--brand-lime)]"
             >
               {l.label}
             </a>
@@ -75,7 +75,7 @@ export function SiteHeader() {
             href={BRAND.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden text-[color:var(--brand-muted)] hover:text-[color:var(--brand-navy)] md:inline-flex"
+            className="hidden text-white/60 hover:text-[color:var(--brand-lime)] md:inline-flex"
             aria-label="Instagram"
           >
             <InstagramBrandIcon className="h-5 w-5" />
@@ -84,7 +84,7 @@ export function SiteHeader() {
             href={BRAND.facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden text-[color:var(--brand-muted)] hover:text-[color:var(--brand-navy)] md:inline-flex"
+            className="hidden text-white/60 hover:text-[color:var(--brand-lime)] md:inline-flex"
             aria-label="Facebook"
           >
             <FacebookBrandIcon className="h-5 w-5" />
@@ -93,13 +93,13 @@ export function SiteHeader() {
             href={agendaHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-bold text-[color:var(--brand-navy-heading)] shadow-md ring-1 ring-black/5 transition hover:bg-[color:var(--brand-green-light)] sm:inline-flex"
+            className="hidden rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-bold text-[color:var(--brand-navy-heading)] shadow-md transition hover:bg-[color:var(--brand-green-light)] sm:inline-flex"
           >
             Agendar agora
           </a>
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[color:var(--brand-border)] text-[color:var(--brand-navy)] lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 text-white lg:hidden"
             aria-expanded={open}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             onClick={() => setOpen((v) => !v)}
@@ -110,7 +110,7 @@ export function SiteHeader() {
       </div>
 
       <div
-        className={`overflow-hidden border-t border-[color:var(--brand-border)] bg-white transition-all duration-300 lg:hidden ${
+        className={`overflow-hidden border-t border-white/10 bg-[color:var(--brand-navy)] transition-all duration-300 lg:hidden ${
           open ? "max-h-[min(85vh,520px)] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -120,7 +120,7 @@ export function SiteHeader() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-semibold text-[color:var(--brand-navy)] hover:bg-[color:var(--brand-surface)]"
+              className="rounded-lg px-3 py-3 text-base font-semibold text-white/90 hover:bg-white/10"
             >
               {l.label}
             </a>
@@ -136,7 +136,7 @@ export function SiteHeader() {
           </a>
           <a
             href={whatsappHref()}
-            className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-[color:var(--brand-navy)] font-semibold text-[color:var(--brand-navy)]"
+            className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-[color:var(--brand-lime)]/50 font-semibold text-[color:var(--brand-lime)]"
             onClick={() => setOpen(false)}
           >
             WhatsApp — diagnóstico gratuito
