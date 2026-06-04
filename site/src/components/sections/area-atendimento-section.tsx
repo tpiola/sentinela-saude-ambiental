@@ -4,24 +4,24 @@ const cidadesPrincipais = [
   "Franca",
   "Batatais",
   "Cristais Paulista",
-  "Orlandia",
+  "Orlândia",
   "Ituverava",
-  "Sao Joaquim da Barra",
+  "São Joaquim da Barra",
   "Pedregulho",
-  "Patrocinio Paulista",
+  "Patrocínio Paulista",
   "Restinga",
 ];
 
 const tiposPraga = [
-  { emoji: "🪲", label: "Baratas" },
+  { emoji: "🪳", label: "Baratas" },
   { emoji: "🐀", label: "Ratos" },
-  { emoji: "🦂", label: "Escorpioes" },
+  { emoji: "🦂", label: "Escorpiões" },
   { emoji: "🐜", label: "Formigas" },
   { emoji: "🕷️", label: "Aranhas" },
   { emoji: "🦟", label: "Mosquitos" },
   { emoji: "🪰", label: "Moscas" },
   { emoji: "🪱", label: "Cupins" },
-  { emoji: "💧", label: "Caixa d'agua" },
+  { emoji: "💧", label: "Caixa d'água" },
 ];
 
 export function AreaAtendimentoSection() {
@@ -35,17 +35,16 @@ export function AreaAtendimentoSection() {
       <div className="mx-auto max-w-5xl px-4 md:px-6">
         <div className="text-center">
           <p className="text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase">
-            Area de Atendimento
+            Área de Atendimento
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
-            Dedetizacao Profissional em Franca e Regiao
+            Dedetização Profissional em Franca e Região
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-[color:var(--brand-muted)]">
-            A Sentinela Saude Ambiental atende residencias e empresas em Franca/SP e cidades da regiao. Confirmamos disponibilidade pelo WhatsApp antes do agendamento.
+            A Sentinela Saúde Ambiental atende residências e empresas em Franca/SP e cidades da região. Confirmamos disponibilidade pelo WhatsApp antes do agendamento.
           </p>
         </div>
 
-        {/* Cidades atendidas */}
         <div className="mt-10">
           <h3 className="mb-4 text-center font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
             Cidades Atendidas
@@ -63,7 +62,6 @@ export function AreaAtendimentoSection() {
           </div>
         </div>
 
-        {/* Tipos de praga */}
         <div className="mt-10">
           <h3 className="mb-4 text-center font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
             Pragas que Eliminamos
@@ -81,13 +79,12 @@ export function AreaAtendimentoSection() {
           </div>
         </div>
 
-        {/* Info adicional */}
         <div className="mt-10 rounded-2xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] p-6 text-center md:p-8">
           <p className="text-sm text-[color:var(--brand-muted)]">
-            <strong className="text-[color:var(--brand-navy)]">CNPJ: {BRAND.cnpj}</strong> — Empresa registrada e licenciada pela Vigilancia Sanitaria para atuar em controle de pragas urbanas em Franca/SP e regiao.
+            <strong className="text-[color:var(--brand-navy)]">CNPJ: {BRAND.cnpj}</strong> — Empresa registrada e licenciada pela Vigilância Sanitária para atuar em controle de pragas urbanas em Franca/SP e região.
           </p>
           <p className="mt-3 text-sm text-[color:var(--brand-muted)]">
-            Horarios: {BRAND.openingHours.weekdays} | {BRAND.openingHours.sunday}
+            Horários: {BRAND.openingHours.weekdays} | {BRAND.openingHours.sunday}
           </p>
         </div>
       </div>

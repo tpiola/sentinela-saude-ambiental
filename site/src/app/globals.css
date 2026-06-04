@@ -21,8 +21,7 @@
   --mobile-sticky-bar-height: 56px;
 }
 
-/* IMPORTANTE: Remover overrides de dark mode para garantir legibilidade consistente */
-/* O site de negocios deve sempre exibir paleta clara independente do sistema do usuario */
+/* Dark mode REMOVIDO - site de negocio deve exibir sempre a paleta clara */
 
 @theme inline {
   --color-background: var(--background);
