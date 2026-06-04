@@ -21,16 +21,8 @@
   --mobile-sticky-bar-height: 56px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --brand-muted: #94a3b8;
-    --brand-tagline-grey: #94a3b8;
-    --brand-border: #1e2d42;
-    --brand-surface: #0d1a2e;
-    --background: #080f1e;
-    --foreground: #e2ecf4;
-  }
-}
+/* IMPORTANTE: Remover overrides de dark mode para garantir legibilidade consistente */
+/* O site de negocios deve sempre exibir paleta clara independente do sistema do usuario */
 
 @theme inline {
   --color-background: var(--background);
@@ -40,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 @media (prefers-reduced-motion: reduce) {
