@@ -5,144 +5,141 @@ import { whatsappHref } from "@/lib/brand";
 
 const steps = [
   {
-        number: "01",
-        title: "Primeiro Contato",
-        subtitle: "Atração e Consciência",
-        text: "Você nos encontra pelo Google, indicação ou redes sociais. Entra em contato pelo WhatsApp ou preenche o diagnóstico gratuito no site — sem compromisso.",
-        cta: "Diagnóstico gratuito",
-        color: "from-[color:var(--brand-lime)]/20 to-transparent",
-        badge: "Topo do Funil",
+    number: "01",
+    title: "Primeiro Contato",
+    subtitle: "Atracao e Consciencia",
+    text: "Voce nos encontra pelo Google, indicacao ou redes sociais. Entra em contato pelo WhatsApp ou preenche o diagnostico gratuito no site.",
+    cta: "Diagnostico gratuito",
+    color: "from-[color:var(--brand-lime)]/20 to-transparent",
+    badge: "Topo do Funil",
   },
   {
-        number: "02",
-        title: "Diagnóstico Objetivo",
-        subtitle: "Qualificação",
-        text: "Identificamos o problema, o tipo de ambiente e a urgência. Sem enrolação — priorizamos escorpião, empresas com exigência de vigilância e situações de risco.",
-        cta: null,
-        color: "from-[color:var(--brand-accent-blue)]/20 to-transparent",
-        badge: "Meio do Funil",
+    number: "02",
+    title: "Diagnostico Objetivo",
+    subtitle: "Qualificacao",
+    text: "Identificamos o problema, o tipo de ambiente e a urgencia. Priorizamos escorpiao, empresas com exigencia de vigilancia e situacoes de risco.",
+    cta: null,
+    color: "from-[color:var(--brand-accent-blue)]/20 to-transparent",
+    badge: "Meio do Funil",
   },
   {
-        number: "03",
-        title: "Proposta Clara",
-        subtitle: "Consideração",
-        text: "Escopo detalhado, investimento transparente e prazo estimado. Incluímos laudo técnico quando necessário. Sem surpresas nem letras miúdas.",
-        cta: null,
-        color: "from-purple-500/20 to-transparent",
-        badge: "Meio do Funil",
+    number: "03",
+    title: "Proposta Clara",
+    subtitle: "Consideracao",
+    text: "Escopo detalhado, investimento transparente e prazo estimado. Incluimos laudo tecnico quando necessario. Sem surpresas.",
+    cta: null,
+    color: "from-purple-500/20 to-transparent",
+    badge: "Meio do Funil",
   },
   {
-        number: "04",
-        title: "Agendamento",
-        subtitle: "Decisão",
-        text: "Escolha o dia e horário pelo Google Agenda ou WhatsApp. Confirmação automática com lembrete — você decide sem pressão.",
-        cta: null,
-        color: "from-[color:var(--brand-lime)]/20 to-transparent",
-        badge: "Fundo do Funil",
+    number: "04",
+    title: "Agendamento",
+    subtitle: "Decisao",
+    text: "Escolha o dia e horario pelo Google Agenda ou WhatsApp. Confirmacao automatica com lembrete.",
+    cta: null,
+    color: "from-[color:var(--brand-lime)]/20 to-transparent",
+    badge: "Fundo do Funil",
   },
   {
-        number: "05",
-        title: "Execução Profissional",
-        subtitle: "Entrega",
-        text: "Técnicos equipados e treinados. Produtos registrados na ANVISA. Orientações completas sobre segurança para crianças, pets e alimentos durante e após o serviço.",
-        cta: null,
-        color: "from-emerald-500/20 to-transparent",
-        badge: "Fundo do Funil",
+    number: "05",
+    title: "Execucao Profissional",
+    subtitle: "Entrega",
+    text: "Tecnicos equipados e treinados. Produtos registrados na ANVISA. Orientacoes completas sobre seguranca durante e apos o servico.",
+    cta: null,
+    color: "from-emerald-500/20 to-transparent",
+    badge: "Fundo do Funil",
   },
   {
-        number: "06",
-        title: "Pós-serviço e Fidelização",
-        subtitle: "Retenção",
-        text: "Laudo técnico emitido, garantia informada e follow-up para verificar o resultado. Plano preventivo para manter seu ambiente protegido o ano todo.",
-        cta: null,
-        color: "from-orange-500/20 to-transparent",
-        badge: "Pós-venda",
+    number: "06",
+    title: "Pos-servico",
+    subtitle: "Retencao",
+    text: "Laudo tecnico emitido, garantia informada e follow-up. Plano preventivo para manter seu ambiente protegido o ano todo.",
+    cta: null,
+    color: "from-orange-500/20 to-transparent",
+    badge: "Pos-venda",
   },
-  ];
+];
 
 export function ProcessTimeline() {
-    return (
-          <section
-                  id="como-trabalhamos"
-                  className="scroll-mt-24 bg-[color:var(--brand-navy)] py-20 text-white md:py-28"
+  return (
+    <section
+      id="como-trabalhamos"
+      className="scroll-mt-24 bg-[color:var(--brand-navy)] py-20 text-white md:py-28"
+    >
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <p className="text-xs font-bold tracking-widest text-[color:var(--brand-lime)] uppercase">
+            Funil de Vendas
+          </p>
+          <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold md:text-4xl">
+            Do primeiro contato a protecao garantida
+          </h2>
+          <p className="mt-4 text-lg text-white/75">
+            Cada etapa e pensada para que voce tome a decisao certa com clareza e confianca.
+          </p>
+        </motion.div>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className={"relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br " + step.color + " p-6 backdrop-blur-sm"}
+            >
+              <div className="mb-4 flex items-start justify-between">
+                <span className="font-[family-name:var(--font-heading)] text-4xl font-black text-[color:var(--brand-lime)]/30 leading-none">
+                  {step.number}
+                </span>
+                <span className="rounded-full border border-white/20 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/50">
+                  {step.badge}
+                </span>
+              </div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[color:var(--brand-lime)]/70">
+                {step.subtitle}
+              </p>
+              <h3 className="mt-1 font-[family-name:var(--font-heading)] text-lg font-bold text-white">
+                {step.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/75">
+                {step.text}
+              </p>
+              {step.cta && (
+                <a
+                  href={whatsappHref()}
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[color:var(--brand-lime)] hover:underline"
                 >
-                <div className="mx-auto max-w-6xl px-4 md:px-6">
-                        <motion.div
-                                    initial={{ opacity: 0, y: 16 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    className="mx-auto max-w-3xl text-center"
-                                  >
-                                  <p className="text-xs font-bold tracking-widest text-[color:var(--brand-lime)] uppercase">
-                                              Funil de Vendas
-                                  </p>p>
-                                  <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold md:text-4xl">
-                                              Do primeiro contato à proteção garantida
-                                  </h2>h2>
-                                  <p className="mt-4 text-lg text-white/75">
-                                              Cada etapa é pensada para que você tome a decisão certa — com clareza,
-                                              transparência e confiança na Sentinela.
-                                  </p>p>
-                        </motion.div>motion.div>
-                
-                        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                          {steps.map((step, i) => (
-                              <motion.div
-                                              key={step.title}
-                                              initial={{ opacity: 0, y: 24 }}
-                                              whileInView={{ opacity: 1, y: 0 }}
-                                              viewport={{ once: true }}
-                                              transition={{ delay: i * 0.08 }}
-                                              className={`relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${step.color} p-6 backdrop-blur-sm`}
-                                            >
-                                            <div className="mb-4 flex items-start justify-between">
-                                                            <span className="font-[family-name:var(--font-heading)] text-4xl font-black text-[color:var(--brand-lime)]/30 leading-none">
-                                                              {step.number}
-                                                            </span>span>
-                                                            <span className="rounded-full border border-white/20 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white/50">
-                                                              {step.badge}
-                                                            </span>span>
-                                            </div>div>
-                              
-                                            <p className="text-[10px] font-bold uppercase tracking-widest text-[color:var(--brand-lime)]/70">
-                                              {step.subtitle}
-                                            </p>p>
-                                            <h3 className="mt-1 font-[family-name:var(--font-heading)] text-lg font-bold text-white">
-                                              {step.title}
-                                            </h3>h3>
-                                            <p className="mt-3 text-sm leading-relaxed text-white/75">
-                                              {step.text}
-                                            </p>p>
-                              
-                                {step.cta && (
-                                                              <a
-                                                                                  href={whatsappHref()}
-                                                                                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[color:var(--brand-lime)] hover:underline"
-                                                                                >
-                                                                {step.cta} →
-                                                              </a>a>
-                                            )}
-                              </motion.div>motion.div>
-                            ))}
-                        </div>div>
-                
-                        <motion.div
-                                    initial={{ opacity: 0 }}
-                                    whileInView={{ opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    className="mt-14 text-center"
-                                  >
-                                  <p className="text-white/60 mb-6 text-sm">
-                                              Pronto para começar? O primeiro passo é gratuito.
-                                  </p>p>
-                                  <a
-                                                href={whatsappHref()}
-                                                className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-10 py-3 font-[family-name:var(--font-heading)] font-bold text-[color:var(--brand-navy)] shadow-lg transition hover:bg-[color:var(--brand-green-light)] active:scale-95"
-                                              >
-                                              Iniciar diagnóstico gratuito no WhatsApp
-                                  </a>a>
-                        </motion.div>motion.div>
-                </div>div>
-          </section>section>
-        );
-}</section>
+                  {step.cta}
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-14 text-center"
+        >
+          <p className="text-white/60 mb-6 text-sm">
+            Pronto para comecar? O primeiro passo e gratuito.
+          </p>
+          <a
+            href={whatsappHref()}
+            className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-10 py-3 font-[family-name:var(--font-heading)] font-bold text-[color:var(--brand-navy)] shadow-lg transition hover:bg-[color:var(--brand-green-light)] active:scale-95"
+          >
+            Iniciar pelo WhatsApp
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
