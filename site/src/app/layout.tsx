@@ -20,7 +20,7 @@ const body = DM_Sans({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.vercel.app";
+  "https://www.sentinelasaudeambiental.com.br";
 
 const absoluteLogoUrl = new URL(BRAND.logoPath, siteUrl).href;
 
@@ -28,30 +28,31 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Sentinela Saúde Ambiental | Controle de pragas em Franca SP e região",
-    template: "%s | Sentinela Saúde Ambiental",
+      "Dedetizadora em Franca SP | Sentinela Saude Ambiental — 11 anos, ANVISA",
+    template: "%s | Sentinela Saude Ambiental",
   },
   description:
-    "Dedetizadora em Franca SP com mais de 11 anos. Desinsetização, desratização, escorpiões e limpeza de caixa d'água com laudo técnico ANVISA. Orçamento grátis no WhatsApp.",
+    "Dedetizadora em Franca SP com mais de 11 anos. Desinsetizacao, desratizacao, escorpioes e limpeza de caixa d'agua com laudo tecnico ANVISA. Orcamento gratis no WhatsApp: (16) 99374-7147.",
   keywords: [
-    "controle de pragas Franca",
-    "controle de pragas região Franca",
     "dedetizadora Franca SP",
-    "desinsetização Franca",
-    "desratização Franca",
-    "descupinização Franca",
-    "escorpião Franca",
-    "limpeza caixa d'água Franca",
-    "laudo Vigilância Sanitária Franca",
-    "contrato empresa controle de pragas",
-    "Batatais",
-    "Orlândia",
-    "sentinela saúde ambiental",
+    "controle de pragas Franca",
+    "desinsetizacao Franca",
+    "desratizacao Franca",
+    "descupinizacao Franca",
+    "escorpiao Franca SP",
+    "limpeza caixa dagua Franca",
+    "laudo Vigilancia Sanitaria Franca",
+    "dedetizadora Batatais",
+    "dedetizadora Orlandia",
+    "contrato empresa controle de pragas Franca",
+    "sentinela saude ambiental",
+    "dedetizacao residencial Franca",
+    "dedetizacao empresarial Franca",
   ],
   authors: [{ name: BRAND.name, url: siteUrl }],
   creator: BRAND.name,
   publisher: BRAND.name,
-  category: "Saúde ambiental",
+  category: "Saude ambiental",
   alternates: {
     canonical: "/",
   },
@@ -60,8 +61,9 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: siteUrl,
     siteName: BRAND.name,
-    title: `${BRAND.name} — Controle integrado de pragas`,
-    description: BRAND.tagline,
+    title: "Dedetizadora em Franca SP | Sentinela Saude Ambiental",
+    description:
+      "Desinsetizacao, desratizacao, escorpioes, cupins e limpeza de caixa d'agua em Franca SP. Laudo tecnico ANVISA. Orcamento gratis.",
     images: [
       {
         url: absoluteLogoUrl,
@@ -74,8 +76,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: BRAND.name,
-    description: BRAND.shortTagline,
+    title: "Dedetizadora em Franca SP | Sentinela Saude Ambiental",
+    description:
+      "Controle de pragas profissional em Franca SP. Laudo ANVISA. Orcamento gratis no WhatsApp.",
     images: [absoluteLogoUrl],
   },
   robots: {
@@ -89,7 +92,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // google: "cole-o-código-do-search-console",
+    // google: "cole-o-codigo-do-search-console",
   },
   other: {
     "geo.region": "BR-SP",
@@ -102,11 +105,12 @@ export const metadata: Metadata = {
     "business:contact_data:postal_code": BRAND.address.postalCode,
     "business:contact_data:country_name": "Brasil",
     "business:contact_data:phone_number": BRAND.phoneDisplay,
+    "business:contact_data:email": BRAND.email,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#002d5b",
+  themeColor: "#002347",
   width: "device-width",
   initialScale: 1,
 };
@@ -123,6 +127,9 @@ export default function RootLayout({
     >
       <head>
         <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="icon" href="/brand/logo-brasao.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/brand/logo-brasao.png" />
+        <link rel="shortcut icon" href="/brand/logo-brasao.png" />
       </head>
       <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)]">
         <JsonLdLocalBusiness />
