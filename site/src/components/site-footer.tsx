@@ -13,11 +13,11 @@ import {
 import { calendarBookingHref } from "@/lib/integrations";
 
 const quickLinks = [
-  { href: "/#inicio", label: "Início" },
+  { href: "/#inicio", label: "Inicio" },
   { href: "/#sobre", label: "Quem somos" },
-  { href: "/#servicos", label: "Serviços" },
+  { href: "/#servicos", label: "Servicos" },
   { href: "/#empresas", label: "Para empresas" },
-  { href: "/#faq", label: "Dúvidas" },
+  { href: "/#faq", label: "Duvidas" },
 ];
 
 export function SiteFooter() {
@@ -34,7 +34,7 @@ export function SiteFooter() {
                 {BRAND.name}
               </h3>
               <p className="mt-2 text-sm text-slate-400">
-                Controle de pragas profissional em Franca e região.
+                Controle de pragas profissional em Franca e regiao.
               </p>
               <div className="mt-4 flex gap-3">
                 <SocialLink href={BRAND.facebookUrl} label="Facebook">
@@ -43,6 +43,14 @@ export function SiteFooter() {
                 <SocialLink href={BRAND.instagramUrl} label="Instagram">
                   <InstagramBrandIcon className="h-5 w-5" />
                 </SocialLink>
+              </div>
+              <div className="mt-5">
+                <a
+                  href={whatsappHref()}
+                  className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-5 py-2.5 text-sm font-bold text-[color:var(--brand-navy)] hover:bg-[color:var(--brand-green-light)] transition"
+                >
+                  Falar no WhatsApp
+                </a>
               </div>
             </div>
 
@@ -79,14 +87,6 @@ export function SiteFooter() {
                 </li>
                 <li>
                   <a
-                    href={`tel:+${BRAND.phoneE164}`}
-                    className="hover:text-[color:var(--brand-lime)]"
-                  >
-                    Tel: {BRAND.phoneDisplay}
-                  </a>
-                </li>
-                <li>
-                  <a
                     href={`mailto:${BRAND.email}`}
                     className="break-all hover:text-[color:var(--brand-lime)]"
                   >
@@ -113,7 +113,7 @@ export function SiteFooter() {
                     rel="noopener noreferrer"
                     className="rounded-full border border-slate-700 px-4 py-1.5 text-xs font-semibold text-slate-300 hover:border-[color:var(--brand-lime)]"
                   >
-                    GPS →
+                    Como chegar
                   </a>
                 </li>
               </ul>
@@ -136,29 +136,29 @@ export function SiteFooter() {
 
         <div className="mt-8 rounded-xl border border-slate-800 bg-slate-900/50 px-4 py-3 text-xs text-slate-400">
           <p className="font-medium text-slate-300">{BRAND.addressFull}</p>
-          <p className="mt-1">CNPJ {BRAND.cnpj} · CNAE 8122-2/00</p>
+          <p className="mt-1">CNPJ {BRAND.cnpj} CNAE 8122-2/00</p>
           <div className="mt-2 flex flex-wrap gap-2">
-            <span className="rounded-full border border-slate-700 px-2.5 py-0.5 text-[10px] font-semibold text-slate-300">
-              ✓ ANVISA RDC 622
+            <span className="rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[color:var(--brand-lime)]">
+              ANVISA RDC 622
             </span>
-            <span className="rounded-full border border-slate-700 px-2.5 py-0.5 text-[10px] font-semibold text-slate-300">
-              ✓ Licenciada
+            <span className="rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[color:var(--brand-lime)]">
+              Empresa Licenciada
             </span>
-            <span className="rounded-full border border-slate-700 px-2.5 py-0.5 text-[10px] font-semibold text-slate-300">
-              ✓ Vig. Sanitária
+            <span className="rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[color:var(--brand-lime)]">
+              Vigilancia Sanitaria
             </span>
           </div>
         </div>
 
         <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-slate-800 pt-5 text-xs text-slate-500 md:flex-row">
           <p>
-            © {new Date().getFullYear()} {BRAND.name}
+            {new Date().getFullYear()} {BRAND.name}
           </p>
           <Link
             href="/#inicio"
             className="font-medium text-[color:var(--brand-lime)] hover:underline"
           >
-            ↑ Voltar ao topo
+            Voltar ao topo
           </Link>
         </div>
       </div>
