@@ -1,5 +1,4 @@
 import { HeroVideo } from "@/components/hero-video";
-import { PromoVideoSection } from "@/components/promo-video-section";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { StatsMarquee } from "@/components/sections/stats-marquee";
@@ -21,14 +20,13 @@ export default function Home() {
     <>
       <SiteHeader />
       <main>
-        <PromoVideoSection />
         <HeroVideo />
         <StatsMarquee />
         <AboutSection />
         <ServicesGrid />
         <DiagnosticFunnel />
-        <PrevencaoB2BSection />
         <ProcessTimeline />
+        <PrevencaoB2BSection />
         <B2bSection />
         <AreaAtendimentoSection />
         <FaqSection />
