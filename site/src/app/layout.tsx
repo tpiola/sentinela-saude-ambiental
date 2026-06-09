@@ -20,7 +20,7 @@ const body = DM_Sans({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://www.sentinelasaudeambiental.com.br";
+  "https://sentinelasaudeambiental.vercel.app";
 
 const absoluteLogoUrl = new URL(BRAND.logoPath, siteUrl).href;
 
@@ -28,31 +28,30 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Dedetizadora em Franca SP | Sentinela Saude Ambiental — 11 anos, ANVISA",
-    template: "%s | Sentinela Saude Ambiental",
+      "Sentinela Saúde Ambiental | Controle de pragas em Franca SP e região",
+    template: "%s | Sentinela Saúde Ambiental",
   },
   description:
-    "Dedetizadora em Franca SP com mais de 11 anos. Desinsetizacao, desratizacao, escorpioes e limpeza de caixa d'agua com laudo tecnico ANVISA. Orcamento gratis no WhatsApp: (16) 99374-7147.",
+    "Mais de 11 anos de experiência em Franca e região: controle integrado de pragas com laudo técnico e transparência para exigências da Vigilância Sanitária. Desinsetização, desratização e prevenção de escorpiões — resposta rápida no WhatsApp.",
   keywords: [
-    "dedetizadora Franca SP",
     "controle de pragas Franca",
-    "desinsetizacao Franca",
-    "desratizacao Franca",
-    "descupinizacao Franca",
-    "escorpiao Franca SP",
-    "limpeza caixa dagua Franca",
-    "laudo Vigilancia Sanitaria Franca",
-    "dedetizadora Batatais",
-    "dedetizadora Orlandia",
-    "contrato empresa controle de pragas Franca",
-    "sentinela saude ambiental",
-    "dedetizacao residencial Franca",
-    "dedetizacao empresarial Franca",
+    "controle de pragas região Franca",
+    "dedetizadora Franca SP",
+    "desinsetização Franca",
+    "desratização Franca",
+    "descupinização Franca",
+    "escorpião Franca",
+    "limpeza caixa d'água Franca",
+    "laudo Vigilância Sanitária Franca",
+    "contrato empresa controle de pragas",
+    "Batatais",
+    "Orlândia",
+    "sentinela saúde ambiental",
   ],
   authors: [{ name: BRAND.name, url: siteUrl }],
   creator: BRAND.name,
   publisher: BRAND.name,
-  category: "Saude ambiental",
+  category: "Saúde ambiental",
   alternates: {
     canonical: "/",
   },
@@ -61,9 +60,8 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: siteUrl,
     siteName: BRAND.name,
-    title: "Dedetizadora em Franca SP | Sentinela Saude Ambiental",
-    description:
-      "Desinsetizacao, desratizacao, escorpioes, cupins e limpeza de caixa d'agua em Franca SP. Laudo tecnico ANVISA. Orcamento gratis.",
+    title: `${BRAND.name} — Controle integrado de pragas`,
+    description: BRAND.tagline,
     images: [
       {
         url: absoluteLogoUrl,
@@ -76,9 +74,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dedetizadora em Franca SP | Sentinela Saude Ambiental",
-    description:
-      "Controle de pragas profissional em Franca SP. Laudo ANVISA. Orcamento gratis no WhatsApp.",
+    title: BRAND.name,
+    description: BRAND.shortTagline,
     images: [absoluteLogoUrl],
   },
   robots: {
@@ -92,25 +89,22 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // google: "cole-o-codigo-do-search-console",
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION ?? "",
   },
   other: {
     "geo.region": "BR-SP",
     "geo.placename": "Franca",
-    "geo.position": "-20.5401;-47.4009",
-    ICBM: "-20.5401, -47.4009",
-    "business:contact_data:street_address": BRAND.address.streetAddress,
+    "geo.position": `${BRAND.geo.latitude};${BRAND.geo.longitude}`,
+    ICBM: `${BRAND.geo.latitude}, ${BRAND.geo.longitude}`,
     "business:contact_data:locality": "Franca",
     "business:contact_data:region": "SP",
-    "business:contact_data:postal_code": BRAND.address.postalCode,
     "business:contact_data:country_name": "Brasil",
     "business:contact_data:phone_number": BRAND.phoneDisplay,
-    "business:contact_data:email": BRAND.email,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#002347",
+  themeColor: "#002d5b",
   width: "device-width",
   initialScale: 1,
 };
@@ -126,10 +120,8 @@ export default function RootLayout({
       className={`${heading.variable} ${body.variable} h-full scroll-smooth antialiased`}
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="icon" href="/brand/logo-brasao.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/brand/logo-brasao.png" />
-        <link rel="shortcut icon" href="/brand/logo-brasao.png" />
       </head>
       <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)]">
         <JsonLdLocalBusiness />
