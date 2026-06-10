@@ -41,9 +41,9 @@ export function ServicesGrid() {
     <section id="servicos" className="scroll-mt-28 bg-[color:var(--brand-surface)] py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase">Nossas solucoes</p>
-          <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">Controle integrado - metodo, nao so aplicacao</h2>
-          <p className="mt-4 text-lg text-[color:var(--brand-muted)]">Diagnostico, plano e documentacao para residencias e empresas na regiao de Franca - com laudo tecnico e foco em Vigilancia Sanitaria quando o seu segmento exige comprovacao.</p>
+          <p className="text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase">Nossas soluções</p>
+          <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">Controle integrado — método, não só aplicação</h2>
+          <p className="mt-4 text-lg text-[color:var(--brand-muted)]">Diagnóstico, plano e documentação para residências e empresas na região de Franca — com laudo técnico e foco em Vigilância Sanitária quando o seu segmento exige comprovação.</p>
         </motion.div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {BRAND.services.map((s, i) => (
@@ -53,7 +53,7 @@ export function ServicesGrid() {
               </span>
               <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-navy)]">{s.title}</h3>
               <p className="mt-3 flex-grow text-sm leading-relaxed text-[color:var(--brand-muted)]">{s.desc}</p>
-              <a href={whatsappHref("Ola! Quero saber mais sobre " + s.title + " em Franca SP.")} className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-[color:var(--brand-green-deep)] transition group-hover:gap-2">Saber mais</a>
+              <a href={whatsappHref("Olá! Quero saber mais sobre " + s.title + " em Franca SP.")} className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-[color:var(--brand-green-deep)] transition group-hover:gap-2">Saber mais</a>
             </motion.article>
           ))}
         </div>

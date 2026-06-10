@@ -9,7 +9,7 @@ const steps = [
     number: "01",
     label: "1",
     title: "Entre em Contato",
-    text: "Chame no WhatsApp ou preencha o formulario. Respondemos em minutos no horario comercial sem burocracia.",
+    text: "Chame no WhatsApp ou preencha o formulário. Respondemos em minutos no horário comercial sem burocracia.",
     cta: "Falar agora no WhatsApp",
     ctaHref: "whatsapp",
     color: "from-[color:var(--brand-lime)]/20 to-transparent",
@@ -17,8 +17,8 @@ const steps = [
   {
     number: "02",
     label: "2",
-    title: "Diagnostico Gratuito",
-    text: "Identificamos o problema, o ambiente e a urgencia. Sem custo de visita. Escorpioes e situacoes de risco tem prioridade.",
+    title: "Diagnóstico Gratuito",
+    text: "Identificamos o problema, o ambiente e a urgência. Sem custo de visita. Escorpiões e situações de risco têm prioridade.",
     cta: null,
     ctaHref: null,
     color: "from-[color:var(--brand-accent-blue)]/20 to-transparent",
@@ -27,7 +27,7 @@ const steps = [
     number: "03",
     label: "3",
     title: "Proposta Transparente",
-    text: "Recebe um orcamento claro: o que sera feito, o produto usado, o prazo e o investimento. Sem surpresas.",
+    text: "Recebe um orçamento claro: o que será feito, o produto usado, o prazo e o investimento. Sem surpresas.",
     cta: null,
     ctaHref: null,
     color: "from-purple-500/20 to-transparent",
@@ -35,8 +35,8 @@ const steps = [
   {
     number: "04",
     label: "4",
-    title: "Agendamento Facil",
-    text: "Escolha o melhor dia e horario pelo WhatsApp ou Google Agenda. Voce recebe confirmacao e lembrete automatico.",
+    title: "Agendamento Fácil",
+    text: "Escolha o melhor dia e horário pelo WhatsApp ou Google Agenda. Você recebe confirmação e lembrete automático.",
     cta: "Agendar pelo Google",
     ctaHref: "calendar",
     color: "from-[color:var(--brand-lime)]/20 to-transparent",
@@ -44,8 +44,8 @@ const steps = [
   {
     number: "05",
     label: "5",
-    title: "Servico Profissional",
-    text: "Tecnicos treinados, produtos registrados na ANVISA e orientacao completa sobre seguranca para familia e pets.",
+    title: "Serviço Profissional",
+    text: "Técnicos treinados, produtos registrados na ANVISA e orientação completa sobre segurança para família e pets.",
     cta: null,
     ctaHref: null,
     color: "from-emerald-500/20 to-transparent",
@@ -54,7 +54,7 @@ const steps = [
     number: "06",
     label: "6",
     title: "Garantia e Laudo",
-    text: "Recebe o laudo tecnico, a garantia do servico e o plano preventivo para manter seu espaco protegido o ano todo.",
+    text: "Recebe o laudo técnico, a garantia do serviço e o plano preventivo para manter seu espaço protegido o ano todo.",
     cta: null,
     ctaHref: null,
     color: "from-orange-500/20 to-transparent",
@@ -78,10 +78,10 @@ export function ProcessTimeline() {
             Como funciona
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-white md:text-4xl">
-            Do primeiro contato a protecao garantida
+            Do primeiro contato à proteção garantida
           </h2>
           <p className="mt-4 text-lg text-white/80">
-            Simples, rapido e sem complicacao. Veja como e facil proteger sua casa ou empresa.
+            Simples, rápido e sem complicação. Veja como é fácil proteger sua casa ou empresa.
           </p>
         </motion.div>
 
@@ -138,13 +138,13 @@ export function ProcessTimeline() {
           className="mt-14 text-center"
         >
           <p className="text-white/70 mb-6 text-sm">
-            O diagnostico e gratuito e sem compromisso.
+            O diagnóstico é gratuito e sem compromisso.
           </p>
           <a
             href={whatsappHref()}
             className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-10 py-3 font-[family-name:var(--font-heading)] font-bold text-[color:var(--brand-navy)] shadow-lg transition hover:bg-[color:var(--brand-green-light)] active:scale-95"
           >
-            Quero meu orcamento gratuito
+            Quero meu orçamento gratuito
           </a>
         </motion.div>
       </div>

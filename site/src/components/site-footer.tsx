@@ -13,11 +13,11 @@ import {
 import { calendarBookingHref } from "@/lib/integrations";
 
 const quickLinks = [
-  { href: "/#inicio", label: "Inicio" },
+  { href: "/#inicio", label: "Início" },
   { href: "/#sobre", label: "Quem somos" },
-  { href: "/#servicos", label: "Servicos" },
+  { href: "/#servicos", label: "Serviços" },
   { href: "/#empresas", label: "Para empresas" },
-  { href: "/#faq", label: "Duvidas" },
+  { href: "/#faq", label: "Dúvidas" },
 ];
 
 export function SiteFooter() {
@@ -34,7 +34,7 @@ export function SiteFooter() {
                 {BRAND.name}
               </h3>
               <p className="mt-2 text-sm text-slate-400">
-                Controle de pragas profissional em Franca e regiao.
+                Controle de pragas profissional em Franca e região.
               </p>
               <div className="mt-4 flex gap-3">
                 <SocialLink href={BRAND.facebookUrl} label="Facebook">
@@ -88,7 +88,7 @@ export function SiteFooter() {
                 <li>
                   <a
                     href={`mailto:${BRAND.email}`}
-                    className="break-all hover:text-[color:var(--brand-lime)]"
+                    className="transition hover:text-[color:var(--brand-lime)] whitespace-nowrap"
                   >
                     {BRAND.email}
                   </a>
@@ -145,7 +145,7 @@ export function SiteFooter() {
               Empresa Licenciada
             </span>
             <span className="rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[color:var(--brand-lime)]">
-              Vigilancia Sanitaria
+              Vigilância Sanitária
             </span>
           </div>
         </div>

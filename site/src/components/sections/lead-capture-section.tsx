@@ -45,7 +45,7 @@ export function LeadCaptureSection() {
   }
 
   return (
-    <section id="contato-lead" className="scroll-mt-28 bg-white py-16 md:py-24">
+    <section id="contato-lead" className="scroll-mt-28 bg-white py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 12 }}

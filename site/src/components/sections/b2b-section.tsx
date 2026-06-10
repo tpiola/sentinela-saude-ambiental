@@ -94,7 +94,7 @@ export function B2bSection() {
             className="relative"
           >
             <div
-              className="absolute inset-0 translate-x-4 -translate-y-4 rounded-3xl border-2 border-[color:var(--brand-lime)]"
+              className="pointer-events-none absolute inset-0 translate-x-4 -translate-y-4 rounded-3xl border-2 border-[color:var(--brand-lime)]"
               aria-hidden
             />
             <div className="relative overflow-hidden rounded-3xl shadow-2xl">

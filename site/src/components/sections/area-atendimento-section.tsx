@@ -28,7 +28,7 @@ export function AreaAtendimentoSection() {
   return (
     <section
       id="area-atendimento"
-      className="scroll-mt-28 bg-white py-16 md:py-24"
+      className="scroll-mt-28 bg-white py-20 md:py-28"
       itemScope
       itemType="https://schema.org/PestControlService"
     >

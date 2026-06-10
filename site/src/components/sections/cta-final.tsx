@@ -18,7 +18,7 @@ export function CtaFinal() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-[color:var(--brand-navy)] md:text-4xl"
+          className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-white md:text-4xl"
         >
           Escorpião, barata ou exigência da fiscal — não deixe virar emergência
         </motion.h2>
@@ -27,7 +27,7 @@ export function CtaFinal() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.06 }}
-          className="mx-auto mt-5 max-w-2xl text-lg text-[color:var(--brand-navy)]/90"
+          className="mx-auto mt-5 max-w-2xl text-lg text-white/85"
         >
           {BRAND.experienceYearsLabel} de atuação em Franca e região com laudo e
           transparência. Chame no WhatsApp: diagnóstico gratuito e resposta

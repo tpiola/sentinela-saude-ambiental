@@ -6,23 +6,23 @@ import { whatsappHref } from "@/lib/brand";
 const pontos = [
   {
     icon: "shield",
-    title: "Prevencao continua",
-    body: "Um plano preventivo evita infestacoes, reduz custos de emergencia e protege sua operacao o ano todo.",
+    title: "Prevenção contínua",
+    body: "Um plano preventivo evita infestações, reduz custos de emergência e protege sua operação o ano todo.",
   },
   {
     icon: "doc",
-    title: "Documentacao completa",
-    body: "Laudo tecnico, certificados e registros de aplicacao prontos para qualquer auditoria ou fiscalizacao.",
+    title: "Documentação completa",
+    body: "Laudo técnico, certificados e registros de aplicação prontos para qualquer auditoria ou fiscalização.",
   },
   {
     icon: "check",
     title: "Conformidade garantida",
-    body: "Atendemos as exigencias da Vigilancia Sanitaria e normas do setor, protegendo a reputacao do seu negocio.",
+    body: "Atendemos as exigências da Vigilância Sanitária e normas do setor, protegendo a reputação do seu negócio.",
   },
   {
     icon: "clock",
-    title: "Sem parar sua operacao",
-    body: "Aplicamos gel de ultima geracao e agendamos fora do horario de pico para nao interferir no seu dia a dia.",
+    title: "Sem parar sua operação",
+    body: "Aplicamos gel de última geração e agendamos fora do horário de pico para não interferir no seu dia a dia.",
   },
 ];
 
@@ -69,7 +69,7 @@ export function PrevencaoB2BSection() {
             Proteja seu negocio antes do problema aparecer
           </h2>
           <p className="mt-4 text-lg text-[color:var(--brand-muted)]">
-            Industria, comercio e condominio com exigencia de Vigilancia Sanitaria: tenha laudo tecnico, prevencao documentada e conformidade sem surpresas.
+            Indústria, comércio e condomínio com exigência de Vigilância Sanitária: tenha laudo técnico, prevenção documentada e conformidade sem surpresas.
           </p>
         </motion.div>
 

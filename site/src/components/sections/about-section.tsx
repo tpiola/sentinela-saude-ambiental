@@ -23,7 +23,7 @@ export function AboutSection() {
             className="relative order-2 lg:order-1"
           >
             <div
-              className="absolute -inset-3 rounded-3xl bg-[color:var(--brand-lime)]/20"
+              className="pointer-events-none absolute -inset-3 rounded-3xl bg-[color:var(--brand-lime)]/20"
               aria-hidden
             />
             <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
@@ -37,7 +37,7 @@ export function AboutSection() {
                 quality={90}
               />
             </div>
-            <div className="absolute -right-2 -bottom-6 rounded-2xl bg-[color:var(--brand-navy)] px-6 py-5 text-white shadow-2xl sm:-right-6 sm:-bottom-8 sm:px-8">
+            <div className="absolute right-4 bottom-4 rounded-2xl bg-[color:var(--brand-navy)] px-6 py-5 text-white shadow-2xl sm:px-8">
               <p className="font-[family-name:var(--font-heading)] text-4xl font-black text-[color:var(--brand-lime)] sm:text-5xl">
                 {BRAND.experienceYearsShort}
               </p>
