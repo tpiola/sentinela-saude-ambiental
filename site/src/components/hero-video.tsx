@@ -56,11 +56,17 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
         className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:px-8 lg:grid-cols-[1fr_auto] lg:py-20"
       >
         <div className="text-center lg:text-left">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-4 py-1.5">
+            <span className="h-2 w-2 rounded-full bg-[color:var(--brand-lime)]" />
+            <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[color:var(--brand-lime)]">
+              11+ anos em Franca SP
+            </span>
+          </div>
           <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.08] font-bold tracking-tight text-balance text-white sm:text-5xl lg:text-6xl">
-            Dedetização em Franca SP com Segurança e Garantia
+            Laudo técnico ANVISA sem risco de interdição
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-pretty text-white/85 lg:mx-0">
-            Solução definitiva para cupins, ratos, baratas e escorpiões. Atendimento rápido e profissional com laudo técnico ANVISA.
+            Engenheiros e técnicos registrados cuidam do seu caso pessoalmente — sem terceirização, sem burocracia. Atendimento no mesmo dia para comércio, indústria e condomínios em Franca SP.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
             <motion.a
@@ -69,7 +75,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               whileTap={{ scale: 0.98 }}
               className="inline-flex min-h-[52px] w-full min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-xl sm:w-auto"
             >
-              Fale com um Especialista Agora
+              Solicitar diagnóstico gratuito
             </motion.a>
             <a
               href="#servicos"
@@ -78,11 +84,11 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               Ver serviços
             </a>
           </div>
-          <ul className="mt-10 flex flex-wrap justify-center gap-4 text-xs text-white/60 lg:justify-start">
-            <li>✓ ANVISA RDC 622</li>
-            <li>✓ Empresa licenciada</li>
-            <li>✓ +11 anos em Franca SP</li>
-            <li>✓ Orçamento grátis</li>
+          <ul className="mt-10 flex flex-wrap justify-center gap-4 text-xs text-white/70 lg:justify-start">
+            <li className="flex items-center gap-1.5">✓ ANVISA RDC 622/2022</li>
+            <li className="flex items-center gap-1.5">✓ Técnicos registrados</li>
+            <li className="flex items-center gap-1.5">✓ Laudo em até 24h</li>
+            <li className="flex items-center gap-1.5">✓ Indústria e condomínios</li>
           </ul>
         </div>
 

@@ -181,6 +181,18 @@ export const BRAND = {
               answer:
                         "Desinsetização é o controle de insetos (baratas, formigas, mosquitos, escorpiões). Desratização é o controle de roedores (ratos e camundongos). Muitas vezes ambos os serviços são realizados juntos para controle integrado de pragas.",
       },
+      {
+        question: 'Escorpião apareceu em casa. O que fazer?',
+        answer: 'Mantenha distância, não tente capturar com as mãos e chame a Sentinela imediatamente pelo WhatsApp. Escorpião-amarelo (Tityus serrulatus) é o mais comum em Franca e o mais perigoso — crianças e idosos correm maior risco. Enquanto aguarda, vede frestas, afaste camas das paredes e sacuda roupas e calçados antes de usar.'
+      },
+      {
+        question: 'Condomínio precisa de contrato de dedetização? É obrigatório?',
+        answer: 'Sim. A Vigilância Sanitária exige que condomínios residenciais e comerciais mantenham Plano de Manejo de Controle de Pragas (PMOC) com cronograma preventivo e laudo técnico. Sem isso, o condomínio fica sujeito a multas, interdições e responsabilidade civil em caso de acidentes com moradores. A Sentinela atende condomínios em Franca com contrato personalizado.'
+      },
+      {
+        question: 'Sou síndico. Como contratar um plano preventivo para o condomínio?',
+        answer: 'Entre em contato pelo WhatsApp. Fazemos vistoria gratuita no condomínio, elaboramos cronograma de visitas (mensal, bimestral ou trimestral) e emitimos laudo técnico para cada aplicação. O plano inclui áreas comuns, garagem, lixeira, caixas d\'água e perímetro externo. Atendemos condomínios em Franca, Batatais e região.'
+      },
         ],
 } as const;
 
