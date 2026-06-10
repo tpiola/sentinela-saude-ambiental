@@ -66,7 +66,7 @@ export function PrevencaoB2BSection() {
             Empresas e estabelecimentos
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
-            Proteja seu negocio antes do problema aparecer
+            Proteja seu negócio antes do problema aparecer
           </h2>
           <p className="mt-4 text-lg text-[color:var(--brand-muted)]">
             Indústria, comércio e condomínio com exigência de Vigilância Sanitária: tenha laudo técnico, prevenção documentada e conformidade sem surpresas.
