@@ -23,7 +23,7 @@ export function AboutSection() {
             className="relative order-2 lg:order-1"
           >
             <div
-              className="pointer-events-none absolute -inset-3 rounded-3xl bg-[color:var(--brand-lime)]/20"
+              className="pointer-events-none absolute inset-0 rounded-3xl bg-[color:var(--brand-lime)]/20"
               aria-hidden
             />
             <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">

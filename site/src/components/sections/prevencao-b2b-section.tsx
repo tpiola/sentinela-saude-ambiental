@@ -105,7 +105,7 @@ export function PrevencaoB2BSection() {
           className="mt-12 text-center"
         >
           <a
-            href={whatsappHref("Ola, Sentinela! Preciso de controle de pragas para minha empresa em Franca SP.")}
+            href={whatsappHref("Olá, Sentinela! Preciso de controle de pragas para minha empresa em Franca SP.")}
             className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[color:var(--brand-navy)] px-10 py-3 font-[family-name:var(--font-heading)] font-bold text-white shadow-lg transition hover:bg-[color:var(--brand-navy-soft)] active:scale-95"
           >
             Solicitar proposta para empresa
