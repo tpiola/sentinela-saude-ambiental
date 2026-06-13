@@ -110,3 +110,133 @@ img, video, iframe {
   max-width: 100%;
   height: auto;
 }
+
+/* =========================================================
+   CSS Scroll-Driven Animations 2026
+   Animacoes baseadas em scroll, sem JS.
+   ========================================================= */
+
+/* --- 1. Parallax background (camada lenta de fundo) --- */
+.parallax-bg {
+  animation: parallax-bg linear;
+  animation-timeline: view();
+  animation-range: entry 0% exit 100%;
+  will-change: transform;
+}
+
+@keyframes parallax-bg {
+  entry 0% { transform: translateY(0); }
+  exit 100% { transform: translateY(15vh); }
+}
+
+/* --- 2. Parallax foreground (camada superior mais rapida) --- */
+.parallax-layer {
+  animation: parallax-layer linear;
+  animation-timeline: view();
+  animation-range: entry 0% exit 100%;
+  will-change: transform;
+}
+
+@keyframes parallax-layer {
+  entry 0% { transform: translateY(0); }
+  exit 100% { transform: translateY(-8vh); }
+}
+
+/* --- 3. Reveal fade + slide up ao entrar na viewport --- */
+.reveal-on-scroll {
+  animation: reveal-on-scroll linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 90%;
+}
+
+@keyframes reveal-on-scroll {
+  entry 0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  entry 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- 4. Reveal scale in --- */
+.reveal-scale {
+  animation: reveal-scale linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 85%;
+}
+
+@keyframes reveal-scale {
+  entry 0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  entry 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- 5. Sticky com sombra progressiva enquanto fixo --- */
+.sticky-scroll {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  animation: sticky-shadow linear both;
+  animation-timeline: scroll();
+  animation-range: 0 80px;
+}
+
+@keyframes sticky-shadow {
+  from {
+    box-shadow: 0 0 0 transparent;
+  }
+  to {
+    box-shadow: 0 4px 20px rgba(0, 20, 40, 0.15);
+  }
+}
+
+/* --- 6. Barra de progresso de scroll no topo da pagina --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-lime), var(--brand-lime-deep));
+  z-index: 9999;
+  animation: scroll-progress linear;
+  animation-timeline: scroll(root);
+  transform-origin: left center;
+}
+
+@keyframes scroll-progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* --- Fallback: prefers-reduced-motion desliga tudo --- */
+@media (prefers-reduced-motion: reduce) {
+  .parallax-bg,
+  .parallax-layer,
+  .reveal-on-scroll,
+  .reveal-scale,
+  .sticky-scroll {
+    animation: none !important;
+  }
+}
+
+/* --- Fallback: navegadores sem suporte a animation-timeline --- */
+@supports not (animation-timeline: view()) {
+  .parallax-bg,
+  .parallax-layer,
+  .reveal-on-scroll,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+
+  .sticky-scroll {
+    box-shadow: 0 2px 12px rgba(0, 20, 40, 0.08);
+  }
+}
