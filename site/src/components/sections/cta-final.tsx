@@ -39,13 +39,19 @@ export function CtaFinal() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.12 }}
-          className="mt-10"
+          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
           <a
             href={whatsappHref()}
-            className="inline-flex min-h-[56px] min-w-[280px] items-center justify-center rounded-full bg-[color:var(--brand-navy)] px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white shadow-2xl transition hover:bg-[color:var(--brand-navy-soft)]"
+            className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-navy)] px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white shadow-[0_0_25px_rgba(132,255,0,0.4)] transition hover:bg-[color:var(--brand-navy-soft)]"
           >
-            Falar com a Sentinela no WhatsApp
+            WhatsApp
+          </a>
+          <a
+            href="#diagnostico"
+            className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center rounded-full border border-white/30 bg-white/10 px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white backdrop-blur-md transition hover:bg-white/20"
+          >
+            Fazer diagnóstico
           </a>
         </motion.div>
       </div>

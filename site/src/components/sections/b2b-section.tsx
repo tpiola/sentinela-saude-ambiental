@@ -27,7 +27,7 @@ export function B2bSection() {
   return (
     <section
       id="empresas"
-      className="relative scroll-mt-28 overflow-hidden bg-[color:var(--brand-navy)] py-20 text-white md:py-28"
+      className="relative scroll-mt-28 overflow-hidden bg-gradient-to-br from-[color:var(--brand-navy)] via-[color:var(--brand-navy)] to-[color:var(--brand-accent-blue)]/40 py-20 text-white md:py-28"
     >
       <div
         className="pointer-events-none absolute top-0 right-0 h-96 w-96 rounded-full bg-[color:var(--brand-lime)]/15 blur-3xl"
@@ -63,7 +63,11 @@ export function B2bSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                  className={`rounded-2xl border border-white/10 p-6 backdrop-blur-sm ${
+                    i === 0
+                      ? "bg-gradient-to-br from-white/10 to-white/0 shadow-[0_10px_40px_rgba(132,255,0,0.15)]"
+                      : "bg-white/5"
+                  }`}
                 >
                   <h3 className="font-[family-name:var(--font-heading)] font-bold text-[color:var(--brand-lime)]">
                     {c.title}

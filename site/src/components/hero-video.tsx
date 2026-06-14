@@ -62,7 +62,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               11+ anos em Franca SP
             </span>
           </div>
-          <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.05] font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-[family-name:var(--font-heading)] text-5xl leading-[1.02] font-extrabold tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl">
             Elimine pragas hoje em Franca SP
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-base text-white/80 lg:mx-0">
@@ -73,7 +73,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               href={whatsappHref()}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex min-h-[52px] w-full min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-xl sm:w-auto"
+              className="inline-flex min-h-[56px] w-full min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-10 py-4 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-[0_0_20px_rgba(132,255,0,0.6)] animate-pulse sm:w-auto"
             >
               Falar no WhatsApp agora
             </motion.a>
@@ -84,12 +84,13 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               Ver serviços
             </a>
           </div>
-          <ul className="mt-10 flex flex-wrap justify-center gap-4 text-xs text-white/70 lg:justify-start">
-            <li className="flex items-center gap-1.5">✓ ANVISA RDC 622/2022</li>
-            <li className="flex items-center gap-1.5">✓ Técnicos registrados</li>
-            <li className="flex items-center gap-1.5">✓ Laudo em até 24h</li>
-            <li className="flex items-center gap-1.5">✓ Indústria e condomínios</li>
-          </ul>
+          <div className="mt-12 flex flex-wrap justify-center gap-6 lg:justify-start">
+            {["11+ anos", "ANVISA", "Laudo técnico", "Franca SP"].map((item) => (
+              <div key={item} className="text-center">
+                <div className="text-xl font-bold text-white sm:text-2xl">{item}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <motion.div

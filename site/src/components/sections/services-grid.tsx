@@ -14,7 +14,7 @@ export function ServicesGrid() {
         </motion.div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[...BRAND.services].map((s, i) => (
-            <motion.article key={s.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ delay: i * 0.05 }} whileHover={{ y: -6 }} className="group flex flex-col overflow-hidden rounded-3xl border border-[color:var(--brand-border)] bg-white shadow-sm transition-shadow hover:shadow-xl">
+            <motion.article key={s.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ delay: i * 0.05 }} whileHover={{ y: -8 }} className="group relative flex flex-col overflow-hidden rounded-3xl border border-[color:var(--brand-border)] bg-white shadow-sm transition-all hover:shadow-[0_10px_40px_rgba(132,255,0,0.25)]">
               {/* Imagem real da praga */}
               <div className="relative h-48 w-full overflow-hidden bg-[color:var(--brand-navy)]">
                 <img
@@ -24,6 +24,11 @@ export function ServicesGrid() {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                {s.title.toLowerCase().includes("escorpi") && (
+                  <div className="absolute top-3 left-3 rounded-full bg-[color:var(--brand-lime)] px-3 py-1 text-xs font-bold text-black shadow">
+                    Prioridade
+                  </div>
+                )}
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-navy)]">{s.title}</h3>
