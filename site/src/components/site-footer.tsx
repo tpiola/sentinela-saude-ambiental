@@ -25,7 +25,6 @@ export function SiteFooter() {
               <li><a href="/servicos" className="text-sm text-white/60 hover:text-white transition-colors">Serviços</a></li>
               <li><a href="/sobre" className="text-sm text-white/60 hover:text-white transition-colors">Sobre</a></li>
               <li><a href="/faq" className="text-sm text-white/60 hover:text-white transition-colors">Dúvidas</a></li>
-              <li><a href="/agendar" className="text-sm text-white/60 hover:text-white transition-colors">Agendar</a></li>
             </ul>
           </div>
 

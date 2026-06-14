@@ -63,10 +63,10 @@ function MobileStickyBar() {
         target="_blank"
         rel="noopener noreferrer"
         className="flex min-h-[56px] w-full items-center justify-center gap-3 bg-[#25D366] px-4 py-3 font-[family-name:var(--font-heading)] text-base font-bold text-white shadow-[0_-4px_20px_rgba(0,0,0,0.18)]"
-        aria-label="Agendar agora e obter orçamento grátis pelo WhatsApp"
+        aria-label="Falar no WhatsApp e obter diagnóstico gratuito"
       >
         <WhatsAppIcon className="h-6 w-6 shrink-0" />
-        <span>AGENDAR AGORA — ORÇAMENTO GRÁTIS</span>
+        <span>FALAR NO WHATSAPP — DIAGNÓSTICO GRATUITO</span>
       </a>
     </div>
   );

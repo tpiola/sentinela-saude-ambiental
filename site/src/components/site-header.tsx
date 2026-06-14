@@ -15,7 +15,6 @@ const navLinks = [
   { href: "/servicos", label: "Serviços" },
   { href: "/sobre", label: "Sobre" },
   { href: "/faq", label: "Dúvidas" },
-  { href: "/agendar", label: "Agendar" },
 ];
 
 export function SiteHeader() {
@@ -88,14 +87,6 @@ export function SiteHeader() {
           >
             <FacebookBrandIcon className="h-5 w-5" />
           </a>
-          <a
-            href={agendaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-bold text-[color:var(--brand-navy-heading)] shadow-md transition hover:bg-[color:var(--brand-green-light)] sm:inline-flex"
-          >
-            Agendar agora
-          </a>
           <button
             type="button"
             className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 text-white lg:hidden"
@@ -124,15 +115,6 @@ export function SiteHeader() {
               {l.label}
             </a>
           ))}
-          <a
-            href={agendaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 flex min-h-[48px] items-center justify-center rounded-xl bg-[color:var(--brand-lime)] font-bold text-[color:var(--brand-navy-heading)]"
-            onClick={() => setOpen(false)}
-          >
-            Agendar agora
-          </a>
           <a
             href={whatsappHref()}
             className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-[color:var(--brand-lime)]/50 font-semibold text-[color:var(--brand-lime)]"
