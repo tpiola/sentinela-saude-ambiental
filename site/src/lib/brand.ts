@@ -47,6 +47,20 @@ export const BRAND = {
           "Patrocínio Paulista",
           "Restinga",
         ],
+    servicedBairros: [
+          "Centro",
+          "Jardim Francano",
+          "City Petrópolis",
+          "Parque Progresso",
+          "Residencial Baldassari",
+          "Vila Santa Terezinha",
+          "Jardim Panorama",
+          "Vila Aparecida",
+          "Parque dos Pinhais",
+          "Jardim Consolação",
+          "Residencial Paraíso",
+          "Jardim do Éden",
+        ],
     /** Vídeo real profissional do Thiago */
     heroVideoUrl:
           "/media/thiago/video-hero.mp4",
@@ -88,66 +102,66 @@ export const BRAND = {
       {
               id: "escorpioes",
               title: "Controle de escorpiões",
-              desc: "Atendimento prioritário para risco de picada. Eliminação do foco com produtos registrados na ANVISA. Plano preventivo out-mar para proteção contínua.",
+              desc: "Atendimento prioritário em Franca para risco de picada. Eliminação do foco com produtos ANVISA no Residencial Baldassari, City Petrópolis e região.",
               icon: "alert",
-              imageUrl: "/media/thiago/escorpiao-alerta.jpg",
+              imageUrl: "/media/sentinela/drive/escorpiao-residencial-baldassari-franca-sp.webp",
       },
       {
               id: "desinsetizacao",
               title: "Desinsetização profissional",
-              desc: "Baratas, formigas, aranhas e mosquitos. Gel biologicamente formulado ou pulverização com baixa toxicidade, sem odor residual e com laudo técnico.",
+              desc: "Baratas, formigas, aranhas e mosquitos. Gel biologicamente formulado ou pulverização. Atendemos Centro, Jardim Francano, Vila Santa Terezinha e mais.",
               icon: "bug",
-              imageUrl: "/media/thiago/tecnico-sentinela.jpg",
+              imageUrl: "/media/sentinela/drive/dedetizacao-centro-franca-sp.webp",
       },
       {
               id: "desratizacao",
               title: "Desratização",
-              desc: "Eliminação de roedores com iscas seguras em porta-iscas blindados, monitoramento contínuo e relatório técnico de conformidade.",
+              desc: "Eliminação de roedores com iscas seguras em porta-iscas blindados. Monitoramento contínuo e relatório técnico — feito no City Petrópolis, Franca SP.",
               icon: "rat",
-              imageUrl: "/media/thiago/antes-depois.jpg",
+              imageUrl: "/media/sentinela/drive/controle-pragas-city-petropolis-franca-sp.webp",
       },
       {
               id: "descupinizacao",
               title: "Descupinização",
-              desc: "Proteção do patrimônio contra cupins subterrâneos e de madeira seca. Barreira química de última geração com garantia contratual.",
+              desc: "Proteção do patrimônio contra cupins. Barreira química de última geração com garantia contratual. Serviço no Jardim Francano e bairros de Franca.",
               icon: "shield",
-              imageUrl: "/media/thiago/hero-casa-protegida.jpg",
+              imageUrl: "/media/sentinela/drive/aplicacao-jardim-francano-franca-sp.webp",
       },
       {
               id: "caixa-dagua",
               title: "Limpeza de caixas d'água",
-              desc: "Higienização conforme Portaria GM/MS 888/2021. Água limpa, potável e segura para consumo familiar ou empresarial.",
+              desc: "Higienização conforme Portaria GM/MS 888/2021. Água limpa e segura para sua família ou empresa em Franca SP.",
               icon: "droplet",
-              imageUrl: "/media/thiago/caixa-dagua.jpg",
+              imageUrl: "/media/sentinela/drive/dedetizacao-parque-progresso-franca-sp.webp",
       },
       {
               id: "empresas",
               title: "Contratos empresariais",
-              desc: "Laudo técnico ANVISA, cronograma preventivo PMOC e conformidade regulatória para indústria, comércio, condomínios e clínicas.",
+              desc: "Laudo ANVISA, cronograma preventivo e conformidade para indústria, comércio e condomínios. Atendemos empresas no Parque Progresso e Centro de Franca.",
               icon: "building",
-              imageUrl: "/media/thiago/caixa-dagua.jpg",
+              imageUrl: "/media/sentinela/drive/servico-vila-santa-terezinha-franca-sp.webp",
       },
         ],
     faq: [
       {
-        question: 'Escorpião apareceu em casa. O que fazer?',
-        answer: 'Mantenha distância, não tente capturar com as mãos e chame a Sentinela imediatamente. Escorpião-amarelo (Tityus serrulatus) é o mais comum em Franca e o mais perigoso — crianças e idosos correm maior risco. Oferecemos atendimento prioritário com resposta em minutos pelo WhatsApp.'
+        question: 'Escorpião apareceu em casa em Franca. O que fazer?',
+        answer: 'Mantenha distância, não tente capturar com as mãos e chame a Sentinela imediatamente. Escorpião-amarelo (Tityus serrulatus) é o mais comum no Residencial Baldassari, City Petrópolis e bairros de Franca — crianças e idosos correm maior risco. Oferecemos atendimento prioritário com resposta em minutos pelo WhatsApp.'
       },
       {
-        question: 'Atende empresas com laudo ANVISA?',
-        answer: 'Sim. Emitimos laudo técnico e certificado válido para Vigilância Sanitária conforme RDC 622/2022. Atendemos indústrias, comércios, condomínios e clínicas em Franca com contrato preventivo, cronograma documentado e registro fotográfico de cada visita.'
+        question: 'Atende empresas com laudo ANVISA em Franca?',
+        answer: 'Sim. Emitimos laudo técnico e certificado válido para Vigilância Sanitária conforme RDC 622/2022. Atendemos indústrias no Parque Progresso, comércios no Centro de Franca, condomínios e clínicas com contrato preventivo, cronograma documentado e registro fotográfico de cada visita.'
       },
       {
-        question: 'Qual a garantia do serviço?',
-        answer: 'Todo serviço tem garantia descrita no laudo técnico. Utilizamos inseticidas profissionais registrados na ANVISA, importados dos melhores fabricantes mundiais. Se o problema persistir dentro do prazo de garantia estipulado, retornamos sem custo adicional.'
+        question: 'Qual a garantia do serviço de dedetização em Franca?',
+        answer: 'Todo serviço tem garantia descrita no laudo técnico. Utilizamos inseticidas profissionais registrados na ANVISA, importados dos melhores fabricantes mundiais. Se o problema persistir dentro do prazo de garantia estipulado, retornamos sem custo adicional — válido para serviços no Jardim Francano, Vila Santa Terezinha e toda Franca SP.'
       },
       {
         question: 'É seguro para crianças e pets?',
-        answer: 'Sim. Trabalhamos com produtos de baixa toxicidade registrados na ANVISA (RDC 622/2022) e orientamos o tempo de afastamento necessário para cada ambiente. Crianças, gestantes, animais domésticos e alimentos são protegidos durante toda a aplicação conforme protocolo de segurança.'
+        answer: 'Sim. Trabalhamos com produtos de baixa toxicidade registrados na ANVISA (RDC 622/2022) e orientamos o tempo de afastamento necessário para cada ambiente. Crianças, gestantes, animais domésticos e alimentos são protegidos durante toda a aplicação conforme protocolo de segurança em todos os bairros de Franca que atendemos.'
       },
       {
-        question: 'Quanto tempo dura o efeito?',
-        answer: 'O efeito imediato é observado em até 24 horas após a aplicação. A proteção residual varia de 30 a 90 dias dependendo do princípio ativo, formulação e condições do ambiente. Recomendamos plano preventivo trimestral para residências e bimestral para estabelecimentos comerciais e industriais.'
+        question: 'Quanto tempo dura o efeito da dedetização em Franca?',
+        answer: 'O efeito imediato é observado em até 24 horas. A proteção residual varia de 30 a 90 dias dependendo do produto e condições do ambiente. Recomendamos plano preventivo trimestral para residências no Jardim Francano, Vila Aparecida e bairros de Franca, e bimestral para estabelecimentos comerciais no Centro e Parque Progresso.'
       },
         ],
 } as const;

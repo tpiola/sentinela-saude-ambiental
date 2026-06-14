@@ -17,7 +17,7 @@ export function buildLocalBusinessGraph() {
         url: siteUrl,
         telephone: `+${BRAND.phoneE164}`,
         email: BRAND.email,
-        image: `${siteUrl}/media/thiago/tecnico-sentinela.jpg`,
+        image: `${siteUrl}/media/sentinela/drive/dedetizacao-centro-franca-sp.webp`,
         logo: `${siteUrl}${BRAND.logoPath}`,
         taxID: BRAND.cnpj,
         priceRange: "$$",
@@ -133,7 +133,7 @@ export function buildLocalBusinessGraph() {
         description: BRAND.tagline,
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: `${siteUrl}/media/thiago/hero-casa-protegida.jpg`,
+          url: `${siteUrl}/media/sentinela/drive/dedetizacao-centro-franca-sp.webp`,
         },
       },
     ],

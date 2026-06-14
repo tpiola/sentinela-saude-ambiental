@@ -42,8 +42,24 @@ export function AreaAtendimentoSection() {
             Dedetização Profissional em Franca e Região
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-[color:var(--brand-muted)]">
-            A Sentinela Saúde Ambiental atende residências e empresas em Franca/SP e cidades da região. Confirmamos disponibilidade pelo WhatsApp antes do agendamento.
+            Atendemos residências e empresas em Franca SP e cidades vizinhas. Confirmamos disponibilidade pelo WhatsApp antes do agendamento.
           </p>
+        </div>
+
+        <div className="mt-10">
+          <h3 className="mb-4 text-center font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
+            Bairros Atendidos em Franca
+          </h3>
+          <div className="flex flex-wrap justify-center gap-2">
+            {BRAND.servicedBairros.map((bairro) => (
+              <span
+                key={bairro}
+                className="rounded-full border border-[color:var(--brand-lime)] bg-[color:var(--brand-surface)] px-3 py-1.5 text-xs font-semibold text-[color:var(--brand-navy)]"
+              >
+                {bairro}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10">

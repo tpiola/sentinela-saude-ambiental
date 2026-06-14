@@ -7,6 +7,7 @@ import { ServicesGrid } from "@/components/sections/services-grid";
 import { DiagnosticFunnel } from "@/components/sections/diagnostic-funnel";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
 import { B2bSection } from "@/components/sections/b2b-section";
+import { GallerySection } from "@/components/sections/gallery-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { AreaAtendimentoSection } from "@/components/sections/area-atendimento-section";
@@ -25,6 +26,7 @@ export default function Home() {
         <B2bSection />
         <AreaAtendimentoSection />
         <ProcessTimeline />
+        <GallerySection />
         <FaqSection />
         <CtaFinal />
       </main>

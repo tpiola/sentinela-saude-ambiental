@@ -7,19 +7,19 @@ import { BRAND, whatsappHref } from "@/lib/brand";
 const cards = [
   {
     title: "Laudo técnico ANVISA",
-    text: "Documentação e certificados exigidos por Vigilância Sanitária, auditorias e fiscalizações — conforme RDC 622/2022.",
+    text: "Documentação e certificados exigidos por Vigilância Sanitária, auditorias e fiscalizações em Franca SP — conforme RDC 622/2022.",
   },
   {
     title: "Sem parar a operação",
-    text: "Gel biologicamente formulado, aplicação em horários estratégicos e mínimo impacto na rotina do seu negócio.",
+    text: "Gel biologicamente formulado, aplicação em horários estratégicos e mínimo impacto na rotina do seu negócio em Franca.",
   },
   {
     title: "Contrato preventivo com cronograma",
-    text: "Visitas mensais ou bimestrais com registro fotográfico, relatório técnico e rastreabilidade total.",
+    text: "Visitas mensais ou bimestrais com registro fotográfico, relatório técnico e rastreabilidade total. Atendemos Centro, Parque Progresso e região.",
   },
   {
     title: "Experiência no polo industrial de Franca",
-    text: "Mais de 11 anos atendendo indústrias calçadistas, alimentícias, condomínios e comércios na região.",
+    text: "Mais de 11 anos atendendo indústrias calçadistas, alimentícias, condomínios e comércios no Parque Progresso, City Petrópolis e zona sul.",
   },
 ];
 
@@ -50,10 +50,10 @@ export function B2bSection() {
               Soluções empresariais
             </p>
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold md:text-4xl lg:text-5xl">
-              Controle de pragas para empresas — laudo, conformidade e prevenção
+              Controle de pragas para empresas em Franca SP — laudo, conformidade e prevenção
             </h2>
             <p className="mt-4 text-sm text-white/80">
-              Laudo ANVISA, contrato preventivo e controle contínuo para indústria, comércio, condomínios e clínicas.
+              Laudo ANVISA, contrato preventivo e controle contínuo para indústria, comércio, condomínios e clínicas em Franca e região.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {cards.map((c, i) => (
@@ -100,8 +100,8 @@ export function B2bSection() {
             />
             <div className="relative overflow-hidden rounded-3xl shadow-2xl">
               <Image
-                src="/media/thiago/tecnico-sentinela.jpg"
-                alt="Técnico da Sentinela — aplicação profissional de controle de pragas em ambiente empresarial"
+                src="/media/sentinela/drive/dedetizacao-centro-franca-sp.webp"
+                alt="Dedetização profissional no Centro de Franca SP — Sentinela Saúde Ambiental"
                 width={800}
                 height={1067}
                 className="h-[320px] w-full object-cover object-center sm:h-[420px] lg:h-[480px]"

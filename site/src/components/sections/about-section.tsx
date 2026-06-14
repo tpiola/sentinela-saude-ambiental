@@ -5,10 +5,17 @@ import { motion } from "framer-motion";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 const highlights = [
-  "Diagnóstico técnico criterioso — planejamos o serviço, documentamos cada etapa.",
-  "Produtos registrados na ANVISA com baixa toxicidade e orientação de segurança.",
+  "Diagnóstico técnico criterioso em residências e empresas de Franca SP.",
+  "Produtos ANVISA com baixa toxicidade e orientação de segurança para família e pets.",
   "Laudo técnico e certificados válidos para Vigilância Sanitária e auditorias.",
-  "Atendimento ágil pelo WhatsApp com resposta em minutos em horário comercial.",
+  "Atendimento pelo WhatsApp com resposta em minutos — Centro, Jardim Francano, City Petrópolis e mais.",
+];
+
+const miniGallery = [
+  { src: "/media/sentinela/drive/aplicacao-jardim-francano-franca-sp.webp", alt: "Aplicação Jardim Francano Franca SP" },
+  { src: "/media/sentinela/drive/controle-pragas-city-petropolis-franca-sp.webp", alt: "Controle de pragas City Petrópolis Franca SP" },
+  { src: "/media/sentinela/drive/dedetizacao-parque-progresso-franca-sp.webp", alt: "Dedetização Parque Progresso Franca SP" },
+  { src: "/media/sentinela/drive/servico-vila-santa-terezinha-franca-sp.webp", alt: "Serviço Vila Santa Terezinha Franca SP" },
 ];
 
 export function AboutSection() {
@@ -28,8 +35,8 @@ export function AboutSection() {
             />
             <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
               <Image
-                src="/media/thiago/tecnico-sentinela.jpg"
-                alt="Técnico da Sentinela Saúde Ambiental — aplicação profissional de controle de pragas"
+                src="/media/sentinela/drive/dedetizacao-centro-franca-sp.webp"
+                alt="Dedetização profissional no Centro de Franca SP — Sentinela Saúde Ambiental"
                 width={800}
                 height={1067}
                 className="h-[280px] w-full object-cover object-top sm:h-[380px] lg:h-[440px]"
@@ -48,6 +55,26 @@ export function AboutSection() {
                 {BRAND.experienceHeadline}
               </p>
             </div>
+
+            {/* Mini-grid de imagens abaixo da imagem principal */}
+            <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-3">
+              {miniGallery.map((img) => (
+                <div
+                  key={img.src}
+                  className="overflow-hidden rounded-xl shadow-sm ring-1 ring-black/5"
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    width={400}
+                    height={300}
+                    className="h-24 w-full object-cover sm:h-32"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div
@@ -61,18 +88,19 @@ export function AboutSection() {
               Sobre a Sentinela
             </p>
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-[color:var(--brand-navy)] md:text-4xl lg:text-5xl">
-              Saúde ambiental com laudo técnico, transparência e responsabilidade.
+              Dedetizadora em Franca SP com laudo técnico e responsabilidade.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-[color:var(--brand-muted)]">
               A{" "}
               <strong className="text-[color:var(--brand-navy)]">
                 {BRAND.name}
               </strong>{" "}
-              é referência em controle integrado de pragas urbanas em Franca e
-              região. Diferente de empresas que apenas aplicam produtos e somem,
-              nós entregamos um ciclo completo: diagnóstico técnico, aplicação
-              criteriosa com produtos registrados, laudo documentado e
-              acompanhamento pós-serviço.
+              é referência em controle de pragas urbanas em Franca e
+              região — atendemos residências e empresas no Centro, Jardim Francano,
+              City Petrópolis, Vila Aparecida, Parque Progresso, Residencial Baldassari,
+              Vila Santa Terezinha, Jardim Panorama e mais. Diferente de empresas que
+              apenas aplicam e somem, entregamos ciclo completo: diagnóstico, aplicação
+              com produtos ANVISA, laudo documentado e acompanhamento pós-serviço.
             </p>
             <ul className="mt-8 space-y-4">
               {highlights.map((item) => (

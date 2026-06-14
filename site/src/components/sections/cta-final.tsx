@@ -20,7 +20,7 @@ export function CtaFinal() {
           viewport={{ once: true }}
           className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-white md:text-4xl"
         >
-          Infestação, praga ou não conformidade com a fiscalização — antecipe-se com quem tem laudo e responsabilidade técnica
+          Escorpião, barata, cupim ou não conformidade? Antecipe-se com laudo ANVISA e garantia em Franca SP
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -29,10 +29,9 @@ export function CtaFinal() {
           transition={{ delay: 0.06 }}
           className="mx-auto mt-5 max-w-2xl text-lg text-white/85"
         >
-          {BRAND.experienceYearsLabel} de atuação em Franca e região com laudo
-          ANVISA, garantia contratual e transparência em cada etapa. Chame no
-          WhatsApp para diagnóstico gratuito — antes do pico de escorpiões ou da
-          autuação da Vigilância Sanitária.
+          {BRAND.experienceYearsLabel} atendendo residências e empresas no Centro, Jardim Francano, City Petrópolis, 
+          Parque Progresso, Residencial Baldassari e todos os bairros de Franca SP. Chame no 
+          WhatsApp para diagnóstico gratuito — sem compromisso.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
