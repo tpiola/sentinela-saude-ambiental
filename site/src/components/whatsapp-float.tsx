@@ -20,7 +20,7 @@ function FloatingButton({ showTooltip, onDismiss }: { showTooltip: boolean; onDi
             className="relative rounded-xl bg-white px-4 py-3 text-sm font-semibold text-[color:var(--brand-navy)] shadow-xl ring-1 ring-black/5"
           >
             <p className="text-xs text-[color:var(--brand-muted)]">Precisa de ajuda?</p>
-            <p className="mt-0.5 font-bold">Fale no WhatsApp →</p>
+            <p className="mt-0.5 font-bold">WhatsApp</p>
             <button
               type="button"
               onClick={onDismiss}
@@ -63,7 +63,7 @@ function MobileStickyBar() {
         target="_blank"
         rel="noopener noreferrer"
         className="flex min-h-[56px] w-full items-center justify-center gap-3 bg-[#25D366] px-4 py-3 font-[family-name:var(--font-heading)] text-base font-bold text-white shadow-[0_-4px_20px_rgba(0,0,0,0.18)]"
-        aria-label="Falar no WhatsApp e obter diagnóstico gratuito"
+        aria-label="WhatsApp"
       >
         <WhatsAppIcon className="h-6 w-6 shrink-0" />
       </a>

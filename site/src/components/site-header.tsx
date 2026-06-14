@@ -120,7 +120,7 @@ export function SiteHeader() {
             className="flex min-h-[48px] items-center justify-center rounded-xl border-2 border-[color:var(--brand-lime)]/50 font-semibold text-[color:var(--brand-lime)]"
             onClick={() => setOpen(false)}
           >
-            WhatsApp — diagnóstico gratuito
+            WhatsApp
           </a>
         </nav>
       </div>
