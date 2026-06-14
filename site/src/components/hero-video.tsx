@@ -63,10 +63,10 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
             </span>
           </div>
           <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.08] font-bold tracking-tight text-balance text-white sm:text-5xl lg:text-6xl">
-            Laudo técnico ANVISA sem risco de interdição
+            Escorpião na sua casa? Resolva hoje com controle profissional
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-pretty text-white/85 lg:mx-0">
-            Engenheiros e técnicos registrados cuidam do seu caso pessoalmente — sem terceirização, sem burocracia. Atendimento no mesmo dia para comércio, indústria e condomínios em Franca SP.
+            Eliminação segura de escorpiões com equipe especializada, atendimento rápido em Franca SP e orientação completa para evitar novas infestações.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
             <motion.a

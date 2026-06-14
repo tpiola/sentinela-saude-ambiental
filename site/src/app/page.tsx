@@ -23,16 +23,12 @@ export default function Home() {
         <HeroVideo />
         <StatsMarquee />
         <AboutSection />
-        <ServicesGrid />
         <DiagnosticFunnel />
-        <ProcessTimeline />
-        <PrevencaoB2BSection />
+        <ServicesGrid />
         <B2bSection />
-        <AreaAtendimentoSection />
+        <ProcessTimeline />
         <FaqSection />
         <CtaFinal />
-        <GoogleCalendarBookingSection />
-        <LeadCaptureSection />
       </main>
       <SiteFooter />
       <WhatsAppFloat />

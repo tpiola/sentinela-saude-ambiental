@@ -46,7 +46,7 @@ export function ServicesGrid() {
           <p className="mt-4 text-lg text-[color:var(--brand-muted)]">Diagnóstico, plano e documentação para residências e empresas na região de Franca — com laudo técnico e foco em Vigilância Sanitária quando o seu segmento exige comprovação.</p>
         </motion.div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {BRAND.services.map((s, i) => (
+          {[...BRAND.services].sort((a,b)=> (a.title.toLowerCase().includes('escor')?-1:0) - (b.title.toLowerCase().includes('escor')?-1:0)).map((s, i) => (
             <motion.article key={s.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ delay: i * 0.05 }} whileHover={{ y: -6 }} className="group flex flex-col rounded-3xl border border-[color:var(--brand-border)] bg-white p-7 shadow-sm transition-shadow hover:shadow-xl">
               <span className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[color:var(--brand-surface)] text-[color:var(--brand-green-deep)] transition group-hover:bg-[color:var(--brand-lime)]/30" aria-hidden>
                 {serviceIcons[s.icon] ?? serviceIcons.shield}

@@ -3,9 +3,9 @@ export const BRAND = {
     name: "Sentinela Saúde Ambiental",
     legalHint: "Better Controle de Pragas",
     tagline:
-          "Dedetizadora profissional em São Paulo com laudo técnico ANVISA e mais de 11 anos de experiência — desinsetização, desratização, escorpiões e limpeza de caixa d'água.",
+          "Controle de pragas em Franca/SP com foco em escorpiões, laudo técnico ANVISA e garantia de serviço — atendimento rápido para residências e empresas.",
     shortTagline:
-          "Dedetização em São Paulo com laudo técnico e atendimento rápido — residencial e empresarial.",
+          "Especialistas em escorpiões e controle de pragas em Franca — atendimento ágil com laudo e garantia.",
     /** Cobertura honesta para copy, SEO e JSON-LD. */
     coverageSummary: "Atendimento em Franca/SP e região.",
     region: "Franca e região — SP",
@@ -57,37 +57,37 @@ export const BRAND = {
     heroVideoUrl:
           "https://videos.pexels.com/video-files/2616634/2616634-hd_1920_1080_24fps.mp4",
     /** Capa do vídeo (foto principal da página no Facebook, cópia local). */
-    heroVideoPosterUrl: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
+    heroVideoPosterUrl: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1920&auto=format&fit=crop",
     logoPath: "/brand/logo-brasao.png",
     /**
          * Fotos públicas da página no Facebook.
      */
     galleryImages: [
       {
-              src: "/media/sentinela/facebook/images/01-capa-sentinel.jpg",
-              alt: "Sentinela Saúde Ambiental — equipe e identidade visual",
+        src: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1200&auto=format&fit=crop",
+        alt: "Controle profissional de pragas em ambiente residencial",
       },
       {
-              src: "/media/sentinela/campo/trabalho-telhado-escada.jpg",
-              alt: "Profissional Sentinela aplicando controle de pragas em telhado de madeira",
+        src: "https://images.pexels.com/photos/8486972/pexels-photo-8486972.jpeg",
+        alt: "Aplicação técnica de inseticida por profissional equipado",
       },
       {
-              src: "/media/sentinela/campo/aplicacao-forro-residencial.jpg",
-              alt: "Técnico Sentinela com equipamento pulverizador tratando forro de residência",
+        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+        alt: "Inspeção técnica em residência para controle de escorpiões",
       },
       {
-              src: "/media/sentinela/campo/servico-altura-completo.jpg",
-              alt: "Serviço de controle de pragas em altura — tratamento completo de estrutura",
+        src: "https://images.pexels.com/photos/6195291/pexels-photo-6195291.jpeg",
+        alt: "Serviço de controle de pragas em empresa",
       },
       {
-              src: "/media/sentinela/facebook/images/04-controle-pragas.jpg",
-              alt: "Controle de pragas — resultado profissional",
+        src: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1200&auto=format&fit=crop",
+        alt: "Equipe técnica realizando dedetização profissional",
       },
       {
-              src: "/media/sentinela/facebook/images/05-servico-campo.jpg",
-              alt: "Serviço em campo — Sentinela",
+        src: "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg",
+        alt: "Ambiente limpo e protegido após controle de pragas",
       },
-        ],
+    ],
     instagramGalleryImages: [] as ReadonlyArray<{
           readonly src: string;
           readonly alt: string;
@@ -120,7 +120,7 @@ export const BRAND = {
       {
               id: "escorpioes",
               title: "Controle de escorpiões",
-              desc: "Plano preventivo antes do pico (out–mar). Eliminar baratas reduz o risco de escorpiões na região.",
+              desc: "Atendimento prioritário para risco de picada. Eliminação do foco, controle de baratas (alimento do escorpião) e plano preventivo completo.",
               icon: "alert",
       },
       {
