@@ -1,189 +1,70 @@
-import type { ReactNode } from "react";
 import Link from "next/link";
-import {
-  FacebookBrandIcon,
-  InstagramBrandIcon,
-} from "@/components/social-brand-icons";
-import {
-  BRAND,
-  mapsDirectionsUrl,
-  mapsEmbedUrl,
-  whatsappHref,
-} from "@/lib/brand";
-import { calendarBookingHref } from "@/lib/integrations";
-
-const quickLinks = [
-  { href: "/#inicio", label: "Início" },
-  { href: "/#sobre", label: "Quem somos" },
-  { href: "/#servicos", label: "Serviços" },
-  { href: "/#empresas", label: "Para empresas" },
-  { href: "/#faq", label: "Dúvidas" },
-];
+import { BRAND } from "@/lib/brand";
 
 export function SiteFooter() {
+  const ano = new Date().getFullYear();
   return (
-    <footer
-      id="contato"
-      className="scroll-mt-28 border-t border-white/5 bg-slate-950 text-slate-300"
-    >
-      <div className="mx-auto max-w-6xl px-4 pt-12 pb-8 md:px-6">
-        <div className="grid gap-10 lg:grid-cols-[1fr_300px]">
-          <div className="grid gap-8 sm:grid-cols-3">
-            <div>
-              <h3 className="font-[family-name:var(--font-heading)] text-base font-bold text-white">
-                {BRAND.name}
-              </h3>
-              <p className="mt-2 text-sm text-slate-400">
-                Controle de pragas profissional em Franca e região.
-              </p>
-              <div className="mt-4 flex gap-3">
-                <SocialLink href={BRAND.facebookUrl} label="Facebook">
-                  <FacebookBrandIcon className="h-5 w-5" />
-                </SocialLink>
-                <SocialLink href={BRAND.instagramUrl} label="Instagram">
-                  <InstagramBrandIcon className="h-5 w-5" />
-                </SocialLink>
-              </div>
-              <div className="mt-5">
-                <a
-                  href={whatsappHref()}
-                  className="inline-flex items-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-5 py-2.5 text-sm font-bold text-[color:var(--brand-navy)] hover:bg-[color:var(--brand-green-light)] transition"
-                >
-                  Falar no WhatsApp
+    <footer className="border-t border-[color:var(--brand-border)] bg-[color:var(--brand-navy)] text-white">
+      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+        <div className="grid gap-8 md:grid-cols-3">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="text-xl font-black tracking-tight text-white">SENTINELA</span>
+            </div>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
+              Controle integrado de pragas urbanas com laudo técnico ANVISA, garantia contratual e responsabilidade ambiental.
+            </p>
+          </div>
+
+          {/* Links */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-lime)] mb-4">Links</h4>
+            <ul className="space-y-2.5">
+              <li><a href="#inicio" className="text-sm text-white/60 hover:text-white transition-colors">Início</a></li>
+              <li><a href="#servicos" className="text-sm text-white/60 hover:text-white transition-colors">Serviços</a></li>
+              <li><a href="#empresas" className="text-sm text-white/60 hover:text-white transition-colors">Empresas</a></li>
+              <li><a href="#duvidas" className="text-sm text-white/60 hover:text-white transition-colors">Dúvidas</a></li>
+            </ul>
+          </div>
+
+          {/* Contato + Crédito */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-lime)] mb-4">Contato</h4>
+            <ul className="space-y-2.5">
+              <li>
+                <a href={`https://wa.me/${BRAND.phoneE164}`} target="_blank" rel="noopener noreferrer" className="text-sm text-white/60 hover:text-white transition-colors">
+                  WhatsApp: ({BRAND.phoneDisplay})
                 </a>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-[family-name:var(--font-heading)] text-base font-bold text-white">
-                Menu
-              </h3>
-              <ul className="mt-3 space-y-2 text-sm">
-                {quickLinks.map((l) => (
-                  <li key={l.href}>
-                    <a
-                      href={l.href}
-                      className="transition hover:text-[color:var(--brand-lime)]"
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-[family-name:var(--font-heading)] text-base font-bold text-white">
-                Atendimento
-              </h3>
-              <ul className="mt-3 space-y-3 text-sm">
-                <li>
-                  <a
-                    href={whatsappHref()}
-                    className="font-semibold text-[color:var(--brand-lime)] hover:underline"
-                  >
-                    WhatsApp: {BRAND.phoneDisplay}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`mailto:${BRAND.email}`}
-                    className="transition hover:text-[color:var(--brand-lime)] whitespace-nowrap"
-                  >
-                    {BRAND.email}
-                  </a>
-                </li>
-                <li className="text-xs text-slate-400">
-                  {BRAND.openingHours.weekdays}
-                  <br />
-                  {BRAND.openingHours.sunday}
-                </li>
-                <li className="flex gap-2 pt-1">
-                  <a
-                    href={calendarBookingHref()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full border border-[color:var(--brand-lime)]/40 px-4 py-1.5 text-xs font-semibold text-[color:var(--brand-lime)] hover:bg-[color:var(--brand-lime)]/10"
-                  >
-                    Agendar
-                  </a>
-                  <a
-                    href={mapsDirectionsUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-full border border-slate-700 px-4 py-1.5 text-xs font-semibold text-slate-300 hover:border-[color:var(--brand-lime)]"
-                  >
-                    Como chegar
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div id="mapa" className="scroll-mt-28">
-            <div className="overflow-hidden rounded-xl ring-1 ring-white/10">
-              <iframe
-                title={`Mapa — ${BRAND.name}`}
-                className="h-48 w-full lg:h-full lg:min-h-[240px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-                src={mapsEmbedUrl()}
-              />
-            </div>
+              </li>
+              <li>
+                <a href={`mailto:${BRAND.email}`} className="text-sm text-white/60 hover:text-white transition-colors">
+                  {BRAND.email}
+                </a>
+              </li>
+              <li className="text-sm text-white/40">{BRAND.addressFull}</li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-8 rounded-xl border border-slate-800 bg-slate-900/50 px-4 py-3 text-xs text-slate-400">
-          <p className="font-medium text-slate-300">{BRAND.addressFull}</p>
-          <p className="mt-1">CNPJ {BRAND.cnpj} CNAE 8122-2/00</p>
-          <div className="mt-2 flex flex-wrap gap-2">
-            <span className="rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[color:var(--brand-lime)]">
-              ANVISA RDC 622
-            </span>
-            <span className="rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[color:var(--brand-lime)]">
-              Empresa Licenciada
-            </span>
-            <span className="rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-2.5 py-0.5 text-[10px] font-semibold text-[color:var(--brand-lime)]">
-              Vigilância Sanitária
-            </span>
-          </div>
-        </div>
-
-        <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-slate-800 pt-5 text-xs text-slate-500 md:flex-row">
-          <p>
-            {new Date().getFullYear()} {BRAND.name}
+        {/* Divider + Créditos */}
+        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col items-center gap-3 text-center md:flex-row md:justify-between">
+          <p className="text-xs text-white/40">
+            &copy; {ano} Sentinela Saúde Ambiental. CNPJ: {BRAND.cnpj}
           </p>
-          <Link
-            href="/#inicio"
-            className="font-medium text-[color:var(--brand-lime)] hover:underline"
-          >
-            Voltar ao topo
-          </Link>
+          <p className="text-xs text-white/40">
+            Sistema criado por{" "}
+            <a
+              href="https://www.reidasvendas.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[color:var(--brand-lime)] hover:brightness-110 underline underline-offset-2 transition-all"
+            >
+              Rei das Vendas
+            </a>
+          </p>
         </div>
       </div>
     </footer>
-  );
-}
-
-function SocialLink({
-  href,
-  label,
-  children,
-}: {
-  href: string;
-  label: string;
-  children: ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 text-slate-300 transition hover:border-[color:var(--brand-lime)] hover:text-[color:var(--brand-lime)]"
-    >
-      {children}
-    </a>
   );
 }

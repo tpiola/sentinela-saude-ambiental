@@ -62,11 +62,11 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               Controle integrado de pragas urbanas
             </span>
           </div>
-          <h1 className="font-[family-name:var(--font-heading)] text-5xl leading-[1.02] font-extrabold tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl">
-            Proteção profissional contra pragas com laudo técnico e garantia
+          <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.02] font-extrabold tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl">
+            Controle de pragas com laudo técnico e garantia
           </h1>
-          <p className="mx-auto mt-4 max-w-lg text-base text-white/80 lg:mx-0">
-            Controle de escorpiões, baratas, roedores e cupins. Diagnóstico técnico, produto registrado ANVISA e documentação completa para sua residência ou empresa.
+          <p className="mx-auto mt-3 max-w-xl text-sm text-white/70 lg:mx-0">
+            Escorpião, barata, rato, cupim. Diagnóstico gratuito, aplicação profissional e documentação completa para sua residência ou empresa em Franca.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
             <motion.a
