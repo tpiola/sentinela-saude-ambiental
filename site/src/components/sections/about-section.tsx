@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 const highlights = [
-  "Compromisso com qualidade, ética e transparência no diagnóstico.",
-  "Produtos de baixa toxicidade — orientação clara para família e pets.",
-  "Laudo técnico e documentação para exigências da Vigilância Sanitária.",
-  "Atendimento rápido, discreto e resposta em minutos no WhatsApp.",
+  "Diagnóstico técnico criterioso — planejamos o serviço, documentamos cada etapa.",
+  "Produtos registrados na ANVISA com baixa toxicidade e orientação de segurança.",
+  "Laudo técnico e certificados válidos para Vigilância Sanitária e auditorias.",
+  "Atendimento ágil pelo WhatsApp com resposta em minutos em horário comercial.",
 ];
 
 export function AboutSection() {
@@ -28,8 +28,8 @@ export function AboutSection() {
             />
             <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
               <Image
-                src={BRAND.galleryImages[2].src}
-                alt={BRAND.galleryImages[2].alt}
+                src="/media/thiago/tecnico-sentinela.jpg"
+                alt="Técnico da Sentinela Saúde Ambiental — aplicação profissional de controle de pragas"
                 width={800}
                 height={1067}
                 className="h-[280px] w-full object-cover object-top sm:h-[380px] lg:h-[440px]"
@@ -58,20 +58,21 @@ export function AboutSection() {
           >
             <p className="mb-3 flex items-center gap-2 text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase">
               <span className="h-0.5 w-8 bg-[color:var(--brand-lime)]" />
-              Conheça a Sentinela
+              Sobre a Sentinela
             </p>
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-[color:var(--brand-navy)] md:text-4xl lg:text-5xl">
-              Saúde ambiental com laudo, transparência e responsabilidade.
+              Saúde ambiental com laudo técnico, transparência e responsabilidade.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-[color:var(--brand-muted)]">
               A{" "}
               <strong className="text-[color:var(--brand-navy)]">
                 {BRAND.name}
               </strong>{" "}
-              é referência em qualidade e ética no controle integrado de pragas
-              em Franca e região — não somos a “dedetizadora de passagem”:
-              planejamos o serviço, registramos o que foi feito e entregamos
-              transparência para você e para a Vigilância Sanitária.
+              é referência em controle integrado de pragas urbanas em Franca e
+              região. Diferente de empresas que apenas aplicam produtos e somem,
+              nós entregamos um ciclo completo: diagnóstico técnico, aplicação
+              criteriosa com produtos registrados, laudo documentado e
+              acompanhamento pós-serviço.
             </p>
             <ul className="mt-8 space-y-4">
               {highlights.map((item) => (

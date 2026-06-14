@@ -3,10 +3,10 @@ export const BRAND = {
     name: "Sentinela Saúde Ambiental",
     legalHint: "Better Controle de Pragas",
     tagline:
-          "Controle de pragas em Franca/SP com foco em escorpiões, laudo técnico ANVISA e garantia de serviço — atendimento rápido para residências e empresas.",
+          "Controle integrado de pragas urbanas com laudo técnico ANVISA, garantia contratual e conformidade regulatória para residências e empresas em Franca/SP.",
     shortTagline:
-          "Especialistas em escorpiões e controle de pragas em Franca — atendimento ágil com laudo e garantia.",
-    coverageSummary: "Atendimento em Franca/SP e região.",
+          "Controle profissional de pragas em Franca — laudo técnico, ANVISA e garantia.",
+    coverageSummary: "Atendimento em Franca/SP e região num raio de até 40 km.",
     region: "Franca e região — SP",
     experienceYears: 11,
     experienceYearsShort: "11+",
@@ -47,37 +47,37 @@ export const BRAND = {
           "Patrocínio Paulista",
           "Restinga",
         ],
-    /** Vídeo HD de dedetização profissional (Pexels) */
+    /** Vídeo real profissional do Thiago */
     heroVideoUrl:
-          "https://images.pexels.com/video-files/3065488/3065488-uhd_3840_2160_25fps.mp4",
-    /** Poster estático do hero (sem pessoas) */
-    heroVideoPosterUrl: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1920&auto=format&fit=crop",
+          "/media/thiago/video-hero.mp4",
+    /** Poster estático do hero */
+    heroVideoPosterUrl: "/media/thiago/hero-casa-protegida.jpg",
     logoPath: "/brand/logo-brasao.png",
-    /** Galeria com FOTOS DE PRAGAS E ANIMAIS — NENHUMA PESSOA */
+    /** Galeria com FOTOS REAIS do profissional Thiago */
     galleryImages: [
       {
-        src: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=1200&auto=format&fit=crop",
+        src: "/media/thiago/escorpiao-alerta.jpg",
         alt: "Escorpião — dedetização profissional em Franca SP",
       },
       {
-        src: "https://images.unsplash.com/photo-1578302692590-88c8e9e1ab36?q=80&w=1200&auto=format&fit=crop",
-        alt: "Barata — controle de pragas urbano",
+        src: "/media/thiago/tecnico-sentinela.jpg",
+        alt: "Técnico da Sentinela — aplicação profissional de inseticida",
       },
       {
-        src: "https://images.unsplash.com/photo-1579158950965-8e469e698bdd?q=80&w=1200&auto=format&fit=crop",
-        alt: "Rato — desratização profissional",
+        src: "/media/thiago/hero-casa-protegida.jpg",
+        alt: "Residência protegida — Sentinela Saúde Ambiental",
       },
       {
-        src: "https://images.unsplash.com/photo-1576086213366-192adaf2a19f?q=80&w=1200&auto=format&fit=crop",
-        alt: "Cupim — descupinização de madeira",
+        src: "/media/thiago/caixa-dagua.jpg",
+        alt: "Limpeza de caixa d'água profissional",
       },
       {
-        src: "https://images.unsplash.com/photo-1578302692590-88c8e9e1ab36?q=80&w=1200&auto=format&fit=crop",
-        alt: "Formiga — desinsetização",
+        src: "/media/thiago/antes-depois.jpg",
+        alt: "Antes e depois — serviço de dedetização",
       },
       {
-        src: "https://images.pexels.com/video-files/3065488/3065488-uhd_3840_2160_25fps.mp4",
-        alt: "Aplicação profissional de inseticida",
+        src: "/media/thiago/tecnico-sentinela.jpg",
+        alt: "Técnico aplicando inseticida profissional",
       },
         ],
     instagramGalleryImages: [] as ReadonlyArray<{
@@ -88,66 +88,66 @@ export const BRAND = {
       {
               id: "escorpioes",
               title: "Controle de escorpiões",
-              desc: "Atendimento prioritário para risco de picada. Eliminação do foco com os melhores inseticidas. Plano preventivo completo.",
+              desc: "Atendimento prioritário para risco de picada. Eliminação do foco com produtos registrados na ANVISA. Plano preventivo out-mar para proteção contínua.",
               icon: "alert",
-              imageUrl: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=600&auto=format&fit=crop",
+              imageUrl: "/media/thiago/escorpiao-alerta.jpg",
       },
       {
               id: "desinsetizacao",
-              title: "Desinsetização",
-              desc: "Baratas, formigas, aranhas e mosquitos. Gel ou pulverização com baixa toxicidade e sem odor forte.",
+              title: "Desinsetização profissional",
+              desc: "Baratas, formigas, aranhas e mosquitos. Gel biologicamente formulado ou pulverização com baixa toxicidade, sem odor residual e com laudo técnico.",
               icon: "bug",
-              imageUrl: "https://images.unsplash.com/photo-1578302692590-88c8e9e1ab36?q=80&w=600&auto=format&fit=crop",
+              imageUrl: "/media/thiago/tecnico-sentinela.jpg",
       },
       {
               id: "desratizacao",
               title: "Desratização",
-              desc: "Eliminação de roedores com iscas seguras, porta-iscas blindados e monitoramento contínuo.",
+              desc: "Eliminação de roedores com iscas seguras em porta-iscas blindados, monitoramento contínuo e relatório técnico de conformidade.",
               icon: "rat",
-              imageUrl: "https://images.unsplash.com/photo-1579158950965-8e469e698bdd?q=80&w=600&auto=format&fit=crop",
+              imageUrl: "/media/thiago/antes-depois.jpg",
       },
       {
               id: "descupinizacao",
               title: "Descupinização",
-              desc: "Proteção do patrimônio contra cupins com barreira química de última geração e garantia.",
+              desc: "Proteção do patrimônio contra cupins subterrâneos e de madeira seca. Barreira química de última geração com garantia contratual.",
               icon: "shield",
-              imageUrl: "https://images.unsplash.com/photo-1576086213366-192adaf2a19f?q=80&w=600&auto=format&fit=crop",
+              imageUrl: "/media/thiago/hero-casa-protegida.jpg",
       },
       {
               id: "caixa-dagua",
               title: "Limpeza de caixas d'água",
-              desc: "Higienização conforme Ministério da Saúde. Água limpa e segura para sua família.",
+              desc: "Higienização conforme Portaria GM/MS 888/2021. Água limpa, potável e segura para consumo familiar ou empresarial.",
               icon: "droplet",
-              imageUrl: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=600&auto=format&fit=crop",
+              imageUrl: "/media/thiago/caixa-dagua.jpg",
       },
       {
               id: "empresas",
               title: "Contratos empresariais",
-              desc: "Laudo técnico, cronograma preventivo e conformidade ANVISA para indústria, comércio e condomínios.",
+              desc: "Laudo técnico ANVISA, cronograma preventivo PMOC e conformidade regulatória para indústria, comércio, condomínios e clínicas.",
               icon: "building",
-              imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=600&auto=format&fit=crop",
+              imageUrl: "/media/thiago/caixa-dagua.jpg",
       },
         ],
     faq: [
       {
         question: 'Escorpião apareceu em casa. O que fazer?',
-        answer: 'Mantenha distância, não tente capturar com as mãos e chame a Sentinela imediatamente. Escorpião-amarelo é o mais comum em Franca e o mais perigoso. Crianças e idosos correm maior risco. Atendimento prioritário via WhatsApp.'
+        answer: 'Mantenha distância, não tente capturar com as mãos e chame a Sentinela imediatamente. Escorpião-amarelo (Tityus serrulatus) é o mais comum em Franca e o mais perigoso — crianças e idosos correm maior risco. Oferecemos atendimento prioritário com resposta em minutos pelo WhatsApp.'
       },
       {
         question: 'Atende empresas com laudo ANVISA?',
-        answer: 'Sim. Emitimos laudo técnico e certificado válido para Vigilância Sanitária. Atendemos indústrias, comércios, condomínios e clínicas em Franca com contrato preventivo e documentação completa.'
+        answer: 'Sim. Emitimos laudo técnico e certificado válido para Vigilância Sanitária conforme RDC 622/2022. Atendemos indústrias, comércios, condomínios e clínicas em Franca com contrato preventivo, cronograma documentado e registro fotográfico de cada visita.'
       },
       {
         question: 'Qual a garantia do serviço?',
-        answer: 'Todo serviço tem garantia descrita no laudo técnico. Usamos os melhores inseticidas do mundo, registrados na ANVISA. Se o problema persistir dentro do prazo de garantia, retornamos sem custo.'
+        answer: 'Todo serviço tem garantia descrita no laudo técnico. Utilizamos inseticidas profissionais registrados na ANVISA, importados dos melhores fabricantes mundiais. Se o problema persistir dentro do prazo de garantia estipulado, retornamos sem custo adicional.'
       },
       {
         question: 'É seguro para crianças e pets?',
-        answer: 'Sim. Usamos produtos de baixa toxicidade registrados na ANVISA (RDC 622/2022). Orientamos o tempo de afastamento necessário. Crianças, animais e alimentos ficam protegidos durante a aplicação.'
+        answer: 'Sim. Trabalhamos com produtos de baixa toxicidade registrados na ANVISA (RDC 622/2022) e orientamos o tempo de afastamento necessário para cada ambiente. Crianças, gestantes, animais domésticos e alimentos são protegidos durante toda a aplicação conforme protocolo de segurança.'
       },
       {
         question: 'Quanto tempo dura o efeito?',
-        answer: 'O efeito imediato é visível em até 24h. A proteção residual dura de 30 a 90 dias dependendo do produto e ambiente. Recomendamos plano preventivo trimestral para residências e bimestral para empresas.'
+        answer: 'O efeito imediato é observado em até 24 horas após a aplicação. A proteção residual varia de 30 a 90 dias dependendo do princípio ativo, formulação e condições do ambiente. Recomendamos plano preventivo trimestral para residências e bimestral para estabelecimentos comerciais e industriais.'
       },
         ],
 } as const;
@@ -155,7 +155,7 @@ export const BRAND = {
 export function whatsappHref(prefill?: string): string {
     const text =
           prefill ??
-          "Olá, Sentinela! Vi o site e gostaria de solicitar um orçamento para dedetização em Franca SP.";
+          "Olá, Sentinela! Acessei o site e gostaria de solicitar um orçamento para controle de pragas.";
     return `https://wa.me/${BRAND.phoneE164}?text=${encodeURIComponent(text)}`;
 }
 

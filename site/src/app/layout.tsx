@@ -20,7 +20,7 @@ const body = DM_Sans({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.vercel.app";
+  "https://sentinelasaudeambiental.com.br";
 
 const absoluteLogoUrl = new URL(BRAND.logoPath, siteUrl).href;
 
@@ -28,25 +28,33 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Sentinela Saúde Ambiental | Controle de pragas em Franca SP e região",
+      "Sentinela Saúde Ambiental | Controle de Pragas em Franca SP",
     template: "%s | Sentinela Saúde Ambiental",
   },
   description:
-    "Mais de 11 anos de experiência em Franca e região: controle integrado de pragas com laudo técnico e transparência para exigências da Vigilância Sanitária. Desinsetização, desratização e prevenção de escorpiões — resposta rápida no WhatsApp.",
+    "Controle integrado de pragas em Franca SP com laudo técnico ANVISA e garantia. Dedetização, desinsetização, desratização e controle de escorpiões. Atendimento residencial e empresarial com mais de 11 anos de experiência.",
   keywords: [
-    "controle de pragas Franca",
-    "controle de pragas região Franca",
+    "dedetização Franca",
     "dedetizadora Franca SP",
+    "controle de pragas Franca",
+    "controle de pragas Franca SP",
+    "escorpião Franca",
+    "dedetização Franca SP",
     "desinsetização Franca",
     "desratização Franca",
     "descupinização Franca",
-    "escorpião Franca",
     "limpeza caixa d'água Franca",
     "laudo Vigilância Sanitária Franca",
-    "contrato empresa controle de pragas",
-    "Batatais",
-    "Orlândia",
+    "controle de pragas Batatais",
+    "controle de pragas Orlândia",
+    "controle de pragas Ituverava",
+    "controle de pragas Cristais Paulista",
+    "laudo ANVISA Franca",
+    "PMOC Franca",
+    "contrato controle de pragas empresas Franca",
     "sentinela saúde ambiental",
+    "empresa de dedetização Franca SP",
+    "controle de escorpiões Franca",
   ],
   authors: [{ name: BRAND.name, url: siteUrl }],
   creator: BRAND.name,
@@ -60,23 +68,23 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: siteUrl,
     siteName: BRAND.name,
-    title: `${BRAND.name} — Controle integrado de pragas`,
+    title: `${BRAND.name} — Controle de pragas em Franca SP com laudo ANVISA`,
     description: BRAND.tagline,
     images: [
       {
-        url: absoluteLogoUrl,
-        width: 1024,
-        height: 1024,
-        alt: BRAND.name,
-        type: "image/png",
+        url: "/media/thiago/hero-casa-protegida.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sentinela Saúde Ambiental — Controle profissional de pragas em Franca SP",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: BRAND.name,
+    title: `${BRAND.name} — Controle de pragas Franca SP`,
     description: BRAND.shortTagline,
-    images: [absoluteLogoUrl],
+    images: ["/media/thiago/hero-casa-protegida.jpg"],
   },
   robots: {
     index: true,
@@ -100,11 +108,14 @@ export const metadata: Metadata = {
     "business:contact_data:region": "SP",
     "business:contact_data:country_name": "Brasil",
     "business:contact_data:phone_number": BRAND.phoneDisplay,
+    "business:contact_data:postal_code": BRAND.address.postalCode,
+    "business:contact_data:street_address": BRAND.address.streetAddress,
+    "twitter:domain": "sentinelasaudeambiental.com.br",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#002d5b",
+  themeColor: "#002347",
   width: "device-width",
   initialScale: 1,
 };

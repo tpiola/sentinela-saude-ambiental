@@ -6,18 +6,8 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.pexels.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "videos.pexels.com",
-        pathname: "/**",
-      },
-    ],
+    // All images are now local via /media/thiago/ — no remote patterns needed
+    remotePatterns: [],
   },
 };
 

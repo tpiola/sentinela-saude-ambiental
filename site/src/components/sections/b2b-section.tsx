@@ -6,20 +6,20 @@ import { BRAND, whatsappHref } from "@/lib/brand";
 
 const cards = [
   {
-    title: "Laudo técnico oficial",
-    text: "Documentação e certificados exigidos por Vigilância Sanitária e auditorias.",
+    title: "Laudo técnico ANVISA",
+    text: "Documentação e certificados exigidos por Vigilância Sanitária, auditorias e fiscalizações — conforme RDC 622/2022.",
   },
   {
     title: "Sem parar a operação",
-    text: "Gel de última geração e horários flexíveis para comércio e indústria.",
+    text: "Gel biologicamente formulado, aplicação em horários estratégicos e mínimo impacto na rotina do seu negócio.",
   },
   {
-    title: "Contrato preventivo",
-    text: "Cronograma bimestral ou mensal — evita multas e interdições.",
+    title: "Contrato preventivo com cronograma",
+    text: "Visitas mensais ou bimestrais com registro fotográfico, relatório técnico e rastreabilidade total.",
   },
   {
-    title: "Polo industrial de Franca",
-    text: "Experiência com calçados, alimentos, condomínios e varejo.",
+    title: "Experiência no polo industrial de Franca",
+    text: "Mais de 11 anos atendendo indústrias calçadistas, alimentícias, condomínios e comércios na região.",
   },
 ];
 
@@ -47,13 +47,13 @@ export function B2bSection() {
           >
             <p className="mb-3 flex items-center gap-2 text-xs font-bold tracking-widest text-[color:var(--brand-lime)] uppercase">
               <span className="h-0.5 w-8 bg-[color:var(--brand-lime)]" />
-              Para comércio e indústria
+              Soluções empresariais
             </p>
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold md:text-4xl lg:text-5xl">
-              Controle de pragas para empresas em Franca SP
+              Controle de pragas para empresas — laudo, conformidade e prevenção
             </h2>
             <p className="mt-4 text-sm text-white/80">
-              Laudo ANVISA, contrato e controle contínuo.
+              Laudo ANVISA, contrato preventivo e controle contínuo para indústria, comércio, condomínios e clínicas.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {cards.map((c, i) => (
@@ -80,7 +80,7 @@ export function B2bSection() {
             </div>
             <a
               href={whatsappHref(
-                "Olá! Preciso de controle de pragas para minha empresa em Franca SP.",
+                "Olá, Sentinela! Preciso de controle de pragas para minha empresa em Franca SP. Gostaria de receber uma proposta com laudo ANVISA.",
               )}
               className="mt-10 inline-flex min-h-[48px] items-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-bold text-[color:var(--brand-navy-heading)] transition hover:bg-[color:var(--brand-green-light)]"
             >
@@ -100,8 +100,8 @@ export function B2bSection() {
             />
             <div className="relative overflow-hidden rounded-3xl shadow-2xl">
               <Image
-                src={BRAND.galleryImages[1].src}
-                alt={BRAND.galleryImages[1].alt}
+                src="/media/thiago/tecnico-sentinela.jpg"
+                alt="Técnico da Sentinela — aplicação profissional de controle de pragas em ambiente empresarial"
                 width={800}
                 height={1067}
                 className="h-[320px] w-full object-cover object-center sm:h-[420px] lg:h-[480px]"

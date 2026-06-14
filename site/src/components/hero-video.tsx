@@ -59,14 +59,14 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-4 py-1.5">
             <span className="h-2 w-2 rounded-full bg-[color:var(--brand-lime)]" />
             <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[color:var(--brand-lime)]">
-              11+ anos em Franca SP
+              Controle integrado de pragas urbanas
             </span>
           </div>
           <h1 className="font-[family-name:var(--font-heading)] text-5xl leading-[1.02] font-extrabold tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl">
-            Elimine pragas hoje em Franca SP
+            Proteção profissional contra pragas com laudo técnico e garantia
           </h1>
           <p className="mx-auto mt-4 max-w-lg text-base text-white/80 lg:mx-0">
-            Escorpião, barata, rato, cupim. Atendimento rápido. Resultado garantido.
+            Controle de escorpiões, baratas, roedores e cupins. Diagnóstico técnico, produto registrado ANVISA e documentação completa para sua residência ou empresa.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
             <motion.a
@@ -81,11 +81,11 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               href="#servicos"
               className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:w-auto"
             >
-              Ver serviços
+              Nossos serviços
             </a>
           </div>
           <div className="mt-12 flex flex-wrap justify-center gap-6 lg:justify-start">
-            {["11+ anos", "ANVISA", "Laudo técnico", "Franca SP"].map((item) => (
+            {["Laudo ANVISA", "Garantia contratual", "11+ anos", "Franca SP"].map((item) => (
               <div key={item} className="text-center">
                 <div className="text-xl font-bold text-white sm:text-2xl">{item}</div>
               </div>

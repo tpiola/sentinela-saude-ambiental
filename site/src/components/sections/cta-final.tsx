@@ -20,7 +20,7 @@ export function CtaFinal() {
           viewport={{ once: true }}
           className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-white md:text-4xl"
         >
-          Escorpião, barata ou exigência da fiscal — não deixe virar emergência
+          Infestação, praga ou não conformidade com a fiscalização — antecipe-se com quem tem laudo e responsabilidade técnica
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -29,10 +29,10 @@ export function CtaFinal() {
           transition={{ delay: 0.06 }}
           className="mx-auto mt-5 max-w-2xl text-lg text-white/85"
         >
-          {BRAND.experienceYearsLabel} de atuação em Franca e região com laudo e
-          transparência. Chame no WhatsApp: diagnóstico gratuito e resposta
-          rápida para colocar prevenção na agenda — antes do pico de escorpiões
-          ou da autuação.
+          {BRAND.experienceYearsLabel} de atuação em Franca e região com laudo
+          ANVISA, garantia contratual e transparência em cada etapa. Chame no
+          WhatsApp para diagnóstico gratuito — antes do pico de escorpiões ou da
+          autuação da Vigilância Sanitária.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
@@ -45,13 +45,13 @@ export function CtaFinal() {
             href={whatsappHref()}
             className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-navy)] px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white shadow-[0_0_25px_rgba(132,255,0,0.4)] transition hover:bg-[color:var(--brand-navy-soft)]"
           >
-            WhatsApp
+            Solicitar diagnóstico gratuito
           </a>
           <a
             href="#diagnostico"
             className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center rounded-full border border-white/30 bg-white/10 px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white backdrop-blur-md transition hover:bg-white/20"
           >
-            Fazer diagnóstico
+            Diagnóstico online
           </a>
         </motion.div>
       </div>
