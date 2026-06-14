@@ -1,11 +1,58 @@
 import Link from "next/link";
-import { BRAND } from "@/lib/brand";
+import { BRAND, mapsEmbedUrl, mapsDirectionsUrl, mapsSearchUrl } from "@/lib/brand";
 
 export function SiteFooter() {
   const ano = new Date().getFullYear();
+  const embedSrc = mapsEmbedUrl();
+  const directionsUrl = mapsDirectionsUrl();
+  const searchUrl = mapsSearchUrl();
+
   return (
     <footer className="border-t border-[color:var(--brand-border)] bg-[color:var(--brand-navy)] text-white">
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-14">
+        {/* Google Maps */}
+        <div className="mb-10 overflow-hidden rounded-2xl ring-1 ring-white/10">
+          <div className="border-b border-white/10 bg-white/5 px-4 py-4 sm:px-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="font-bold text-white text-base sm:text-lg">
+                  Como chegar
+                </h3>
+                <p className="mt-0.5 text-sm text-white/50">
+                  {BRAND.address.addressLocality} — {BRAND.address.addressRegion}
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <a
+                  href={directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-bold text-[color:var(--brand-navy-heading)] transition hover:brightness-110"
+                >
+                  Abrir GPS / Rotas
+                </a>
+                <a
+                  href={searchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10"
+                >
+                  Ver no Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
+          <iframe
+            title={`Mapa — ${BRAND.name}`}
+            className="h-64 w-full sm:h-72"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+            src={embedSrc}
+          />
+        </div>
+
+        {/* Grid columns */}
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
