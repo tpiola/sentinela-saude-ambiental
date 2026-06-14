@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { whatsappHref } from "@/lib/brand";
 
 const WA_MSG =
-  "Olá, Sentinela! Vi o site e gostaria de solicitar um orçamento para dedetização. Meu nome é [seu nome].";
+  "Olá, Sentinela! Vi o site e preciso de ajuda urgente com escorpião/barata/cupim em Franca SP. Consegue me atender?";
 
 /** Botão flutuante redondo (desktop e mobile quando nao ha barra). */
 function FloatingButton({ showTooltip, onDismiss }: { showTooltip: boolean; onDismiss: () => void }) {
