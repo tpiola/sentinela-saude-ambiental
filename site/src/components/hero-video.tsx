@@ -117,13 +117,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               </svg>
               Preciso agora — chamar WhatsApp
             </motion.a>
-            <a
-              href="/agendar"
-              className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:w-auto"
-            >
-              Agendar serviço
-            </a>
-          </motion.div>
+            </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}

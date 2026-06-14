@@ -58,12 +58,6 @@ export function CtaFinal() {
             </svg>
             Chamar agora no WhatsApp
           </a>
-          <a
-            href="/agendar"
-            className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center rounded-full border border-white/30 bg-white/10 px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white backdrop-blur-md transition hover:bg-white/20"
-          >
-            Agendar pelo site
-          </a>
         </motion.div>
       </div>
     </section>
