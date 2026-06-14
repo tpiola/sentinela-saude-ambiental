@@ -10,7 +10,7 @@ export function ServicesGrid() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase">Soluções técnicas</p>
           <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">Controle profissional de pragas</h2>
-          <p className="mt-3 text-sm text-[color:var(--brand-muted)]">Escorpião, barata, rato, cupim, mosquitos e mais — com laudo técnico ANVISA e garantia contratual em cada serviço.</p>
+          <p className="mt-3 text-sm text-[color:var(--brand-muted)]">Escorpião, barata, cupim e rato. Laudo ANVISA e garantia em cada serviço.</p>
         </motion.div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[...BRAND.services].map((s, i) => (

@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 const highlights = [
-  "Diagnóstico técnico criterioso em residências e empresas de Franca SP.",
-  "Produtos ANVISA com baixa toxicidade e orientação de segurança para família e pets.",
-  "Laudo técnico e certificados válidos para Vigilância Sanitária e auditorias.",
-  "Atendimento pelo WhatsApp com resposta em minutos — Centro, Jardim Francano, City Petrópolis e mais.",
+  "Diagnóstico técnico em residências e empresas de Franca SP.",
+  "Produtos ANVISA com baixa toxicidade. Seguro para família e pets.",
+  "Laudo técnico e certificados para Vigilância Sanitária.",
+  "Resposta em minutos pelo WhatsApp.",
 ];
 
 const miniGallery = [
@@ -95,12 +95,9 @@ export function AboutSection() {
               <strong className="text-[color:var(--brand-navy)]">
                 {BRAND.name}
               </strong>{" "}
-              é referência em controle de pragas urbanas em Franca e
-              região — atendemos residências e empresas no Centro, Jardim Francano,
-              City Petrópolis, Vila Aparecida, Parque Progresso, Residencial Baldassari,
-              Vila Santa Terezinha, Jardim Panorama e mais. Diferente de empresas que
-              apenas aplicam e somem, entregamos ciclo completo: diagnóstico, aplicação
-              com produtos ANVISA, laudo documentado e acompanhamento pós-serviço.
+              é referência em controle de pragas em Franca e região.
+              Diferente de empresas que apenas aplicam e somem, entregamos ciclo completo:
+              diagnóstico, aplicação com produtos ANVISA, laudo e acompanhamento.
             </p>
             <ul className="mt-8 space-y-4">
               {highlights.map((item) => (

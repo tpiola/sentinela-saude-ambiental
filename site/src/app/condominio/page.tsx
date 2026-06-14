@@ -21,7 +21,7 @@ const whyCards = [
       </svg>
     ),
     title: "Responsabilidade legal",
-    desc: "Condomínios são responsáveis pela segurança e saúde dos moradores. A Vigilância Sanitária exige o PMOC (Plano de Manejo de Controle de Pragas) conforme RDC 622/2022. A ausência do plano pode gerar multas, interdições e passivo trabalhista para o síndico.",
+    desc: "Condomínios são responsáveis pela segurança dos moradores. A Vigilância Sanitária exige o PMOC conforme RDC 622/2022. A ausência do plano gera multas e passivo trabalhista.",
   },
   {
     icon: (
@@ -30,7 +30,7 @@ const whyCards = [
       </svg>
     ),
     title: "Saúde dos moradores",
-    desc: "Baratas, ratos, escorpiões e mosquitos transmitem doenças como leptospirose, dengue e salmonelose. Em condomínios, a infestação se propaga rapidamente pelas áreas comuns — lixeiras, garagens, dutos e jardins. Um plano preventivo protege centenas de famílias.",
+    desc: "Baratas, ratos, escorpiões e mosquitos transmitem doenças. Em condomínios, a infestação se propaga por áreas comuns. Um plano preventivo protege centenas de famílias.",
   },
   {
     icon: (
@@ -39,7 +39,7 @@ const whyCards = [
       </svg>
     ),
     title: "Valorização do patrimônio",
-    desc: "Cupins, brocas e roedores causam danos estruturais silenciosos que desvalorizam o imóvel e geram custos altos de reparo. Um condomínio com PMOC ativo e laudo técnico em dia transmite segurança, organização e cuidado — valor percebido por moradores e visitantes.",
+    desc: "Cupins e roedores causam danos silenciosos que desvalorizam o imóvel. Um condomínio com PMOC ativo transmite segurança e cuidado.",
   },
 ];
 
@@ -47,27 +47,27 @@ const pmocSteps = [
   {
     number: "1",
     title: "Vistoria técnica",
-    desc: "Inspeção minuciosa de todas as áreas comuns — garagem, lixeira, dutos, jardins, hall, cobertura, casa de máquinas e reservatórios. Identificamos pontos críticos, focos de infestação e condições estruturais que favorecem pragas.",
+    desc: "Inspeção de áreas comuns — garagem, lixeira, dutos, jardins, hall e reservatórios. Identificamos pontos críticos e focos de infestação.",
   },
   {
     number: "2",
     title: "Diagnóstico",
-    desc: "Elaboramos um relatório detalhado com as espécies identificadas, nível de infestação, fatores de risco e recomendações específicas para cada área do condomínio — com base na RDC 622/2022 e nas normas da Vigilância Sanitária.",
+    desc: "Relatório com espécies identificadas, nível de infestação e recomendações baseadas na RDC 622/2022.",
   },
   {
     number: "3",
     title: "Cronograma preventivo",
-    desc: "Definimos um calendário personalizado de visitas preventivas com frequência ajustada ao perfil do condomínio. Cada visita inclui aplicação, monitoramento e registro fotográfico com assinatura do responsável.",
+    desc: "Calendário personalizado de visitas com frequência ajustada ao perfil do condomínio. Cada visita inclui aplicação, monitoramento e registro.",
   },
   {
     number: "4",
     title: "Execução",
-    desc: "Técnicos treinados e uniformizados realizam as aplicações com produtos registrados na ANVISA, de baixa toxicidade e sem odor residual. O serviço é programado para causar o mínimo impacto na rotina dos moradores.",
+    desc: "Técnicos treinados realizam aplicações com produtos ANVISA de baixa toxicidade. Mínimo impacto na rotina dos moradores.",
   },
   {
     number: "5",
     title: "Laudo técnico",
-    desc: "Emitimos o Laudo Técnico de Controle de Pragas com validade legal, contendo todas as ações realizadas, produtos utilizados, cronograma vigente e conformidade com a legislação. Documento essencial para fiscalização e assembleias.",
+    desc: "Laudo Técnico de Controle de Pragas com validade legal, contendo ações, produtos e conformidade com a legislação.",
   },
 ];
 

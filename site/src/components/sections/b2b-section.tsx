@@ -7,19 +7,19 @@ import { BRAND, whatsappHref } from "@/lib/brand";
 const cards = [
   {
     title: "Laudo técnico ANVISA",
-    text: "Documentação e certificados exigidos por Vigilância Sanitária, auditorias e fiscalizações em Franca SP — conforme RDC 622/2022.",
+    text: "Documentação conforme RDC 622/2022 para Vigilância Sanitária, auditorias e fiscalizações.",
   },
   {
     title: "Sem parar a operação",
-    text: "Gel biologicamente formulado, aplicação em horários estratégicos e mínimo impacto na rotina do seu negócio em Franca.",
+    text: "Gel biologicamente formulado. Aplicação em horários estratégicos. Mínimo impacto no seu negócio.",
   },
   {
-    title: "Contrato preventivo com cronograma",
-    text: "Visitas mensais ou bimestrais com registro fotográfico, relatório técnico e rastreabilidade total. Atendemos Centro, Parque Progresso e região.",
+    title: "Contrato preventivo",
+    text: "Visitas mensais ou bimestrais com registro fotográfico, relatório técnico e rastreabilidade total.",
   },
   {
-    title: "Experiência no polo industrial de Franca",
-    text: "Mais de 11 anos atendendo indústrias calçadistas, alimentícias, condomínios e comércios no Parque Progresso, City Petrópolis e zona sul.",
+    title: "Experiência comprovada",
+    text: "Mais de 11 anos atendendo indústrias, condomínios e comércios em Franca e região.",
   },
 ];
 
@@ -50,7 +50,7 @@ export function B2bSection() {
               Soluções empresariais
             </p>
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold md:text-4xl lg:text-5xl">
-              Controle de pragas para empresas em Franca SP — laudo, conformidade e prevenção
+              Controle de pragas para empresas — laudo e conformidade
             </h2>
             <p className="mt-4 text-sm text-white/80">
               Laudo ANVISA, contrato preventivo e controle contínuo para indústria, comércio, condomínios e clínicas em Franca e região.

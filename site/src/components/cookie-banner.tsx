@@ -11,18 +11,13 @@ export function CookieBanner() {
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) {
-      const t = setTimeout(() => setVisible(true), 1000);
+      const t = setTimeout(() => setVisible(true), 800);
       return () => clearTimeout(t);
     }
   }, []);
 
   function handleAccept() {
     localStorage.setItem(STORAGE_KEY, "accepted");
-    setVisible(false);
-  }
-
-  function handleDecline() {
-    localStorage.setItem(STORAGE_KEY, "declined");
     setVisible(false);
   }
 
@@ -33,37 +28,33 @@ export function CookieBanner() {
       role="dialog"
       aria-label="Aviso de cookies"
       aria-live="polite"
-      className="fixed right-0 bottom-0 left-0 z-50 border-t border-[color:var(--brand-border)] bg-white shadow-2xl md:right-auto md:bottom-4 md:left-4 md:max-w-md md:rounded-2xl md:border"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[color:var(--brand-border)] bg-white shadow-2xl"
     >
-      <div className="p-5">
-        <p className="text-sm font-semibold text-[color:var(--brand-navy)]">
-          🍪 Usamos cookies
-        </p>
-        <p className="mt-2 text-sm text-[color:var(--brand-muted)]">
-          Utilizamos cookies analíticos (Google Analytics) para melhorar o site.
-          Ao aceitar, você concorda com o tratamento de dados conforme nossa{" "}
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-4 sm:flex-row sm:px-6">
+        <p className="flex-1 text-center text-sm text-[color:var(--brand-muted)] sm:text-left">
+          Usamos cookies para melhorar sua experiência. Ao continuar, você
+          concorda com nossa{" "}
           <Link
             href="/privacidade"
-            className="font-semibold text-[color:var(--brand-navy)] underline-offset-2 hover:underline"
+            className="font-semibold text-[color:var(--brand-navy)] underline underline-offset-2 hover:text-[color:var(--brand-lime-deep)]"
           >
             Política de Privacidade
-          </Link>{" "}
-          (LGPD — Lei 13.709/2018).
+          </Link>
+          .
         </p>
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="flex shrink-0 items-center gap-3">
+          <Link
+            href="/privacidade"
+            className="text-xs font-semibold text-[color:var(--brand-muted)] underline underline-offset-2 hover:text-[color:var(--brand-navy)]"
+          >
+            Saiba mais
+          </Link>
           <button
             type="button"
             onClick={handleAccept}
-            className="flex-1 rounded-full bg-[color:var(--brand-navy)] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[color:var(--brand-navy-soft)]"
+            className="rounded-full bg-[color:var(--brand-navy)] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-[color:var(--brand-navy-soft)]"
           >
             Aceitar
-          </button>
-          <button
-            type="button"
-            onClick={handleDecline}
-            className="flex-1 rounded-full border border-[color:var(--brand-border)] px-5 py-2.5 text-sm font-semibold text-[color:var(--brand-muted)] transition hover:border-[color:var(--brand-navy)] hover:text-[color:var(--brand-navy)]"
-          >
-            Recusar
           </button>
         </div>
       </div>
