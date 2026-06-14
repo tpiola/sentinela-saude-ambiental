@@ -62,11 +62,11 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               11+ anos em Franca SP
             </span>
           </div>
-          <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.08] font-bold tracking-tight text-balance text-white sm:text-5xl lg:text-6xl">
-            Escorpião na sua casa? Resolva hoje com controle profissional
+          <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.05] font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Elimine pragas hoje em Franca SP
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-pretty text-white/85 lg:mx-0">
-            Eliminação segura de escorpiões com equipe especializada, atendimento rápido em Franca SP e orientação completa para evitar novas infestações.
+          <p className="mx-auto mt-4 max-w-lg text-base text-white/80 lg:mx-0">
+            Escorpião, barata, rato, cupim. Atendimento rápido. Resultado garantido.
           </p>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
             <motion.a
@@ -75,7 +75,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
               whileTap={{ scale: 0.98 }}
               className="inline-flex min-h-[52px] w-full min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-xl sm:w-auto"
             >
-              Solicitar diagnóstico gratuito
+              Falar no WhatsApp agora
             </motion.a>
             <a
               href="#servicos"

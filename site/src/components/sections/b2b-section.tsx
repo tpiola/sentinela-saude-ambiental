@@ -50,13 +50,10 @@ export function B2bSection() {
               Para comércio e indústria
             </p>
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold md:text-4xl lg:text-5xl">
-              Laudo, prevenção e apoio para exigências da fiscalização
+              Controle de pragas para empresas em Franca SP
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-white/80">
-              Atendemos o polo industrial e o comércio de Franca com contratos
-              preventivos e laudo técnico. Reduza risco de multas, interdições e
-              problemas com a Vigilância Sanitária com controle integrado e
-              cronograma profissional.
+            <p className="mt-4 text-sm text-white/80">
+              Laudo ANVISA, contrato e controle contínuo.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {cards.map((c, i) => (
