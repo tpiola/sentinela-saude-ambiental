@@ -59,33 +59,34 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-4 py-1.5">
             <span className="h-2 w-2 rounded-full bg-[color:var(--brand-lime)]" />
             <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[color:var(--brand-lime)]">
-              Controle integrado de pragas urbanas
+              Resolvemos em Franca SP
             </span>
           </div>
-          <h1 className="font-[family-name:var(--font-heading)] text-4xl leading-[1.02] font-extrabold tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl">
-            Controle de pragas com laudo técnico e garantia
+          <h1 className="font-[family-name:var(--font-heading)] text-5xl leading-[1.02] font-extrabold tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl">
+            Escorpião?<br />
+            <span className="text-[color:var(--brand-lime)]">Resolvemos.</span>
           </h1>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-white/70 lg:mx-0">
-            Escorpião, barata, rato, cupim. Diagnóstico gratuito, aplicação profissional e documentação completa para sua residência ou empresa em Franca.
+          <p className="mx-auto mt-3 max-w-xl text-base text-white/70 lg:mx-0">
+            Barata, cupim, rato. Atendimento em Franca SP com laudo ANVISA e garantia.
           </p>
-          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row lg:flex-wrap lg:justify-start">
             <motion.a
-              href={whatsappHref()}
+              href={whatsappHref("Olá, Sentinela! Preciso resolver agora. Tem escorpião/barata/cupim em casa.")}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex min-h-[56px] w-full min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-10 py-4 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-[0_0_20px_rgba(132,255,0,0.6)] animate-pulse sm:w-auto"
             >
-              Falar no WhatsApp agora
+              Preciso resolver agora
             </motion.a>
             <a
-              href="#servicos"
+              href="/servicos"
               className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 sm:w-auto"
             >
-              Nossos serviços
+              Ver serviços
             </a>
           </div>
-          <div className="mt-12 flex flex-wrap justify-center gap-6 lg:justify-start">
-            {["Laudo ANVISA", "Garantia contratual", "11+ anos", "Franca SP"].map((item) => (
+          <div className="mt-10 flex flex-wrap justify-center gap-6 lg:justify-start">
+            {["Escorpião", "Barata", "Cupim", "Laudo ANVISA"].map((item) => (
               <div key={item} className="text-center">
                 <div className="text-xl font-bold text-white sm:text-2xl">{item}</div>
               </div>

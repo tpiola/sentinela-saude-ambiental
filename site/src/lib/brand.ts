@@ -3,9 +3,9 @@ export const BRAND = {
     name: "Sentinela Saúde Ambiental",
     legalHint: "Better Controle de Pragas",
     tagline:
-          "Controle integrado de pragas urbanas com laudo técnico ANVISA, garantia contratual e conformidade regulatória para residências e empresas em Franca/SP.",
+          "Escorpião, barata ou cupim? Resolvemos com laudo ANVISA e garantia em Franca/SP.",
     shortTagline:
-          "Controle profissional de pragas em Franca — laudo técnico, ANVISA e garantia.",
+          "Praga em casa? Chama agora.",
     coverageSummary: "Atendimento em Franca/SP e região num raio de até 40 km.",
     region: "Franca e região — SP",
     experienceYears: 11,
@@ -61,11 +61,11 @@ export const BRAND = {
           "Residencial Paraíso",
           "Jardim do Éden",
         ],
-    /** Vídeo real profissional do Thiago */
+    /** Vídeo real profissional em ação */
     heroVideoUrl:
-          "/media/thiago/video-hero.mp4",
+          "/media/sentinela/drive/servico-profissional-franca-sp.mp4",
     /** Poster estático do hero */
-    heroVideoPosterUrl: "/media/thiago/hero-casa-protegida.jpg",
+    heroVideoPosterUrl: "/media/sentinela/facebook/images/poster-hero.jpg",
     logoPath: "/brand/logo-brasao.png",
     /** Galeria com FOTOS REAIS do profissional Thiago */
     galleryImages: [

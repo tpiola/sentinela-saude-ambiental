@@ -21,10 +21,11 @@ export function SiteFooter() {
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-lime)] mb-4">Links</h4>
             <ul className="space-y-2.5">
-              <li><a href="#inicio" className="text-sm text-white/60 hover:text-white transition-colors">Início</a></li>
-              <li><a href="#servicos" className="text-sm text-white/60 hover:text-white transition-colors">Serviços</a></li>
-              <li><a href="#empresas" className="text-sm text-white/60 hover:text-white transition-colors">Empresas</a></li>
-              <li><a href="#duvidas" className="text-sm text-white/60 hover:text-white transition-colors">Dúvidas</a></li>
+              <li><a href="/" className="text-sm text-white/60 hover:text-white transition-colors">Início</a></li>
+              <li><a href="/servicos" className="text-sm text-white/60 hover:text-white transition-colors">Serviços</a></li>
+              <li><a href="/sobre" className="text-sm text-white/60 hover:text-white transition-colors">Sobre</a></li>
+              <li><a href="/faq" className="text-sm text-white/60 hover:text-white transition-colors">Dúvidas</a></li>
+              <li><a href="/agendar" className="text-sm text-white/60 hover:text-white transition-colors">Agendar</a></li>
             </ul>
           </div>
 

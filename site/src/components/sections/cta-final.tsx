@@ -20,7 +20,7 @@ export function CtaFinal() {
           viewport={{ once: true }}
           className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-white md:text-4xl"
         >
-          Escorpião, barata, cupim ou não conformidade? Antecipe-se com laudo ANVISA e garantia em Franca SP
+          Precisa de laudo ANVISA? Chama agora.
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -29,9 +29,7 @@ export function CtaFinal() {
           transition={{ delay: 0.06 }}
           className="mx-auto mt-5 max-w-2xl text-lg text-white/85"
         >
-          {BRAND.experienceYearsLabel} atendendo residências e empresas no Centro, Jardim Francano, City Petrópolis, 
-          Parque Progresso, Residencial Baldassari e todos os bairros de Franca SP. Chame no 
-          WhatsApp para diagnóstico gratuito — sem compromisso.
+          Escorpião, barata ou cupim? Resolvemos em Franca SP. {BRAND.experienceYearsLabel} de experiência. Laudo e garantia em todo serviço.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
@@ -41,16 +39,16 @@ export function CtaFinal() {
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
           <a
-            href={whatsappHref()}
+            href={whatsappHref("Olá, Sentinela! Preciso de laudo ANVISA ou resolver praga urgente.")}
             className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-navy)] px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white shadow-[0_0_25px_rgba(132,255,0,0.4)] transition hover:bg-[color:var(--brand-navy-soft)]"
           >
-            Solicitar diagnóstico gratuito
+            Chama no WhatsApp
           </a>
           <a
-            href="#diagnostico"
+            href="/agendar"
             className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center rounded-full border border-white/30 bg-white/10 px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white backdrop-blur-md transition hover:bg-white/20"
           >
-            Diagnóstico online
+            Agendar visita
           </a>
         </motion.div>
       </div>
