@@ -1,3 +1,4 @@
+import { PestIcon } from "@/components/pest-icons";
 import { BRAND } from "@/lib/brand";
 
 const cidadesPrincipais = [
@@ -13,15 +14,15 @@ const cidadesPrincipais = [
 ];
 
 const tiposPraga = [
-  { emoji: "🪳", label: "Baratas" },
-  { emoji: "🐀", label: "Ratos" },
-  { emoji: "🦂", label: "Escorpiões" },
-  { emoji: "🐜", label: "Formigas" },
-  { emoji: "🕷️", label: "Aranhas" },
-  { emoji: "🦟", label: "Mosquitos" },
-  { emoji: "🪰", label: "Moscas" },
-  { emoji: "🪱", label: "Cupins" },
-  { emoji: "💧", label: "Caixa d'água" },
+  { icon: "baratas" as const, label: "Baratas" },
+  { icon: "ratos" as const, label: "Ratos" },
+  { icon: "escorpiao" as const, label: "Escorpiões" },
+  { icon: "formigas" as const, label: "Formigas" },
+  { icon: "aranhas" as const, label: "Aranhas" },
+  { icon: "mosquitos" as const, label: "Mosquitos" },
+  { icon: "moscas" as const, label: "Moscas" },
+  { icon: "cupins" as const, label: "Cupins" },
+  { icon: "caixa-dagua" as const, label: "Caixa d'água" },
 ];
 
 export function AreaAtendimentoSection() {
@@ -70,9 +71,9 @@ export function AreaAtendimentoSection() {
             {tiposPraga.map((p) => (
               <div
                 key={p.label}
-                className="flex flex-col items-center gap-1 rounded-xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] px-2 py-3 text-center"
+                className="flex flex-col items-center gap-2 rounded-xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] px-2 py-4 text-center transition hover:shadow-md hover:-translate-y-0.5"
               >
-                <span className="text-2xl" role="img" aria-label={p.label}>{p.emoji}</span>
+                <PestIcon name={p.icon} size={28} className="text-[color:var(--brand-navy)]" />
                 <span className="text-xs font-semibold text-[color:var(--brand-navy)]">{p.label}</span>
               </div>
             ))}
