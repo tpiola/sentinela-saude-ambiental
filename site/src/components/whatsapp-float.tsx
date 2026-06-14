@@ -66,7 +66,6 @@ function MobileStickyBar() {
         aria-label="Falar no WhatsApp e obter diagnóstico gratuito"
       >
         <WhatsAppIcon className="h-6 w-6 shrink-0" />
-        <span>FALAR NO WHATSAPP — DIAGNÓSTICO GRATUITO</span>
       </a>
     </div>
   );
