@@ -1,0 +1,17 @@
+{
+  "name": "sentinelasaudeambiental",
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://www.sentinelasaudeambiental.com.br",
+      "statusCode": 308,
+      "has": [
+        {
+          "type": "host",
+          "value": "sentinelasaudeambiental.com.br"
+        }
+      ]
+    }
+  ]
+}
