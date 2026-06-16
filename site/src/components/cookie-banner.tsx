@@ -11,7 +11,7 @@ export function CookieBanner() {
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) {
-      const t = setTimeout(() => setVisible(true), 800);
+      const t = setTimeout(() => setVisible(true), 1000);
       return () => clearTimeout(t);
     }
   }, []);
@@ -28,27 +28,19 @@ export function CookieBanner() {
       role="dialog"
       aria-label="Aviso de cookies"
       aria-live="polite"
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[color:var(--brand-border)] bg-white shadow-2xl"
+      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[color:var(--brand-border)] bg-white/95 shadow-2xl backdrop-blur-md"
     >
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-4 sm:flex-row sm:px-6">
         <p className="flex-1 text-center text-sm text-[color:var(--brand-muted)] sm:text-left">
-          Usamos cookies para melhorar sua experiência. Ao continuar, você
-          concorda com nossa{" "}
+          Este site usa cookies para melhorar sua experiência.{" "}
           <Link
             href="/privacidade"
             className="font-semibold text-[color:var(--brand-navy)] underline underline-offset-2 hover:text-[color:var(--brand-lime-deep)]"
           >
             Política de Privacidade
           </Link>
-          .
         </p>
         <div className="flex shrink-0 items-center gap-3">
-          <Link
-            href="/privacidade"
-            className="text-xs font-semibold text-[color:var(--brand-muted)] underline underline-offset-2 hover:text-[color:var(--brand-navy)]"
-          >
-            Saiba mais
-          </Link>
           <button
             type="button"
             onClick={handleAccept}

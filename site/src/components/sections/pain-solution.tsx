@@ -6,45 +6,38 @@ import { motion } from "framer-motion";
 const pains = [
   {
     title: "Escorpião",
-    dor: "Perigo real. Picada pode matar em horas.",
-    solucao: "Atendimento mais rápido de Franca. Saímos na hora.",
-    cta: "Chamar agora — prioridade",
+    dor: "Surgiu um escorpião dentro de casa em Franca. Você não pode esperar.",
+    solucao: "Atendimento mais rápido da cidade. Saímos na hora com produtos ANVISA.",
+    cta: "Preciso de ajuda urgente",
     action: "escorpião",
-    emoji: "🦂",
   },
   {
     title: "Baratas",
-    dor: "Sujam alimentos, transmitem doenças, contaminam tudo.",
-    solucao: "Eliminação em 24h com gel e garantia.",
-    cta: "Quero eliminar",
+    dor: "Aparecem à noite, contaminam comida, espalham sujeira pela cozinha.",
+    solucao: "Eliminação em até 24h com gel seletivo. Garantia de resultado.",
+    cta: "Quero resolver",
     action: "barata",
-    emoji: "🪳",
   },
   {
     title: "Cupim",
-    dor: "Destrói móveis, portas, telhados — você só vê quando já estragou.",
-    solucao: "Barreira química com garantia contratual.",
-    cta: "Agendar vistoria",
+    dor: "Destrói móvel, roda de batente, forro de teto — e você só descobre quando já estragou.",
+    solucao: "Barreira química com garantia contratual. Proteção contra cupim de madeira e de solo.",
+    cta: "Solicitar vistoria",
     action: "cupim",
-    emoji: "🪵",
   },
   {
     title: "Condomínios e Empresas",
-    dor: "",
-    solucao:
-      "Laudo ANVISA, cronograma, conformidade. Serviço sem parar sua operação.",
-    cta: "Solicitar proposta",
+    dor: "Vigilância Sanitária apertando, laudo vencendo, morador reclamando de praga.",
+    solucao: "Contrato preventivo com cronograma mensal, laudo ANVISA e relatório fotográfico. Sem parar sua operação.",
+    cta: "Quero proposta comercial",
     action: "empresa",
-    emoji: "🏢",
   },
   {
     title: "Sítios e Chácaras",
-    dor: "",
-    solucao:
-      "Áreas amplas, pragas de campo. Atendimento especializado.",
+    dor: "Área grande, mato, bicho entrando — a dedetização convencional não dá conta.",
+    solucao: "Atendimento especializado para áreas rurais em Franca e região. Pulverização costal e termonebulização.",
     cta: "Chamar especialista",
     action: "sítio",
-    emoji: "🌳",
   },
 ];
 
@@ -70,17 +63,17 @@ export function PainSolution() {
           className="text-center"
         >
           <span className="inline-block rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-4 py-1 text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase mb-3">
-            Identificou alguma praga?
+            Pragas em Franca e região?
           </span>
           <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
             A Sentinela resolve.
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-[color:var(--brand-muted)]">
-            Cada minuto parado é prejuízo. Chama agora.
+            Mais de 11 anos atendendo Franca-SP. Serviço com laudo técnico, garantia e responsabilidade.
           </p>
         </motion.div>
 
-        {/* Cards principais — risco imediato */}
+        {/* Cards principais */}
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {pains.slice(0, 3).map((p, i) => (
             <motion.article
@@ -89,37 +82,30 @@ export function PainSolution() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.08 }}
-              className="group relative flex flex-col overflow-hidden rounded-3xl border border-red-100 bg-white p-6 shadow-sm transition hover:shadow-[0_10px_40px_rgba(239,68,68,0.15)]"
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-[color:var(--brand-border)] bg-white p-6 shadow-sm transition hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
             >
-              {/* Top-right emoji decorativo */}
-              <span className="absolute top-3 right-3 text-2xl opacity-10 transition group-hover:opacity-30" aria-hidden>
-                {p.emoji}
-              </span>
+              {/* Título */}
+              <h3 className="font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[color:var(--brand-navy)]">
+                {p.title}
+              </h3>
 
-              {/* Dor section */}
-              <div className="mb-2">
-                <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-red-500">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-500" />
+              {/* O problema */}
+              <div className="mt-4">
+                <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-red-600">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-600" />
                   O problema
                 </span>
-                <h3 className="mt-1 font-[family-name:var(--font-heading)] text-2xl font-extrabold text-[color:var(--brand-navy)]">
-                  {p.emoji} {p.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-red-700">
+                <p className="mt-1 text-sm leading-relaxed text-gray-600">
                   {p.dor}
                 </p>
               </div>
 
-              {/* Divider personalizada */}
-              <div className="my-4 flex items-center gap-2" aria-hidden>
-                <span className="h-px flex-1 bg-gradient-to-r from-red-200 to-transparent" />
-                <span className="text-red-300 text-[10px] font-bold">VS</span>
-                <span className="h-px flex-1 bg-gradient-to-l from-[color:var(--brand-lime)]/50 to-transparent" />
-              </div>
+              {/* Divider */}
+              <div className="my-4 h-px w-full bg-gradient-to-r from-gray-200 via-gray-200 to-transparent" aria-hidden />
 
-              {/* Solução section */}
+              {/* A solução */}
               <div>
-                <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[color:var(--brand-lime-deep)]">
+                <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--brand-lime)]" />
                   A solução
                 </span>
@@ -129,17 +115,17 @@ export function PainSolution() {
               </div>
 
               <div className="mt-6 flex-1" />
-              <a
+              <Link
                 href="/agendar"
                 className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--brand-navy)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[color:var(--brand-navy-soft)] active:scale-95"
               >
                 {p.cta}
-              </a>
+              </Link>
             </motion.article>
           ))}
         </div>
 
-        {/* Cards B2B + Sítio — tom corporativo, layout alternativo */}
+        {/* Cards B2B + Sítio */}
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
           {pains.slice(3).map((p, i) => (
             <motion.article
@@ -150,26 +136,34 @@ export function PainSolution() {
               transition={{ delay: 0.24 + i * 0.08 }}
               className="group relative flex flex-row items-start gap-5 overflow-hidden rounded-3xl border border-[color:var(--brand-border)] bg-gradient-to-br from-[color:var(--brand-surface)] to-white p-6 shadow-sm transition hover:shadow-lg md:p-8"
             >
-              {/* Coluna do ícone */}
-              <div className="flex-shrink-0 flex h-14 w-14 items-center justify-center rounded-2xl bg-[color:var(--brand-lime)]/15 text-2xl shadow-sm ring-1 ring-[color:var(--brand-lime)]/20">
-                {p.emoji}
-              </div>
-
               {/* Coluna do conteúdo */}
               <div className="flex flex-1 flex-col min-w-0">
                 <h3 className="font-[family-name:var(--font-heading)] text-xl font-extrabold text-[color:var(--brand-navy)]">
                   {p.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[color:var(--brand-muted)]">
+                {/* O problema */}
+                <span className="mt-3 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-red-600">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-600" />
+                  O problema
+                </span>
+                <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                  {p.dor}
+                </p>
+                {/* A solução */}
+                <span className="mt-3 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--brand-lime)]" />
+                  A solução
+                </span>
+                <p className="mt-1 text-sm font-semibold leading-relaxed text-[color:var(--brand-navy)]">
                   {p.solucao}
                 </p>
                 <div className="mt-4 flex-1" />
-                <a
+                <Link
                   href="/agendar"
                   className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-[color:var(--brand-navy)] bg-white px-5 py-2.5 text-sm font-bold text-[color:var(--brand-navy)] transition hover:bg-[color:var(--brand-navy)] hover:text-white active:scale-95"
                 >
                   {p.cta}
-                </a>
+                </Link>
               </div>
             </motion.article>
           ))}
@@ -182,13 +176,13 @@ export function PainSolution() {
           className="mt-10 text-center"
         >
           <p className="text-sm text-[color:var(--brand-muted)]">
-            Laudo ANVISA vencendo?{" "}
-            <a
+            Laudo ANVISA vencendo ou precisa de documentação?{" "}
+            <Link
               href="/agendar"
               className="font-bold text-[color:var(--brand-navy)] underline underline-offset-2 hover:text-[color:var(--brand-lime-deep)]"
             >
-              Agende hoje.
-            </a>
+              Fale com a Sentinela.
+            </Link>
           </p>
         </motion.div>
       </div>

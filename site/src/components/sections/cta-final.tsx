@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { BRAND } from "@/lib/brand";
 
 export function CtaFinal() {
   return (
@@ -22,7 +24,7 @@ export function CtaFinal() {
           Escorpião, barata, cupim, rato.
           <br />
           <span className="text-[color:var(--brand-navy-heading)]">
-            A praga mais rápida de Franca resolve.
+            A Sentinela resolve em Franca e região.
           </span>
         </motion.h2>
         <motion.p
@@ -32,7 +34,7 @@ export function CtaFinal() {
           transition={{ delay: 0.06 }}
           className="mx-auto mt-5 max-w-2xl text-lg text-white/85"
         >
-          Da chamada ao serviço completo. Laudo, garantia, confiança.
+          Mais de {BRAND.experienceYears} anos protegendo casas e empresas em Franca-SP e arredores. Serviço com laudo técnico e garantia.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
@@ -41,12 +43,12 @@ export function CtaFinal() {
           transition={{ delay: 0.12 }}
           className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
-          <a
+          <Link
             href="/agendar"
             className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand-navy)] px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white shadow-[0_0_25px_rgba(132,255,0,0.4)] transition hover:bg-[color:var(--brand-navy-soft)]"
           >
-            Agendar agora
-          </a>
+            Agendar vistoria
+          </Link>
         </motion.div>
       </div>
     </section>

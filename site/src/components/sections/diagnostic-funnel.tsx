@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import {
-  INTEGRATIONS,
   calendarBookingHref,
   sendLeadToN8n,
   type LeadPayload,
@@ -90,15 +89,7 @@ export function DiagnosticFunnel() {
             Prioridade para empresas, laudos e compliance
           </h2>
           <p className="mt-4 text-[color:var(--brand-muted)]">
-            Indústria, comércio e quem responde à Vigilância Sanitária: organize
-            diagnóstico e documentação com critérios claros — sem promessa de
-            tempo fixo; em horário comercial buscamos retorno rápido no
-            WhatsApp. Três passos — no final você fala direto com a equipe.
-            {INTEGRATIONS.n8nWebhookLead && (
-              <span className="mt-2 block text-xs">
-                Integração n8n ativa para automação de leads.
-              </span>
-            )}
+            Indústria, comércio e quem responde à Vigilância Sanitária em Franca: faça o diagnóstico rápido e fale direto com nossa equipe pelo WhatsApp.
           </p>
         </motion.div>
 
