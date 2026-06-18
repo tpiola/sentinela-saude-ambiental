@@ -10,7 +10,7 @@ services:
     env_file: site/.env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sentinela.rule=Host(`sentinelasaudeambiental.com.br`) || Host(`www.sentinelasaudeambiental.com.br`)"
+      - "traefik.http.routers.sentinela.rule=Host(`sentinela-saude-ambiental.com.br`) || Host(`www.sentinela-saude-ambiental.com.br`)"
       - "traefik.http.routers.sentinela.entrypoints=websecure"
       - "traefik.http.routers.sentinela.tls.certresolver=letsencrypt"
       - "traefik.http.services.sentinela.loadbalancer.server.port=3000"
