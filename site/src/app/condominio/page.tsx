@@ -141,7 +141,6 @@ export default function CondominioPage() {
                 "✅ Plano de Manejo (PMOC)",
                 "✅ ANVISA RDC 622/2022",
                 "✅ Laudo técnico",
-                "✅ 11+ anos em Franca",
               ].map((b) => (
                 <span
                   key={b}

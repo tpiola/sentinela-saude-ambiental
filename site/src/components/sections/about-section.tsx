@@ -44,17 +44,6 @@ export function AboutSection() {
                 quality={90}
               />
             </div>
-            <div className="absolute right-4 bottom-4 rounded-2xl bg-[color:var(--brand-navy)] px-6 py-5 text-white shadow-2xl sm:px-8">
-              <p className="font-[family-name:var(--font-heading)] text-4xl font-black text-[color:var(--brand-lime)] sm:text-5xl">
-                {BRAND.experienceYearsShort}
-              </p>
-              <p className="text-xs font-bold tracking-widest text-white/80 uppercase">
-                {BRAND.experienceYearsLabel}
-              </p>
-              <p className="mt-1 text-[10px] font-semibold text-white/70 normal-case">
-                {BRAND.experienceHeadline}
-              </p>
-            </div>
 
             {/* Mini-grid de imagens abaixo da imagem principal */}
             <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-3">

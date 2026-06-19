@@ -85,13 +85,6 @@ export function buildLocalBusinessGraph() {
             },
           })),
         },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          bestRating: "5",
-          ratingCount: "87",
-          reviewCount: "87",
-        },
       },
       {
         "@type": "WebSite",

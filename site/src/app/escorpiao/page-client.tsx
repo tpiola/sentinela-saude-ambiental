@@ -93,8 +93,6 @@ export function EscorpiaoHero() {
                 <span>✅ Laudo técnico ANVISA</span>
                 <span className="hidden md:inline">·</span>
                 <span>✅ Atendimento imediato via WhatsApp</span>
-                <span className="hidden md:inline">·</span>
-                <span>✅ {BRAND.experienceYearsLabel} de experiência</span>
               </p>
             </Reveal>
           </div>
@@ -319,10 +317,7 @@ export function EscorpiaoCobertura() {
         <Reveal delay={0.14}>
           <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] p-6 text-center">
             <p className="text-sm text-[color:var(--brand-muted)]">
-              <strong className="text-[color:var(--brand-navy)]">
-                {BRAND.experienceYearsLabel}
-              </strong>{" "}
-              de atuação. Empresa registrada e licenciada pela{" "}
+              Empresa registrada e licenciada pela{" "}
               <strong className="text-[color:var(--brand-navy)]">
                 Vigilância Sanitária
               </strong>{" "}

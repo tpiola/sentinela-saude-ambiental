@@ -1,9 +1,7 @@
 "use client";
 
-import { BRAND } from "@/lib/brand";
-
 const stats = [
-  { num: BRAND.experienceYearsShort, label: "anos em Franca e região" },
+  { num: "Franca", label: "e Região" },
   { num: "Comercial", label: "Retorno no WhatsApp" },
   { num: "ANVISA", label: "RDC 622/2022" },
   { num: "Laudo", label: "Vigilância Sanitária" },

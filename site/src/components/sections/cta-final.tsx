@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BRAND } from "@/lib/brand";
 
 export function CtaFinal() {
   return (
@@ -34,7 +33,7 @@ export function CtaFinal() {
           transition={{ delay: 0.06 }}
           className="mx-auto mt-5 max-w-2xl text-lg text-white/85"
         >
-          Mais de {BRAND.experienceYears} anos protegendo casas e empresas em Franca-SP e arredores. Serviço com laudo técnico e garantia.
+          Protegendo casas e empresas em Franca-SP e arredores. Serviço com laudo técnico e garantia.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
