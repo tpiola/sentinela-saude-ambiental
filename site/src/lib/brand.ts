@@ -3,15 +3,15 @@ export const BRAND = {
     name: "Sentinela Saúde Ambiental",
     legalHint: "Better Controle de Pragas",
     tagline:
-          "Escorpião, barata ou cupim? Resolvemos com laudo ANVISA e garantia em Franca/SP.",
+          "Praga em casa? Resposta em minutos. Atendimento em Franca e região com laudo ANVISA e garantia.",
     shortTagline:
-          "Praga em casa? Chama agora.",
+          "Praga em casa? A Sentinela chega primeiro.",
     coverageSummary: "Atendimento em Franca/SP e região num raio de até 40 km.",
     region: "Franca e região — SP",
-    experienceYears: 0,
-    experienceYearsShort: "",
-    experienceYearsLabel: "",
-    experienceHeadline: "",
+    experienceYears: 11,
+    experienceYearsShort: "11",
+    experienceYearsLabel: "11+ anos",
+    experienceHeadline: "11+ anos de experiência em Franca",
     phoneDisplay: "(16) 99374-7147",
     phoneE164: "5516993747147",
     email: "sentinelasaudeambiental@gmail.com",
@@ -63,7 +63,7 @@ export const BRAND = {
         ],
     /** Vídeo real profissional em ação */
     heroVideoUrl:
-          "/media/sentinela/drive/servico-profissional-franca-sp.mp4",
+          "/media/sentinela/drive/servico-profissional-franca-sp-limpo.mp4",
     /** Poster estático do hero */
     heroVideoPosterUrl: "/media/sentinela/facebook/images/poster-hero.jpg",
     logoPath: "/brand/logo-brasao.png",

@@ -55,6 +55,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
         className="relative z-10 mx-auto max-w-6xl px-4 py-16 text-center md:px-8 lg:py-20"
       >
         <div className="mx-auto max-w-4xl">
+          {/* Badge de urgência */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,52 +64,63 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           >
             <span className="h-2 w-2 animate-pulse rounded-full bg-[color:var(--brand-lime)]" />
             <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[color:var(--brand-lime)]">
-              Atendimento em Franca SP
+              🟢 Atendimento prioritário — Franca SP
             </span>
           </motion.div>
 
+          {/* Headline principal */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
             className="font-[family-name:var(--font-heading)] text-5xl leading-[1.02] font-extrabold tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl"
           >
-            Escorpião apareceu?<br />
+            Praga em casa?{" "}
             <span className="text-[color:var(--brand-lime)]">
-              Resolvemos em Franca.
-            </span>
-            <br />
-            <span className="text-3xl sm:text-4xl lg:text-5xl">
-              Mais rápidos da cidade.
+              A Sentinela chega primeiro.
             </span>
           </motion.h1>
 
+          {/* Subtítulo */}
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="mx-auto mt-5 max-w-2xl text-base text-white/70"
+            className="mx-auto mt-5 max-w-2xl text-lg text-white/70 sm:text-xl"
           >
-            Baratas, cupins, ratos. Casas, condomínios, sítios. Laudo ANVISA e
-            garantia em todo serviço.
+            Resposta em minutos. Atendimento em Franca e região. Recordistas em
+            agilidade.
           </motion.p>
 
+          {/* CTAs — empilhados em mobile, lado a lado em desktop */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
+            {/* CTA principal — verde limão pulsando */}
             <motion.a
               href="/agendar"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex min-h-[56px] w-full min-w-[280px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-10 py-4 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-[0_0_30px_rgba(132,255,0,0.5)] animate-pulse sm:w-auto"
             >
-              Preciso agora — agendar
+              Quero agendar agora
             </motion.a>
-            </motion.div>
 
+            {/* CTA secundário — borda branca */}
+            <motion.a
+              href="/servicos"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex min-h-[56px] w-full min-w-[280px] items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-transparent px-10 py-4 font-[family-name:var(--font-heading)] text-base font-bold text-white transition-colors hover:border-white/70 hover:bg-white/10 sm:w-auto"
+            >
+              Ver pragas que tratamos
+            </motion.a>
+          </motion.div>
+
+          {/* Stats de agilidade */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -117,7 +129,7 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           >
             <div className="text-center">
               <div className="text-2xl font-black text-[color:var(--brand-lime)]">
-                &lt; 1h
+                &lt; 30 min
               </div>
               <div className="mt-1 text-xs font-semibold uppercase tracking-widest text-white/50">
                 Resposta
@@ -125,18 +137,18 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
             </div>
             <div className="text-center">
               <div className="text-2xl font-black text-[color:var(--brand-lime)]">
-                11+
+                11+ anos
               </div>
               <div className="mt-1 text-xs font-semibold uppercase tracking-widest text-white/50">
-                Anos em Franca
+                Experiência
               </div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-black text-[color:var(--brand-lime)]">
-                Franca
+                Franca + 40 km
               </div>
               <div className="mt-1 text-xs font-semibold uppercase tracking-widest text-white/50">
-                SP e região
+                Área de cobertura
               </div>
             </div>
           </motion.div>

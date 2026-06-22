@@ -9,9 +9,18 @@ import {
 } from "@/components/social-brand-icons";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
+const pestDropdownItems = [
+  { href: "/pragas/escorpiao", label: "Escorpiões", icon: "🦂" },
+  { href: "/pragas/baratas", label: "Baratas", icon: "🪳" },
+  { href: "/pragas/ratos", label: "Ratos", icon: "🐀" },
+  { href: "/pragas/cupins", label: "Cupins", icon: "🪵" },
+  { href: "/pragas/aranhas", label: "Aranhas", icon: "🕷️" },
+  { href: "/pragas/formigas", label: "Formigas", icon: "🐜" },
+  { href: "/pragas/mosquitos", label: "Mosquitos", icon: "🦟" },
+];
+
 const navLinks = [
   { href: "/", label: "Início" },
-  { href: "/escorpiao", label: "Escorpião" },
   { href: "/servicos", label: "Serviços" },
   { href: "/condominio", label: "Condomínios" },
   { href: "/sobre", label: "Sobre" },
@@ -21,6 +30,8 @@ const navLinks = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pestsOpen, setPestsOpen] = useState(false);
+  const [pestsMobileOpen, setPestsMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -48,11 +59,15 @@ export function SiteHeader() {
         <Link
           href="/#inicio"
           className="min-w-0 shrink"
-          onClick={() => setOpen(false)}
+          onClick={() => {
+            setOpen(false);
+            setPestsMobileOpen(false);
+          }}
         >
           <LogoBrandCompact variant="dark" />
         </Link>
 
+        {/* Desktop nav */}
         <nav
           className="hidden items-center gap-4 text-sm font-semibold text-white/90 lg:flex"
           aria-label="Principal"
@@ -66,6 +81,53 @@ export function SiteHeader() {
               {l.label}
             </Link>
           ))}
+
+          {/* Pragas dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setPestsOpen(true)}
+            onMouseLeave={() => setPestsOpen(false)}
+          >
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 transition hover:text-[color:var(--brand-lime)]"
+              aria-expanded={pestsOpen}
+              aria-haspopup="true"
+              onClick={() => setPestsOpen((v) => !v)}
+            >
+              Pragas
+              <svg
+                className={`h-3 w-3 transition-transform ${pestsOpen ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={3}
+                aria-hidden
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            {pestsOpen && (
+              <div className="absolute top-full left-1/2 z-50 mt-2 w-56 -translate-x-1/2 rounded-xl border border-[color:var(--brand-lime)]/20 bg-[color:var(--brand-navy)] shadow-2xl ring-1 ring-white/10">
+                <div className="rounded-t-xl bg-[color:var(--brand-lime)]/10 px-4 py-2 text-xs font-bold tracking-wider text-[color:var(--brand-lime)] uppercase">
+                  Controle de Pragas
+                </div>
+                <div className="py-1">
+                  {pestDropdownItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setPestsOpen(false)}
+                      className="flex items-center gap-3 px-4 py-2.5 text-sm transition hover:bg-[color:var(--brand-lime)]/10 hover:text-[color:var(--brand-lime)]"
+                    >
+                      <span className="text-base">{item.icon}</span>
+                      <span>{item.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
@@ -85,16 +147,20 @@ export function SiteHeader() {
             className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 text-white lg:hidden"
             aria-expanded={open}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => {
+              setOpen((v) => !v);
+              if (!open) setPestsMobileOpen(false);
+            }}
           >
             {open ? <CloseIcon /> : <MenuIcon />}
           </button>
         </div>
       </div>
 
+      {/* Mobile menu */}
       <div
         className={`overflow-hidden border-t border-white/10 bg-[color:var(--brand-navy)] transition-all duration-300 lg:hidden ${
-          open ? "max-h-[min(85vh,520px)] opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[min(85vh,700px)] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="flex flex-col gap-1 px-4 py-4" aria-label="Mobile">
@@ -108,6 +174,47 @@ export function SiteHeader() {
               {l.label}
             </Link>
           ))}
+
+          {/* Mobile: Pragas accordion */}
+          <button
+            type="button"
+            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-semibold text-white/90 hover:bg-white/10"
+            onClick={() => setPestsMobileOpen((v) => !v)}
+            aria-expanded={pestsMobileOpen}
+          >
+            <span>Pragas</span>
+            <svg
+              className={`h-4 w-4 transition-transform ${pestsMobileOpen ? "rotate-180" : ""}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={3}
+              aria-hidden
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div
+            className={`overflow-hidden transition-all duration-200 ${
+              pestsMobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            {pestDropdownItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => {
+                  setOpen(false);
+                  setPestsMobileOpen(false);
+                }}
+                className="flex items-center gap-3 rounded-lg py-2.5 pr-3 pl-10 text-base font-semibold text-white/80 hover:bg-white/10"
+              >
+                <span className="text-base">{item.icon}</span>
+                <span>{item.label}</span>
+              </Link>
+            ))}
+          </div>
+
           <a
             href={whatsappHref()}
             target="_blank"

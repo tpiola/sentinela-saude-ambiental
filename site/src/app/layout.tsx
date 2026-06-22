@@ -4,6 +4,7 @@ import "./globals.css";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
+import { ChatRogerio } from "@/components/chat-rogerio";
 import { BRAND } from "@/lib/brand";
 
 const heading = Montserrat({
@@ -69,12 +70,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
-      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico", sizes: "16x16" },
+      { url: "/icon.svg", type: "image/svg+xml" },
     ],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+    other: [
+      { url: "/icon-192.png", sizes: "192x192" },
+      { url: "/icon-512.png", sizes: "512x512" },
     ],
   },
   manifest: "/manifest.webmanifest",
@@ -154,6 +158,7 @@ export default function RootLayout({
         <Analytics />
         {children}
         <CookieBanner />
+        <ChatRogerio />
       </body>
     </html>
   );

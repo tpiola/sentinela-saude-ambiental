@@ -12,6 +12,11 @@
           "value": "sentinelasaudeambiental.com.br"
         }
       ]
+    },
+    {
+      "source": "/escorpiao",
+      "destination": "/pragas/escorpiao",
+      "permanent": true
     }
   ]
 }

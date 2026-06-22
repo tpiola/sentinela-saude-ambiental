@@ -1,7 +1,7 @@
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { ServicesGrid } from "@/components/sections/services-grid";
-import { B2bSection } from "@/components/sections/b2b-section";
+import { B2BSection } from "@/components/sections/b2b-section";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
 import { GallerySection } from "@/components/sections/gallery-section";
 import { AreaAtendimentoSection } from "@/components/sections/area-atendimento-section";
@@ -14,7 +14,7 @@ export default function ServicosPage() {
       <SiteHeader />
       <main className="pt-20">
         <ServicesGrid />
-        <B2bSection />
+        <B2BSection />
         <ProcessTimeline />
         <GallerySection />
         <AreaAtendimentoSection />

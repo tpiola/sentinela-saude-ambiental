@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
     // All images are now local via /media/thiago/ — no remote patterns needed
     remotePatterns: [],
   },
+  async redirects() {
+    return [
+      {
+        source: '/escorpiao',
+        destination: '/pragas/escorpiao',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
