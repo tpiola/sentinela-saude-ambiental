@@ -5,6 +5,7 @@ import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
 import { ChatRogerio } from "@/components/chat-rogerio";
+import { MobileStickyBar } from "@/components/mobile-sticky-bar";
 import { BRAND } from "@/lib/brand";
 
 const heading = Montserrat({
@@ -153,12 +154,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
-      <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)]">
+      <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)] pb-16 sm:pb-0">
         <JsonLdLocalBusiness />
         <Analytics />
         {children}
         <CookieBanner />
         <ChatRogerio />
+        <MobileStickyBar />
       </body>
     </html>
   );

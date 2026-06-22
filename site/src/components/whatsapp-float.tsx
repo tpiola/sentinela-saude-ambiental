@@ -11,12 +11,12 @@ export function WhatsAppFloat() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setShow(true), 4000);
+    const t = setTimeout(() => setShow(true), 1500);
     return () => clearTimeout(t);
   }, []);
 
   return (
-    <div className="fixed right-4 bottom-6 z-[60] flex items-end gap-3 md:right-8 md:bottom-8">
+    <div className="fixed right-4 bottom-20 z-[60] hidden items-end gap-3 sm:flex md:right-8 md:bottom-8">
       <AnimatePresence>
         {show && (
           <motion.a

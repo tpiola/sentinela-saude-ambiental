@@ -25,11 +25,12 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
     <section
       ref={ref}
       id="inicio"
-      className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-[color:var(--brand-navy)] pt-20 pb-20 sm:pb-4"
+      className="relative isolate flex min-h-[80svh] sm:min-h-[90svh] items-center justify-center overflow-hidden bg-[color:var(--brand-navy)] pt-20 pb-24 sm:pb-4"
     >
       <motion.div style={{ y, scale }} className="absolute inset-0">
         <video
           className="absolute inset-0 h-full w-full object-cover"
+          style={{ objectPosition: "50% 55%" }}
           autoPlay
           muted
           loop
