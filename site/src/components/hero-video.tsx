@@ -30,7 +30,6 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
       <motion.div style={{ y, scale }} className="absolute inset-0">
         <video
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "50% 55%" }}
           autoPlay
           muted
           loop
@@ -42,11 +41,11 @@ export function HeroVideo({ videoSrc }: HeroVideoProps) {
           <source src={src} type="video/mp4" />
         </video>
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-navy)] via-[color:var(--brand-navy)]/80 to-[color:var(--brand-navy)]/40"
+          className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-navy)] via-[color:var(--brand-navy)]/65 to-[color:var(--brand-navy)]/25"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[color:var(--brand-navy)]/95 via-transparent to-[color:var(--brand-lime)]/20"
+          className="absolute inset-0 bg-gradient-to-r from-[color:var(--brand-navy)]/80 via-transparent to-transparent"
           aria-hidden
         />
       </motion.div>

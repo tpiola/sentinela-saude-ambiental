@@ -63,7 +63,7 @@ export const BRAND = {
         ],
     /** Vídeo real profissional em ação */
     heroVideoUrl:
-          "/media/hero-profissional.mp4",
+          "/media/hero-pro.mp4",
     /** Poster estático do hero */
     heroVideoPosterUrl: "/media/sentinela/facebook/images/poster-hero.jpg",
     logoPath: "/brand/logo-brasao.png",
