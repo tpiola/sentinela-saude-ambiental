@@ -4,11 +4,15 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BRAND } from "@/lib/brand";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://sentinelasaudeambiental.com.br";
+
 export const metadata: Metadata = {
   title: "Política de Privacidade — Sentinela Saúde Ambiental",
   description:
     "Política de privacidade e proteção de dados pessoais da Sentinela Saúde Ambiental, em conformidade com a LGPD (Lei 13.709/2018).",
-  alternates: { canonical: "/privacidade" },
+  alternates: { canonical: `${siteUrl}/privacidade` },
   robots: { index: false },
 };
 

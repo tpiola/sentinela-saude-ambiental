@@ -9,7 +9,7 @@ import { PestPageClient } from "./page-client";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.vercel.app";
+  "https://sentinelasaudeambiental.com.br";
 
 interface PestPageProps {
   params: Promise<{ slug: string }>;
@@ -35,7 +35,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `/pragas/${slug}`,
+      canonical: `${siteUrl}/pragas/${slug}`,
     },
     openGraph: {
       title,

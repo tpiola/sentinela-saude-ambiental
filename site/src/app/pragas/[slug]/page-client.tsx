@@ -93,7 +93,7 @@ export function PestPageClient({ pest }: { pest: PestData }) {
   const isUrgent = pest.slug === "escorpiao" || pest.slug === "aranhas";
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
-    "https://sentinelasaudeambiental.vercel.app";
+    "https://sentinelasaudeambiental.com.br";
 
   return (
     <>

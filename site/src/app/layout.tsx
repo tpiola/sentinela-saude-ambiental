@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   publisher: BRAND.name,
   category: "Saúde ambiental",
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   icons: {
     icon: [

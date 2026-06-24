@@ -30,7 +30,7 @@ export function calendarBookingHref(): string {
   if (direct) return direct;
   const site =
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "https://sentinelasaudeambiental.vercel.app";
+    "https://sentinelasaudeambiental.com.br";
   return `${site}/agendar`;
 }
 

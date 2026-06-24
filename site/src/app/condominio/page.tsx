@@ -6,11 +6,15 @@ import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://sentinelasaudeambiental.com.br";
+
 export const metadata: Metadata = {
   title: "Dedetização para Condomínios em Franca SP | Sentinela Saúde Ambiental",
   description:
     "Plano de Manejo de Controle de Pragas (PMOC) para condomínios em Franca SP. Laudo técnico, cronograma preventivo, conformidade com Vigilância Sanitária. Atendimento rápido para síndicos e administradoras.",
-  alternates: { canonical: "/condominio" },
+  alternates: { canonical: `${siteUrl}/condominio` },
 };
 
 const whyCards = [

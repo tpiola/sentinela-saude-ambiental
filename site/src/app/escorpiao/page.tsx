@@ -7,14 +7,14 @@ import { EscorpiaoHero, EscorpiaoPerigo, EscorpiaoPreventivo, EscorpiaoCobertura
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.vercel.app";
+  "https://sentinelasaudeambiental.com.br";
 
 export const metadata: Metadata = {
   title: "Controle de Escorpiões em Franca SP | Sentinela Saúde Ambiental",
   description:
     "Proteja sua família contra escorpiões em Franca SP. 777 acidentes em 2024. Plano preventivo out-mar, laudo técnico ANVISA e atendimento rápido no WhatsApp.",
   alternates: {
-    canonical: "/escorpiao",
+    canonical: `${siteUrl}/escorpiao`,
   },
   openGraph: {
     title: "Controle de Escorpiões em Franca SP | Sentinela Saúde Ambiental",
