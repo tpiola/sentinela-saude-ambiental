@@ -7,10 +7,12 @@ services:
       dockerfile: Dockerfile
     image: sentinela:latest
     restart: unless-stopped
+    ports:
+      - "3001:3000"
     env_file: site/.env
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sentinela.rule=Host(`sentinela-saude-ambiental.com.br`) || Host(`www.sentinela-saude-ambiental.com.br`)"
       - "traefik.http.routers.sentinela.entrypoints=websecure"
       - "traefik.http.routers.sentinela.tls.certresolver=letsencrypt"
-      - "traefik.http.services.sentinela.loadbalancer.server.port=3000"
+      - "traefik.http.services.sentinela.loadbalancer.server.port=3001"
