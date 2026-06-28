@@ -11,7 +11,7 @@ COPY site/public/ ./site/public/
 
 # Install and build inside site/
 WORKDIR /app/site
-RUN npm ci --only=production 2>/dev/null || npm install --no-audit --no-fund
+RUN npm ci 2>/dev/null || npm install --no-audit --no-fund
 RUN npm run build
 
 # Stage 2: Production runner
