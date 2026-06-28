@@ -117,7 +117,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION ?? "",
+    google: "p3n-lwsrdeseDPAh7K57nFTjRL30nbn6UVhyX_VhZdU",
   },
   other: {
     "geo.region": "BR-SP",
