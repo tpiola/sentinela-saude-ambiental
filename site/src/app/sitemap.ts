@@ -1,15 +1,35 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sentinela-saude-ambiental.vercel.app";
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://sentinelasaudeambiental.com.br";
 
-  return [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
-    { url: `${baseUrl}/#servicos`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/#sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/#contato`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/agendar`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/condominio`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-  ];
+const routes = [
+  "",
+  "/servicos",
+  "/agendar",
+  "/condominio",
+  "/sobre",
+  "/faq",
+  "/privacidade",
+  "/pragas/escorpiao",
+  "/pragas/barata",
+  "/pragas/cupim",
+  "/pragas/rato",
+  "/pragas/formiga",
+  "/pragas/aranha",
+  "/pragas/mosquito",
+  "/pragas/pombo",
+  "/pragas/morcego",
+  "/pragas/pulga",
+  "/pragas/carrapato",
+  "/pragas/traca",
+] as const;
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    changeFrequency: route === "" ? "weekly" : "monthly",
+    priority: route === "" ? 1 : route === "/agendar" ? 0.9 : 0.8,
+  }));
 }
