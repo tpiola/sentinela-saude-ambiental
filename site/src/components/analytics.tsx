@@ -23,9 +23,29 @@ export function Analytics() {
 
   useEffect(() => {
     const sync = () => setAllowed(localStorage.getItem(CONSENT_KEY) === "accepted");
+    const trackClick = (event: MouseEvent) => {
+      const element = (event.target as HTMLElement | null)?.closest<HTMLElement>("[data-track]");
+      const eventName = element?.dataset.track;
+      if (!eventName || localStorage.getItem(CONSENT_KEY) !== "accepted") return;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "sentinela_conversion_click",
+        conversion_name: eventName,
+        page_path: window.location.pathname,
+      });
+      window.fbq?.("trackCustom", "SentinelaConversionClick", {
+        conversion_name: eventName,
+      });
+    };
+
     sync();
     window.addEventListener("sentinela:consent", sync);
-    return () => window.removeEventListener("sentinela:consent", sync);
+    document.addEventListener("click", trackClick);
+    return () => {
+      window.removeEventListener("sentinela:consent", sync);
+      document.removeEventListener("click", trackClick);
+    };
   }, []);
 
   if (!allowed) return null;
