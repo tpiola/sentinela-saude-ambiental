@@ -1,270 +1,112 @@
 "use client";
 
+import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { BRAND } from "@/lib/brand";
-import { useState } from "react";
+
+const options = ["Escorpiões", "Baratas ou formigas", "Cupins", "Roedores", "Outro"] as const;
 
 export default function AgendarPage() {
-  const [form, setForm] = useState({
-    nome: "",
-    email: "",
-    whatsapp: "",
-    endereco: "",
-    descricao: "",
-  });
+  const [form, setForm] = useState({ problema: "", bairro: "", whatsapp: "", urgencia: "Hoje" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const validate = () => {
-    const errs: Record<string, string> = {};
-    if (!form.nome.trim()) errs.nome = "Nome é obrigatório";
-    if (!form.whatsapp.trim()) errs.whatsapp = "WhatsApp é obrigatório";
-    else if (!form.whatsapp.match(/^[\d\s\(\)\-]+$/))
-      errs.whatsapp = "Informe apenas números";
-    if (!form.endereco.trim()) errs.endereco = "Endereço é obrigatório";
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
-  };
+  function submit(event: React.FormEvent) {
+    event.preventDefault();
+    const nextErrors: Record<string, string> = {};
+    if (!form.problema) nextErrors.problema = "Selecione o problema";
+    if (!form.bairro.trim()) nextErrors.bairro = "Informe o bairro ou a cidade";
+    if (form.whatsapp.replace(/\D/g, "").length < 10) nextErrors.whatsapp = "Informe um WhatsApp válido";
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) return;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate()) return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "lead_form_completed", pest_type: form.problema, urgency: form.urgencia });
 
-    const msg =
-      `Olá, Sentinela! Agendei pelo site:%0A%0A` +
-      `*Nome:* ${form.nome}%0A` +
-      `*E-mail:* ${form.email || "Não informado"}%0A` +
-      `*WhatsApp:* ${form.whatsapp}%0A` +
-      `*Endereço:* ${form.endereco}%0A` +
-      `*O que precisa:* ${form.descricao || "Não informado"}`;
+    const message = [
+      "Olá, Sentinela. Gostaria de solicitar um diagnóstico.",
+      `Problema: ${form.problema}`,
+      `Bairro/cidade: ${form.bairro}`,
+      `WhatsApp: ${form.whatsapp}`,
+      `Urgência: ${form.urgencia}`,
+    ].join("\n");
 
-    window.open(
-      `https://wa.me/${BRAND.phoneE164}?text=${msg}`,
-      "_blank",
-    );
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors((prev) => {
-        const copy = { ...prev };
-        delete copy[name];
-        return copy;
-      });
-    }
-  };
+    window.open(`https://wa.me/${BRAND.phoneE164}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+  }
 
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen pt-20">
-        {/* Hero */}
-        <section className="bg-[color:var(--brand-navy)] py-16 text-white md:py-24">
-          <div className="mx-auto max-w-4xl px-4 text-center md:px-6">
-            <p className="text-xs font-bold tracking-widest text-[color:var(--brand-lime)] uppercase">
-              Agendamento online
-            </p>
-            <h1 className="mt-4 font-[family-name:var(--font-heading)] text-4xl font-bold md:text-5xl">
-              Agende seu serviço
-            </h1>
-            <p className="mt-5 text-lg text-slate-300">
-              Preencha e receba o contato no WhatsApp
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-              {[
-                "✅ Diagnóstico sem compromisso",
-                "✅ Resposta em minutos",
-                "✅ Laudo ANVISA",
-                "✅ 11+ anos em Franca",
-              ].map((b) => (
-                <span
-                  key={b}
-                  className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-medium"
-                >
-                  {b}
-                </span>
-              ))}
+      <main className="min-h-screen bg-[color:var(--brand-surface)] pt-20">
+        <section className="bg-[color:var(--brand-navy)] py-14 text-white sm:py-20">
+          <div className="container-responsive grid gap-8 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] lg:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-lime)]">Diagnóstico inicial</p>
+              <h1 className="mt-4 max-w-[12ch] font-[family-name:var(--font-heading)] text-4xl font-bold leading-tight tracking-[-0.035em] sm:text-5xl">Conte o que está acontecendo.</h1>
             </div>
+            <p className="max-w-xl text-base leading-7 text-white/70">
+              Envie somente os dados essenciais. A equipe continua o atendimento no WhatsApp e solicita endereço completo apenas quando necessário.
+            </p>
           </div>
         </section>
 
-        {/* Form Section */}
-        <section className="bg-[color:var(--brand-surface)] py-16 md:py-20">
-          <div className="mx-auto max-w-2xl px-4 md:px-6">
-            <div className="overflow-hidden rounded-2xl border border-[color:var(--brand-border)] bg-white shadow-xl">
-              <div className="border-b border-[color:var(--brand-border)] bg-[color:var(--brand-navy)] px-6 py-5 text-white">
-                <h2 className="font-[family-name:var(--font-heading)] text-lg font-bold">
-                  Preencha seus dados
-                </h2>
-                <p className="mt-1 text-sm text-slate-300">
-                  Todos os campos marcados com * são obrigatórios
-                </p>
+        <section className="py-12 sm:py-16">
+          <div className="container-responsive grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <form onSubmit={submit} className="border border-[color:var(--brand-border)] bg-white p-6 sm:p-8" noValidate>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <label className="block sm:col-span-2">
+                  <span className="text-sm font-bold text-[color:var(--brand-navy)]">Qual é o problema?</span>
+                  <select value={form.problema} onChange={(e) => setForm({ ...form, problema: e.target.value })} className="mt-2 min-h-12 w-full border border-[color:var(--brand-border)] bg-white px-3">
+                    <option value="">Selecione</option>
+                    {options.map((option) => <option key={option}>{option}</option>)}
+                  </select>
+                  {errors.problema && <span className="mt-1 block text-xs text-red-700">{errors.problema}</span>}
+                </label>
+                <label className="block">
+                  <span className="text-sm font-bold text-[color:var(--brand-navy)]">Bairro ou cidade</span>
+                  <input value={form.bairro} onChange={(e) => setForm({ ...form, bairro: e.target.value })} placeholder="Ex.: Centro, Franca" className="mt-2 min-h-12 w-full border border-[color:var(--brand-border)] px-3" />
+                  {errors.bairro && <span className="mt-1 block text-xs text-red-700">{errors.bairro}</span>}
+                </label>
+                <label className="block">
+                  <span className="text-sm font-bold text-[color:var(--brand-navy)]">Seu WhatsApp</span>
+                  <input type="tel" inputMode="tel" value={form.whatsapp} onChange={(e) => setForm({ ...form, whatsapp: e.target.value })} placeholder="(16) 99999-9999" className="mt-2 min-h-12 w-full border border-[color:var(--brand-border)] px-3" />
+                  {errors.whatsapp && <span className="mt-1 block text-xs text-red-700">{errors.whatsapp}</span>}
+                </label>
+                <fieldset className="sm:col-span-2">
+                  <legend className="text-sm font-bold text-[color:var(--brand-navy)]">Quando precisa do atendimento?</legend>
+                  <div className="mt-3 flex flex-wrap gap-3">
+                    {["Hoje", "Nesta semana", "Quero orientação"].map((item) => (
+                      <label key={item} className="flex min-h-11 items-center gap-2 border border-[color:var(--brand-border)] px-4">
+                        <input type="radio" name="urgencia" value={item} checked={form.urgencia === item} onChange={(e) => setForm({ ...form, urgencia: e.target.value })} />
+                        <span className="whitespace-nowrap text-sm">{item}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
               </div>
-
-              <form onSubmit={handleSubmit} className="space-y-5 p-6 md:p-8">
-                {/* Nome */}
-                <div>
-                  <label
-                    htmlFor="nome"
-                    className="block text-sm font-bold text-[color:var(--brand-navy)]"
-                  >
-                    Nome <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="nome"
-                    name="nome"
-                    type="text"
-                    value={form.nome}
-                    onChange={handleChange}
-                    placeholder="Seu nome completo"
-                    className={`mt-1.5 block w-full rounded-xl border px-4 py-3 text-sm text-[color:var(--brand-navy)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-lime)] ${
-                      errors.nome
-                        ? "border-red-400 ring-1 ring-red-400"
-                        : "border-[color:var(--brand-border)]"
-                    }`}
-                  />
-                  {errors.nome && (
-                    <p className="mt-1 text-xs text-red-500">{errors.nome}</p>
-                  )}
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-bold text-[color:var(--brand-navy)]"
-                  >
-                    E-mail
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="seu@email.com"
-                    className="mt-1.5 block w-full rounded-xl border border-[color:var(--brand-border)] px-4 py-3 text-sm text-[color:var(--brand-navy)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-lime)]"
-                  />
-                </div>
-
-                {/* WhatsApp */}
-                <div>
-                  <label
-                    htmlFor="whatsapp"
-                    className="block text-sm font-bold text-[color:var(--brand-navy)]"
-                  >
-                    WhatsApp <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="whatsapp"
-                    name="whatsapp"
-                    type="tel"
-                    value={form.whatsapp}
-                    onChange={handleChange}
-                    placeholder="(16) 99999-9999"
-                    className={`mt-1.5 block w-full rounded-xl border px-4 py-3 text-sm text-[color:var(--brand-navy)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-lime)] ${
-                      errors.whatsapp
-                        ? "border-red-400 ring-1 ring-red-400"
-                        : "border-[color:var(--brand-border)]"
-                    }`}
-                  />
-                  {errors.whatsapp && (
-                    <p className="mt-1 text-xs text-red-500">
-                      {errors.whatsapp}
-                    </p>
-                  )}
-                </div>
-
-                {/* Endereço */}
-                <div>
-                  <label
-                    htmlFor="endereco"
-                    className="block text-sm font-bold text-[color:var(--brand-navy)]"
-                  >
-                    Endereço do serviço <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="endereco"
-                    name="endereco"
-                    type="text"
-                    value={form.endereco}
-                    onChange={handleChange}
-                    placeholder="Rua, número, bairro, Franca/SP"
-                    className={`mt-1.5 block w-full rounded-xl border px-4 py-3 text-sm text-[color:var(--brand-navy)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-lime)] ${
-                      errors.endereco
-                        ? "border-red-400 ring-1 ring-red-400"
-                        : "border-[color:var(--brand-border)]"
-                    }`}
-                  />
-                  {errors.endereco && (
-                    <p className="mt-1 text-xs text-red-500">
-                      {errors.endereco}
-                    </p>
-                  )}
-                </div>
-
-                {/* Descrição */}
-                <div>
-                  <label
-                    htmlFor="descricao"
-                    className="block text-sm font-bold text-[color:var(--brand-navy)]"
-                  >
-                    O que precisa ser feito?
-                  </label>
-                  <textarea
-                    id="descricao"
-                    name="descricao"
-                    rows={4}
-                    value={form.descricao}
-                    onChange={handleChange}
-                    placeholder="Ex: Escorpião apareceu na cozinha, baratas no armário, cupim no rodapé..."
-                    className="mt-1.5 block w-full resize-y rounded-xl border border-[color:var(--brand-border)] px-4 py-3 text-sm text-[color:var(--brand-navy)] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-lime)]"
-                  />
-                </div>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  className="flex min-h-[56px] w-full items-center justify-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-8 py-4 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-[0_0_20px_rgba(132,255,0,0.4)] transition hover:brightness-110 active:scale-95"
-                >
-                  Agendar agora
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
-
-        {/* Info */}
-        <section className="bg-white py-12">
-          <div className="mx-auto max-w-3xl px-4 text-center md:px-6">
-            <div className="rounded-2xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] p-6 text-sm text-[color:var(--brand-muted)]">
-              <p className="font-semibold text-[color:var(--brand-navy)]">
-                📍 Área de cobertura
+              <button type="submit" data-track="form_diagnostico" className="mt-8 inline-flex min-h-14 w-full items-center justify-center whitespace-nowrap bg-[color:var(--brand-lime)] px-7 font-bold text-[color:var(--brand-navy-heading)] hover:bg-[color:var(--brand-green-light)]">
+                Continuar no WhatsApp
+              </button>
+              <p className="mt-4 text-xs leading-5 text-[color:var(--brand-muted)]">
+                Ao continuar, você envia esses dados à Sentinela para receber atendimento. Não solicitamos endereço completo nesta etapa.
               </p>
-              <p className="mt-2">{BRAND.coverageSummary}</p>
-              <p className="mt-3">
-                <strong className="text-[color:var(--brand-navy)]">
-                  Horário de atendimento:
-                </strong>{" "}
-                {BRAND.openingHours.weekdays} · {BRAND.openingHours.sunday}
+            </form>
+
+            <aside className="border-t-2 border-[color:var(--brand-lime)] bg-[color:var(--brand-navy)] p-6 text-white">
+              <h2 className="font-[family-name:var(--font-heading)] text-xl font-bold">Antes da aplicação</h2>
+              <p className="mt-3 text-sm leading-6 text-white/70">
+                A equipe orienta sobre preparação do local, afastamento de pessoas e animais e cuidados após o serviço.
               </p>
-              <p className="mt-2">
-                <strong className="text-[color:var(--brand-navy)]">
-                  Retorno:
-                </strong>{" "}
-                Respondemos em minutos pelo WhatsApp
-              </p>
-            </div>
+              <dl className="mt-6 space-y-5 border-t border-white/20 pt-5 text-sm">
+                <div><dt className="text-white/50">Cobertura</dt><dd className="mt-1 font-semibold">{BRAND.region}</dd></div>
+                <div><dt className="text-white/50">Horários</dt><dd className="mt-1 font-semibold">{BRAND.openingHours.weekdays}</dd></div>
+                <div><dt className="text-white/50">Contato</dt><dd className="mt-1 font-semibold">{BRAND.phoneDisplay}</dd></div>
+              </dl>
+            </aside>
           </div>
         </section>
       </main>
       <SiteFooter />
-      <WhatsAppFloat />
     </>
   );
 }
