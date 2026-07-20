@@ -1,32 +1,21 @@
 /**
- * Pontos de integração para automações n8n, Google Calendar e CRM.
- * Configure em .env.local — nunca commite segredos.
+ * Integrações públicas do site. IDs públicos podem ficar em NEXT_PUBLIC_*;
+ * tokens, segredos e chaves privadas nunca devem ser enviados ao navegador.
  */
-
 export const INTEGRATIONS = {
-  /** URL pública de agendamento (Google Calendar Appointment Schedule ou Cal.com) */
   googleCalendarUrl: process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL ?? "",
-
-  /** Formulário Google incorporado (?embedded=true recomendado) — ligado à planilha ou fluxo Sheets */
   googleFormEmbedUrl: process.env.NEXT_PUBLIC_GOOGLE_FORM_EMBED_URL ?? "",
-
-  /** Link externo para o mesmo form (quando não há embed) — abre em nova aba */
   googleContactFormOpenUrl:
     process.env.NEXT_PUBLIC_GOOGLE_CONTACT_FORM_OPEN_URL ?? "",
-
-  /** Webhook n8n — lead do formulário diagnóstico (POST JSON) */
   n8nWebhookLead: process.env.NEXT_PUBLIC_N8N_WEBHOOK_LEAD ?? "",
-
-  /** Google Analytics 4 */
   gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "",
-
-  /** Google Tag Manager */
   gtmId: process.env.NEXT_PUBLIC_GTM_ID ?? "",
+  googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? "",
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",
 } as const;
 
-/** Agenda: env ou fallback para página /agendar do próprio site. */
 export function calendarBookingHref(): string {
-  const direct = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL?.trim();
+  const direct = INTEGRATIONS.googleCalendarUrl.trim();
   if (direct) return direct;
   const site =
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
@@ -48,15 +37,14 @@ export type LeadPayload = {
 export type ContactLeadPayload = {
   source: "site-contato";
   name: string;
-  email: string;
+  email?: string;
   phone: string;
   audience: "residencial" | "empresa";
   message?: string;
   timestamp: string;
 };
 
-/** Envia lead para n8n em background (não bloqueia UX) */
-export async function sendLeadToN8n(payload: LeadPayload): Promise<void> {
+async function postLead(payload: LeadPayload | ContactLeadPayload): Promise<void> {
   const url = INTEGRATIONS.n8nWebhookLead;
   if (!url) return;
 
@@ -65,26 +53,12 @@ export async function sendLeadToN8n(payload: LeadPayload): Promise<void> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-      mode: "no-cors",
+      keepalive: true,
     });
   } catch {
-    /* falha silenciosa — WhatsApp continua como canal principal */
+    // O contato por WhatsApp permanece disponível se a automação estiver fora do ar.
   }
 }
 
-export async function sendContactLeadToN8n(
-  payload: ContactLeadPayload,
-): Promise<void> {
-  const url = INTEGRATIONS.n8nWebhookLead;
-  if (!url) return;
-  try {
-    await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      mode: "no-cors",
-    });
-  } catch {
-    /* falha silenciosa */
-  }
-}
+export const sendLeadToN8n = postLead;
+export const sendContactLeadToN8n = postLead;
