@@ -37,7 +37,7 @@ export function HeroVideo({ videoSrc }: { videoSrc?: string }) {
             Controle profissional de pragas · Franca e região
           </p>
 
-          <h1 className="max-w-[13ch] min-w-0 overflow-wrap-anywhere font-[family-name:var(--font-heading)] text-[clamp(2.65rem,7vw,5.6rem)] font-bold leading-[0.98] tracking-[-0.045em] text-white">
+          <h1 className="max-w-[13ch] min-w-0 [overflow-wrap:anywhere] font-[family-name:var(--font-heading)] text-[clamp(2.65rem,7vw,5.6rem)] font-bold leading-[0.98] tracking-[-0.045em] text-white">
             Segurança técnica para proteger o seu ambiente.
           </h1>
 
