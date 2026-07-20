@@ -10,24 +10,11 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/api/",
-          "/agendar/confirmar",
-          "/admin/",
-        ],
+        disallow: ["/api/", "/agendar/confirmar", "/admin/"],
       },
-      {
-        userAgent: "GPTBot",
-        disallow: "/",
-      },
-      {
-        userAgent: "ChatGPT-User",
-        disallow: "/",
-      },
-      {
-        userAgent: "Google-Extended",
-        allow: "/",
-      },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,
