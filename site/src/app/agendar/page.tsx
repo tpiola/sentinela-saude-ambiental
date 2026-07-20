@@ -84,7 +84,7 @@ export default function AgendarPage() {
                   </div>
                 </fieldset>
               </div>
-              <button type="submit" data-track="form_diagnostico" className="mt-8 inline-flex min-h-14 w-full items-center justify-center whitespace-nowrap bg-[color:var(--brand-lime)] px-7 font-bold text-[color:var(--brand-navy-heading)] hover:bg-[color:var(--brand-green-light)]">
+              <button type="submit" className="mt-8 inline-flex min-h-14 w-full items-center justify-center whitespace-nowrap bg-[color:var(--brand-lime)] px-7 font-bold text-[color:var(--brand-navy-heading)] hover:bg-[color:var(--brand-green-light)]">
                 Continuar no WhatsApp
               </button>
               <p className="mt-4 text-xs leading-5 text-[color:var(--brand-muted)]">
