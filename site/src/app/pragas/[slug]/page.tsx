@@ -29,7 +29,7 @@ export async function generateMetadata({
   const title = `${pest.name} — Controle Profissional em Franca SP | ${BRAND.name}`;
   const description =
     `${pest.description.substring(0, 155).replace(/\.$/, "")}. ` +
-    `Dedetização profissional com laudo ANVISA e garantia. Atendimento rápido em Franca e região.`;
+    `Controle profissional com orientação técnica e documentação do serviço em Franca e região.`;
 
   return {
     title,
