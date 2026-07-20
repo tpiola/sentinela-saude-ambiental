@@ -1,11 +1,11 @@
 /** Identidade e dados públicos da marca (conferir periodicamente com as redes). */
 export const BRAND = {
     name: "Sentinela Saúde Ambiental",
-    legalHint: "Better Controle de Pragas",
+    legalHint: "",
     tagline:
-          "Praga em casa? Resposta em minutos. Atendimento em Franca e região com laudo ANVISA e garantia.",
+          "Controle profissional de pragas em Franca e região, com orientação técnica e documentação do serviço.",
     shortTagline:
-          "Praga em casa? A Sentinela chega primeiro.",
+          "Segurança técnica para proteger o seu ambiente.",
     coverageSummary: "Atendimento em Franca/SP e região num raio de até 40 km.",
     region: "Franca e região — SP",
     experienceYears: 11,
@@ -102,7 +102,7 @@ export const BRAND = {
       {
               id: "escorpioes",
               title: "Controle de escorpiões",
-              desc: "Atendimento prioritário em Franca. Eliminação do foco com produtos ANVISA.",
+              desc: "Inspeção e controle profissional em Franca com produtos regularizados.",
               icon: "alert",
               imageUrl: "/media/sentinela/drive/escorpiao-residencial-baldassari-franca-sp.webp",
       },
@@ -137,7 +137,7 @@ export const BRAND = {
       {
               id: "empresas",
               title: "Contratos empresariais",
-              desc: "Laudo ANVISA, cronograma preventivo e conformidade para indústria, comércio e condomínios.",
+              desc: "Cronograma preventivo, comprovante técnico e acompanhamento para empresas e condomínios.",
               icon: "building",
               imageUrl: "/media/sentinela/drive/servico-vila-santa-terezinha-franca-sp.webp",
       },
@@ -148,20 +148,20 @@ export const BRAND = {
         answer: 'Mantenha distância, não tente capturar com as mãos e chame a Sentinela imediatamente. Escorpião-amarelo (Tityus serrulatus) é o mais comum no Residencial Baldassari, City Petrópolis e bairros de Franca — crianças e idosos correm maior risco. Oferecemos atendimento prioritário com resposta em minutos pelo WhatsApp.'
       },
       {
-        question: 'Atende empresas com laudo ANVISA em Franca?',
-        answer: 'Sim. Emitimos laudo técnico e certificado válido para Vigilância Sanitária conforme RDC 622/2022. Atendemos indústrias no Parque Progresso, comércios no Centro de Franca, condomínios e clínicas com contrato preventivo, cronograma documentado e registro fotográfico de cada visita.'
+        question: 'Atende empresas com documentação técnica em Franca?',
+        answer: 'Sim. O serviço pode incluir comprovante técnico de execução com as informações aplicáveis ao escopo contratado e à RDC 622/2022. Atendemos empresas e condomínios com cronograma preventivo e registro das visitas.'
       },
       {
         question: 'Qual a garantia do serviço de dedetização em Franca?',
-        answer: 'Todo serviço tem garantia descrita no laudo técnico. Utilizamos inseticidas profissionais registrados na ANVISA, importados dos melhores fabricantes mundiais. Se o problema persistir dentro do prazo de garantia estipulado, retornamos sem custo adicional — válido para serviços no Jardim Francano, Vila Santa Terezinha e toda Franca SP.'
+        answer: 'Quando aplicável, a garantia é descrita na proposta e no comprovante do serviço, com prazo e condições definidos conforme a praga, o ambiente e o tratamento executado.'
       },
       {
         question: 'É seguro para crianças e pets?',
-        answer: 'Sim. Trabalhamos com produtos de baixa toxicidade registrados na ANVISA (RDC 622/2022) e orientamos o tempo de afastamento necessário para cada ambiente. Crianças, gestantes, animais domésticos e alimentos são protegidos durante toda a aplicação conforme protocolo de segurança em todos os bairros de Franca que atendemos.'
+        answer: 'A segurança depende do produto, da aplicação e das condições do ambiente. Antes do serviço, informamos os cuidados e o período de afastamento aplicável para crianças, gestantes, animais domésticos e alimentos.'
       },
       {
         question: 'Quanto tempo dura o efeito da dedetização em Franca?',
-        answer: 'O efeito imediato é observado em até 24 horas. A proteção residual varia de 30 a 90 dias dependendo do produto e condições do ambiente. Recomendamos plano preventivo trimestral para residências no Jardim Francano, Vila Aparecida e bairros de Franca, e bimestral para estabelecimentos comerciais no Centro e Parque Progresso.'
+        answer: 'O prazo de ação e a proteção residual variam conforme a espécie, o produto, o nível de infestação e as condições do ambiente. A frequência preventiva é definida depois da inspeção técnica.'
       },
         ],
 } as const;
