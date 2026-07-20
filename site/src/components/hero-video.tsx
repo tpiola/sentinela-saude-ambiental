@@ -1,172 +1,85 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { BRAND } from "@/lib/brand";
+import { BRAND, whatsappHref } from "@/lib/brand";
 
-type HeroVideoProps = {
-  videoSrc?: string;
-};
+const WHATSAPP_MESSAGE =
+  "Olá, Sentinela. Gostaria de um diagnóstico para controle de pragas em Franca e região.";
 
-export function HeroVideo({ videoSrc }: HeroVideoProps) {
-  const envSrc = process.env.NEXT_PUBLIC_HERO_VIDEO_URL;
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.2]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-
-  const src = videoSrc ?? envSrc ?? BRAND.heroVideoUrl;
+export function HeroVideo({ videoSrc }: { videoSrc?: string }) {
+  const src =
+    videoSrc ??
+    process.env.NEXT_PUBLIC_HERO_VIDEO_URL ??
+    BRAND.heroVideoUrl;
 
   return (
     <section
-      ref={ref}
       id="inicio"
-      className="relative isolate flex min-h-[80svh] sm:min-h-[90svh] items-center justify-center overflow-hidden bg-[color:var(--brand-navy)] pt-20 pb-24 sm:pb-4"
+      className="relative isolate min-h-[720px] overflow-hidden bg-[color:var(--brand-navy)] pt-24 text-white sm:min-h-[760px] sm:pt-28"
     >
-      <motion.div style={{ y, scale }} className="absolute inset-0">
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={BRAND.heroVideoPosterUrl}
-          aria-hidden
-        >
-          <source src={src} type="video/mp4" />
-        </video>
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-navy)] via-[color:var(--brand-navy)]/65 to-[color:var(--brand-navy)]/25"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-[color:var(--brand-navy)]/80 via-transparent to-transparent"
-          aria-hidden
-        />
-      </motion.div>
-
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 mx-auto max-w-6xl px-4 py-16 text-center md:px-8 lg:py-20"
+      <video
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={BRAND.heroVideoPosterUrl}
+        aria-hidden="true"
       >
-        <div className="mx-auto max-w-4xl">
-          {/* Badge de urgência */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-lime)]/30 bg-[color:var(--brand-lime)]/10 px-4 py-1.5"
-          >
-            <span className="h-2 w-2 animate-pulse rounded-full bg-[color:var(--brand-lime)]" />
-            <span className="font-mono text-[11px] font-bold uppercase tracking-widest text-[color:var(--brand-lime)]">
-              🟢 Atendimento prioritário — Franca SP
-            </span>
-          </motion.div>
+        <source src={src} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--brand-navy)_0%,rgba(0,35,71,.94)_42%,rgba(0,35,71,.54)_76%,rgba(0,35,71,.38)_100%)]" aria-hidden="true" />
+      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[color:var(--brand-navy)] to-transparent" aria-hidden="true" />
 
-          {/* Headline principal */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="font-[family-name:var(--font-heading)] text-5xl leading-[1.02] font-extrabold tracking-[-0.02em] text-white sm:text-6xl lg:text-7xl"
-          >
-            Praga em casa?{" "}
-            <span className="text-[color:var(--brand-lime)]">
-              A Sentinela chega primeiro.
-            </span>
-          </motion.h1>
+      <div className="container-responsive relative z-10 flex min-h-[620px] items-center py-12 sm:min-h-[650px]">
+        <div className="max-w-[760px] min-w-0">
+          <p className="mb-5 border-l-2 border-[color:var(--brand-lime)] pl-4 text-xs font-bold uppercase tracking-[0.18em] text-white/80">
+            Controle profissional de pragas · Franca e região
+          </p>
 
-          {/* Subtítulo */}
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="mx-auto mt-5 max-w-2xl text-lg text-white/70 sm:text-xl"
-          >
-            Resposta em minutos. Atendimento em Franca e região. Recordistas em
-            agilidade.
-          </motion.p>
+          <h1 className="max-w-[13ch] min-w-0 overflow-wrap-anywhere font-[family-name:var(--font-heading)] text-[clamp(2.65rem,7vw,5.6rem)] font-bold leading-[0.98] tracking-[-0.045em] text-white">
+            Segurança técnica para proteger o seu ambiente.
+          </h1>
 
-          {/* CTAs — empilhados em mobile, lado a lado em desktop */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-          >
-            {/* CTA principal — verde limão pulsando */}
-            <motion.a
-              href="/agendar"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex min-h-[56px] w-full min-w-[280px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-10 py-4 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] shadow-[0_0_30px_rgba(132,255,0,0.5)] animate-pulse sm:w-auto"
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-white/78 sm:text-xl">
+            Atendimento para residências, condomínios e empresas, com orientação
+            responsável, produtos regularizados e documentação do serviço.
+          </p>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href={whatsappHref(WHATSAPP_MESSAGE)}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="whatsapp_hero"
+              className="inline-flex min-h-14 items-center justify-center whitespace-nowrap bg-[color:var(--brand-lime)] px-7 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy-heading)] transition hover:bg-[color:var(--brand-green-light)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              Quero agendar agora
-            </motion.a>
-
-            {/* CTA secundário — borda branca */}
-            <motion.a
+              Solicitar diagnóstico
+            </a>
+            <a
               href="/servicos"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex min-h-[56px] w-full min-w-[280px] items-center justify-center gap-2 rounded-full border-2 border-white/40 bg-transparent px-10 py-4 font-[family-name:var(--font-heading)] text-base font-bold text-white transition-colors hover:border-white/70 hover:bg-white/10 sm:w-auto"
+              data-track="servicos_hero"
+              className="inline-flex min-h-14 items-center justify-center whitespace-nowrap border border-white/40 px-7 font-semibold text-white transition hover:border-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
-              Ver pragas que tratamos
-            </motion.a>
-          </motion.div>
+              Conhecer os serviços
+            </a>
+          </div>
 
-          {/* Stats de agilidade */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.45, duration: 0.5 }}
-            className="mt-12 flex flex-wrap justify-center gap-8"
-          >
-            <div className="text-center">
-              <div className="text-2xl font-black text-[color:var(--brand-lime)]">
-                &lt; 30 min
-              </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-widest text-white/50">
-                Resposta
-              </div>
+          <dl className="mt-12 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-5 border-t border-white/20 pt-7 sm:grid-cols-3">
+            <div>
+              <dt className="text-xs uppercase tracking-[0.16em] text-white/55">Experiência</dt>
+              <dd className="mt-1 font-semibold text-white">{BRAND.experienceYearsLabel} em Franca</dd>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-black text-[color:var(--brand-lime)]">
-                11+ anos
-              </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-widest text-white/50">
-                Experiência
-              </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.16em] text-white/55">Cobertura</dt>
+              <dd className="mt-1 font-semibold text-white">Franca e região</dd>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-black text-[color:var(--brand-lime)]">
-                Franca + 40 km
-              </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-widest text-white/50">
-                Área de cobertura
-              </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.16em] text-white/55">Atendimento</dt>
+              <dd className="mt-1 font-semibold text-white">Residencial e empresarial</dd>
             </div>
-          </motion.div>
+          </dl>
         </div>
-      </motion.div>
-
-      <div
-        className="pointer-events-none absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-1 text-white/45 sm:flex"
-        aria-hidden
-      >
-        <span className="text-[10px] tracking-widest uppercase">scroll</span>
-        <motion.span
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="h-8 w-5 rounded-full border-2 border-white/30"
-        >
-          <span className="mx-auto mt-1 block h-2 w-1 rounded-full bg-white/50" />
-        </motion.span>
       </div>
     </section>
   );
