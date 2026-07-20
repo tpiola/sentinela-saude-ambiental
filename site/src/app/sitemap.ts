@@ -13,17 +13,12 @@ const routes = [
   "/faq",
   "/privacidade",
   "/pragas/escorpiao",
-  "/pragas/barata",
-  "/pragas/cupim",
-  "/pragas/rato",
-  "/pragas/formiga",
-  "/pragas/aranha",
-  "/pragas/mosquito",
-  "/pragas/pombo",
-  "/pragas/morcego",
-  "/pragas/pulga",
-  "/pragas/carrapato",
-  "/pragas/traca",
+  "/pragas/baratas",
+  "/pragas/ratos",
+  "/pragas/cupins",
+  "/pragas/aranhas",
+  "/pragas/formigas",
+  "/pragas/mosquitos",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
