@@ -4,7 +4,6 @@ import "./globals.css";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
-import { ChatRogerio } from "@/components/chat-rogerio";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
 import { BRAND } from "@/lib/brand";
 
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Sentinela Saúde Ambiental",
   },
   description:
-    "Dedetização em Franca SP especializada em escorpião. Mais rápidos da cidade — resolvemos em menos de 1h. Barata, cupim, rato. Laudo ANVISA e garantia. Chama agora.",
+    "Controle profissional de pragas em Franca e região para residências, condomínios e empresas. Solicite orientação e diagnóstico inicial pelo WhatsApp.",
   keywords: [
     "escorpião Franca",
     "dedetização Franca",
@@ -49,17 +48,12 @@ export const metadata: Metadata = {
     "laudo Vigilância Sanitária Franca",
     "dedetização residencial Franca",
     "dedetização empresarial Franca",
-    "laudo ANVISA Franca",
     "empresa de dedetização Franca SP",
     "controle de pragas Batatais",
     "controle de pragas Orlândia",
     "controle de pragas Ituverava",
     "controle de pragas Cristais Paulista",
     "sentinela saúde ambiental",
-    "dedetização Centro Franca",
-    "dedetização Jardim Francano Franca",
-    "dedetização City Petrópolis Franca",
-    "dedetização Parque Progresso Franca",
     "dedetização perto de mim Franca SP",
   ],
   authors: [{ name: BRAND.name, url: siteUrl }],
@@ -88,7 +82,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: siteUrl,
     siteName: BRAND.name,
-    title: `${BRAND.name} — Dedetização em Franca SP — Escorpião resolvido em menos de 1h`,
+    title: `${BRAND.name} — Controle de pragas em Franca SP`,
     description: BRAND.tagline,
     images: [
       {
@@ -159,7 +153,6 @@ export default function RootLayout({
         <Analytics />
         {children}
         <CookieBanner />
-        <ChatRogerio />
         <MobileStickyBar />
       </body>
     </html>
