@@ -4,9 +4,9 @@ import "./globals.css";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
-import { ChatRogerio } from "@/components/chat-rogerio";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
 import { BRAND } from "@/lib/brand";
+import { getSiteUrl } from "@/lib/site";
 
 const heading = Montserrat({
   variable: "--font-heading",
@@ -20,11 +20,7 @@ const body = DM_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.com.br";
-
-const absoluteLogoUrl = new URL(BRAND.logoPath, siteUrl).href;
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Sentinela Saúde Ambiental",
   },
   description:
-    "Dedetização em Franca SP especializada em escorpião. Mais rápidos da cidade — resolvemos em menos de 1h. Barata, cupim, rato. Laudo ANVISA e garantia. Chama agora.",
+    "Controle profissional de pragas em Franca e região para residências, condomínios e empresas. Solicite orientação e diagnóstico inicial pelo WhatsApp.",
   keywords: [
     "escorpião Franca",
     "dedetização Franca",
@@ -46,20 +42,15 @@ export const metadata: Metadata = {
     "desratização Franca",
     "descupinização Franca",
     "controle de escorpiões Franca",
-    "laudo Vigilância Sanitária Franca",
+    "documentação técnica controle de pragas Franca",
     "dedetização residencial Franca",
     "dedetização empresarial Franca",
-    "laudo ANVISA Franca",
     "empresa de dedetização Franca SP",
     "controle de pragas Batatais",
     "controle de pragas Orlândia",
     "controle de pragas Ituverava",
     "controle de pragas Cristais Paulista",
     "sentinela saúde ambiental",
-    "dedetização Centro Franca",
-    "dedetização Jardim Francano Franca",
-    "dedetização City Petrópolis Franca",
-    "dedetização Parque Progresso Franca",
     "dedetização perto de mim Franca SP",
   ],
   authors: [{ name: BRAND.name, url: siteUrl }],
@@ -74,9 +65,7 @@ export const metadata: Metadata = {
       { url: "/favicon.ico", sizes: "16x16" },
       { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     other: [
       { url: "/icon-192.png", sizes: "192x192" },
       { url: "/icon-512.png", sizes: "512x512" },
@@ -88,7 +77,7 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: siteUrl,
     siteName: BRAND.name,
-    title: `${BRAND.name} — Dedetização em Franca SP — Escorpião resolvido em menos de 1h`,
+    title: `${BRAND.name} — Controle de pragas em Franca SP`,
     description: BRAND.tagline,
     images: [
       {
@@ -130,7 +119,7 @@ export const metadata: Metadata = {
     "business:contact_data:phone_number": BRAND.phoneDisplay,
     "business:contact_data:postal_code": BRAND.address.postalCode,
     "business:contact_data:street_address": BRAND.address.streetAddress,
-    "twitter:domain": "sentinelasaudeambiental.com.br",
+    "twitter:domain": "www.sentinelasaudeambiental.com.br",
   },
 };
 
@@ -150,16 +139,11 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${heading.variable} ${body.variable} h-full scroll-smooth antialiased`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-      </head>
       <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)] pb-16 sm:pb-0">
         <JsonLdLocalBusiness />
         <Analytics />
         {children}
         <CookieBanner />
-        <ChatRogerio />
         <MobileStickyBar />
       </body>
     </html>

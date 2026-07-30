@@ -1,56 +1,49 @@
 import Image from "next/image";
-import Link from "next/link";
 import { BRAND, mapsEmbedUrl, mapsDirectionsUrl, mapsSearchUrl } from "@/lib/brand";
 
 export function SiteFooter() {
-  const ano = new Date().getFullYear();
-  const embedSrc = mapsEmbedUrl();
-  const directionsUrl = mapsDirectionsUrl();
-  const searchUrl = mapsSearchUrl();
+  const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-[color:var(--brand-border)] bg-[color:var(--brand-navy)] text-white">
-      {/* — Brasão / Escudo central — */}
-      <div className="relative flex justify-center pt-0 md:pt-2">
-        <div className="relative -mt-9 h-20 w-20 md:-mt-11 md:h-24 md:w-24">
+      <div className="relative flex justify-center pt-2">
+        <div className="relative -mt-10 h-24 w-24">
           <div className="absolute inset-0 rounded-full bg-[color:var(--brand-navy)] ring-2 ring-white/20" />
           <div className="absolute inset-0 flex items-center justify-center">
             <Image
               src={BRAND.logoPath}
-              alt={`Brasão ${BRAND.name}`}
+              alt={`Marca ${BRAND.name}`}
               width={96}
               height={96}
-              className="h-full w-full scale-[0.85] object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]"
-              priority={false}
+              className="h-full w-full scale-[0.85] object-contain"
             />
           </div>
         </div>
       </div>
 
       <div className="mx-auto max-w-6xl px-4 pb-10 md:px-6 md:pb-14">
-        {/* Google Maps */}
         <div className="mb-10 overflow-hidden rounded-2xl ring-1 ring-white/10">
           <div className="border-b border-white/10 bg-white/5 px-4 py-4 sm:px-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h3 className="font-bold text-white text-base sm:text-lg">
-                  Como chegar
-                </h3>
+                <h2 className="text-base font-bold text-white sm:text-lg">
+                  Localização
+                </h2>
                 <p className="mt-0.5 text-sm text-white/50">
                   {BRAND.address.addressLocality} — {BRAND.address.addressRegion}
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
                 <a
-                  href={directionsUrl}
+                  href={mapsDirectionsUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-bold text-[color:var(--brand-navy-heading)] transition hover:brightness-110"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-bold text-[color:var(--brand-navy-heading)]"
                 >
-                  Abrir GPS / Rotas
+                  Abrir rotas
                 </a>
                 <a
-                  href={searchUrl}
+                  href={mapsSearchUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10"
@@ -66,51 +59,61 @@ export function SiteFooter() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
-            src={embedSrc}
+            src={mapsEmbedUrl()}
           />
         </div>
 
-        {/* Grid columns */}
         <div className="grid gap-8 md:grid-cols-3">
-          {/* Brand */}
           <div>
-            <div className="flex items-center gap-3">
-              <span className="text-xl font-black tracking-tight text-white">SENTINELA</span>
-            </div>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
-              Controle integrado de pragas urbanas com laudo técnico ANVISA, garantia contratual e responsabilidade ambiental.
+            <p className="text-xl font-black tracking-tight text-white">SENTINELA</p>
+            <p className="mt-3 max-w-xs text-sm leading-6 text-white/60">
+              Controle de pragas com inspeção, orientação preventiva e registro do
+              serviço conforme o escopo contratado.
             </p>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-lime)] mb-4">Links</h4>
+          <nav aria-label="Links do rodapé">
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-widest text-[color:var(--brand-lime)]">
+              Links
+            </h2>
             <ul className="space-y-2.5">
-              <li><a href="/" className="text-sm text-white/60 hover:text-white transition-colors">Início</a></li>
-              <li><a href="/servicos" className="text-sm text-white/60 hover:text-white transition-colors">Serviços</a></li>
-              <li><a href="/sobre" className="text-sm text-white/60 hover:text-white transition-colors">Sobre</a></li>
-              <li><a href="/faq" className="text-sm text-white/60 hover:text-white transition-colors">Dúvidas</a></li>
+              <li><a href="/" className="text-sm text-white/60 hover:text-white">Início</a></li>
+              <li><a href="/servicos" className="text-sm text-white/60 hover:text-white">Serviços</a></li>
+              <li><a href="/sobre" className="text-sm text-white/60 hover:text-white">Sobre</a></li>
+              <li><a href="/faq" className="text-sm text-white/60 hover:text-white">Dúvidas</a></li>
+              <li><a href="/privacidade" className="text-sm text-white/60 hover:text-white">Privacidade</a></li>
             </ul>
-          </div>
+          </nav>
 
-          {/* Contato + Crédito */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-lime)] mb-4">Contato</h4>
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-widest text-[color:var(--brand-lime)]">
+              Contato
+            </h2>
             <ul className="space-y-2.5">
               <li>
-                <a href={`mailto:${BRAND.email}`} className="text-sm text-white/60 hover:text-white transition-colors">
+                <a
+                  href={`tel:+${BRAND.phoneE164}`}
+                  className="text-sm text-white/60 hover:text-white"
+                >
+                  {BRAND.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${BRAND.email}`}
+                  className="break-all text-sm text-white/60 hover:text-white"
+                >
                   {BRAND.email}
                 </a>
               </li>
-              <li className="text-sm text-white/40">{BRAND.addressFull}</li>
+              <li className="text-sm leading-6 text-white/40">{BRAND.addressFull}</li>
             </ul>
           </div>
         </div>
 
-        {/* Divider + Créditos */}
-        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col items-center gap-3 text-center md:flex-row md:justify-between">
+        <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center md:flex-row md:justify-between">
           <p className="text-xs text-white/40">
-            &copy; {ano} Sentinela Saúde Ambiental. CNPJ: {BRAND.cnpj}
+            © {year} {BRAND.name}. CNPJ: {BRAND.cnpj}
           </p>
           <p className="text-xs text-white/40">
             Sistema criado por{" "}
@@ -118,7 +121,7 @@ export function SiteFooter() {
               href="https://www.reidasvendas.com.br"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[color:var(--brand-lime)] hover:brightness-110 underline underline-offset-2 transition-all"
+              className="text-[color:var(--brand-lime)] underline underline-offset-2"
             >
               Rei das Vendas
             </a>

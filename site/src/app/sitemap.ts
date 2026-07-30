@@ -1,15 +1,25 @@
 import type { MetadataRoute } from "next";
+import { getAllPestSlugs } from "@/lib/pests";
+import { getSiteUrl } from "@/lib/site";
+
+const staticRoutes = [
+  "",
+  "/servicos",
+  "/agendar",
+  "/condominio",
+  "/sobre",
+  "/faq",
+  "/privacidade",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sentinela-saude-ambiental.vercel.app";
+  const baseUrl = getSiteUrl();
+  const pestRoutes = getAllPestSlugs().map((slug) => `/pragas/${slug}`);
+  const routes = [...staticRoutes, ...pestRoutes];
 
-  return [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
-    { url: `${baseUrl}/#servicos`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/#sobre`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/#contato`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/agendar`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/condominio`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-  ];
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    changeFrequency: route === "" ? "weekly" : "monthly",
+    priority: route === "" ? 1 : route === "/agendar" ? 0.9 : 0.8,
+  }));
 }

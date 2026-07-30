@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const STORAGE_KEY = "sentinela-cookie-consent";
@@ -9,15 +9,12 @@ export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) {
-      const t = setTimeout(() => setVisible(true), 1000);
-      return () => clearTimeout(t);
-    }
+    setVisible(!localStorage.getItem(STORAGE_KEY));
   }, []);
 
-  function handleAccept() {
-    localStorage.setItem(STORAGE_KEY, "accepted");
+  function choose(value: "accepted" | "rejected") {
+    localStorage.setItem(STORAGE_KEY, value);
+    window.dispatchEvent(new Event("sentinela:consent"));
     setVisible(false);
   }
 
@@ -26,27 +23,32 @@ export function CookieBanner() {
   return (
     <div
       role="dialog"
-      aria-label="Aviso de cookies"
-      aria-live="polite"
-      className="fixed bottom-0 left-0 right-0 z-50 border-t border-[color:var(--brand-border)] bg-white/95 shadow-2xl backdrop-blur-md"
+      aria-label="Preferências de privacidade"
+      aria-describedby="cookie-description"
+      className="fixed inset-x-3 bottom-20 z-[90] mx-auto max-w-3xl border border-[color:var(--brand-border)] bg-white p-4 shadow-2xl sm:bottom-5 sm:p-5"
     >
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-4 sm:flex-row sm:px-6">
-        <p className="flex-1 text-center text-sm text-[color:var(--brand-muted)] sm:text-left">
-          Este site usa cookies para melhorar sua experiência.{" "}
-          <Link
-            href="/privacidade"
-            className="font-semibold text-[color:var(--brand-navy)] underline underline-offset-2 hover:text-[color:var(--brand-lime-deep)]"
-          >
-            Política de Privacidade
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+        <p id="cookie-description" className="flex-1 text-sm leading-6 text-[color:var(--brand-muted)]">
+          Usamos cookies de medição para entender campanhas e melhorar o atendimento.
+          Você pode recusar sem perder funcionalidades.{" "}
+          <Link href="/privacidade" className="font-semibold text-[color:var(--brand-navy)] underline underline-offset-4">
+            Política de privacidade
           </Link>
         </p>
-        <div className="flex shrink-0 items-center gap-3">
+        <div className="flex shrink-0 gap-2">
           <button
             type="button"
-            onClick={handleAccept}
-            className="rounded-full bg-[color:var(--brand-navy)] px-6 py-2.5 text-sm font-bold text-white transition hover:bg-[color:var(--brand-navy-soft)]"
+            onClick={() => choose("rejected")}
+            className="min-h-11 whitespace-nowrap border border-[color:var(--brand-border)] px-4 text-sm font-semibold text-[color:var(--brand-navy)] hover:bg-[color:var(--brand-surface)] focus-visible:outline-2 focus-visible:outline-offset-2"
           >
-            Aceitar
+            Recusar
+          </button>
+          <button
+            type="button"
+            onClick={() => choose("accepted")}
+            className="min-h-11 whitespace-nowrap bg-[color:var(--brand-navy)] px-5 text-sm font-bold text-white hover:bg-[color:var(--brand-navy-soft)] focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            Aceitar medição
           </button>
         </div>
       </div>

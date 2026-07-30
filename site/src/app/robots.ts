@@ -1,33 +1,19 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.com.br";
+import { getSiteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
+  const siteUrl = getSiteUrl();
+
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/api/",
-          "/agendar/confirmar",
-          "/admin/",
-        ],
+        disallow: ["/api/", "/agendar/confirmar", "/admin/"],
       },
-      {
-        userAgent: "GPTBot",
-        disallow: "/",
-      },
-      {
-        userAgent: "ChatGPT-User",
-        disallow: "/",
-      },
-      {
-        userAgent: "Google-Extended",
-        allow: "/",
-      },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,
