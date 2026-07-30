@@ -6,6 +6,7 @@ import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
 import { BRAND } from "@/lib/brand";
+import { getSiteUrl } from "@/lib/site";
 
 const heading = Montserrat({
   variable: "--font-heading",
@@ -19,11 +20,7 @@ const body = DM_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.com.br";
-
-const absoluteLogoUrl = new URL(BRAND.logoPath, siteUrl).href;
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -45,7 +42,7 @@ export const metadata: Metadata = {
     "desratização Franca",
     "descupinização Franca",
     "controle de escorpiões Franca",
-    "laudo Vigilância Sanitária Franca",
+    "documentação técnica controle de pragas Franca",
     "dedetização residencial Franca",
     "dedetização empresarial Franca",
     "empresa de dedetização Franca SP",
@@ -68,9 +65,7 @@ export const metadata: Metadata = {
       { url: "/favicon.ico", sizes: "16x16" },
       { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     other: [
       { url: "/icon-192.png", sizes: "192x192" },
       { url: "/icon-512.png", sizes: "512x512" },
@@ -124,7 +119,7 @@ export const metadata: Metadata = {
     "business:contact_data:phone_number": BRAND.phoneDisplay,
     "business:contact_data:postal_code": BRAND.address.postalCode,
     "business:contact_data:street_address": BRAND.address.streetAddress,
-    "twitter:domain": "sentinelasaudeambiental.com.br",
+    "twitter:domain": "www.sentinelasaudeambiental.com.br",
   },
 };
 
@@ -144,10 +139,6 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${heading.variable} ${body.variable} h-full scroll-smooth antialiased`}
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-      </head>
       <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)] pb-16 sm:pb-0">
         <JsonLdLocalBusiness />
         <Analytics />
