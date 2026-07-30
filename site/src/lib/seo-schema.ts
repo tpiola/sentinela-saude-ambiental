@@ -1,8 +1,7 @@
 import { BRAND } from "@/lib/brand";
+import { getSiteUrl } from "@/lib/site";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.com.br";
+const siteUrl = getSiteUrl();
 
 export function buildLocalBusinessGraph() {
   return {
@@ -41,7 +40,14 @@ export function buildLocalBusinessGraph() {
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            dayOfWeek: [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+            ],
             opens: "07:00",
             closes: "19:00",
           },
