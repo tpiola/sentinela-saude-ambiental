@@ -3,162 +3,246 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BRAND } from "@/lib/brand";
+import { getSiteUrl } from "@/lib/site";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.com.br";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   title: "Política de Privacidade — Sentinela Saúde Ambiental",
   description:
-    "Política de privacidade e proteção de dados pessoais da Sentinela Saúde Ambiental, em conformidade com a LGPD (Lei 13.709/2018).",
+    "Informações sobre coleta, uso, compartilhamento e direitos relacionados aos dados pessoais tratados pela Sentinela Saúde Ambiental.",
   alternates: { canonical: `${siteUrl}/privacidade` },
-  robots: { index: false },
 };
+
+const sectionClass = "border-t border-[color:var(--brand-border)] pt-8";
+const headingClass =
+  "font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-navy)]";
+const paragraphClass = "mt-3 leading-7 text-[color:var(--brand-muted)]";
+const listClass =
+  "mt-4 list-disc space-y-2 pl-5 leading-7 text-[color:var(--brand-muted)]";
 
 export default function PrivacidadePage() {
   return (
     <>
       <SiteHeader />
       <main className="min-h-screen bg-white pt-20">
-        <div className="mx-auto max-w-3xl px-4 py-16 md:px-6">
-          <h1 className="font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
+        <article className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-green-deep)]">
+            Proteção de dados
+          </p>
+          <h1 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-5xl">
             Política de Privacidade
           </h1>
+          <p className="mt-4 leading-7 text-[color:var(--brand-muted)]">
+            Esta política explica como os dados pessoais informados pelo site são
+            tratados para atendimento, mensuração autorizada e cumprimento de
+            obrigações aplicáveis.
+          </p>
           <p className="mt-3 text-sm text-[color:var(--brand-muted)]">
-            Última atualização: maio de 2026
+            Última atualização: 30 de julho de 2026
           </p>
 
-          <div className="prose prose-sm mt-10 max-w-none text-[color:var(--foreground)]">
-            <h2>1. Quem somos</h2>
-            <p>
-              <strong>{BRAND.name}</strong> (sucessora da Better Controle de
-              Pragas), empresa de controle integrado de pragas com sede em
-              Franca — SP, CNAE 8122-2/00. E-mail de contato:{" "}
-              <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a>.
-            </p>
+          <div className="mt-12 space-y-8">
+            <section className={sectionClass}>
+              <h2 className={headingClass}>1. Controlador e contato</h2>
+              <p className={paragraphClass}>
+                O controlador dos dados tratados por este site é{" "}
+                <strong className="text-[color:var(--brand-navy)]">
+                  {BRAND.name}
+                </strong>
+                , CNPJ {BRAND.cnpj}, com endereço em {BRAND.addressFull}.
+              </p>
+              <p className={paragraphClass}>
+                Solicitações sobre privacidade podem ser enviadas para{" "}
+                <a
+                  href={`mailto:${BRAND.email}`}
+                  className="font-semibold text-[color:var(--brand-navy)] underline underline-offset-4"
+                >
+                  {BRAND.email}
+                </a>
+                .
+              </p>
+            </section>
 
-            <h2>2. Dados coletados</h2>
-            <p>
-              Coletamos apenas os dados necessários para prestar nossos
-              serviços:
-            </p>
-            <ul>
-              <li>
-                <strong>Dados de contato:</strong> nome, e-mail,
-                telefone/WhatsApp.
-              </li>
-              <li>
-                <strong>Dados de atendimento:</strong> endereço do imóvel
-                (apenas cidade/bairro para diagnóstico), tipo de praga,
-                urgência.
-              </li>
-              <li>
-                <strong>Dados de navegação:</strong> cookies de análise (Google
-                Analytics 4) para melhorar o site — somente após seu
+            <section className={sectionClass}>
+              <h2 className={headingClass}>2. Dados tratados</h2>
+              <p className={paragraphClass}>
+                Dependendo da interação, podemos tratar:
+              </p>
+              <ul className={listClass}>
+                <li>telefone ou WhatsApp informado para atendimento;</li>
+                <li>bairro ou cidade, tipo de ocorrência e urgência;</li>
+                <li>
+                  nome, e-mail e mensagem quando fornecidos em outros canais de
+                  contato;
+                </li>
+                <li>
+                  página de origem, referência e parâmetros de campanha, como UTMs,
+                  para identificar a origem do pedido;
+                </li>
+                <li>
+                  dados técnicos necessários à segurança e operação, como data,
+                  horário, navegador e registros de requisição;
+                </li>
+                <li>
+                  dados de navegação para analytics e publicidade somente após a
+                  escolha de aceitar a medição, quando essas ferramentas estiverem
+                  configuradas.
+                </li>
+              </ul>
+              <p className={paragraphClass}>
+                Não solicitamos dados de saúde ou outras informações pessoais
+                sensíveis no formulário inicial. Evite incluí-los nas mensagens.
+              </p>
+            </section>
+
+            <section className={sectionClass}>
+              <h2 className={headingClass}>3. Finalidades</h2>
+              <ul className={listClass}>
+                <li>receber e encaminhar pedidos de avaliação e orçamento;</li>
+                <li>confirmar área de atendimento e organizar o contato comercial;</li>
+                <li>manter registros necessários ao atendimento solicitado;</li>
+                <li>proteger o site contra abuso, fraude e automações indevidas;</li>
+                <li>
+                  medir o desempenho do site e das campanhas quando houver
+                  consentimento para as tecnologias de medição;
+                </li>
+                <li>cumprir obrigações legais, regulatórias ou exercer direitos.</li>
+              </ul>
+              <p className={paragraphClass}>
+                A base legal aplicável depende da finalidade e pode incluir
+                procedimentos preliminares a pedido do titular, execução de
+                contrato, cumprimento de obrigação legal, legítimo interesse ou
                 consentimento.
-              </li>
-            </ul>
+              </p>
+            </section>
 
-            <h2>3. Finalidade e base legal</h2>
-            <ul>
-              <li>
-                <strong>Execução de contrato (Art. 7°, V):</strong> processar
-                pedidos de orçamento, agendamentos e atendimentos.
-              </li>
-              <li>
-                <strong>Legítimo interesse (Art. 7°, IX):</strong> envio de
-                confirmações de agendamento, lembretes e comunicações sobre o
-                serviço contratado.
-              </li>
-              <li>
-                <strong>Consentimento (Art. 7°, I):</strong> envio de
-                comunicações de marketing (quando solicitado).
-              </li>
-            </ul>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>4. Fluxo do formulário</h2>
+              <p className={paragraphClass}>
+                Ao concluir o formulário, os dados são enviados a uma rota segura do
+                site e podem ser encaminhados à automação de atendimento. Em seguida,
+                o visitante é direcionado ao WhatsApp para continuar a conversa.
+              </p>
+              <p className={paragraphClass}>
+                O WhatsApp é um serviço independente. Ao abrir ou enviar a mensagem,
+                o tratamento também fica sujeito às políticas e configurações desse
+                serviço.
+              </p>
+            </section>
 
-            <h2>4. Compartilhamento de dados</h2>
-            <p>
-              Seus dados <strong>não são vendidos</strong>. Podemos
-              compartilhá-los apenas com:
-            </p>
-            <ul>
-              <li>
-                Ferramentas de agendamento e calendário (Google Calendar) para
-                confirmar visitas técnicas.
-              </li>
-              <li>
-                Ferramentas de análise (Google Analytics) — somente com seu
-                consentimento e com dados anonimizados.
-              </li>
-              <li>Autoridades competentes, quando exigido por lei.</li>
-            </ul>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>5. Fornecedores e compartilhamento</h2>
+              <p className={paragraphClass}>
+                Os dados podem ser tratados por fornecedores estritamente necessários
+                à operação, como:
+              </p>
+              <ul className={listClass}>
+                <li>Vercel, para hospedagem, entrega e registros técnicos;</li>
+                <li>n8n ou infraestrutura equivalente, para automação de leads;</li>
+                <li>WhatsApp/Meta, quando o visitante continua o atendimento;</li>
+                <li>
+                  Google Analytics, Google Tag Manager, Google Ads ou Meta Pixel,
+                  somente quando configurados e autorizados pela escolha de medição;
+                </li>
+                <li>
+                  prestadores técnicos autorizados, quando necessários para manter o
+                  site e as automações.
+                </li>
+              </ul>
+              <p className={paragraphClass}>
+                Não vendemos dados pessoais. Alguns fornecedores podem operar
+                infraestrutura em outros países, observando suas políticas,
+                contratos e mecanismos aplicáveis de proteção de dados.
+              </p>
+            </section>
 
-            <h2>5. Retenção de dados</h2>
-            <p>
-              Mantemos seus dados pelo tempo necessário para prestar o serviço e
-              cumprir obrigações legais — em geral, até 5 anos após o último
-              contato, salvo obrigação legal superior.
-            </p>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>6. Cookies e medição</h2>
+              <p className={paragraphClass}>
+                O site pode armazenar uma preferência local para lembrar se o
+                visitante aceitou ou recusou a medição. Tags analíticas e
+                publicitárias configuradas pelo site somente devem ser carregadas
+                após a aceitação.
+              </p>
+              <p className={paragraphClass}>
+                A recusa não impede o acesso ao conteúdo, ao formulário ou ao
+                WhatsApp. A preferência pode ser alterada apagando os dados do site
+                no navegador até que seja disponibilizado um controle específico na
+                interface.
+              </p>
+            </section>
 
-            <h2>6. Seus direitos (LGPD)</h2>
-            <p>
-              Você pode, a qualquer momento, solicitar via e-mail ({BRAND.email}
-              ):
-            </p>
-            <ul>
-              <li>Acesso aos seus dados pessoais.</li>
-              <li>Correção de dados incompletos ou inexatos.</li>
-              <li>
-                Eliminação dos seus dados (quando não houver obrigação legal).
-              </li>
-              <li>Portabilidade dos dados.</li>
-              <li>Revogação do consentimento.</li>
-              <li>Informação sobre compartilhamento com terceiros.</li>
-            </ul>
-            <p>Responderemos em até 15 dias úteis.</p>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>7. Retenção</h2>
+              <p className={paragraphClass}>
+                Os dados são mantidos pelo período necessário para atender a
+                solicitação, administrar a relação comercial, cumprir obrigações e
+                exercer direitos. O prazo pode variar conforme a finalidade e será
+                revisto quando o dado deixar de ser necessário, ressalvadas as
+                hipóteses legais de conservação.
+              </p>
+            </section>
 
-            <h2>7. Cookies</h2>
-            <p>
-              Utilizamos cookies estritamente necessários (funcionamento do
-              site) e cookies analíticos (Google Analytics 4), estes últimos
-              apenas com seu consentimento explícito. Você pode recusar cookies
-              analíticos a qualquer momento.
-            </p>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>8. Direitos do titular</h2>
+              <p className={paragraphClass}>
+                Nos termos da LGPD, o titular pode solicitar, conforme aplicável:
+              </p>
+              <ul className={listClass}>
+                <li>confirmação da existência de tratamento e acesso aos dados;</li>
+                <li>correção de informações incompletas, inexatas ou desatualizadas;</li>
+                <li>
+                  anonimização, bloqueio ou eliminação de dados desnecessários,
+                  excessivos ou tratados em desconformidade;
+                </li>
+                <li>informações sobre compartilhamento;</li>
+                <li>revogação do consentimento;</li>
+                <li>
+                  eliminação de dados tratados com consentimento, respeitadas as
+                  hipóteses legais de conservação;
+                </li>
+                <li>outros direitos previstos na legislação aplicável.</li>
+              </ul>
+              <p className={paragraphClass}>
+                A solicitação deve permitir a verificação da identidade do
+                requerente. Procuraremos atender imediatamente quando possível ou
+                informar os motivos que impeçam a providência imediata. Pedidos de
+                acesso completo observarão os prazos legais aplicáveis.
+              </p>
+            </section>
 
-            <h2>8. Segurança</h2>
-            <p>
-              Utilizamos HTTPS (TLS 1.3), acesso restrito e revisão periódica de
-              permissões para proteger seus dados.
-            </p>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>9. Segurança</h2>
+              <p className={paragraphClass}>
+                Adotamos medidas administrativas e técnicas compatíveis com a
+                operação para reduzir riscos de acesso não autorizado, perda,
+                alteração ou divulgação indevida. Nenhum sistema é absolutamente
+                imune a incidentes; por isso, controles e fornecedores devem ser
+                revistos periodicamente.
+              </p>
+            </section>
 
-            <h2>9. Alterações nesta política</h2>
-            <p>
-              Eventuais atualizações serão publicadas nesta página com a data de
-              revisão. Uso continuado do site após mudanças constitui aceite das
-              novas condições.
-            </p>
-
-            <h2>10. Contato</h2>
-            <p>
-              Dúvidas ou solicitações relacionadas à privacidade:{" "}
-              <a href={`mailto:${BRAND.email}`}>{BRAND.email}</a> ou WhatsApp{" "}
-              <a href={`https://wa.me/${BRAND.phoneE164}`}>
-                {BRAND.phoneDisplay}
-              </a>
-              .
-            </p>
+            <section className={sectionClass}>
+              <h2 className={headingClass}>10. Atualizações</h2>
+              <p className={paragraphClass}>
+                Esta política pode ser atualizada para refletir mudanças no site,
+                nas ferramentas ou nas obrigações aplicáveis. A data de revisão será
+                alterada nesta página. Mudanças relevantes não serão tratadas como
+                consentimento automático para finalidades que exijam nova autorização.
+              </p>
+            </section>
           </div>
 
           <div className="mt-12 border-t border-[color:var(--brand-border)] pt-6">
             <Link
               href="/"
-              className="text-sm font-semibold text-[color:var(--brand-navy)] hover:underline"
+              className="text-sm font-semibold text-[color:var(--brand-navy)] underline underline-offset-4"
             >
               ← Voltar ao início
             </Link>
           </div>
-        </div>
+        </article>
       </main>
       <SiteFooter />
     </>
