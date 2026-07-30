@@ -1,41 +1,31 @@
-"use client";
-
-const stats = [
-  { num: "Franca", label: "e Região" },
-  { num: "Comercial", label: "Retorno no WhatsApp" },
-  { num: "ANVISA", label: "RDC 622/2022" },
-  { num: "Laudo", label: "Vigilância Sanitária" },
-  { num: "Franca", label: "e Região, agendamento" },
-  { num: "CIP", label: "Controle integrado" },
-];
+const highlights = [
+  { title: "Franca e região", detail: "Atendimento local" },
+  { title: "Residencial", detail: "Casas e apartamentos" },
+  { title: "Empresarial", detail: "Empresas e condomínios" },
+  { title: "Inspeção", detail: "Diagnóstico antes do tratamento" },
+] as const;
 
 export function StatsMarquee() {
-  const track = [...stats, ...stats];
-
   return (
     <section
-      className="overflow-hidden border-y border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] py-5"
-      aria-label="Destaques da empresa"
+      className="border-y border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] py-8"
+      aria-label="Destaques do atendimento"
     >
-      <div className="animate-marquee flex w-max gap-10 hover:[animation-play-state:paused]">
-        {track.map((s, i) => (
+      <dl className="mx-auto grid max-w-6xl gap-6 px-4 sm:grid-cols-2 md:px-6 lg:grid-cols-4">
+        {highlights.map((item) => (
           <div
-            key={`${s.label}-${i}`}
-            className="flex shrink-0 items-center gap-3 whitespace-nowrap"
+            key={item.title}
+            className="border-l-2 border-[color:var(--brand-lime)] pl-4"
           >
-            <span className="font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
-              {s.num}
-            </span>
-            <span className="text-sm text-[color:var(--brand-muted)]">
-              {s.label}
-            </span>
-            <span
-              className="h-4 w-px bg-[color:var(--brand-border)]"
-              aria-hidden
-            />
+            <dt className="font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
+              {item.title}
+            </dt>
+            <dd className="mt-1 text-sm text-[color:var(--brand-muted)]">
+              {item.detail}
+            </dd>
           </div>
         ))}
-      </div>
+      </dl>
     </section>
   );
 }
