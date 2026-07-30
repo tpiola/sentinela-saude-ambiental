@@ -2,18 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  turbopack: {
-    root: process.cwd(),
-  },
   images: {
-    // All images are now local via /media/thiago/ — no remote patterns needed
+    // As imagens de produção são locais; não há hosts externos autorizados.
     remotePatterns: [],
   },
   async redirects() {
     return [
       {
-        source: '/escorpiao',
-        destination: '/pragas/escorpiao',
+        source: "/escorpiao",
+        destination: "/pragas/escorpiao",
         permanent: true,
       },
     ];
