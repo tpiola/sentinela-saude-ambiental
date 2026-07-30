@@ -1,54 +1,27 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export function CtaFinal() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--brand-green)] via-[color:var(--brand-green-deep)] to-[color:var(--brand-navy)] py-20 md:py-28">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-30"
-        aria-hidden
-      >
-        <div className="absolute top-0 -left-20 h-96 w-96 rounded-full bg-white blur-3xl" />
-        <div className="absolute -right-10 bottom-0 h-80 w-80 rounded-full bg-[color:var(--brand-green-light)] blur-3xl" />
-      </div>
-      <div className="relative mx-auto max-w-4xl px-4 text-center md:px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-white md:text-4xl"
-        >
-          Escorpião, barata, cupim, rato.
-          <br />
-          <span className="text-[color:var(--brand-navy-heading)]">
-            A Sentinela resolve em Franca e região.
-          </span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.06 }}
-          className="mx-auto mt-5 max-w-2xl text-lg text-white/85"
-        >
-          Protegendo casas e empresas em Franca-SP e arredores. Serviço com laudo técnico e garantia.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.12 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-        >
+    <section className="bg-[color:var(--brand-green-deep)] py-20 md:py-28">
+      <div className="mx-auto max-w-4xl px-4 text-center md:px-6">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/70">
+          Próximo passo
+        </p>
+        <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-white md:text-5xl">
+          Identifique a ocorrência antes de decidir o tratamento.
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/80">
+          Informe o problema, o bairro e a urgência. A equipe orienta a preparação
+          e confirma os próximos passos do atendimento.
+        </p>
+        <div className="mt-10">
           <Link
             href="/agendar"
-            className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center gap-2 rounded-full bg-[color:var(--brand-navy)] px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white shadow-[0_0_25px_rgba(132,255,0,0.4)] transition hover:bg-[color:var(--brand-navy-soft)]"
+            className="inline-flex min-h-[56px] min-w-[260px] items-center justify-center rounded-full bg-[color:var(--brand-navy)] px-10 py-4 font-[family-name:var(--font-heading)] text-lg font-bold text-white transition hover:bg-[color:var(--brand-navy-soft)]"
           >
-            Agendar vistoria
+            Solicitar avaliação
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
