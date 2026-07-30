@@ -1,63 +1,114 @@
-import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { NextResponse } from "next/server";
 
-const LEADS_FILE = path.join(process.cwd(), "data", "leads.json");
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
-// Google Sheets via Apps Script (configure GOOGLE_SHEETS_WEBHOOK no .env)
-const SHEETS_WEBHOOK = process.env.GOOGLE_SHEETS_WEBHOOK || "";
+const MAX_BODY_BYTES = 12_000;
+const ALLOWED_SOURCES = new Set(["site-diagnostico", "site-contato"]);
 
-function ensureDataDir() {
-  const dir = path.dirname(LEADS_FILE);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+type UnknownRecord = Record<string, unknown>;
+
+function clean(value: unknown, maxLength = 240): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const normalized = value.replace(/\s+/g, " ").trim();
+  return normalized ? normalized.slice(0, maxLength) : undefined;
 }
 
-function readLeads(): any[] {
-  ensureDataDir();
+function isAllowedOrigin(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  if (!origin) return true;
+
+  const allowed = new Set<string>();
+  const canonical = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  const deployment = process.env.VERCEL_URL?.trim();
+
+  if (canonical) allowed.add(canonical.replace(/\/$/, ""));
+  if (deployment) allowed.add(`https://${deployment}`);
+
+  return allowed.size === 0 || allowed.has(origin.replace(/\/$/, ""));
+}
+
+export async function POST(request: Request) {
+  if (!isAllowedOrigin(request)) {
+    return NextResponse.json({ accepted: false }, { status: 403 });
+  }
+
+  const contentLength = Number(request.headers.get("content-length") ?? 0);
+  if (contentLength > MAX_BODY_BYTES) {
+    return NextResponse.json({ accepted: false }, { status: 413 });
+  }
+
+  let input: UnknownRecord;
   try {
-    return JSON.parse(fs.readFileSync(LEADS_FILE, "utf-8"));
+    input = (await request.json()) as UnknownRecord;
   } catch {
-    return [];
+    return NextResponse.json({ accepted: false }, { status: 400 });
   }
-}
 
-function appendLead(lead: any) {
-  const leads = readLeads();
-  leads.push({ ...lead, id: Date.now(), recebido_em: new Date().toISOString() });
-  fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2));
-}
+  // Campo-isca: robôs costumam preenchê-lo; pessoas não o veem.
+  if (clean(input.website, 120)) {
+    return NextResponse.json({ accepted: true }, { status: 202 });
+  }
 
-export async function POST(req: NextRequest) {
+  const source = clean(input.source, 40);
+  const phone = clean(input.phone, 40);
+  const phoneDigits = phone?.replace(/\D/g, "") ?? "";
+
+  if (!source || !ALLOWED_SOURCES.has(source)) {
+    return NextResponse.json({ accepted: false }, { status: 400 });
+  }
+
+  if (phoneDigits.length < 10 || phoneDigits.length > 13) {
+    return NextResponse.json({ accepted: false }, { status: 400 });
+  }
+
+  const webhookUrl = process.env.N8N_WEBHOOK_LEAD?.trim();
+  if (!webhookUrl) {
+    console.error("N8N_WEBHOOK_LEAD não configurado no ambiente da Vercel.");
+    return NextResponse.json({ accepted: false }, { status: 503 });
+  }
+
+  const payload = {
+    leadId: clean(input.leadId, 80),
+    source,
+    name: clean(input.name, 120),
+    email: clean(input.email, 180),
+    phone,
+    city: clean(input.city, 160),
+    propertyType: clean(input.propertyType, 100),
+    pestType: clean(input.pestType, 100),
+    urgency: clean(input.urgency, 80),
+    audience: clean(input.audience, 40),
+    message: clean(input.message, 1_000),
+    timestamp: clean(input.timestamp, 80),
+    pagePath: clean(input.pagePath, 300),
+    referrer: clean(input.referrer, 500),
+    utmSource: clean(input.utmSource, 160),
+    utmMedium: clean(input.utmMedium, 160),
+    utmCampaign: clean(input.utmCampaign, 200),
+    utmContent: clean(input.utmContent, 200),
+    utmTerm: clean(input.utmTerm, 200),
+    receivedAt: new Date().toISOString(),
+    userAgent: clean(request.headers.get("user-agent"), 400),
+  };
+
   try {
-    const body = await req.json();
-    const { nome, email, whatsapp, tipo, origem } = body;
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      cache: "no-store",
+      signal: AbortSignal.timeout(8_000),
+    });
 
-    if (!nome || !whatsapp) {
-      return NextResponse.json({ error: "Nome e WhatsApp obrigatórios" }, { status: 400 });
+    if (!response.ok) {
+      console.error(`Webhook n8n respondeu com status ${response.status}.`);
+      return NextResponse.json({ accepted: false }, { status: 502 });
     }
 
-    // Salvar local (backup)
-    appendLead({ nome, email, whatsapp, tipo: tipo || "nao_informado", origem: origem || "site" });
-
-    // Enviar para Google Sheets (se configurado)
-    if (SHEETS_WEBHOOK) {
-      try {
-        await fetch(SHEETS_WEBHOOK, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ nome, email, whatsapp, tipo, origem, data: new Date().toISOString() }),
-        });
-      } catch {
-        // Silencioso - o backup local já foi feito
-      }
-    }
-
-    return NextResponse.json({ success: true });
-  } catch (err) {
-    return NextResponse.json({ error: "Erro ao processar lead" }, { status: 500 });
+    return NextResponse.json({ accepted: true }, { status: 202 });
+  } catch (error) {
+    console.error("Falha ao encaminhar lead para o n8n.", error);
+    return NextResponse.json({ accepted: false }, { status: 502 });
   }
-}
-
-export async function GET() {
-  return NextResponse.json({ leads: readLeads().length });
 }
