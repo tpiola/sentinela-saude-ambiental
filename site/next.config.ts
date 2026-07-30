@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: process.env.VERCEL ? undefined : "standalone",
   poweredByHeader: false,
+  turbopack: {
+    root: process.cwd(),
+  },
   images: {
-    // As imagens de produção são locais; não há hosts externos autorizados.
+    // All images are now local via /media/thiago/ — no remote patterns needed
     remotePatterns: [],
   },
   async redirects() {
