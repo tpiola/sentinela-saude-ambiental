@@ -1,7 +1,15 @@
 import { whatsappHref } from "@/lib/brand";
 import { calendarBookingHref } from "@/lib/integrations";
 
-const steps = [
+type ProcessStep = {
+  number: string;
+  title: string;
+  text: string;
+  cta?: string;
+  href?: string;
+};
+
+const steps: ProcessStep[] = [
   {
     number: "01",
     title: "Contato inicial",
@@ -36,7 +44,7 @@ const steps = [
     title: "Registro e acompanhamento",
     text: "Quando previsto no escopo, o cliente recebe o comprovante do serviço, recomendações preventivas e orientação sobre retorno ou monitoramento.",
   },
-] as const;
+];
 
 export function ProcessTimeline() {
   return (
