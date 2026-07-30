@@ -1,46 +1,67 @@
-"use client";
-
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 export function ServicesGrid() {
   return (
-    <section id="servicos" className="scroll-mt-28 bg-[color:var(--brand-surface)] py-20 md:py-28">
+    <section
+      id="servicos"
+      className="scroll-mt-28 bg-[color:var(--brand-surface)] py-20 md:py-28"
+    >
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold tracking-widest text-[color:var(--brand-green-deep)] uppercase">Soluções técnicas</p>
-          <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">Controle profissional de pragas</h2>
-          <p className="mt-3 text-sm text-[color:var(--brand-muted)]">Escorpião, barata, cupim e rato. Laudo ANVISA e garantia em cada serviço.</p>
-        </motion.div>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
+            Soluções técnicas
+          </p>
+          <h1 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
+            Controle profissional de pragas
+          </h1>
+          <p className="mt-3 text-sm leading-6 text-[color:var(--brand-muted)]">
+            Inspeção, orientação preventiva e tratamento definido conforme a
+            ocorrência, o ambiente e as condições identificadas no local.
+          </p>
+        </div>
+
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[...BRAND.services].map((s, i) => (
-            <motion.article key={s.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ delay: i * 0.05 }} whileHover={{ y: -8 }} className="group relative flex flex-col overflow-hidden rounded-3xl border border-[color:var(--brand-border)] bg-white shadow-sm transition-all hover:shadow-[0_10px_40px_rgba(132,255,0,0.25)]">
-              {/* Imagem real do serviço */}
+          {BRAND.services.map((service) => (
+            <article
+              key={service.id}
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-[color:var(--brand-border)] bg-white shadow-sm transition-shadow hover:shadow-lg"
+            >
               <div className="relative h-48 w-full overflow-hidden bg-[color:var(--brand-navy)]">
-                <img
-                  src={s.imageUrl || ''}
-                  alt={s.title}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                  loading="lazy"
+                <Image
+                  src={service.imageUrl}
+                  alt={service.title}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                {s.title.toLowerCase().includes("escorpi") && (
-                  <div className="absolute top-3 left-3 rounded-full bg-[color:var(--brand-lime)] px-3 py-1 text-xs font-bold text-black shadow">
-                    Prioridade
-                  </div>
+                {service.title.toLowerCase().includes("escorpi") && (
+                  <span className="absolute left-3 top-3 rounded-full bg-[color:var(--brand-lime)] px-3 py-1 text-xs font-bold text-black shadow">
+                    Atendimento prioritário
+                  </span>
                 )}
               </div>
+
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-navy)]">{s.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-[color:var(--brand-muted)]">{s.desc}</p>
+                <h2 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-navy)]">
+                  {service.title}
+                </h2>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-[color:var(--brand-muted)]">
+                  {service.desc}
+                </p>
                 <a
-                  href={whatsappHref("Quero um orçamento para " + s.title.toLowerCase())}
-                  className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--brand-lime)] px-5 py-3 text-sm font-bold text-[color:var(--brand-navy-heading)] transition hover:brightness-110"
+                  href={whatsappHref(
+                    `Quero solicitar uma avaliação para ${service.title.toLowerCase()}.`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-5 py-3 text-sm font-bold text-[color:var(--brand-navy-heading)] transition hover:bg-[color:var(--brand-green-light)]"
                 >
-                  Solicitar orçamento
+                  Solicitar avaliação
                 </a>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>
