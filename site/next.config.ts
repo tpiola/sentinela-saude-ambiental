@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/escorpiao",
-        destination: "/pragas/escorpiao",
+        source: '/escorpiao',
+        destination: '/pragas/escorpiao',
         permanent: true,
       },
     ];
