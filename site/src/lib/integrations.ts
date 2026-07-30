@@ -1,3 +1,5 @@
+import { getSiteUrl } from "@/lib/site";
+
 /**
  * Integrações públicas do site. IDs públicos podem ficar em NEXT_PUBLIC_*;
  * tokens, segredos e webhooks privados permanecem somente no servidor.
@@ -13,13 +15,9 @@ export const INTEGRATIONS = {
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "",
 } as const;
 
-const CANONICAL_SITE_URL = "https://www.sentinelasaudeambiental.com.br";
-
 export function calendarBookingHref(): string {
   const direct = INTEGRATIONS.googleCalendarUrl.trim();
-  if (direct) return direct;
-  const site = process.env.NEXT_PUBLIC_SITE_URL?.trim() || CANONICAL_SITE_URL;
-  return `${site.replace(/\/$/, "")}/agendar`;
+  return direct || `${getSiteUrl()}/agendar`;
 }
 
 export type AttributionFields = {
