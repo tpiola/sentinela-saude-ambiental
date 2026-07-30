@@ -34,8 +34,10 @@ export type AttributionFields = {
 
 export type LeadPayload = AttributionFields & {
   source: "site-diagnostico";
+  name?: string;
   phone: string;
   city: string;
+  propertyType?: string;
   pestType: string;
   urgency: string;
   timestamp: string;
