@@ -4,369 +4,297 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { CtaFinal } from "@/components/sections/cta-final";
-import { BRAND, whatsappHref } from "@/lib/brand";
+import { whatsappHref } from "@/lib/brand";
+import { getSiteUrl } from "@/lib/site";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.com.br";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Dedetização para Condomínios em Franca SP | Sentinela Saúde Ambiental",
+  title: "Controle de Pragas para Condomínios em Franca SP",
   description:
-    "Plano de Manejo de Controle de Pragas (PMOC) para condomínios em Franca SP. Laudo técnico, cronograma preventivo, conformidade com Vigilância Sanitária. Atendimento rápido para síndicos e administradoras.",
+    "Programa preventivo e corretivo de controle de pragas para condomínios em Franca e região, com inspeção, cronograma, registros e orientação aos responsáveis.",
   alternates: { canonical: `${siteUrl}/condominio` },
 };
 
-const whyCards = [
+const benefits = [
   {
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
-    title: "Responsabilidade legal",
-    desc: "Condomínios são responsáveis pela segurança dos moradores. A Vigilância Sanitária exige o PMOC conforme RDC 622/2022. A ausência do plano gera multas e passivo trabalhista.",
+    title: "Visão do condomínio inteiro",
+    description:
+      "A inspeção considera áreas comuns, acessos, lixeiras, jardins, garagens, shafts, reservatórios e pontos de circulação entre unidades.",
   },
   {
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-      </svg>
-    ),
-    title: "Saúde dos moradores",
-    desc: "Baratas, ratos, escorpiões e mosquitos transmitem doenças. Em condomínios, a infestação se propaga por áreas comuns. Um plano preventivo protege centenas de famílias.",
+    title: "Rotina preventiva documentada",
+    description:
+      "O cronograma é definido conforme estrutura, histórico, atividade observada e necessidades operacionais do condomínio.",
   },
   {
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125V9M12 4.031V9m0 0h-1.5m1.5 0h1.5M5.25 9h13.5M3.75 15.75h16.5M3.75 18.75h16.5" />
-      </svg>
-    ),
-    title: "Valorização do patrimônio",
-    desc: "Cupins e roedores causam danos silenciosos que desvalorizam o imóvel. Um condomínio com PMOC ativo transmite segurança e cuidado.",
+    title: "Comunicação com a administração",
+    description:
+      "Síndico ou administradora recebe orientações de preparação, cuidados, registros do atendimento e medidas preventivas prioritárias.",
   },
-];
+] as const;
 
-const pmocSteps = [
+const steps = [
   {
-    number: "1",
-    title: "Vistoria técnica",
-    desc: "Inspeção de áreas comuns — garagem, lixeira, dutos, jardins, hall e reservatórios. Identificamos pontos críticos e focos de infestação.",
+    number: "01",
+    title: "Levantamento inicial",
+    description:
+      "Conversa com a administração para entender ocorrências, reclamações, áreas críticas, rotina de limpeza e histórico de serviços.",
   },
   {
-    number: "2",
-    title: "Diagnóstico",
-    desc: "Relatório com espécies identificadas, nível de infestação e recomendações baseadas na RDC 622/2022.",
+    number: "02",
+    title: "Inspeção técnica",
+    description:
+      "Verificação das áreas definidas no escopo para identificar sinais, acessos, abrigos, alimento, umidade e pontos de monitoramento.",
   },
   {
-    number: "3",
-    title: "Cronograma preventivo",
-    desc: "Calendário personalizado de visitas com frequência ajustada ao perfil do condomínio. Cada visita inclui aplicação, monitoramento e registro.",
+    number: "03",
+    title: "Plano de ação",
+    description:
+      "Definição das medidas preventivas e corretivas, métodos indicados, preparação do local e frequência inicial de acompanhamento.",
   },
   {
-    number: "4",
-    title: "Execução",
-    desc: "Técnicos treinados realizam aplicações com produtos ANVISA de baixa toxicidade. Mínimo impacto na rotina dos moradores.",
+    number: "04",
+    title: "Execução programada",
+    description:
+      "Realização do serviço com comunicação prévia aos responsáveis e orientação sobre circulação, afastamento e cuidados quando aplicáveis.",
   },
   {
-    number: "5",
-    title: "Laudo técnico",
-    desc: "Laudo Técnico de Controle de Pragas com validade legal, contendo ações, produtos e conformidade com a legislação.",
+    number: "05",
+    title: "Registro e revisão",
+    description:
+      "Entrega dos registros previstos no contrato e revisão do cronograma conforme os sinais encontrados nas visitas seguintes.",
   },
-];
+] as const;
 
-const areasInfo = [
-  {
-    type: "Áreas comuns (sob responsabilidade do condomínio)",
-    items: [
-      "Garagem e estacionamento — pontos de entrada de roedores",
-      "Lixeira e depósito de lixo — principal atrativo de baratas e ratos",
-      "Hall de entrada e elevadores — circulação de pragas entre andares",
-      "Dutos de ventilação e shafts — rota de escorpiões e baratas",
-      "Jardins e áreas externas — foco de mosquitos e formigas",
-      "Cobertura e telhado — ninhos de pombos e entrada de cupins",
-      "Casa de máquinas e reservatórios — risco de contaminação da água",
-      "Salão de festas e academia — ambientes de convivência que exigem monitoramento",
-    ],
-  },
-  {
-    type: "Áreas privativas (orientação ao morador)",
-    items: [
-      "Apartamentos — vistorias internas sob agendamento com autorização",
-      "Varandas e sacadas — acúmulo de água parada e entulho",
-      "Armários embutidos e despensas — focos de traças e baratas",
-      "Ralos e pias — via de acesso para baratas e escorpiões",
-      "Animais domésticos — orientação sobre proteção durante aplicações",
-    ],
-  },
-];
+const coverage = [
+  "Garagens, estacionamentos e áreas técnicas",
+  "Lixeiras, depósitos e locais de armazenamento",
+  "Jardins, corredores, halls e salões de uso comum",
+  "Shafts, tubulações, ralos e possíveis acessos",
+  "Casas de máquinas e áreas próximas a reservatórios",
+  "Orientação para ocorrências em unidades privativas, mediante autorização",
+] as const;
 
-const condominioFaq = [
+const faq = [
   {
-    question: "O condomínio precisa de autorização dos moradores para contratar o PMOC?",
+    question: "O condomínio precisa contratar um plano mensal?",
     answer:
-      "Não. O Plano de Manejo de Controle de Pragas é obrigação legal do condomínio (RDC 622/2022) e deve constar no orçamento anual como despesa ordinária de manutenção. O síndico pode contratar independentemente de assembleia, embora seja boa prática comunicar os moradores sobre o cronograma e os produtos utilizados — transparência gera confiança.",
+      "Não existe uma frequência única para todos os condomínios. A periodicidade deve considerar estrutura, atividade observada, histórico de ocorrências e regras específicas aplicáveis ao local.",
   },
   {
-    question: "Qual a frequência ideal de visitas preventivas para condomínios?",
+    question: "O serviço de controle de pragas é um PMOC?",
     answer:
-      "Para condomínios residenciais em Franca SP, recomendamos visitas mensais ou bimestrais, dependendo do porte e do histórico de infestações. Condomínios com área verde, lixeira central ou histórico de escorpiões se beneficiam de visitas mensais. O cronograma é revisado a cada semestre com base nos registros de monitoramento.",
+      "Não. PMOC é o Plano de Manutenção, Operação e Controle de sistemas de climatização. Para pragas, trabalhamos com um programa preventivo e corretivo documentado, definido conforme o condomínio.",
   },
   {
-    question: "O laudo técnico da Sentinela atende às exigências da Vigilância Sanitária?",
+    question: "Quais documentos são entregues?",
     answer:
-      "Sim. Todos os laudos seguem as diretrizes da ANVISA RDC 622/2022 e incluem: identificação da empresa executora (CNPJ e responsável técnico), relação de produtos registrados, método de aplicação, croqui do imóvel, cronograma de visitas e assinatura do responsável. O laudo é aceito em fiscalizações da Vigilância Sanitária, Corpo de Bombeiros e auditorias trabalhistas.",
+      "O contrato define os registros e comprovantes do serviço. Eles podem incluir identificação da empresa, áreas atendidas, método, produtos utilizados quando aplicáveis, orientações e responsável pelo atendimento.",
   },
-];
+  {
+    question: "Os moradores precisam sair durante o serviço?",
+    answer:
+      "Depende das áreas e do método escolhido. A administração recebe as orientações antes da execução para comunicar moradores, funcionários e prestadores.",
+  },
+] as const;
 
 export default function CondominioPage() {
   return (
     <>
       <SiteHeader />
       <main className="min-h-screen pt-20">
-        {/* ─── Hero ─── */}
         <section className="bg-[color:var(--brand-navy)] py-16 text-white md:py-24">
-          <div className="mx-auto max-w-4xl px-4 text-center md:px-6">
-            <p className="text-xs font-bold tracking-widest text-[color:var(--brand-lime)] uppercase">
-              Condomínios
+          <div className="mx-auto max-w-5xl px-4 md:px-6">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-lime)]">
+              Condomínios residenciais e comerciais
             </p>
-            <h1 className="mt-4 font-[family-name:var(--font-heading)] text-4xl font-bold md:text-5xl">
-              Proteja seu condomínio contra pragas — laudo, conformidade e prevenção
-            </h1>
-            <p className="mt-5 text-lg text-slate-300">
-              PMOC completo para condomínios em Franca SP. Plano personalizado,
-              laudo técnico com validade legal e atendimento ágil para síndicos
-              e administradoras.
-            </p>
-
-            {/* Badges */}
-            <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-              {[
-                "✅ Plano de Manejo (PMOC)",
-                "✅ ANVISA RDC 622/2022",
-                "✅ Laudo técnico",
-              ].map((b) => (
-                <span
-                  key={b}
-                  className="rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-medium"
-                >
-                  {b}
-                </span>
-              ))}
+            <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+              <div>
+                <h1 className="max-w-[15ch] font-[family-name:var(--font-heading)] text-4xl font-bold leading-tight md:text-6xl">
+                  Controle de pragas com rotina, registro e acompanhamento.
+                </h1>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
+                  Estrutura preventiva para áreas comuns, pontos críticos e
+                  ocorrências recorrentes em condomínios de Franca e região.
+                </p>
+              </div>
+              <div className="border-l-2 border-[color:var(--brand-lime)] pl-6">
+                <p className="text-sm leading-6 text-white/70">
+                  A RDC 622/2022 estabelece requisitos de funcionamento para
+                  empresas especializadas em controle de vetores e pragas urbanas.
+                  O escopo do condomínio é definido após avaliação do local.
+                </p>
+              </div>
             </div>
 
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
                 href={whatsappHref(
-                  "Olá, Sentinela! Sou síndico de um condomínio em Franca SP e quero saber sobre o PMOC para condomínios.",
+                  "Olá, Sentinela. Sou responsável por um condomínio e gostaria de solicitar uma avaliação para controle de pragas.",
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[52px] items-center gap-3 rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-bold text-[color:var(--brand-navy-heading)] shadow-lg transition hover:bg-[color:var(--brand-green-light)]"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-bold text-[color:var(--brand-navy-heading)] transition hover:bg-[color:var(--brand-green-light)]"
               >
-                Solicitar orçamento para condomínio
+                Solicitar avaliação do condomínio
               </a>
               <Link
                 href="/agendar"
-                className="inline-flex min-h-[52px] items-center gap-3 rounded-full border-2 border-white/30 px-8 py-3 font-bold text-white transition hover:border-white/60"
+                className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/30 px-8 py-3 font-bold text-white transition hover:border-white/60"
               >
-                Agendar vistoria
+                Informar uma ocorrência
               </Link>
             </div>
           </div>
         </section>
 
-        {/* ─── Por que condomínios precisam de controle profissional ─── */}
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-xs font-bold tracking-widest text-[color:var(--brand-lime-deep)] uppercase">
-                Por que contratar?
+              <p className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
+                Operação preventiva
               </p>
               <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
-                Por que condomínios precisam de controle profissional de pragas
+                Mais do que uma aplicação isolada
               </h2>
-              <p className="mt-4 text-[color:var(--brand-muted)]">
-                Diferente de residências, condomínios concentram dezenas de
-                pessoas, áreas comuns extensas e responsabilidades legais que
-                exigem um plano estruturado e documentado.
+              <p className="mt-4 leading-7 text-[color:var(--brand-muted)]">
+                Condomínios têm múltiplas áreas, rotinas e responsáveis. O controle
+                funciona melhor quando inspeção, prevenção e acompanhamento fazem
+                parte do mesmo processo.
               </p>
             </div>
 
             <div className="mt-14 grid gap-6 md:grid-cols-3">
-              {whyCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="group rounded-2xl border border-[color:var(--brand-border)] bg-white p-8 shadow-sm transition hover:border-[color:var(--brand-lime)] hover:shadow-md"
+              {benefits.map((benefit) => (
+                <article
+                  key={benefit.title}
+                  className="border border-[color:var(--brand-border)] p-8"
                 >
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[color:var(--brand-lime)]/10 text-[color:var(--brand-lime-deep)]">
-                    {card.icon}
-                  </div>
                   <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-navy)]">
-                    {card.title}
+                    {benefit.title}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-[color:var(--brand-muted)]">
-                    {card.desc}
+                  <p className="mt-3 leading-7 text-[color:var(--brand-muted)]">
+                    {benefit.description}
                   </p>
-                </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ─── PMOC Completo (5 etapas) ─── */}
         <section className="bg-[color:var(--brand-surface)] py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-4 md:px-6">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-xs font-bold tracking-widest text-[color:var(--brand-lime-deep)] uppercase">
-                Metodologia
-              </p>
-              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
-                PMOC completo — da vistoria ao laudo técnico
-              </h2>
-              <p className="mt-4 text-[color:var(--brand-muted)]">
-                Nosso Plano de Manejo de Controle de Pragas cobre todas as
-                etapas exigidas pela ANVISA, com documentação e rastreabilidade
-                total.
-              </p>
-            </div>
+            <div className="grid gap-12 lg:grid-cols-[360px_minmax(0,1fr)]">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
+                  Metodologia
+                </p>
+                <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
+                  Como o programa é estruturado
+                </h2>
+                <p className="mt-5 leading-7 text-[color:var(--brand-muted)]">
+                  O cronograma não é vendido como pacote genérico. Ele nasce da
+                  realidade do condomínio e pode ser ajustado conforme os registros.
+                </p>
+              </div>
 
-            <div className="mt-14 space-y-6">
-              {pmocSteps.map((step, idx) => (
-                <div
-                  key={step.title}
-                  className="flex items-start gap-5 rounded-2xl border border-[color:var(--brand-border)] bg-white p-6 shadow-sm md:p-8"
-                >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[color:var(--brand-navy)] font-[family-name:var(--font-heading)] text-xl font-bold text-white">
-                    {step.number}
-                  </span>
-                  <div>
-                    <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 leading-relaxed text-[color:var(--brand-muted)]">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+              <ol className="space-y-4">
+                {steps.map((step) => (
+                  <li
+                    key={step.number}
+                    className="grid gap-4 border border-[color:var(--brand-border)] bg-white p-6 sm:grid-cols-[64px_1fr]"
+                  >
+                    <span className="font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-green-deep)]">
+                      {step.number}
+                    </span>
+                    <div>
+                      <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
+                        {step.title}
+                      </h3>
+                      <p className="mt-2 leading-7 text-[color:var(--brand-muted)]">
+                        {step.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </section>
 
-        {/* ─── Áreas comuns vs áreas privativas ─── */}
         <section className="bg-white py-20 md:py-28">
           <div className="mx-auto max-w-6xl px-4 md:px-6">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-xs font-bold tracking-widest text-[color:var(--brand-lime-deep)] uppercase">
-                Abrangência
-              </p>
-              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
-                Áreas comuns vs áreas privativas
-              </h2>
-              <p className="mt-4 text-[color:var(--brand-muted)]">
-                Entenda a divisão de responsabilidades no controle de pragas do
-                seu condomínio e como atuamos em cada frente.
-              </p>
-            </div>
-
-            <div className="mt-14 grid gap-8 md:grid-cols-2">
-              {areasInfo.map((area) => (
-                <div
-                  key={area.type}
-                  className="rounded-2xl border border-[color:var(--brand-border)] bg-white p-8 shadow-sm"
-                >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--brand-navy)]/10">
-                    {area.type.includes("comuns") ? (
-                      <svg className="h-6 w-6 text-[color:var(--brand-navy)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                      </svg>
-                    ) : (
-                      <svg className="h-6 w-6 text-[color:var(--brand-navy)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819" />
-                      </svg>
-                    )}
-                  </div>
-                  <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold text-[color:var(--brand-navy)]">
-                    {area.type}
-                  </h3>
-                  <ul className="mt-4 space-y-3">
-                    {area.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--brand-muted)]">
-                        <span className="mt-0.5 shrink-0 text-[color:var(--brand-lime-deep)]">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 rounded-2xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] p-6 text-center text-sm text-[color:var(--brand-muted)] md:p-8">
-              <p className="font-semibold text-[color:var(--brand-navy)]">
-                💡 Como funciona na prática
-              </p>
-              <p className="mt-2 max-w-2xl mx-auto">
-                O contrato de PMOC cobre <strong>todas as áreas comuns</strong> do condomínio.
-                Para áreas privativas, orientamos os moradores e realizamos vistorias internas
-                sob agendamento quando necessário. O laudo final consolida ambos os escopos
-                em um único documento com validade legal.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── FAQ específica condomínio ─── */}
-        <section
-          id="faq-condominio"
-          className="scroll-mt-28 bg-[color:var(--brand-surface)] py-20 md:py-28"
-        >
-          <div className="mx-auto max-w-3xl px-4 md:px-6">
-            <div className="text-center">
-              <p className="text-xs font-bold tracking-widest text-[color:var(--brand-lime-deep)] uppercase">
-                Dúvidas de síndicos
-              </p>
-              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
-                Perguntas frequentes sobre PMOC em condomínios
-              </h2>
-            </div>
-
-            <ul className="mt-12 space-y-3">
-              {condominioFaq.map((item, index) => (
-                <li
-                  key={item.question}
-                  className="overflow-hidden rounded-2xl border border-[color:var(--brand-border)] bg-white shadow-sm"
-                >
-                  <details className="group">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-semibold text-[color:var(--brand-navy)]">
-                      {item.question}
-                      <span className="shrink-0 text-xl text-[color:var(--brand-lime-deep)] transition group-open:rotate-45">
-                        +
+            <div className="grid gap-12 lg:grid-cols-2">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
+                  Áreas avaliadas
+                </p>
+                <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)]">
+                  Cobertura definida no escopo
+                </h2>
+                <ul className="mt-8 space-y-4">
+                  {coverage.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 border-b border-[color:var(--brand-border)] pb-4 text-[color:var(--brand-muted)]"
+                    >
+                      <span aria-hidden className="text-[color:var(--brand-green-deep)]">
+                        ✓
                       </span>
-                    </summary>
-                    <p className="border-t border-[color:var(--brand-border)] px-5 pt-3 pb-4 leading-relaxed text-[color:var(--brand-muted)]">
-                      {item.answer}
-                    </p>
-                  </details>
-                </li>
-              ))}
-            </ul>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <p className="mt-8 text-center text-sm text-[color:var(--brand-muted)]">
-              Tem outra dúvida?{" "}
-              <a
-                href={whatsappHref(
-                  "Olá, Sentinela! Sou síndico e tenho dúvidas sobre o PMOC para condomínios em Franca SP.",
-                )}
-                className="font-semibold text-[color:var(--brand-navy)] hover:underline"
-              >
-                Pergunte no WhatsApp
-              </a>
-            </p>
+              <div className="bg-[color:var(--brand-navy)] p-8 text-white md:p-10">
+                <h2 className="font-[family-name:var(--font-heading)] text-2xl font-bold">
+                  Informações para preparar uma proposta
+                </h2>
+                <p className="mt-4 leading-7 text-white/70">
+                  Para dimensionar o atendimento, informe quantidade de blocos,
+                  áreas comuns, principais ocorrências, histórico de serviços e
+                  restrições de horário.
+                </p>
+                <a
+                  href={whatsappHref(
+                    "Olá, Sentinela. Quero enviar os dados do condomínio para receber uma proposta de controle de pragas.",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex min-h-[52px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-bold text-[color:var(--brand-navy-heading)]"
+                >
+                  Enviar dados pelo WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ─── CTA Final ─── */}
+        <section className="bg-[color:var(--brand-surface)] py-20 md:py-28">
+          <div className="mx-auto max-w-4xl px-4 md:px-6">
+            <p className="text-center text-xs font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
+              Perguntas frequentes
+            </p>
+            <h2 className="mt-3 text-center font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)]">
+              Dúvidas de síndicos e administradoras
+            </h2>
+            <div className="mt-10 divide-y divide-[color:var(--brand-border)] border-y border-[color:var(--brand-border)]">
+              {faq.map((item) => (
+                <details key={item.question} className="group py-5">
+                  <summary className="cursor-pointer list-none pr-8 font-bold text-[color:var(--brand-navy)]">
+                    {item.question}
+                  </summary>
+                  <p className="mt-3 max-w-3xl leading-7 text-[color:var(--brand-muted)]">
+                    {item.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <CtaFinal />
       </main>
       <SiteFooter />
