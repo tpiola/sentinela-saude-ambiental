@@ -4,7 +4,6 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BRAND } from "@/lib/brand";
-import { sendLeadToN8n, type LeadPayload } from "@/lib/integrations";
 
 const options = [
   "Escorpiões",
@@ -13,22 +12,6 @@ const options = [
   "Roedores",
   "Outro",
 ] as const;
-
-const CONSENT_KEY = "sentinela-cookie-consent";
-
-function attributionFromLocation() {
-  const params = new URLSearchParams(window.location.search);
-
-  return {
-    pagePath: `${window.location.pathname}${window.location.search}`,
-    referrer: document.referrer || undefined,
-    utmSource: params.get("utm_source") || undefined,
-    utmMedium: params.get("utm_medium") || undefined,
-    utmCampaign: params.get("utm_campaign") || undefined,
-    utmContent: params.get("utm_content") || undefined,
-    utmTerm: params.get("utm_term") || undefined,
-  };
-}
 
 export default function AgendarPage() {
   const [form, setForm] = useState({
@@ -68,30 +51,7 @@ export default function AgendarPage() {
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
 
-    const payload: LeadPayload = {
-      leadId: crypto.randomUUID(),
-      source: "site-diagnostico",
-      phone: form.whatsapp,
-      city: form.bairro.trim(),
-      pestType: form.problema,
-      urgency: form.urgencia,
-      timestamp: new Date().toISOString(),
-      website: form.website,
-      ...attributionFromLocation(),
-    };
 
-    // keepalive permite concluir o envio mesmo quando o WhatsApp é aberto em seguida.
-    void sendLeadToN8n(payload);
-
-    if (localStorage.getItem(CONSENT_KEY) === "accepted") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "lead_form_completed",
-        pest_type: form.problema,
-        urgency: form.urgencia,
-        page_path: window.location.pathname,
-      });
-    }
 
     const message = [
       "Olá, Sentinela. Gostaria de solicitar um diagnóstico.",
