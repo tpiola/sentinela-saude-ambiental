@@ -20,7 +20,8 @@ export function WhatsAppFloat() {
       <AnimatePresence>
         {show && (
           <motion.a
-            href={whatsappHref(WA_MSG)}\n            data-track="whatsapp_float_click"
+            href={whatsappHref(WA_MSG)}
+            data-track="whatsapp_float_click"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
