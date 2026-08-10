@@ -46,10 +46,10 @@ export function GoogleCalendarBookingSection() {
   const href = calendarBookingHref();
 
   const benefits = [
-    { Icon: CalendarIcon, text: "Escolha data e horario online" },
-    { Icon: ClockIcon, text: "Confirmacao por e-mail ou WhatsApp" },
+    { Icon: CalendarIcon, text: "Solicite o melhor período para atendimento" },
+    { Icon: ClockIcon, text: "A equipe confirma a disponibilidade" },
     { Icon: MapPinIcon, text: "Atendemos " + BRAND.coverageSummary },
-    { Icon: CheckCircleIcon, text: "Sem taxa de visita de diagnostico" },
+    { Icon: CheckCircleIcon, text: "Condições informadas antes da contratação" },
   ];
 
   return (
@@ -68,7 +68,7 @@ export function GoogleCalendarBookingSection() {
               Agendamento Online
             </p>
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-white md:text-4xl leading-tight">
-              Agende sua visita tecnica com facilidade
+              Solicite um horário com clareza
             </h2>
             <p className="mt-4 text-white/75 text-lg leading-relaxed">
               Escolha o melhor dia e horario direto pelo Google Agenda.
@@ -99,10 +99,10 @@ export function GoogleCalendarBookingSection() {
             </div>
 
             <h3 className="font-[family-name:var(--font-heading)] text-2xl font-bold text-white">
-              Agende agora
+              Ver disponibilidade
             </h3>
             <p className="mt-2 text-white/70">
-              Horarios disponiveis de segunda a sabado, 07h as 19h
+              Atendimento conforme disponibilidade operacional
             </p>
 
             <a
@@ -111,11 +111,11 @@ export function GoogleCalendarBookingSection() {
               rel="noopener noreferrer"
               className="mt-8 inline-flex min-h-[56px] w-full items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-8 py-3 font-[family-name:var(--font-heading)] text-base font-bold text-[color:var(--brand-navy)] shadow-lg transition hover:bg-[color:var(--brand-green-light)] active:scale-95"
             >
-              Abrir Google Agenda
+              Consultar agenda
             </a>
 
             <p className="mt-4 text-sm text-white/50">
-              Gratuito. Sem compromisso. Cancele a qualquer momento.
+              A confirmação depende da região, urgência e disponibilidade.
             </p>
 
             <div className="mt-6 border-t border-white/15 pt-6">
