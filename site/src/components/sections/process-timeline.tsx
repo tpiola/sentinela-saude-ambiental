@@ -1,5 +1,4 @@
 import { whatsappHref } from "@/lib/brand";
-import { calendarBookingHref } from "@/lib/integrations";
 
 type ProcessStep = {
   number: string;
@@ -31,8 +30,8 @@ const steps: ProcessStep[] = [
     number: "04",
     title: "Agendamento",
     text: "A visita é combinada conforme disponibilidade, área atendida e nível de prioridade informado pelo cliente.",
-    cta: "Abrir agendamento",
-    href: calendarBookingHref(),
+    cta: "Solicitar horário",
+    href: "/agendar",
   },
   {
     number: "05",
