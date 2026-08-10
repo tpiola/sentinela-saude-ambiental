@@ -26,7 +26,7 @@ export function MobileStickyBar() {
       <div className="flex items-center gap-2">
         {/* Ligar */}
         <a
-          href={`tel:${BRAND.phoneE164}`}
+          href={`tel:${BRAND.phoneE164}`}\n          data-track="phone_click"
           className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/5 text-white transition active:scale-95 active:bg-white/10"
           aria-label="Ligar agora"
         >
@@ -37,7 +37,7 @@ export function MobileStickyBar() {
 
         {/* WhatsApp CTA principal */}
         <a
-          href={whatsappHref(WA_URGENTE)}
+          href={whatsappHref(WA_URGENTE)}\n          data-track="whatsapp_urgent_click"
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3.5 text-[15px] font-bold text-white shadow-lg shadow-[#25D366]/30 transition active:scale-[0.98] active:bg-[#1ea352]"
