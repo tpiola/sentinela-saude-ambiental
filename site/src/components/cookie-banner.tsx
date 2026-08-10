@@ -2,14 +2,21 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { INTEGRATIONS } from "@/lib/integrations";
 
 const STORAGE_KEY = "sentinela-cookie-consent";
+const HAS_MEASUREMENT = Boolean(
+  INTEGRATIONS.gtmId ||
+    INTEGRATIONS.gaMeasurementId ||
+    INTEGRATIONS.googleAdsId ||
+    INTEGRATIONS.metaPixelId,
+);
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(!localStorage.getItem(STORAGE_KEY));
+    setVisible(HAS_MEASUREMENT && !localStorage.getItem(STORAGE_KEY));
   }, []);
 
   function choose(value: "accepted" | "rejected") {
@@ -18,7 +25,7 @@ export function CookieBanner() {
     setVisible(false);
   }
 
-  if (!visible) return null;
+  if (!HAS_MEASUREMENT || !visible) return null;
 
   return (
     <div
