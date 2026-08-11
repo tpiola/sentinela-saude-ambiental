@@ -67,11 +67,11 @@ export function GuidedServiceAssistant() {
       <button
         type="button"
         onClick={open}
-        className="fixed right-4 bottom-20 z-[70] hidden min-h-12 items-center gap-3 border border-[color:var(--brand-lime)] bg-[color:var(--brand-navy)] px-5 font-bold text-white shadow-xl transition hover:-translate-y-0.5 sm:flex md:right-8 md:bottom-28"
+        className="fixed right-4 bottom-20 z-[70] hidden min-h-12 items-center gap-3 border border-[color:var(--brand-lime)] bg-[color:var(--brand-navy)] px-5 font-bold text-white shadow-md transition-colors hover:bg-[color:var(--brand-navy-soft)] sm:flex md:right-8 md:bottom-28"
         aria-label="Iniciar diagnóstico guiado"
       >
         <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--brand-lime)]" aria-hidden />
-        Diagnóstico guiado
+        Orientação inicial
       </button>
     );
   }
@@ -81,16 +81,16 @@ export function GuidedServiceAssistant() {
       role="dialog"
       aria-modal="false"
       aria-label="Diagnóstico guiado Sentinela"
-      className="fixed right-3 bottom-3 z-[100] w-[min(390px,calc(100vw-24px))] border border-[color:var(--brand-border)] bg-white shadow-2xl sm:right-6 sm:bottom-6"
+      className="fixed right-3 bottom-3 z-[100] w-[min(390px,calc(100vw-24px))] border border-[color:var(--brand-border)] bg-white shadow-lg sm:right-6 sm:bottom-6"
     >
       <header className="flex items-start justify-between bg-[color:var(--brand-navy)] p-5 text-white">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--brand-lime)]">
             Atendimento Sentinela
           </p>
-          <h2 className="mt-1 text-lg font-bold">Vamos entender a ocorrência</h2>
+          <h2 className="mt-1 text-lg font-bold">Informe o que aconteceu</h2>
           <p className="mt-1 text-xs leading-5 text-white/65">
-            Triagem rápida. Situações de risco são encaminhadas para atendimento humano.
+            Responda três perguntas antes de continuar no WhatsApp.
           </p>
         </div>
         <button
@@ -149,10 +149,10 @@ export function GuidedServiceAssistant() {
         {step === "ready" && (
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--brand-green-deep)]">
-              Triagem concluída
+              Informações organizadas
             </p>
             <h3 className="mt-2 text-xl font-bold text-[color:var(--brand-navy)]">
-              A equipe já receberá o contexto.
+              Sua mensagem está pronta.
             </h3>
             <dl className="mt-4 border-y border-[color:var(--brand-border)] py-3 text-sm">
               <div className="flex justify-between gap-4 py-1"><dt>Ocorrência</dt><dd className="font-semibold">{answers.pest}</dd></div>
@@ -164,7 +164,7 @@ export function GuidedServiceAssistant() {
               target="_blank"
               rel="noopener noreferrer"
               data-track="assistant_whatsapp_qualified"
-              className="mt-5 flex min-h-14 items-center justify-center bg-[#128c4a] px-5 font-bold text-white"
+              className="mt-5 flex min-h-14 items-center justify-center bg-[color:var(--brand-whatsapp)] px-5 font-bold text-white"
             >
               Continuar com a equipe
             </a>
