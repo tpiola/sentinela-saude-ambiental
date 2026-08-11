@@ -3,20 +3,16 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LogoBrandCompact } from "@/components/logo-sentinel";
-import {
-  FacebookBrandIcon,
-  InstagramBrandIcon,
-} from "@/components/social-brand-icons";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 const pestDropdownItems = [
-  { href: "/pragas/escorpiao", label: "Escorpiões", icon: "🦂" },
-  { href: "/pragas/baratas", label: "Baratas", icon: "🪳" },
-  { href: "/pragas/ratos", label: "Ratos", icon: "🐀" },
-  { href: "/pragas/cupins", label: "Cupins", icon: "🪵" },
-  { href: "/pragas/aranhas", label: "Aranhas", icon: "🕷️" },
-  { href: "/pragas/formigas", label: "Formigas", icon: "🐜" },
-  { href: "/pragas/mosquitos", label: "Mosquitos", icon: "🦟" },
+  { href: "/pragas/escorpiao", label: "Escorpiões" },
+  { href: "/pragas/baratas", label: "Baratas" },
+  { href: "/pragas/ratos", label: "Ratos" },
+  { href: "/pragas/cupins", label: "Cupins" },
+  { href: "/pragas/aranhas", label: "Aranhas" },
+  { href: "/pragas/formigas", label: "Formigas" },
+  { href: "/pragas/mosquitos", label: "Mosquitos" },
 ];
 
 const navLinks = [
@@ -49,9 +45,9 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 right-0 left-0 z-50 transition-colors duration-200 ${
         scrolled
-          ? "border-b border-white/10 bg-[color:var(--brand-navy)]/95 py-2 shadow-lg backdrop-blur-md"
+          ? "border-b border-white/10 bg-[color:var(--brand-navy)]/95 py-2 shadow-sm"
           : "bg-[color:var(--brand-navy)]/90 py-3 backdrop-blur-sm"
       }`}
     >
@@ -108,8 +104,8 @@ export function SiteHeader() {
               </svg>
             </button>
             {pestsOpen && (
-              <div className="absolute top-full left-1/2 z-50 mt-2 w-56 -translate-x-1/2 rounded-xl border border-[color:var(--brand-lime)]/20 bg-[color:var(--brand-navy)] shadow-2xl ring-1 ring-white/10">
-                <div className="rounded-t-xl bg-[color:var(--brand-lime)]/10 px-4 py-2 text-xs font-bold tracking-wider text-[color:var(--brand-lime)] uppercase">
+              <div className="absolute top-full left-1/2 z-50 mt-2 w-56 -translate-x-1/2  border border-[color:var(--brand-lime)]/20 bg-[color:var(--brand-navy)] shadow-xl">
+                <div className=" bg-[color:var(--brand-lime)]/10 px-4 py-2 text-xs font-bold tracking-wider text-[color:var(--brand-lime)] uppercase">
                   Controle de Pragas
                 </div>
                 <div className="py-1">
@@ -120,7 +116,6 @@ export function SiteHeader() {
                       onClick={() => setPestsOpen(false)}
                       className="flex items-center gap-3 px-4 py-2.5 text-sm transition hover:bg-[color:var(--brand-lime)]/10 hover:text-[color:var(--brand-lime)]"
                     >
-                      <span className="text-base">{item.icon}</span>
                       <span>{item.label}</span>
                     </Link>
                   ))}
@@ -135,7 +130,7 @@ export function SiteHeader() {
             href={`https://wa.me/${BRAND.phoneE164}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden min-h-[36px] items-center gap-1.5 rounded-full border border-[color:var(--brand-lime)]/40 px-3.5 py-1.5 text-xs font-bold text-[color:var(--brand-lime)] transition hover:bg-[color:var(--brand-lime)]/10 md:inline-flex"
+            className="hidden min-h-[36px] items-center gap-1.5  border border-[color:var(--brand-lime)]/40 px-3.5 py-1.5 text-xs font-bold text-[color:var(--brand-lime)] transition hover:bg-[color:var(--brand-lime)]/10 md:inline-flex"
           >
             <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden>
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.005a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -144,7 +139,7 @@ export function SiteHeader() {
           </a>
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/20 text-white lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center  border border-white/20 text-white lg:hidden"
             aria-expanded={open}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             onClick={() => {
@@ -169,7 +164,7 @@ export function SiteHeader() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-semibold text-white/90 hover:bg-white/10"
+              className=" px-3 py-3 text-base font-semibold text-white/90 hover:bg-white/10"
             >
               {l.label}
             </Link>
@@ -178,7 +173,7 @@ export function SiteHeader() {
           {/* Mobile: Pragas accordion */}
           <button
             type="button"
-            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-semibold text-white/90 hover:bg-white/10"
+            className="flex w-full items-center justify-between  px-3 py-3 text-base font-semibold text-white/90 hover:bg-white/10"
             onClick={() => setPestsMobileOpen((v) => !v)}
             aria-expanded={pestsMobileOpen}
           >
@@ -207,9 +202,8 @@ export function SiteHeader() {
                   setOpen(false);
                   setPestsMobileOpen(false);
                 }}
-                className="flex items-center gap-3 rounded-lg py-2.5 pr-3 pl-10 text-base font-semibold text-white/80 hover:bg-white/10"
+                className="flex items-center gap-3  py-2.5 pr-3 pl-10 text-base font-semibold text-white/80 hover:bg-white/10"
               >
-                <span className="text-base">{item.icon}</span>
                 <span>{item.label}</span>
               </Link>
             ))}
@@ -219,7 +213,7 @@ export function SiteHeader() {
             href={whatsappHref()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-[color:var(--brand-lime)] font-bold text-[color:var(--brand-navy)]"
+            className="mt-2 flex min-h-[48px] items-center justify-center gap-2  bg-[color:var(--brand-lime)] font-bold text-[color:var(--brand-navy)]"
             onClick={() => setOpen(false)}
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden>
