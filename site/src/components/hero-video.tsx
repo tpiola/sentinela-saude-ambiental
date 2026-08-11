@@ -14,7 +14,7 @@ export function HeroVideo({ videoSrc }: { videoSrc?: string }) {
   return (
     <section
       id="inicio"
-      className="relative isolate min-h-[720px] overflow-hidden bg-[color:var(--brand-navy)] pt-24 text-white sm:min-h-[760px] sm:pt-28"
+      className="relative isolate min-h-[680px] overflow-hidden bg-[color:var(--brand-navy)] pt-24 text-white sm:min-h-[720px] sm:pt-28"
     >
       <video
         className="absolute inset-0 h-full w-full object-cover object-center"
@@ -29,21 +29,17 @@ export function HeroVideo({ videoSrc }: { videoSrc?: string }) {
         <source src={src} type="video/mp4" />
       </video>
       <div
-        className="absolute inset-0 bg-[linear-gradient(90deg,var(--brand-navy)_0%,rgba(0,35,71,.94)_42%,rgba(0,35,71,.54)_76%,rgba(0,35,71,.38)_100%)]"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[color:var(--brand-navy)] to-transparent"
+        className="absolute inset-0 bg-[color:var(--brand-navy)]/82"
         aria-hidden="true"
       />
 
-      <div className="container-responsive relative z-10 flex min-h-[620px] items-center py-12 sm:min-h-[650px]">
+      <div className="container-responsive relative z-10 flex min-h-[580px] items-center py-12 sm:min-h-[610px]">
         <div className="max-w-[760px] min-w-0">
           <p className="mb-5 border-l-2 border-[color:var(--brand-lime)] pl-4 text-xs font-bold uppercase tracking-[0.18em] text-white/80">
             Controle profissional de pragas · Franca e região
           </p>
 
-          <h1 className="max-w-[13ch] min-w-0 [overflow-wrap:anywhere] font-[family-name:var(--font-heading)] text-[clamp(2.65rem,7vw,5.6rem)] font-bold leading-[0.98] tracking-[-0.045em] text-white">
+          <h1 className="max-w-[13ch] min-w-0 [overflow-wrap:anywhere] font-[family-name:var(--font-heading)] text-[clamp(2.5rem,6vw,4.9rem)] font-bold leading-[0.98] tracking-[-0.035em] text-white">
             Segurança técnica para proteger o seu ambiente.
           </h1>
 
