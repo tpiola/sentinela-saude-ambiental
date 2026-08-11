@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Hallmark · pre-emit critique: P5 H4 E4 S5 R5 V4 */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 */
 
 :root {
   /* Paleta Sentinela Saude Ambiental -- navy + verde-lima + azul accent */
@@ -13,6 +13,7 @@
   --brand-green-deep: var(--brand-lime-deep);
   --brand-green-light: #b8e96b;
   --brand-accent-blue: #1e6faf;
+  --brand-whatsapp: #128c4a;
   --brand-muted: #4a5568;
   --brand-tagline-grey: #6b7280;
   --brand-border: #dde4ee;
@@ -62,15 +63,6 @@ body {
 ::selection {
   background: color-mix(in srgb, var(--brand-lime) 35%, white);
   color: var(--brand-navy-heading);
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 28s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
