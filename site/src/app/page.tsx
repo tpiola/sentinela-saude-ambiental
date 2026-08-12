@@ -1,4 +1,4 @@
-import { HeroVideo } from "@/components/hero-video";
+import { SovereignHero } from "@/components/sovereign-hero";
 import { SiteHeader } from "@/components/site-header";
 import { GuidedServiceAssistant } from "@/components/guided-service-assistant";
 import { PainSolution } from "@/components/sections/pain-solution";
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <SiteHeader />
       <main>
-        <HeroVideo />
+        <SovereignHero />
         <TrustStrip />
         <PainSolution />
         <ServicesGrid />

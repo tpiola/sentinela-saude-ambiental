@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "system": "sentinela-whatsapp-os",
+  "locale": "pt-BR",
+  "entry": "consent",
+  "global_rules": {
+    "medical_disclaimer": "A triagem identifica risco operacional e não substitui avaliação médica.",
+    "idempotency_key": "{{lead_id}}:{{message_id}}:{{node_id}}",
+    "pii_policy": "Não enviar nome, telefone, endereço completo ou mídia ao analytics. Usar lead_id_hash.",
+    "human_handoff_sla_minutes": 5,
+    "max_ai_confidence_without_photo": 0.82
+  },
+  "nodes": {
+    "consent": {
+      "type": "choice",
+      "message": "Vou fazer uma triagem rápida de segurança e usar suas respostas para organizar o atendimento. Posso continuar?",
+      "options": { "yes": "describe_pest", "no": "human_contact" },
+      "events": ["whatsapp_consent_recorded"]
+    },
+    "describe_pest": {
+      "type": "ai_extract",
+      "message": "Descreva o que viu: formato, cor, tamanho, quantidade e local. Se for seguro, envie uma foto sem se aproximar.",
+      "model": "gemini-structured-output",
+      "output_schema": {
+        "pest_guess": "enum[scorpion,cockroach,rodent,termite,ant,spider,mosquito,unknown]",
+        "confidence": "number[0,1]",
+        "evidence": "string[]",
+        "health_flags": "enum[bite,sting,poisoning,food_contamination,child_present,pet_present][]",
+        "sighting_count": "integer|null"
+      },
+      "next": "health_gate"
+    },
+    "health_gate": {
+      "type": "rule",
+      "branches": [
+        {
+          "if": "health_flags contains bite OR sting OR poisoning",
+          "next": "medical_escalation"
+        },
+        {
+          "if": "confidence < 0.55 OR pest_guess == unknown",
+          "next": "request_more_evidence"
+        },
+        {
+          "if": "pest_guess == scorpion OR sighting_count > 1 OR health_flags contains food_contamination",
+          "next": "urgent_isolation"
+        },
+        { "else": "property_context" }
+      ]
+    },
+    "medical_escalation": {
+      "type": "dual_action",
+      "message": "Afaste-se do local. Em caso de picada, contato com produto ou sintomas, procure atendimento médico/CIATox imediatamente. Em paralelo, vou acionar uma pessoa da equipe para o controle ambiental.",
+      "actions": ["send_official_emergency_guidance", "notify_human_priority", "tag_health_escalation"],
+      "next": "human_contact"
+    },
+    "request_more_evidence": {
+      "type": "choice",
+      "message": "Ainda não há informação suficiente para classificar com segurança. Você consegue enviar uma foto ou dizer onde e em que horário apareceu?",
+      "options": { "photo_or_details": "describe_pest", "cannot": "human_contact" }
+    },
+    "urgent_isolation": {
+      "type": "instruction",
+      "message": "Mantenha crianças e pets afastados, não manipule a praga e não aplique misturas caseiras. Vou priorizar a disponibilidade técnica.",
+      "set": { "risk_level": "urgent" },
+      "next": "property_context"
+    },
+    "property_context": {
+      "type": "flow",
+      "fields": ["property_type", "area_m2_band", "cep", "neighborhood", "child_pet_flag", "preferred_period"],
+      "next": "coverage_check"
+    },
+    "coverage_check": {
+      "type": "service_call",
+      "service": "coverage-by-cep",
+      "branches": [
+        { "if": "covered == true", "next": "qualify" },
+        { "else": "out_of_area" }
+      ]
+    },
+    "qualify": {
+      "type": "rules_engine",
+      "outputs": ["service_type", "risk_level", "duration_minutes", "required_skill", "estimate_band", "plan_recommendation"],
+      "events": ["lead_qualified", "risk_classified"],
+      "next": "offer"
+    },
+    "offer": {
+      "type": "choice",
+      "message": "Triagem concluída. Você pode resolver o foco atual ou ativar proteção trimestral com prioridade e registro técnico.",
+      "options": { "single_service": "calendar_freebusy", "sentinela_90": "calendar_freebusy", "talk_to_human": "human_contact" },
+      "events": ["estimate_viewed"]
+    },
+    "calendar_freebusy": {
+      "type": "service_call",
+      "service": "google-calendar-freebusy",
+      "constraints": ["team_skill", "travel_buffer", "service_duration", "business_hours", "risk_priority"],
+      "next": "select_slot"
+    },
+    "select_slot": {
+      "type": "choice_dynamic",
+      "message": "Estas são as primeiras janelas compatíveis com a equipe técnica:",
+      "source": "available_slots[0:3]",
+      "next": "create_booking"
+    },
+    "create_booking": {
+      "type": "service_call",
+      "service": "google-calendar-events-insert",
+      "idempotency_key": "{{lead_id}}:{{selected_slot}}:{{service_type}}",
+      "private_fields": ["service_order_id", "lead_id", "risk_level", "protocol_id"],
+      "branches": [
+        { "if": "created == true", "next": "dispatch_confirmed" },
+        { "else": "booking_retry" }
+      ],
+      "events": ["appointment_booked"]
+    },
+    "booking_retry": {
+      "type": "retry",
+      "policy": { "max_attempts": 3, "backoff_seconds": [5, 30, 120] },
+      "on_exhausted": "human_contact"
+    },
+    "dispatch_confirmed": {
+      "type": "message",
+      "message": "Atendimento reservado com segurança. Protocolo {{service_order_id}}, janela {{selected_slot}}. Você receberá o técnico designado, ETA e orientações antes da chegada.",
+      "actions": ["create_service_order", "schedule_previsit_message", "notify_dispatch_board"],
+      "events": ["dispatch_confirmed"]
+    },
+    "human_contact": {
+      "type": "handoff",
+      "queue": "sentinela-human-priority",
+      "message": "Vou transferir sua triagem e o contexto já coletado para uma pessoa da equipe. Você não precisará repetir tudo."
+    },
+    "out_of_area": {
+      "type": "message",
+      "message": "O endereço está fora da cobertura automática. Vou encaminhar para análise da equipe antes de prometer deslocamento.",
+      "next": "human_contact"
+    }
+  },
+  "post_service": {
+    "required_proof": ["checklist", "arrival_ts", "completion_ts", "products_and_lots", "technician_signature"],
+    "optional_with_consent": ["before_after_photos", "execution_video"],
+    "messages": ["care_instructions", "technical_report", "proof_link", "satisfaction_check"],
+    "review_rule": "request_google_review only after satisfaction == positive",
+    "retention_offer": "sentinela_90"
+  }
+}
