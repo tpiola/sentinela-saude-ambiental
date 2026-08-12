@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
 const WHATSAPP_MESSAGE =
@@ -58,13 +59,13 @@ export function HeroVideo({ videoSrc }: { videoSrc?: string }) {
             >
               Solicitar avaliação
             </a>
-            <a
+            <Link
               href="/servicos"
               data-track="servicos_hero"
               className="inline-flex min-h-14 items-center justify-center whitespace-nowrap border border-white/40 px-7 font-semibold text-white transition hover:border-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               Conhecer os serviços
-            </a>
+            </Link>
           </div>
 
           <dl className="mt-12 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-5 border-t border-white/20 pt-7 sm:grid-cols-3">

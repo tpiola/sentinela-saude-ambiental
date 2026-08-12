@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BRAND, mapsEmbedUrl, mapsDirectionsUrl, mapsSearchUrl } from "@/lib/brand";
 
 export function SiteFooter() {
@@ -77,11 +78,12 @@ export function SiteFooter() {
               Links
             </h2>
             <ul className="space-y-2.5">
-              <li><a href="/" className="text-sm text-white/60 hover:text-white">Início</a></li>
-              <li><a href="/servicos" className="text-sm text-white/60 hover:text-white">Serviços</a></li>
-              <li><a href="/sobre" className="text-sm text-white/60 hover:text-white">Sobre</a></li>
-              <li><a href="/faq" className="text-sm text-white/60 hover:text-white">Dúvidas</a></li>
-              <li><a href="/privacidade" className="text-sm text-white/60 hover:text-white">Privacidade</a></li>
+              <li><Link href="/" className="text-sm text-white/60 hover:text-white">Início</Link></li>
+              <li><Link href="/servicos" className="text-sm text-white/60 hover:text-white">Serviços</Link></li>
+              <li><Link href="/sobre" className="text-sm text-white/60 hover:text-white">Sobre</Link></li>
+              <li><Link href="/faq" className="text-sm text-white/60 hover:text-white">Dúvidas</Link></li>
+              <li><Link href="/privacidade" className="text-sm text-white/60 hover:text-white">Privacidade</Link></li>
+              <li><Link href="/blog" className="text-sm text-white/60 hover:text-white">Conteúdos</Link></li>
             </ul>
           </nav>
 

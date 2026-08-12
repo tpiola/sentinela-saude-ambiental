@@ -16,7 +16,9 @@ export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(HAS_MEASUREMENT && !localStorage.getItem(STORAGE_KEY));
+    queueMicrotask(() => {
+      setVisible(HAS_MEASUREMENT && !localStorage.getItem(STORAGE_KEY));
+    });
   }, []);
 
   function choose(value: "accepted" | "rejected") {
