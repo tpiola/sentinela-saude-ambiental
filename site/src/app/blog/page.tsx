@@ -3,6 +3,85 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-export const metadata:Metadata={title:"Guia de controle de pragas em Franca",description:"Orientações da Sentinela sobre escorpiões, baratas, cupins, ratos e prevenção em Franca.",alternates:{canonical:"/blog"}};
-const posts=[{title:"Escorpião em casa: o que fazer nos primeiros minutos",desc:"Como reduzir o risco, proteger crianças e pets e quando chamar ajuda profissional.",href:"/servicos/controle-de-escorpioes"},{title:"Barata de cozinha e barata de esgoto: por que o tratamento muda",desc:"Entenda por que identificar a espécie evita aplicações que apenas espalham o problema.",href:"/servicos/controle-de-baratas"},{title:"7 sinais de cupim que você não deve ignorar",desc:"Asas, pó, túneis e ruídos podem revelar uma infestação antes de danos maiores.",href:"/servicos/descupinizacao"},{title:"Checklist sanitário para restaurantes",desc:"Rotina preventiva, registros e pontos críticos que ajudam a proteger operação e reputação.",href:"/mercados/restaurantes"}];
-export default function Blog(){return <><SiteHeader/><main className="bg-slate-50 px-4 pb-20 pt-36"><div className="container-responsive"><p className="text-sm font-black uppercase tracking-widest text-[color:var(--brand-lime-deep)]">Biblioteca Sentinela</p><h1 className="mt-3 max-w-4xl text-4xl font-extrabold text-[color:var(--brand-navy)] sm:text-6xl">Informação prática para impedir que a praga volte</h1><p className="mt-5 max-w-2xl text-lg text-slate-600">Conteúdo local, direto e revisado com foco em prevenção. Em emergência, fale com a equipe.</p><div className="mt-12 grid gap-5 md:grid-cols-2">{posts.map((p,i)=><article key={p.title} className="rounded-3xl border border-slate-200 bg-white p-7"><p className="text-sm font-black text-[color:var(--brand-lime-deep)]">GUIA 0{i+1}</p><h2 className="mt-3 text-2xl font-extrabold text-[color:var(--brand-navy)]">{p.title}</h2><p className="mt-4 leading-7 text-slate-600">{p.desc}</p><Link href={p.href} className="mt-6 inline-flex font-bold text-[color:var(--brand-accent-blue)]">Ler orientação →</Link></article>)}</div></div></main><SiteFooter/><WhatsAppFloat/></>}
+
+export const metadata: Metadata = {
+  title: "Orientações sobre controle de pragas em Franca",
+  description:
+    "Orientações gerais da Sentinela sobre escorpiões, baratas, cupins, ratos e prevenção em imóveis de Franca.",
+  alternates: { canonical: "/blog" },
+};
+
+const guides = [
+  {
+    title: "Escorpião em casa: o que observar e quando procurar saúde",
+    description:
+      "Medidas preventivas, limites do controle ambiental e orientação para casos de picada.",
+    href: "/pragas/escorpiao",
+  },
+  {
+    title: "Baratas: por que identificar a ocorrência muda o tratamento",
+    description:
+      "Abrigos, fontes de alimento e cuidados que devem ser avaliados antes da aplicação.",
+    href: "/pragas/baratas",
+  },
+  {
+    title: "Sinais de cupim que merecem uma vistoria",
+    description:
+      "Asas, resíduos, túneis e danos aparentes podem indicar diferentes tipos de ocorrência.",
+    href: "/pragas/cupins",
+  },
+  {
+    title: "Controle preventivo para empresas e condomínios",
+    description:
+      "Como inspeção, cronograma e registros podem ser definidos conforme o ambiente.",
+    href: "/condominio",
+  },
+] as const;
+
+export default function BlogPage() {
+  return (
+    <>
+      <SiteHeader />
+      <main id="conteudo" className="bg-[color:var(--brand-surface)] px-4 pb-20 pt-36">
+        <div className="container-responsive">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-green-deep)]">
+            Orientações por ocorrência
+          </p>
+          <h1 className="mt-3 max-w-4xl font-[family-name:var(--font-heading)] text-4xl font-bold tracking-[-0.035em] text-[color:var(--brand-navy)] sm:text-6xl">
+            Informação prática para entender o próximo passo
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--brand-muted)]">
+            Conteúdo geral de prevenção e controle ambiental. Em caso de picada,
+            intoxicação ou sintomas, procure atendimento de saúde imediatamente.
+          </p>
+          <div className="mt-12 grid border-l border-t border-[color:var(--brand-border)] md:grid-cols-2">
+            {guides.map((guide, index) => (
+              <article
+                key={guide.title}
+                className="border-b border-r border-[color:var(--brand-border)] bg-white p-7"
+              >
+                <p className="text-xs font-bold text-[color:var(--brand-green-deep)]">
+                  GUIA 0{index + 1}
+                </p>
+                <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-bold text-[color:var(--brand-navy)]">
+                  {guide.title}
+                </h2>
+                <p className="mt-4 leading-7 text-[color:var(--brand-muted)]">
+                  {guide.description}
+                </p>
+                <Link
+                  href={guide.href}
+                  className="mt-6 inline-flex min-h-11 items-center font-bold text-[color:var(--brand-accent-blue)]"
+                >
+                  Ler orientação <span aria-hidden className="ml-2">→</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </main>
+      <SiteFooter />
+      <WhatsAppFloat />
+    </>
+  );
+}

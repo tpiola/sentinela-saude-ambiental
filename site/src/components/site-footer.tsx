@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BRAND, mapsEmbedUrl, mapsDirectionsUrl, mapsSearchUrl } from "@/lib/brand";
+import { BRAND } from "@/lib/brand";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -23,45 +23,21 @@ export function SiteFooter() {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 pb-10 md:px-6 md:pb-14">
-        <div className="mb-10 overflow-hidden rounded-2xl ring-1 ring-white/10">
-          <div className="border-b border-white/10 bg-white/5 px-4 py-4 sm:px-6">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="text-base font-bold text-white sm:text-lg">
-                  Localização
-                </h2>
-                <p className="mt-0.5 text-sm text-white/50">
-                  {BRAND.address.addressLocality} — {BRAND.address.addressRegion}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href={mapsDirectionsUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-4 py-2 text-sm font-bold text-[color:var(--brand-navy-heading)]"
-                >
-                  Abrir rotas
-                </a>
-                <a
-                  href={mapsSearchUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10"
-                >
-                  Ver no Google Maps
-                </a>
-              </div>
-            </div>
+        <div className="mb-10 border border-white/10 bg-white/5 px-5 py-5 sm:flex sm:items-center sm:justify-between sm:px-6">
+          <div>
+            <h2 className="text-base font-bold text-white sm:text-lg">
+              Atendimento em Franca e região
+            </h2>
+            <p className="mt-1 text-sm text-white/55">
+              Confirme a cobertura do seu bairro ou município antes de agendar.
+            </p>
           </div>
-          <iframe
-            title={`Mapa — ${BRAND.name}`}
-            className="h-64 w-full sm:h-72"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-            src={mapsEmbedUrl()}
-          />
+          <Link
+            href="/contato"
+            className="mt-4 inline-flex min-h-11 items-center border-b-2 border-[color:var(--brand-lime)] font-bold sm:mt-0"
+          >
+            Ver contatos
+          </Link>
         </div>
 
         <div className="grid gap-8 md:grid-cols-3">
@@ -82,6 +58,8 @@ export function SiteFooter() {
               <li><Link href="/servicos" className="text-sm text-white/60 hover:text-white">Serviços</Link></li>
               <li><Link href="/sobre" className="text-sm text-white/60 hover:text-white">Sobre</Link></li>
               <li><Link href="/faq" className="text-sm text-white/60 hover:text-white">Dúvidas</Link></li>
+              <li><Link href="/condominio" className="text-sm text-white/60 hover:text-white">Empresas e condomínios</Link></li>
+              <li><Link href="/contato" className="text-sm text-white/60 hover:text-white">Contato</Link></li>
               <li><Link href="/privacidade" className="text-sm text-white/60 hover:text-white">Privacidade</Link></li>
               <li><Link href="/blog" className="text-sm text-white/60 hover:text-white">Conteúdos</Link></li>
             </ul>

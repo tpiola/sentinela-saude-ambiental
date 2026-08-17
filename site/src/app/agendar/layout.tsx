@@ -5,9 +5,9 @@ const siteUrl =
   "https://sentinelasaudeambiental.com.br";
 
 export const metadata: Metadata = {
-  title: "Agende seu serviço — Sentinela Saúde Ambiental Franca SP",
+  title: "Solicitar avaliação de controle de pragas em Franca",
   description:
-    "Preencha o formulário e receba o contato no WhatsApp. Agende agora sua dedetização em Franca SP.",
+    "Informe a ocorrência, o tipo de imóvel e o bairro para continuar a avaliação pelo WhatsApp.",
   alternates: { canonical: `${siteUrl}/agendar` },
 };
 

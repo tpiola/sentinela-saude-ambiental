@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { whatsappHref } from "@/lib/brand";
 
 const services = [
   {
@@ -7,35 +6,35 @@ const services = [
     title: "Escorpiões",
     context: "Ocorrências dentro de casa, quintais, ralos e áreas de circulação.",
     response: "Inspeção do ambiente, orientação preventiva e definição do tratamento adequado.",
-    action: "escorpiões",
+    href: "/pragas/escorpiao",
   },
   {
     number: "02",
     title: "Baratas e formigas",
     context: "Infestações em cozinhas, despensas, comércios e áreas técnicas.",
     response: "Aplicação direcionada conforme a espécie, o ambiente e o nível de infestação.",
-    action: "baratas ou formigas",
+    href: "/pragas/baratas",
   },
   {
     number: "03",
     title: "Cupins",
     context: "Sinais em móveis, batentes, forros, estruturas e áreas externas.",
     response: "Vistoria para identificar o tipo de cupim antes de indicar o tratamento.",
-    action: "cupins",
+    href: "/pragas/cupins",
   },
   {
     number: "04",
     title: "Roedores",
     context: "Vestígios, danos em embalagens, ruídos e circulação em áreas internas.",
     response: "Controle com pontos de monitoramento, orientação e acompanhamento técnico.",
-    action: "roedores",
+    href: "/pragas/ratos",
   },
   {
     number: "05",
     title: "Empresas e condomínios",
     context: "Prevenção recorrente, exigências sanitárias e proteção da operação.",
     response: "Plano de controle, cronograma e comprovante técnico de execução do serviço.",
-    action: "empresa ou condomínio",
+    href: "/condominio",
   },
 ] as const;
 
@@ -82,17 +81,12 @@ export function PainSolution() {
               <p className="max-w-xl text-sm font-medium leading-6 text-[color:var(--brand-navy)]">
                 {service.response}
               </p>
-              <a
-                href={whatsappHref(
-                  `Olá, Sentinela. Preciso de orientação sobre ${service.action}.`,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-track={`whatsapp_servico_${service.number}`}
+              <Link
+                href={service.href}
                 className="inline-flex min-h-11 items-center justify-center whitespace-nowrap border-b-2 border-[color:var(--brand-lime)] px-1 text-sm font-bold text-[color:var(--brand-navy)] hover:border-[color:var(--brand-navy)] focus-visible:outline-2 focus-visible:outline-offset-4"
               >
-                Pedir orientação
-              </a>
+                Ver orientação
+              </Link>
             </article>
           ))}
         </div>

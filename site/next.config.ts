@@ -13,6 +13,29 @@ const nextConfig: NextConfig = {
         destination: "/pragas/escorpiao",
         permanent: true,
       },
+      ...[
+        ["barata", "baratas"],
+        ["rato", "ratos"],
+        ["cupim", "cupins"],
+        ["formiga", "formigas"],
+        ["aranha", "aranhas"],
+        ["mosquito", "mosquitos"],
+      ].map(([singular, plural]) => ({
+        source: `/pragas/${singular}`,
+        destination: `/pragas/${plural}`,
+        permanent: true,
+      })),
+      ...[
+        ["controle-de-escorpioes", "escorpiao"],
+        ["controle-de-baratas", "baratas"],
+        ["controle-de-formigas", "formigas"],
+        ["desratizacao", "ratos"],
+        ["descupinizacao", "cupins"],
+      ].map(([service, pest]) => ({
+        source: `/servicos/${service}`,
+        destination: `/pragas/${pest}`,
+        permanent: true,
+      })),
     ];
   },
 };

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LogoBrandCompact } from "@/components/logo-sentinel";
 import { BRAND, whatsappHref } from "@/lib/brand";
 
@@ -24,6 +24,7 @@ const navLinks = [
 ];
 
 export function SiteHeader() {
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [pestsOpen, setPestsOpen] = useState(false);
@@ -43,6 +44,19 @@ export function SiteHeader() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      const hadOpenMenu = open || pestsOpen || pestsMobileOpen;
+      setOpen(false);
+      setPestsOpen(false);
+      setPestsMobileOpen(false);
+      if (hadOpenMenu) menuButtonRef.current?.focus();
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [open, pestsOpen, pestsMobileOpen]);
+
   return (
     <header
       className={`fixed top-0 right-0 left-0 z-50 transition-colors duration-200 ${
@@ -53,7 +67,7 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 md:px-6">
         <Link
-          href="/#inicio"
+          href="/"
           className="min-w-0 shrink"
           onClick={() => {
             setOpen(false);
@@ -89,6 +103,7 @@ export function SiteHeader() {
               className="inline-flex items-center gap-1 transition hover:text-[color:var(--brand-lime)]"
               aria-expanded={pestsOpen}
               aria-haspopup="true"
+              aria-controls="pest-menu"
               onClick={() => setPestsOpen((v) => !v)}
             >
               Pragas
@@ -104,7 +119,7 @@ export function SiteHeader() {
               </svg>
             </button>
             {pestsOpen && (
-              <div className="absolute top-full left-1/2 z-50 mt-2 w-56 -translate-x-1/2  border border-[color:var(--brand-lime)]/20 bg-[color:var(--brand-navy)] shadow-xl">
+              <div id="pest-menu" className="absolute top-full left-1/2 z-50 mt-2 w-56 -translate-x-1/2  border border-[color:var(--brand-lime)]/20 bg-[color:var(--brand-navy)] shadow-xl">
                 <div className=" bg-[color:var(--brand-lime)]/10 px-4 py-2 text-xs font-bold tracking-wider text-[color:var(--brand-lime)] uppercase">
                   Controle de Pragas
                 </div>
@@ -127,7 +142,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href={`https://wa.me/${BRAND.phoneE164}`}
+            href={whatsappHref()}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden min-h-[36px] items-center gap-1.5  border border-[color:var(--brand-lime)]/40 px-3.5 py-1.5 text-xs font-bold text-[color:var(--brand-lime)] transition hover:bg-[color:var(--brand-lime)]/10 md:inline-flex"
@@ -139,8 +154,10 @@ export function SiteHeader() {
           </a>
           <button
             type="button"
+            ref={menuButtonRef}
             className="inline-flex h-11 w-11 items-center justify-center  border border-white/20 text-white lg:hidden"
             aria-expanded={open}
+            aria-controls="mobile-menu"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             onClick={() => {
               setOpen((v) => !v);
@@ -154,6 +171,9 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-menu"
+        aria-hidden={!open}
+        inert={!open}
         className={`overflow-hidden border-t border-white/10 bg-[color:var(--brand-navy)] transition-all duration-300 lg:hidden ${
           open ? "max-h-[min(85vh,700px)] opacity-100" : "max-h-0 opacity-0"
         }`}
@@ -190,6 +210,8 @@ export function SiteHeader() {
             </svg>
           </button>
           <div
+            aria-hidden={!pestsMobileOpen}
+            inert={!pestsMobileOpen}
             className={`overflow-hidden transition-all duration-200 ${
               pestsMobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
             }`}

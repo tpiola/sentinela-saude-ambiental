@@ -11,37 +11,22 @@ type ProcessStep = {
 const steps: ProcessStep[] = [
   {
     number: "01",
-    title: "Contato inicial",
-    text: "Informe o tipo de ocorrência, o bairro e a urgência. A equipe confirma a cobertura e orienta os próximos passos.",
-    cta: "Falar no WhatsApp",
-    href: whatsappHref(),
-  },
-  {
-    number: "02",
-    title: "Inspeção e diagnóstico",
-    text: "O ambiente é avaliado para identificar sinais, acessos, abrigos e condições que favorecem a atividade das pragas.",
-  },
-  {
-    number: "03",
-    title: "Proposta do serviço",
-    text: "O escopo informa as medidas indicadas, a preparação necessária, os cuidados, as condições comerciais e o acompanhamento previsto.",
-  },
-  {
-    number: "04",
-    title: "Agendamento",
-    text: "A visita é combinada conforme disponibilidade, área atendida e nível de prioridade informado pelo cliente.",
-    cta: "Solicitar horário",
+    title: "Você informa a ocorrência",
+    text: "Conte o tipo de praga, o imóvel, o bairro e quando precisa do atendimento.",
+    cta: "Iniciar avaliação",
     href: "/agendar",
   },
   {
-    number: "05",
-    title: "Execução orientada",
-    text: "A equipe realiza o serviço conforme o diagnóstico e informa os cuidados com pessoas, animais, alimentos e áreas tratadas.",
+    number: "02",
+    title: "A equipe avalia o cenário",
+    text: "Confirmamos a cobertura e orientamos a preparação, a necessidade de inspeção e o método a considerar.",
   },
   {
-    number: "06",
-    title: "Registro e acompanhamento",
-    text: "Quando previsto no escopo, o cliente recebe o comprovante do serviço, recomendações preventivas e orientação sobre retorno ou monitoramento.",
+    number: "03",
+    title: "O atendimento é executado e registrado",
+    text: "Método, cuidados e documentação são informados conforme o serviço efetivamente contratado.",
+    cta: "Falar no WhatsApp",
+    href: whatsappHref(),
   },
 ];
 

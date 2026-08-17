@@ -8,7 +8,7 @@ import { getSiteUrl } from "@/lib/site";
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade — Sentinela Saúde Ambiental",
+  title: "Política de Privacidade",
   description:
     "Informações sobre coleta, uso, compartilhamento e direitos relacionados aos dados pessoais tratados pela Sentinela Saúde Ambiental.",
   alternates: { canonical: `${siteUrl}/privacidade` },
@@ -25,7 +25,7 @@ export default function PrivacidadePage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen bg-white pt-20">
+      <main id="conteudo" className="min-h-screen bg-white pt-20">
         <article className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-green-deep)]">
             Proteção de dados
@@ -39,7 +39,7 @@ export default function PrivacidadePage() {
             obrigações aplicáveis.
           </p>
           <p className="mt-3 text-sm text-[color:var(--brand-muted)]">
-            Última atualização: 30 de julho de 2026
+            Última atualização: 17 de agosto de 2026
           </p>
 
           <div className="mt-12 space-y-8">
@@ -70,8 +70,8 @@ export default function PrivacidadePage() {
                 Dependendo da interação, podemos tratar:
               </p>
               <ul className={listClass}>
-                <li>telefone ou WhatsApp informado para atendimento;</li>
-                <li>bairro ou cidade, tipo de ocorrência e urgência;</li>
+                <li>dados enviados voluntariamente durante o atendimento pelo WhatsApp;</li>
+                <li>bairro ou cidade, tipo de ocorrência, imóvel e prazo informado;</li>
                 <li>
                   nome, e-mail e mensagem quando fornecidos em outros canais de
                   contato;
@@ -120,9 +120,9 @@ export default function PrivacidadePage() {
             <section className={sectionClass}>
               <h2 className={headingClass}>4. Fluxo do formulário</h2>
               <p className={paragraphClass}>
-                Ao concluir o formulário, os dados são enviados a uma rota segura do
-                site e podem ser encaminhados à automação de atendimento. Em seguida,
-                o visitante é direcionado ao WhatsApp para continuar a conversa.
+                Ao concluir o formulário de avaliação, o navegador monta uma mensagem
+                com os campos preenchidos e abre o WhatsApp. Esses campos não são
+                enviados a uma rota de armazenamento da Sentinela pelo site nessa etapa.
               </p>
               <p className={paragraphClass}>
                 O WhatsApp é um serviço independente. Ao abrir ou enviar a mensagem,
@@ -138,8 +138,10 @@ export default function PrivacidadePage() {
                 à operação, como:
               </p>
               <ul className={listClass}>
-                <li>Vercel, para hospedagem, entrega e registros técnicos;</li>
-                <li>n8n ou infraestrutura equivalente, para automação de leads;</li>
+                <li>
+                  fornecedor de hospedagem e entrega do site, para operação e
+                  registros técnicos necessários à segurança;
+                </li>
                 <li>WhatsApp/Meta, quando o visitante continua o atendimento;</li>
                 <li>
                   Google Analytics, Google Tag Manager, Google Ads ou Meta Pixel,

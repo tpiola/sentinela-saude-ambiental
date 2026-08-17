@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!pest) return {};
 
   const pestName = pest.name.toLowerCase();
-  const title = `${pest.name} — Controle Profissional em Franca SP`;
+  const title = `Controle de ${pestName} em Franca SP`;
   const description = `Controle profissional de ${pestName} em Franca e região, com inspeção do ambiente, orientação técnica e tratamento definido conforme a ocorrência.`;
   const canonical = `${siteUrl}/pragas/${slug}`;
 
@@ -47,7 +47,7 @@ export async function generateMetadata({
         {
           url: socialImage,
           width: 1200,
-          height: 630,
+          height: 1570,
           alt: `${BRAND.name} — controle de ${pestName} em Franca SP`,
         },
       ],
@@ -58,7 +58,6 @@ export async function generateMetadata({
       card: "summary_large_image",
       images: [socialImage],
     },
-    keywords: pest.seoKeywords,
   };
 }
 

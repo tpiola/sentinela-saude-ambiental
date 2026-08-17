@@ -1,5 +1,15 @@
 import Image from "next/image";
-import { BRAND, whatsappHref } from "@/lib/brand";
+import Link from "next/link";
+import { BRAND } from "@/lib/brand";
+
+const serviceRoutes: Record<string, string> = {
+  escorpioes: "/pragas/escorpiao",
+  desinsetizacao: "/servicos/dedetizacao",
+  desratizacao: "/pragas/ratos",
+  descupinizacao: "/pragas/cupins",
+  "caixa-dagua": "/servicos/limpeza-caixa-dagua",
+  empresas: "/condominio",
+};
 
 export function ServicesGrid() {
   return (
@@ -41,16 +51,12 @@ export function ServicesGrid() {
                 <p className="mt-3 flex-1 text-sm leading-6 text-[color:var(--brand-muted)]">
                   {service.desc}
                 </p>
-                <a
-                  href={whatsappHref(
-                    `Olá, Sentinela. Gostaria de orientação sobre ${service.title.toLowerCase()}.`,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={serviceRoutes[service.id] ?? "/contato"}
                   className="mt-6 inline-flex min-h-11 items-center border-t border-[color:var(--brand-border)] pt-4 text-sm font-bold text-[color:var(--brand-navy)] transition-colors hover:text-[color:var(--brand-green-deep)]"
                 >
-                  Solicitar orientação
-                </a>
+                  Ver detalhes
+                </Link>
               </div>
             </article>
           ))}

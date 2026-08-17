@@ -1,9 +1,9 @@
+import type { Metadata } from "next";
 import { SovereignHero } from "@/components/sovereign-hero";
+import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
-import { GuidedServiceAssistant } from "@/components/guided-service-assistant";
 import { PainSolution } from "@/components/sections/pain-solution";
 import { TrustStrip } from "@/components/sections/trust-strip";
-import { ServicesGrid } from "@/components/sections/services-grid";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
 import { GallerySection } from "@/components/sections/gallery-section";
 import { B2BSection } from "@/components/sections/b2b-section";
@@ -12,15 +12,22 @@ import { FaqSection } from "@/components/sections/faq-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { SiteFooter } from "@/components/site-footer";
 
+export const metadata: Metadata = {
+  title: "Dedetização em Franca SP",
+  description:
+    "Controle profissional de pragas em Franca e região para residências, empresas e condomínios. Solicite uma avaliação pelo site.",
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
   return (
     <>
+      <JsonLdLocalBusiness />
       <SiteHeader />
-      <main>
+      <main id="conteudo">
         <SovereignHero />
         <TrustStrip />
         <PainSolution />
-        <ServicesGrid />
         <ProcessTimeline />
         <GallerySection />
         <B2BSection />
@@ -29,7 +36,6 @@ export default function Home() {
         <CtaFinal />
       </main>
       <SiteFooter />
-      <GuidedServiceAssistant />
     </>
   );
 }

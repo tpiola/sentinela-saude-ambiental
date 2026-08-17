@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
-import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
@@ -26,40 +25,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Sentinela Saúde Ambiental | Dedetização em Franca SP — Escorpião, Barata, Cupim",
+      "Dedetização em Franca SP | Sentinela Saúde Ambiental",
     template: "%s | Sentinela Saúde Ambiental",
   },
   description:
     "Controle profissional de pragas em Franca e região para residências, condomínios e empresas. Solicite orientação e diagnóstico inicial pelo WhatsApp.",
-  keywords: [
-    "escorpião Franca",
-    "dedetização Franca",
-    "dedetizadora Franca SP",
-    "controle de pragas Franca",
-    "escorpião Franca SP",
-    "dedetização Franca SP urgente",
-    "desinsetização Franca",
-    "desratização Franca",
-    "descupinização Franca",
-    "controle de escorpiões Franca",
-    "documentação técnica controle de pragas Franca",
-    "dedetização residencial Franca",
-    "dedetização empresarial Franca",
-    "empresa de dedetização Franca SP",
-    "controle de pragas Batatais",
-    "controle de pragas Orlândia",
-    "controle de pragas Ituverava",
-    "controle de pragas Cristais Paulista",
-    "sentinela saúde ambiental",
-    "dedetização perto de mim Franca SP",
-  ],
   authors: [{ name: BRAND.name, url: siteUrl }],
   creator: BRAND.name,
   publisher: BRAND.name,
   category: "Saúde ambiental",
-  alternates: {
-    canonical: siteUrl,
-  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16" },
@@ -83,7 +57,7 @@ export const metadata: Metadata = {
       {
         url: "/media/sentinela/drive/dedetizacao-centro-franca-sp.webp",
         width: 1200,
-        height: 630,
+        height: 1570,
         alt: "Sentinela Saúde Ambiental — Controle profissional de pragas em Franca SP",
         type: "image/webp",
       },
@@ -108,19 +82,6 @@ export const metadata: Metadata = {
   verification: {
     google: "p3n-lwsrdeseDPAh7K57nFTjRL30nbn6UVhyX_VhZdU",
   },
-  other: {
-    "geo.region": "BR-SP",
-    "geo.placename": "Franca",
-    "geo.position": `${BRAND.geo.latitude};${BRAND.geo.longitude}`,
-    ICBM: `${BRAND.geo.latitude}, ${BRAND.geo.longitude}`,
-    "business:contact_data:locality": "Franca",
-    "business:contact_data:region": "SP",
-    "business:contact_data:country_name": "Brasil",
-    "business:contact_data:phone_number": BRAND.phoneDisplay,
-    "business:contact_data:postal_code": BRAND.address.postalCode,
-    "business:contact_data:street_address": BRAND.address.streetAddress,
-    "twitter:domain": "www.sentinelasaudeambiental.com.br",
-  },
 };
 
 export const viewport: Viewport = {
@@ -140,7 +101,12 @@ export default function RootLayout({
       className={`${heading.variable} ${body.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-[color:var(--foreground)] pb-16 sm:pb-0">
-        <JsonLdLocalBusiness />
+        <a
+          href="#conteudo"
+          className="sr-only fixed left-4 top-4 z-[100] bg-white px-4 py-3 font-bold text-[color:var(--brand-navy)] shadow-lg focus:not-sr-only"
+        >
+          Pular para o conteúdo
+        </a>
         <Analytics />
         {children}
         <CookieBanner />

@@ -21,7 +21,7 @@ export function MobileStickyBar() {
       initial={{ y: 100, opacity: 0 }}
       animate={visible ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="fixed bottom-0 left-0 right-0 z-[55] border-t border-white/10 bg-[color:var(--brand-navy)]/95 px-3 py-2.5 backdrop-blur-xl sm:hidden"
+      className="fixed bottom-0 left-0 right-0 z-[55] border-t border-white/10 bg-[color:var(--brand-navy)]/95 px-3 pb-[calc(0.625rem+env(safe-area-inset-bottom))] pt-2.5 backdrop-blur-xl sm:hidden"
     >
       <div className="flex items-center gap-2">
         {/* Ligar */}

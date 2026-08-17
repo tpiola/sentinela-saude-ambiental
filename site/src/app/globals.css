@@ -8,7 +8,7 @@
   --brand-navy: #002347;
   --brand-navy-soft: #003066;
   --brand-lime: #8fce2a;
-  --brand-lime-deep: #6db01a;
+  --brand-lime-deep: #4f7f12;
   --brand-green: var(--brand-lime);
   --brand-green-deep: var(--brand-lime-deep);
   --brand-green-light: #b8e96b;
@@ -116,7 +116,7 @@ img, video, iframe {
 }
 
 :focus-visible {
-  outline: 2px solid var(--brand-lime);
+  outline: 3px solid var(--brand-navy);
   outline-offset: 3px;
 }
 

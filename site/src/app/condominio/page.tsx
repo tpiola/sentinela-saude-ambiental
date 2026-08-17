@@ -103,7 +103,7 @@ export default function CondominioPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen pt-20">
+      <main id="conteudo" className="min-h-screen pt-20">
         <section className="bg-[color:var(--brand-navy)] py-16 text-white md:py-24">
           <div className="mx-auto max-w-5xl px-4 md:px-6">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-lime)]">

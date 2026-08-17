@@ -12,7 +12,7 @@ const pontos = [
   {
     icon: "doc",
     title: "Documentação completa",
-    body: "Laudo técnico, certificados e registros de aplicação prontos para qualquer auditoria ou fiscalização.",
+    body: "Comprovante de execução e registros previstos no escopo contratado.",
   },
   {
     icon: "check",
@@ -69,7 +69,8 @@ export function PrevencaoB2BSection() {
             Proteja seu negócio antes do problema aparecer
           </h2>
           <p className="mt-4 text-lg text-[color:var(--brand-muted)]">
-            Indústria, comércio e condomínio com exigência de Vigilância Sanitária: tenha laudo técnico, prevenção documentada e conformidade sem surpresas.
+            Para indústria, comércio e condomínio, o escopo pode prever rotina
+            preventiva e registros do serviço contratado.
           </p>
         </motion.div>
 

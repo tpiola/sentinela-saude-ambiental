@@ -16,10 +16,9 @@ const options = [
 export default function AgendarPage() {
   const [form, setForm] = useState({
     problema: "",
+    imovel: "Residência",
     bairro: "",
-    whatsapp: "",
     urgencia: "Hoje",
-    website: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -36,29 +35,20 @@ export default function AgendarPage() {
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    // Campo-isca preenchido indica automação; não encaminha nem abre o WhatsApp.
-    if (form.website) return;
-
     const nextErrors: Record<string, string> = {};
     if (!form.problema) nextErrors.problema = "Selecione o problema";
     if (!form.bairro.trim()) {
       nextErrors.bairro = "Informe o bairro ou a cidade";
     }
-    if (form.whatsapp.replace(/\D/g, "").length < 10) {
-      nextErrors.whatsapp = "Informe um WhatsApp válido";
-    }
-
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) return;
 
-
-
     const message = [
-      "Olá, Sentinela. Gostaria de solicitar um diagnóstico.",
-      `Problema: ${form.problema}`,
+      "Olá, Sentinela. Vim pelo site e gostaria de solicitar uma avaliação.",
+      `Ocorrência: ${form.problema}`,
+      `Tipo de imóvel: ${form.imovel}`,
       `Bairro/cidade: ${form.bairro.trim()}`,
-      `WhatsApp: ${form.whatsapp}`,
-      `Urgência: ${form.urgencia}`,
+      `Quando preciso: ${form.urgencia}`,
     ].join("\n");
 
     const whatsappUrl = `https://wa.me/${BRAND.phoneE164}?text=${encodeURIComponent(message)}`;
@@ -74,20 +64,20 @@ export default function AgendarPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen bg-[color:var(--brand-surface)] pt-20">
+      <main id="conteudo" className="min-h-screen bg-[color:var(--brand-surface)] pt-20">
         <section className="bg-[color:var(--brand-navy)] py-14 text-white sm:py-20">
           <div className="container-responsive grid gap-8 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] lg:items-end">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-lime)]">
-                Diagnóstico inicial
+                Avaliação inicial
               </p>
               <h1 className="mt-4 max-w-[12ch] font-[family-name:var(--font-heading)] text-4xl font-bold leading-tight tracking-[-0.035em] sm:text-5xl">
                 Conte o que está acontecendo.
               </h1>
             </div>
             <p className="max-w-xl text-base leading-7 text-white/70">
-              Envie somente os dados essenciais. A equipe continua o atendimento
-              no WhatsApp e solicita endereço completo apenas quando necessário.
+              Informe somente o necessário para a equipe confirmar a cobertura e
+              continuar o atendimento no WhatsApp.
             </p>
           </div>
         </section>
@@ -99,33 +89,21 @@ export default function AgendarPage() {
               className="relative border border-[color:var(--brand-border)] bg-white p-6 sm:p-8"
               noValidate
             >
-              <div
-                className="pointer-events-none absolute -left-[10000px] top-auto h-px w-px overflow-hidden"
-                aria-hidden="true"
-              >
-                <label htmlFor="website">Website</label>
-                <input
-                  id="website"
-                  name="website"
-                  type="text"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  value={form.website}
-                  onChange={(event) => updateField("website", event.target.value)}
-                />
-              </div>
-
               <div className="grid gap-6 sm:grid-cols-2">
-                <label className="block sm:col-span-2">
+                <label htmlFor="problema" className="block sm:col-span-2">
                   <span className="text-sm font-bold text-[color:var(--brand-navy)]">
                     Qual é o problema?
                   </span>
                   <select
+                    id="problema"
+                    name="problema"
+                    required
                     value={form.problema}
                     onChange={(event) =>
                       updateField("problema", event.target.value)
                     }
                     aria-invalid={Boolean(errors.problema)}
+                    aria-describedby={errors.problema ? "problema-erro" : undefined}
                     className="mt-2 min-h-12 w-full border border-[color:var(--brand-border)] bg-white px-3"
                   >
                     <option value="">Selecione</option>
@@ -134,50 +112,48 @@ export default function AgendarPage() {
                     ))}
                   </select>
                   {errors.problema && (
-                    <span className="mt-1 block text-xs text-red-700">
+                    <span id="problema-erro" className="mt-1 block text-xs text-red-700">
                       {errors.problema}
                     </span>
                   )}
                 </label>
 
-                <label className="block">
+                <label htmlFor="imovel" className="block">
+                  <span className="text-sm font-bold text-[color:var(--brand-navy)]">
+                    Tipo de imóvel
+                  </span>
+                  <select
+                    id="imovel"
+                    name="imovel"
+                    value={form.imovel}
+                    onChange={(event) => updateField("imovel", event.target.value)}
+                    className="mt-2 min-h-12 w-full border border-[color:var(--brand-border)] bg-white px-3"
+                  >
+                    {['Residência', 'Empresa', 'Condomínio', 'Outro'].map((item) => (
+                      <option key={item}>{item}</option>
+                    ))}
+                  </select>
+                </label>
+
+                <label htmlFor="bairro" className="block">
                   <span className="text-sm font-bold text-[color:var(--brand-navy)]">
                     Bairro ou cidade
                   </span>
                   <input
+                    id="bairro"
+                    name="bairro"
+                    required
                     value={form.bairro}
                     onChange={(event) => updateField("bairro", event.target.value)}
                     placeholder="Ex.: Centro, Franca"
                     aria-invalid={Boolean(errors.bairro)}
+                    aria-describedby={errors.bairro ? "bairro-erro" : undefined}
                     autoComplete="address-level2"
                     className="mt-2 min-h-12 w-full border border-[color:var(--brand-border)] px-3"
                   />
                   {errors.bairro && (
-                    <span className="mt-1 block text-xs text-red-700">
+                    <span id="bairro-erro" className="mt-1 block text-xs text-red-700">
                       {errors.bairro}
-                    </span>
-                  )}
-                </label>
-
-                <label className="block">
-                  <span className="text-sm font-bold text-[color:var(--brand-navy)]">
-                    Seu WhatsApp
-                  </span>
-                  <input
-                    type="tel"
-                    inputMode="tel"
-                    value={form.whatsapp}
-                    onChange={(event) =>
-                      updateField("whatsapp", event.target.value)
-                    }
-                    placeholder="(16) 99999-9999"
-                    aria-invalid={Boolean(errors.whatsapp)}
-                    autoComplete="tel"
-                    className="mt-2 min-h-12 w-full border border-[color:var(--brand-border)] px-3"
-                  />
-                  {errors.whatsapp && (
-                    <span className="mt-1 block text-xs text-red-700">
-                      {errors.whatsapp}
                     </span>
                   )}
                 </label>
@@ -212,13 +188,14 @@ export default function AgendarPage() {
 
               <button
                 type="submit"
+                data-track="assessment_continue"
                 className="mt-8 inline-flex min-h-14 w-full items-center justify-center whitespace-nowrap bg-[color:var(--brand-lime)] px-7 font-bold text-[color:var(--brand-navy-heading)] hover:bg-[color:var(--brand-green-light)]"
               >
                 Continuar no WhatsApp
               </button>
               <p className="mt-4 text-xs leading-5 text-[color:var(--brand-muted)]">
-                Ao continuar, você envia esses dados à Sentinela para receber
-                atendimento. Não solicitamos endereço completo nesta etapa.
+                Ao continuar, o navegador monta a mensagem e abre o WhatsApp. O
+                site não armazena esses campos nesta etapa.
               </p>
             </form>
 

@@ -8,7 +8,7 @@ export function buildLocalBusinessGraph() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "PestControlService",
+        "@type": "LocalBusiness",
         "@id": `${siteUrl}/#organization`,
         name: BRAND.name,
         description: BRAND.tagline,
@@ -83,22 +83,6 @@ export function buildLocalBusinessGraph() {
         description: BRAND.tagline,
         inLanguage: "pt-BR",
         publisher: { "@id": `${siteUrl}/#organization` },
-      },
-      {
-        "@type": "WebPage",
-        "@id": `${siteUrl}/#webpage`,
-        url: siteUrl,
-        name: `Controle de pragas em Franca SP | ${BRAND.name}`,
-        description: BRAND.tagline,
-        inLanguage: "pt-BR",
-        isPartOf: { "@id": `${siteUrl}/#website` },
-        about: { "@id": `${siteUrl}/#organization` },
-        primaryImageOfPage: {
-          "@type": "ImageObject",
-          url: `${siteUrl}/media/sentinela/drive/dedetizacao-centro-franca-sp.webp`,
-          width: 1200,
-          height: 630,
-        },
       },
     ],
   };

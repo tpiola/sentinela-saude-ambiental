@@ -13,6 +13,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "OAI-SearchBot", allow: "/" },
       { userAgent: "Google-Extended", allow: "/" },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,

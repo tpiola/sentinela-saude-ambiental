@@ -5,9 +5,211 @@ import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import type { GrowthPage } from "@/lib/growth-content";
+import { getSiteUrl } from "@/lib/site";
+
+function buildGrowthGraph(page: GrowthPage, path: string) {
+  const siteUrl = getSiteUrl();
+  const url = `${siteUrl}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: page.title,
+        description: page.description,
+        inLanguage: "pt-BR",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": `${url}#service` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: page.title,
+        description: page.description,
+        provider: { "@id": `${siteUrl}/#organization` },
+        areaServed: BRAND.areaServed.map((name) => ({
+          "@type": "City",
+          name,
+        })),
+        url,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Início",
+            item: `${siteUrl}/`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: page.title,
+            item: url,
+          },
+        ],
+      },
+    ],
+  };
+}
 
 export function GrowthLanding({ page, path }: { page: GrowthPage; path: string }) {
-  const url = `https://www.sentinelasaudeambiental.com.br${path}`;
-  const schema = {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":`${url}#webpage`,url,name:page.title,description:page.description,isPartOf:{"@id":"https://www.sentinelasaudeambiental.com.br/#website"}},{"@type":"Service","@id":`${url}#service`,name:page.title,description:page.description,provider:{"@id":"https://www.sentinelasaudeambiental.com.br/#business"},areaServed:BRAND.areaServed.map(name=>({"@type":"City",name})),url},{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Início",item:"https://www.sentinelasaudeambiental.com.br/"},{"@type":"ListItem",position:2,name:page.title,item:url}]}]};
-  return <><SiteHeader/><main className="bg-white"><JsonLd data={schema}/><section className="relative overflow-hidden bg-[color:var(--brand-navy)] px-4 pb-20 pt-36 text-white"><div className="absolute inset-0 opacity-20 [background:radial-gradient(circle_at_80%_20%,var(--brand-lime),transparent_30%)]"/><div className="container-responsive relative"><p className="mb-4 text-sm font-black uppercase tracking-[.22em] text-[color:var(--brand-lime)]">{page.eyebrow}</p><h1 className="max-w-4xl font-[family-name:var(--font-heading)] text-4xl font-extrabold leading-tight sm:text-6xl">{page.h1}</h1><p className="mt-6 max-w-2xl text-lg text-white/75">{page.description}</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href={whatsappHref(`Olá, Sentinela! Preciso de ${page.title}. Meu bairro é:`)} className="inline-flex min-h-14 items-center justify-center rounded-full bg-[color:var(--brand-lime)] px-7 font-bold text-[color:var(--brand-navy)]">Pedir orçamento no WhatsApp</a><a href={`tel:+${BRAND.phoneE164}`} className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/30 px-7 font-bold">Ligar {BRAND.phoneDisplay}</a></div><p className="mt-5 text-sm text-white/60">Triagem rápida • orientação clara • sem compromisso</p></div></section><section className="container-responsive grid gap-6 py-16 lg:grid-cols-2"><article className="rounded-3xl bg-red-50 p-7"><p className="text-xs font-black uppercase tracking-widest text-red-700">O risco</p><h2 className="mt-3 text-2xl font-extrabold text-[color:var(--brand-navy)]">Não deixe o problema se espalhar</h2><p className="mt-4 leading-7 text-slate-700">{page.problem}</p></article><article className="rounded-3xl bg-lime-50 p-7"><p className="text-xs font-black uppercase tracking-widest text-lime-700">A solução</p><h2 className="mt-3 text-2xl font-extrabold text-[color:var(--brand-navy)]">Tratamento pensado para o seu ambiente</h2><p className="mt-4 leading-7 text-slate-700">{page.solution}</p></article></section><section className="bg-slate-50 py-16"><div className="container-responsive"><p className="text-sm font-black uppercase tracking-widest text-[color:var(--brand-lime-deep)]">Por que Sentinela</p><h2 className="mt-3 text-3xl font-extrabold text-[color:var(--brand-navy)]">Segurança que você entende antes de contratar</h2><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{page.benefits.map((b,i)=><div key={b} className="rounded-2xl border border-slate-200 bg-white p-6"><span className="text-sm font-black text-[color:var(--brand-lime-deep)]">0{i+1}</span><p className="mt-3 font-bold text-[color:var(--brand-navy)]">{b}</p></div>)}</div></div></section><section className="container-responsive py-16"><h2 className="text-3xl font-extrabold text-[color:var(--brand-navy)]">Dúvidas frequentes</h2><div className="mt-7 grid gap-4">{page.faq.map(x=><details key={x.question} className="rounded-2xl border border-slate-200 p-5"><summary className="cursor-pointer font-bold text-[color:var(--brand-navy)]">{x.question}</summary><p className="mt-3 leading-7 text-slate-600">{x.answer}</p></details>)}</div><div className="mt-12 flex flex-wrap gap-3">{page.related.map(x=><Link key={x.href} href={x.href} className="rounded-full border border-slate-300 px-5 py-3 font-bold text-[color:var(--brand-navy)] hover:border-[color:var(--brand-lime)]">{x.label} →</Link>)}</div></section><section className="bg-[color:var(--brand-navy)] py-16 text-center text-white"><div className="container-responsive"><h2 className="text-3xl font-extrabold">Quanto antes identificar o foco, mais simples tende a ser o controle.</h2><p className="mx-auto mt-4 max-w-xl text-white/70">Envie uma foto, seu bairro e o tipo de imóvel. A Sentinela orienta o próximo passo.</p><a href={whatsappHref(`Olá, Sentinela! Quero uma avaliação para ${page.title}.`)} className="mt-7 inline-flex min-h-14 items-center rounded-full bg-[color:var(--brand-lime)] px-8 font-bold text-[color:var(--brand-navy)]">Falar com um especialista</a></div></section></main><SiteFooter/><WhatsAppFloat/></>;
+  return (
+    <>
+      <SiteHeader />
+      <main id="conteudo" className="bg-white">
+        <JsonLd data={buildGrowthGraph(page, path)} />
+
+        <section className="bg-[color:var(--brand-navy)] px-4 pb-16 pt-32 text-white sm:pb-20 sm:pt-36">
+          <div className="container-responsive">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[color:var(--brand-lime)]">
+              {page.eyebrow}
+            </p>
+            <h1 className="mt-4 max-w-4xl font-[family-name:var(--font-heading)] text-4xl font-bold leading-tight tracking-[-0.035em] sm:text-6xl">
+              {page.h1}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75">
+              {page.description}
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/agendar"
+                data-track="growth_assessment"
+                className="inline-flex min-h-14 items-center justify-center bg-[color:var(--brand-lime)] px-7 font-bold text-[color:var(--brand-navy-heading)]"
+              >
+                Solicitar avaliação
+              </Link>
+              <a
+                href={`tel:+${BRAND.phoneE164}`}
+                data-track="growth_phone"
+                className="inline-flex min-h-14 items-center justify-center border border-white/30 px-7 font-bold"
+              >
+                Ligar {BRAND.phoneDisplay}
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 sm:py-20">
+          <div className="container-responsive grid border-l border-t border-[color:var(--brand-border)] lg:grid-cols-2">
+            <article className="border-b border-r border-[color:var(--brand-border)] p-7 sm:p-10">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--brand-green-deep)]">
+                O cenário
+              </p>
+              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-bold text-[color:var(--brand-navy)]">
+                Por que a inspeção importa
+              </h2>
+              <p className="mt-4 leading-7 text-[color:var(--brand-muted)]">
+                {page.problem}
+              </p>
+            </article>
+            <article className="border-b border-r border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] p-7 sm:p-10">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--brand-green-deep)]">
+                A abordagem
+              </p>
+              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-2xl font-bold text-[color:var(--brand-navy)]">
+                Método conforme o ambiente
+              </h2>
+              <p className="mt-4 leading-7 text-[color:var(--brand-muted)]">
+                {page.solution}
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section className="bg-[color:var(--brand-surface)] py-16 sm:py-20">
+          <div className="container-responsive">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--brand-green-deep)]">
+              O que será definido
+            </p>
+            <h2 className="mt-3 max-w-3xl font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] sm:text-4xl">
+              Informações claras antes do serviço
+            </h2>
+            <div className="mt-8 grid border-l border-t border-[color:var(--brand-border)] sm:grid-cols-2 lg:grid-cols-4">
+              {page.benefits.map((benefit, index) => (
+                <article
+                  key={benefit}
+                  className="border-b border-r border-[color:var(--brand-border)] bg-white p-6"
+                >
+                  <span className="text-xs font-bold text-[color:var(--brand-green-deep)]">
+                    0{index + 1}
+                  </span>
+                  <p className="mt-3 font-bold leading-6 text-[color:var(--brand-navy)]">
+                    {benefit}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 sm:py-20">
+          <div className="container-responsive grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <div>
+              <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)]">
+                Dúvidas frequentes
+              </h2>
+              <div className="mt-7 divide-y divide-[color:var(--brand-border)] border-y border-[color:var(--brand-border)]">
+                {page.faq.map((item) => (
+                  <details key={item.question} className="py-5">
+                    <summary className="cursor-pointer pr-8 font-bold text-[color:var(--brand-navy)]">
+                      {item.question}
+                    </summary>
+                    <p className="mt-3 leading-7 text-[color:var(--brand-muted)]">
+                      {item.answer}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </div>
+            <aside>
+              <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--brand-green-deep)]">
+                Continue a pesquisa
+              </h2>
+              <nav className="mt-4 divide-y divide-[color:var(--brand-border)] border-y border-[color:var(--brand-border)]">
+                {page.related.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="flex min-h-12 items-center justify-between py-3 font-bold text-[color:var(--brand-navy)]"
+                  >
+                    {item.label} <span aria-hidden>→</span>
+                  </Link>
+                ))}
+              </nav>
+            </aside>
+          </div>
+        </section>
+
+        <section className="bg-[color:var(--brand-navy)] py-16 text-white sm:py-20">
+          <div className="container-responsive text-center">
+            <h2 className="mx-auto max-w-3xl font-[family-name:var(--font-heading)] text-3xl font-bold sm:text-4xl">
+              Confirme a cobertura e o próximo passo.
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl leading-7 text-white/70">
+              Informe a ocorrência, o tipo de imóvel e o bairro. A equipe responde
+              conforme a rota e a disponibilidade.
+            </p>
+            <a
+              href={whatsappHref(
+                `Olá, Sentinela. Gostaria de uma avaliação para ${page.title}. Meu bairro/cidade é:`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="growth_whatsapp"
+              className="mt-7 inline-flex min-h-14 items-center bg-[color:var(--brand-lime)] px-8 font-bold text-[color:var(--brand-navy-heading)]"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+      <WhatsAppFloat />
+    </>
+  );
 }

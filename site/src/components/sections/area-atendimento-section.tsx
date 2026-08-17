@@ -93,8 +93,8 @@ export function AreaAtendimentoSection() {
             <strong className="text-[color:var(--brand-navy)]">
               CNPJ: {BRAND.cnpj}
             </strong>
-            . Licenças, responsável técnico e documentos regulatórios devem ser
-            apresentados ao cliente quando exigidos pelo serviço ou contrato.
+            . A rota, o escopo e os documentos previstos são confirmados antes da
+            contratação.
           </p>
           <p className="mt-3 text-sm text-[color:var(--brand-muted)]">
             Horários informados: {BRAND.openingHours.weekdays} ·{" "}

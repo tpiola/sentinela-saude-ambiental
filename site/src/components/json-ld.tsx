@@ -1,6 +1,6 @@
 import { buildLocalBusinessGraph } from "@/lib/seo-schema";
 
-/** Dados estruturados para SEO local, FAQ rich results e Google Meu Negócio. */
+/** Entidades persistentes da empresa e do site. Dados de página vivem na rota. */
 export function JsonLdLocalBusiness() {
   const data = buildLocalBusinessGraph();
 
