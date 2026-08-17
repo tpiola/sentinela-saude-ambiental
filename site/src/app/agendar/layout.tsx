@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import { getSiteUrl } from "@/lib/site";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sentinelasaudeambiental.com.br";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   title: "Solicitar avaliação de controle de pragas em Franca",
