@@ -3,13 +3,14 @@ import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { FaqSection } from "@/components/sections/faq-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { SiteFooter } from "@/components/site-footer";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Dúvidas sobre dedetização em Franca SP",
   description:
     "Respostas sobre preparação, cuidados, prazos, garantia e contratação de controle de pragas em Franca e região.",
-  alternates: { canonical: "/faq" },
-};
+  path: "/faq",
+});
 
 export default function FaqPage() {
   return (
@@ -38,4 +39,3 @@ export default function FaqPage() {
     </>
   );
 }
-import type { Metadata } from "next";

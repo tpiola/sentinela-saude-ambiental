@@ -18,7 +18,6 @@ export function buildLocalBusinessGraph() {
         image: `${siteUrl}/media/sentinela/drive/dedetizacao-centro-franca-sp.webp`,
         logo: `${siteUrl}${BRAND.logoPath}`,
         taxID: BRAND.cnpj,
-        priceRange: "$$",
         address: {
           "@type": "PostalAddress",
           streetAddress: BRAND.address.streetAddress,

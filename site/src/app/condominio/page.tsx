@@ -1,20 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { whatsappHref } from "@/lib/brand";
-import { getSiteUrl } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-const siteUrl = getSiteUrl();
-
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Controle de Pragas para Condomínios em Franca SP",
   description:
     "Programa preventivo e corretivo de controle de pragas para condomínios em Franca e região, com inspeção, cronograma, registros e orientação aos responsáveis.",
-  alternates: { canonical: `${siteUrl}/condominio` },
-};
+  path: "/condominio",
+});
 
 const benefits = [
   {

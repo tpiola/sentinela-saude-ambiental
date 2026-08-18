@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { SovereignHero } from "@/components/sovereign-hero";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
@@ -11,13 +10,15 @@ import { AreaAtendimentoSection } from "@/components/sections/area-atendimento-s
 import { FaqSection } from "@/components/sections/faq-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { SiteFooter } from "@/components/site-footer";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Dedetização em Franca SP",
   description:
     "Controle profissional de pragas em Franca e região para residências, empresas e condomínios. Solicite uma avaliação pelo site.",
-  alternates: { canonical: "/" },
-};
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (

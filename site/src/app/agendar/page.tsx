@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BRAND } from "@/lib/brand";
+import { emitConversion } from "@/lib/conversion-events";
 
 const options = [
   "Escorpiões",
@@ -21,6 +22,13 @@ export default function AgendarPage() {
     urgencia: "Hoje",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const hasStarted = useRef(false);
+
+  function markFormStart() {
+    if (hasStarted.current) return;
+    hasStarted.current = true;
+    emitConversion("form_start", { form_name: "diagnostico_inicial" });
+  }
 
   function updateField(field: keyof typeof form, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
@@ -41,7 +49,20 @@ export default function AgendarPage() {
       nextErrors.bairro = "Informe o bairro ou a cidade";
     }
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length) return;
+    if (Object.keys(nextErrors).length) {
+      emitConversion("form_validation_error", {
+        form_name: "diagnostico_inicial",
+        error_count: Object.keys(nextErrors).length,
+      });
+      return;
+    }
+
+    emitConversion("form_submit", {
+      form_name: "diagnostico_inicial",
+      problem: form.problema,
+      property_type: form.imovel,
+      urgency: form.urgencia,
+    });
 
     const message = [
       "Olá, Sentinela. Vim pelo site e gostaria de solicitar uma avaliação.",
@@ -86,6 +107,8 @@ export default function AgendarPage() {
           <div className="container-responsive grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
             <form
               onSubmit={submit}
+              onFocusCapture={markFormStart}
+              onChangeCapture={markFormStart}
               className="relative border border-[color:var(--brand-border)] bg-white p-6 sm:p-8"
               noValidate
             >
@@ -188,7 +211,6 @@ export default function AgendarPage() {
 
               <button
                 type="submit"
-                data-track="assessment_continue"
                 className="mt-8 inline-flex min-h-14 w-full items-center justify-center whitespace-nowrap bg-[color:var(--brand-lime)] px-7 font-bold text-[color:var(--brand-navy-heading)] hover:bg-[color:var(--brand-green-light)]"
               >
                 Continuar no WhatsApp

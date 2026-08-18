@@ -4,13 +4,14 @@ import { StatsMarquee } from "@/components/sections/stats-marquee";
 import { AboutSection } from "@/components/sections/about-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { SiteFooter } from "@/components/site-footer";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Empresa de controle de pragas em Franca SP",
   description:
     "Conheça a Sentinela Saúde Ambiental, empresa de controle de pragas com atendimento em Franca e municípios da região.",
-  alternates: { canonical: "/sobre" },
-};
+  path: "/sobre",
+});
 
 export default function SobrePage() {
   return (
@@ -40,4 +41,3 @@ export default function SobrePage() {
     </>
   );
 }
-import type { Metadata } from "next";

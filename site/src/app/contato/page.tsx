@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { BRAND, whatsappHref } from "@/lib/brand";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Contato e avaliação",
   description:
     "Solicite avaliação para controle de pragas em Franca e região pelo WhatsApp ou telefone.",
-  alternates: { canonical: "/contato" },
-};
+  path: "/contato",
+});
 
 export default function ContactPage() {
   return (

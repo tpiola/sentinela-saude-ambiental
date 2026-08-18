@@ -9,6 +9,17 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "sentinelasaudeambiental.com.br",
+          },
+        ],
+        destination: "https://www.sentinelasaudeambiental.com.br/:path*",
+        permanent: true,
+      },
+      {
         source: "/escorpiao",
         destination: "/pragas/escorpiao",
         permanent: true,

@@ -1,18 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { BRAND } from "@/lib/brand";
-import { getSiteUrl } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-const siteUrl = getSiteUrl();
-
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Política de Privacidade",
   description:
     "Informações sobre coleta, uso, compartilhamento e direitos relacionados aos dados pessoais tratados pela Sentinela Saúde Ambiental.",
-  alternates: { canonical: `${siteUrl}/privacidade` },
-};
+  path: "/privacidade",
+});
 
 const sectionClass = "border-t border-[color:var(--brand-border)] pt-8";
 const headingClass =
@@ -39,7 +36,7 @@ export default function PrivacidadePage() {
             obrigações aplicáveis.
           </p>
           <p className="mt-3 text-sm text-[color:var(--brand-muted)]">
-            Última atualização: 17 de agosto de 2026
+            Última atualização: 18 de agosto de 2026
           </p>
 
           <div className="mt-12 space-y-8">

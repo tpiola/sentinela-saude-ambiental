@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { useEffect, useState } from "react";
+import type { ConversionEventDetail } from "@/lib/conversion-events";
 import { INTEGRATIONS } from "@/lib/integrations";
 
 const CONSENT_KEY = "sentinela-cookie-consent";
@@ -39,11 +40,38 @@ export function Analytics() {
       });
     };
 
+    const trackCustomConversion = (event: Event) => {
+      if (localStorage.getItem(CONSENT_KEY) !== "accepted") return;
+
+      const detail = (event as CustomEvent<ConversionEventDetail>).detail;
+      if (!detail?.name) return;
+
+      const { name, ...properties } = detail;
+      const pagePath = window.location.pathname;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: name,
+        conversion_name: name,
+        page_path: pagePath,
+        ...properties,
+      });
+      window.fbq?.("trackCustom", name, {
+        page_path: pagePath,
+        ...properties,
+      });
+    };
+
     sync();
     window.addEventListener("sentinela:consent", sync);
+    window.addEventListener("sentinela:conversion", trackCustomConversion);
     document.addEventListener("click", trackClick);
     return () => {
       window.removeEventListener("sentinela:consent", sync);
+      window.removeEventListener(
+        "sentinela:conversion",
+        trackCustomConversion,
+      );
       document.removeEventListener("click", trackClick);
     };
   }, []);

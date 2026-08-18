@@ -7,13 +7,14 @@ import { GallerySection } from "@/components/sections/gallery-section";
 import { AreaAtendimentoSection } from "@/components/sections/area-atendimento-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { SiteFooter } from "@/components/site-footer";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Serviços de dedetização em Franca SP",
   description:
     "Conheça os serviços de controle de pragas da Sentinela para residências, empresas e condomínios em Franca e região.",
-  alternates: { canonical: "/servicos" },
-};
+  path: "/servicos",
+});
 
 export default function ServicosPage() {
   return (
@@ -46,4 +47,3 @@ export default function ServicosPage() {
     </>
   );
 }
-import type { Metadata } from "next";

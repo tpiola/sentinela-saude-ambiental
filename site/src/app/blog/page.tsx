@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Orientações sobre controle de pragas em Franca",
   description:
     "Orientações gerais da Sentinela sobre escorpiões, baratas, cupins, ratos e prevenção em imóveis de Franca.",
-  alternates: { canonical: "/blog" },
-};
+  path: "/blog",
+});
 
 const guides = [
   {
