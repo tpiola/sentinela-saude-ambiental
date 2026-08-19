@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { whatsappHref } from "@/lib/brand";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { buildFaqSchema } from "@/lib/seo-schema";
 
 export const metadata = buildPageMetadata({
   title: "Controle de Pragas para Condomínios em Franca SP",
@@ -271,6 +273,7 @@ export default function CondominioPage() {
 
         <section className="bg-[color:var(--brand-surface)] py-20 md:py-28">
           <div className="mx-auto max-w-4xl px-4 md:px-6">
+            <JsonLd data={buildFaqSchema(faq)} />
             <p className="text-center text-xs font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
               Perguntas frequentes
             </p>

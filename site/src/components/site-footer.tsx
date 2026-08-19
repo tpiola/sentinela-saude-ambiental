@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BRAND } from "@/lib/brand";
+import { BRAND, mapsDirectionsUrl } from "@/lib/brand";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -87,6 +87,16 @@ export function SiteFooter() {
                 </a>
               </li>
               <li className="text-sm leading-6 text-white/40">{BRAND.addressFull}</li>
+              <li>
+                <a
+                  href={mapsDirectionsUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[color:var(--brand-lime)] underline underline-offset-2 hover:text-white"
+                >
+                  Ver rota no mapa →
+                </a>
+              </li>
             </ul>
           </div>
         </div>

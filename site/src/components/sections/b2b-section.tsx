@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { whatsappHref } from "@/lib/brand";
 
-const sectors = ["Condomínios", "Indústrias e galpões", "Clínicas", "Restaurantes", "Escolas", "Comércios"] as const;
+const sectors = [
+  { label: "Condomínios", href: "/mercados/condominios" },
+  { label: "Indústrias e galpões", href: "/mercados/industrias" },
+  { label: "Clínicas", href: "/mercados/clinicas" },
+  { label: "Restaurantes", href: "/mercados/restaurantes" },
+  { label: "Escolas", href: "/mercados/escolas" },
+  { label: "Comércios", href: "/mercados/comercios" },
+] as const;
 
 export function B2BSection() {
   return (
@@ -32,7 +39,15 @@ export function B2BSection() {
               <div className="py-6"><dt className="font-[family-name:var(--font-heading)] text-lg font-bold">Rotina preservada</dt><dd className="mt-2 text-sm leading-6 text-white/65">Agendamento e orientações para reduzir interferências na operação.</dd></div>
             </dl>
             <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3 border-t border-white/20 pt-6">
-              {sectors.map((sector) => <span key={sector} className="text-sm font-medium text-white/70">{sector}</span>)}
+              {sectors.map((sector) => (
+                <Link
+                  key={sector.href}
+                  href={sector.href}
+                  className="text-sm font-medium text-white/70 underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white"
+                >
+                  {sector.label}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

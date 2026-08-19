@@ -9,8 +9,6 @@ import { getSiteUrl } from "@/lib/site";
 import { PestPageClient } from "./page-client";
 
 const siteUrl = getSiteUrl();
-const socialImage =
-  "/media/sentinela/drive/dedetizacao-centro-franca-sp.webp";
 
 interface PestPageProps {
   params: Promise<{ slug: string }>;
@@ -36,6 +34,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical },
+    robots: { index: true, follow: true },
     openGraph: {
       title: `${title} | ${BRAND.name}`,
       description,
@@ -43,20 +42,11 @@ export async function generateMetadata({
       locale: "pt_BR",
       siteName: BRAND.name,
       type: "website",
-      images: [
-        {
-          url: socialImage,
-          width: 1200,
-          height: 1570,
-          alt: `${BRAND.name} — controle de ${pestName} em Franca SP`,
-        },
-      ],
     },
     twitter: {
       title: `${title} | ${BRAND.name}`,
       description,
       card: "summary_large_image",
-      images: [socialImage],
     },
   };
 }

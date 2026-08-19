@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Montserrat } from "next/font/google";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
@@ -53,21 +55,11 @@ export const metadata: Metadata = {
     siteName: BRAND.name,
     title: `${BRAND.name} — Controle de pragas em Franca SP`,
     description: BRAND.tagline,
-    images: [
-      {
-        url: "/media/sentinela/drive/dedetizacao-centro-franca-sp.webp",
-        width: 1200,
-        height: 1570,
-        alt: "Sentinela Saúde Ambiental — Controle profissional de pragas em Franca SP",
-        type: "image/webp",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${BRAND.name} — Controle de pragas Franca SP`,
     description: BRAND.shortTagline,
-    images: ["/media/sentinela/drive/dedetizacao-centro-franca-sp.webp"],
   },
   robots: {
     index: true,
@@ -111,6 +103,8 @@ export default function RootLayout({
         {children}
         <CookieBanner />
         <MobileStickyBar />
+        <VercelAnalytics />
+        <SpeedInsights />
       </body>
     </html>
   );

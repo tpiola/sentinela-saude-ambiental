@@ -61,6 +61,15 @@ function buildPestGraph(pest: PestData) {
           },
         ],
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: pest.faq.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      },
     ],
   };
 }

@@ -53,6 +53,15 @@ function buildGrowthGraph(page: GrowthPage, path: string) {
           },
         ],
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: page.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      },
     ],
   };
 }

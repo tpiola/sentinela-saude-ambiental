@@ -1,7 +1,25 @@
-import { BRAND } from "@/lib/brand";
+import { BRAND, mapsSearchUrl } from "@/lib/brand";
 import { getSiteUrl } from "@/lib/site";
 
 const siteUrl = getSiteUrl();
+
+export type FaqItem = { question: string; answer: string };
+
+/** GEO/SEO: marca perguntas e respostas para extração por buscadores e IA. */
+export function buildFaqSchema(items: readonly FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
 
 export function buildLocalBusinessGraph() {
   return {
@@ -18,6 +36,7 @@ export function buildLocalBusinessGraph() {
         image: `${siteUrl}/media/sentinela/drive/dedetizacao-centro-franca-sp.webp`,
         logo: `${siteUrl}${BRAND.logoPath}`,
         taxID: BRAND.cnpj,
+        priceRange: "$$",
         address: {
           "@type": "PostalAddress",
           streetAddress: BRAND.address.streetAddress,
@@ -57,7 +76,7 @@ export function buildLocalBusinessGraph() {
             closes: "17:00",
           },
         ],
-        sameAs: [BRAND.instagramUrl, BRAND.facebookUrl],
+        sameAs: [BRAND.instagramUrl, BRAND.facebookUrl, mapsSearchUrl()],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Serviços de controle de pragas",

@@ -1,5 +1,11 @@
+import Link from "next/link";
 import { PestIcon } from "@/components/pest-icons";
 import { BRAND } from "@/lib/brand";
+import { locations } from "@/lib/growth-content";
+
+const cityLocationSlug = new Map(
+  locations.map((page) => [page.title.replace("Dedetização em ", ""), page.slug]),
+);
 
 const serviceTypes = [
   { icon: "baratas" as const, label: "Baratas" },
@@ -54,14 +60,25 @@ export function AreaAtendimentoSection() {
             Municípios consultados para atendimento
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {BRAND.areaServed.map((city) => (
-              <span
-                key={city}
-                className="rounded-full border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy)]"
-              >
-                {city} — SP
-              </span>
-            ))}
+            {BRAND.areaServed.map((city) => {
+              const slug = cityLocationSlug.get(city);
+              const className =
+                "rounded-full border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy)]";
+
+              return slug ? (
+                <Link
+                  key={city}
+                  href={`/locais/${slug}`}
+                  className={`${className} transition hover:bg-[color:var(--brand-lime)]`}
+                >
+                  {city} — SP
+                </Link>
+              ) : (
+                <span key={city} className={className}>
+                  {city} — SP
+                </span>
+              );
+            })}
           </div>
         </div>
 
