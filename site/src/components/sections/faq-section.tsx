@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { JsonLd } from "@/components/json-ld";
 import { BRAND } from "@/lib/brand";
+import { buildFaqSchema } from "@/lib/seo-schema";
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -12,6 +14,7 @@ export function FaqSection() {
       id="faq"
       className="scroll-mt-28 bg-[color:var(--brand-surface)] py-20 md:py-28"
     >
+      <JsonLd data={buildFaqSchema(BRAND.faq)} />
       <div className="mx-auto max-w-3xl px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

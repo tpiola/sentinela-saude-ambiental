@@ -2,22 +2,20 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { INTEGRATIONS } from "@/lib/integrations";
 
 const STORAGE_KEY = "sentinela-cookie-consent";
-const HAS_MEASUREMENT = Boolean(
-  INTEGRATIONS.gtmId ||
-    INTEGRATIONS.gaMeasurementId ||
-    INTEGRATIONS.googleAdsId ||
-    INTEGRATIONS.metaPixelId,
-);
+// Sempre há alguma mensuração candidata a carregar após o aceite: os IDs de
+// terceiros (GTM/GA/Ads/Pixel) quando configurados, e a telemetria da
+// própria Vercel (analytics + speed insights), que também respeita o
+// consentimento. Por isso o banner é sempre oferecido, não só quando um
+// ID de terceiro está presente.
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     queueMicrotask(() => {
-      setVisible(HAS_MEASUREMENT && !localStorage.getItem(STORAGE_KEY));
+      setVisible(!localStorage.getItem(STORAGE_KEY));
     });
   }, []);
 
@@ -27,7 +25,7 @@ export function CookieBanner() {
     setVisible(false);
   }
 
-  if (!HAS_MEASUREMENT || !visible) return null;
+  if (!visible) return null;
 
   return (
     <div

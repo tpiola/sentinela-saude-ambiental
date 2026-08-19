@@ -20,7 +20,6 @@ export function buildPageMetadata({
   const socialTitle = title.includes(BRAND.name)
     ? title
     : `${title} | ${BRAND.name}`;
-  const socialImage = `${siteUrl}/media/sentinela/drive/dedetizacao-centro-franca-sp.webp`;
 
   return {
     title: absoluteTitle ? { absolute: socialTitle } : title,
@@ -33,21 +32,11 @@ export function buildPageMetadata({
       siteName: BRAND.name,
       title: socialTitle,
       description,
-      images: [
-        {
-          url: socialImage,
-          width: 1200,
-          height: 1570,
-          alt: "Sentinela Saúde Ambiental em atendimento de controle de pragas em Franca SP",
-          type: "image/webp",
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title: socialTitle,
       description,
-      images: [socialImage],
     },
   };
 }

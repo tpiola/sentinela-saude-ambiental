@@ -8,14 +8,26 @@ export default function manifest(): MetadataRoute.Manifest {
     description: BRAND.tagline,
     start_url: "/",
     display: "standalone",
-    background_color: "#002d5b",
-    theme_color: "#002d5b",
+    background_color: "#002347",
+    theme_color: "#002347",
     lang: "pt-BR",
     icons: [
       {
-        src: "/brand/hero-poster.svg",
+        src: "/icon.svg",
         sizes: "any",
         type: "image/svg+xml",
+      },
+      {
+        src: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
       },
     ],
   };

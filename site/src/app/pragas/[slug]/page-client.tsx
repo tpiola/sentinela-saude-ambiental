@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import type { PestData } from "@/lib/pests";
+import { buildFaqGraphNode } from "@/lib/seo-schema";
 import { getSiteUrl } from "@/lib/site";
 
 const healthGuidance = new Set(["escorpiao", "aranhas"]);
@@ -61,6 +62,10 @@ function buildPestGraph(pest: PestData) {
           },
         ],
       },
+      buildFaqGraphNode(
+        `${url}#faq`,
+        pest.faq.map((item) => ({ question: item.q, answer: item.a })),
+      ),
     ],
   };
 }
