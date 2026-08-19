@@ -1,23 +1,36 @@
-import { BRAND, mapsSearchUrl } from "@/lib/brand";
+import { BRAND } from "@/lib/brand";
 import { getSiteUrl } from "@/lib/site";
 
 const siteUrl = getSiteUrl();
 
 export type FaqItem = { question: string; answer: string };
 
+function buildFaqMainEntity(items: readonly FaqItem[]) {
+  return items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  }));
+}
+
 /** GEO/SEO: marca perguntas e respostas para extração por buscadores e IA. */
 export function buildFaqSchema(items: readonly FaqItem[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
+    mainEntity: buildFaqMainEntity(items),
+  };
+}
+
+/** Para compor um FAQPage como um dos nós de um @graph maior (ver growth-page.tsx / page-client.tsx). */
+export function buildFaqGraphNode(id: string, items: readonly FaqItem[]) {
+  return {
+    "@type": "FAQPage",
+    "@id": id,
+    mainEntity: buildFaqMainEntity(items),
   };
 }
 
@@ -76,7 +89,10 @@ export function buildLocalBusinessGraph() {
             closes: "17:00",
           },
         ],
-        sameAs: [BRAND.instagramUrl, BRAND.facebookUrl, mapsSearchUrl()],
+        // Nota: um link para o Google Maps só entra aqui com um
+        // query_place_id verificado (Place ID) — uma URL de busca por texto
+        // não identifica a empresa de forma inequívoca conforme o schema.org.
+        sameAs: [BRAND.instagramUrl, BRAND.facebookUrl],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Serviços de controle de pragas",

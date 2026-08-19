@@ -1,11 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Montserrat } from "next/font/google";
-import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
+import { VercelTelemetry } from "@/components/vercel-telemetry";
 import { BRAND } from "@/lib/brand";
 import { getSiteUrl } from "@/lib/site";
 
@@ -103,8 +102,7 @@ export default function RootLayout({
         {children}
         <CookieBanner />
         <MobileStickyBar />
-        <VercelAnalytics />
-        <SpeedInsights />
+        <VercelTelemetry />
       </body>
     </html>
   );

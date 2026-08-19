@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import type { GrowthPage } from "@/lib/growth-content";
+import { buildFaqGraphNode } from "@/lib/seo-schema";
 import { getSiteUrl } from "@/lib/site";
 
 function buildGrowthGraph(page: GrowthPage, path: string) {
@@ -53,15 +54,7 @@ function buildGrowthGraph(page: GrowthPage, path: string) {
           },
         ],
       },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: page.faq.map((item) => ({
-          "@type": "Question",
-          name: item.question,
-          acceptedAnswer: { "@type": "Answer", text: item.answer },
-        })),
-      },
+      buildFaqGraphNode(`${url}#faq`, page.faq),
     ],
   };
 }
