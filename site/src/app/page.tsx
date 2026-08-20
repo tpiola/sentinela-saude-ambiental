@@ -16,7 +16,7 @@ import { buildPageMetadata } from "@/lib/page-metadata";
 export const metadata = buildPageMetadata({
   title: "Dedetização em Franca SP",
   description:
-    "Controle profissional de pragas em Franca e região para residências, empresas e condomínios. Solicite uma avaliação pelo site.",
+    "Dedetizadora perto de mim em Franca SP: controle de escorpião, barata, cupim e rato para casas, empresas e condomínios. Solicite uma avaliação pelo WhatsApp.",
   path: "/",
   absoluteTitle: true,
 });
