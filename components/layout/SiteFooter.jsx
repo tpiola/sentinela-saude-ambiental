@@ -1,14 +1,10 @@
 import React from "react";
 
 const LINKS = [
-  { href: "/", label: "Início" },
-  { href: "/servicos", label: "Serviços" },
-  { href: "/sobre", label: "Sobre" },
-  { href: "/faq", label: "Dúvidas" },
-  { href: "/condominio", label: "Empresas e condomínios" },
-  { href: "/contato", label: "Contato" },
-  { href: "/privacidade", label: "Privacidade" },
-  { href: "/blog", label: "Conteúdos" },
+  { href: "#home", label: "Início" },
+  { href: "#praga", label: "Controle de Escorpião" },
+  { href: "#b2b", label: "Empresas & Condomínios" },
+  { href: "#agendar", label: "Solicitar Orçamento" },
 ];
 
 const colHead = {
