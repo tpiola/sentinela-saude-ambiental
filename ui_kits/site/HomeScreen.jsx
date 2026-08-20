@@ -122,9 +122,9 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
               {/* CARD DE IDENTIFICAÇÃO DO TÉCNICO (HUMAN FIRST) */}
               <div style={{ marginTop: 28, padding: "16px 20px", background: "rgba(0, 15, 35, 0.6)", borderRadius: 12, border: "1px solid rgba(143, 206, 42, 0.4)", display: "flex", gap: 16, alignItems: "center" }}>
                 <img
-                  src={A("avatar-rogerio.png")}
+                  src={A("logo-brasao.png")}
                   alt="Rogério - Responsável Técnico da Sentinela Saúde Ambiental"
-                  style={{ width: 64, height: 64, borderRadius: "50%", border: "2px solid var(--brand-lime)", objectFit: "cover", flexShrink: 0 }}
+                  style={{ width: 64, height: 64, borderRadius: "50%", border: "2px solid var(--brand-lime)", objectFit: "contain", background: "#001020", padding: 4, flexShrink: 0 }}
                 />
                 <div>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
