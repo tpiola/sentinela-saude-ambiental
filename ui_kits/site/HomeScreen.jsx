@@ -226,27 +226,27 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
         </div>
       </section>
 
-      {/* BLOCO CIENTÍFICO / EDUCATIVO: COM FUNDO DE PERIGO EM ALTA DEFINIÇÃO */}
-      <section style={{ position: "relative", padding: "80px 0", color: "#fff", background: `linear-gradient(to bottom, rgba(0, 14, 31, 0.94) 0%, rgba(10, 20, 38, 0.96) 100%), url(${A("campo/inspecao-caixa-visita-escorpiao-franca-sp.webp")}) center/cover no-repeat fixed`, borderBottom: "3px solid #dc2626" }}>
+      {/* BLOCO CIENTÍFICO / EDUCATIVO: POR QUE VENENO DE SUPERMERCADO PIORA O PROBLEMA */}
+      <section style={{ background: "var(--brand-surface)", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
         <div className="container-responsive" style={{ padding: "0 24px" }}>
           <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center", marginBottom: 48 }}>
-            <span style={{ display: "inline-block", padding: "6px 14px", background: "rgba(220, 38, 38, 0.25)", color: "#f87171", border: "1px solid rgba(220, 38, 38, 0.5)", borderRadius: 6, fontSize: "0.8125rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              ⚠️ Alerta Técnico de Saúde Ambiental
+            <span style={{ display: "inline-block", padding: "6px 14px", background: "rgba(220, 38, 38, 0.1)", color: "#b91c1c", borderRadius: 6, fontSize: "0.8125rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em" }}>
+              Alerta Técnico de Saúde Ambiental
             </span>
-            <h2 style={{ margin: "16px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.6rem)", fontWeight: 900, color: "#fff", lineHeight: 1.15 }}>
+            <h2 style={{ margin: "16px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.6rem)", fontWeight: 800, color: "var(--brand-navy)", lineHeight: 1.15 }}>
               Por que jogar veneno de supermercado piora a infestação de escorpiões?
             </h2>
-            <p style={{ margin: "16px 0 0", fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(255,255,255,0.85)" }}>
+            <p style={{ margin: "16px 0 0", fontSize: "1.0625rem", lineHeight: 1.6, color: "var(--brand-muted)" }}>
               O escorpião-amarelo (<em>Tityus serrulatus</em>) possui carapaça espessa de quitina e sensores que fecham a respiração ao detectar aerossóis comuns. O veneno barato não mata o escorpião; ele apenas o irrita e desaloja dos ralos e caixas de esgoto para dentro de quartos e salas.
             </p>
           </div>
 
           <div style={{ display: "grid", gap: 24, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))" }}>
-            <div style={{ background: "rgba(20, 0, 0, 0.75)", backdropFilter: "blur(8px)", padding: 32, borderRadius: 12, border: "2px solid #dc2626", boxShadow: "0 8px 24px rgba(0,0,0,0.4)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, color: "#f87171", fontWeight: 900, fontSize: "1.125rem", marginBottom: 16 }}>
+            <div style={{ background: "#fff", padding: 32, borderRadius: 12, border: "2px solid #fca5a5", boxShadow: "0 4px 14px rgba(0,0,0,0.03)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, color: "#dc2626", fontWeight: 800, fontSize: "1.125rem", marginBottom: 16 }}>
                 <span>❌ Inseticida Comum / Spray de Mercado</span>
               </div>
-              <ul style={{ paddingLeft: 20, margin: 0, color: "rgba(255,255,255,0.85)", fontSize: "0.95rem", lineHeight: 1.7, display: "grid", gap: 10 }}>
+              <ul style={{ paddingLeft: 20, margin: 0, color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.7, display: "grid", gap: 10 }}>
                 <li><strong>Não elimina a carapaça do escorpião:</strong> a concentração é insuficiente para letalidade.</li>
                 <li><strong>Efeito desalojante perigoso:</strong> faz o escorpião fugir do esgoto e subir para a casa.</li>
                 <li><strong>Cheiro forte e toxicidade:</strong> irrita vias aéreas de crianças e pets.</li>
@@ -254,11 +254,11 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
               </ul>
             </div>
 
-            <div style={{ background: "rgba(0, 24, 50, 0.8)", backdropFilter: "blur(8px)", color: "#fff", padding: 32, borderRadius: 12, border: "2px solid var(--brand-lime)", boxShadow: "0 8px 24px rgba(0,35,71,0.4)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, color: "var(--brand-lime)", fontWeight: 900, fontSize: "1.125rem", marginBottom: 16 }}>
+            <div style={{ background: "linear-gradient(145deg, #002347 0%, #001730 100%)", color: "#fff", padding: 32, borderRadius: 12, border: "2px solid var(--brand-lime)", boxShadow: "0 8px 24px rgba(0,35,71,0.2)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, color: "var(--brand-lime)", fontWeight: 800, fontSize: "1.125rem", marginBottom: 16 }}>
                 <span>✓ Protocolo Técnico Sentinela Saúde Ambiental</span>
               </div>
-              <ul style={{ paddingLeft: 20, margin: 0, color: "rgba(255,255,255,0.92)", fontSize: "0.95rem", lineHeight: 1.7, display: "grid", gap: 10 }}>
+              <ul style={{ paddingLeft: 20, margin: 0, color: "rgba(255,255,255,0.9)", fontSize: "0.95rem", lineHeight: 1.7, display: "grid", gap: 10 }}>
                 <li><strong>Princípios ativos microencapsulados:</strong> grudam no corpo do escorpião e agem no sistema nervoso.</li>
                 <li><strong>Eliminação das baratas:</strong> corte da fonte primária de alimento que atrai os escorpiões.</li>
                 <li><strong>Aplicação técnica sem cheiro:</strong> segurança biológica total para animais e família.</li>
