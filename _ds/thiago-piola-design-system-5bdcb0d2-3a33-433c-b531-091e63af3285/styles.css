@@ -1,0 +1,14 @@
+/* Thiago Piola Design System — global entry.
+   Consuming projects link this one file. Everything below is @import only. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/radii.css";
+@import "./tokens/shadows.css";
+@import "./tokens/motion.css";
+@import "./tokens/effects.css";
+@import "./tokens/base.css";

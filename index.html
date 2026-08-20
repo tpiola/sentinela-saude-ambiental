@@ -1,0 +1,293 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentinela Saúde Ambiental — Design System & Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body, 'DM Sans', sans-serif);
+      background: var(--bg);
+      color: var(--brand-navy);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hero {
+      background: var(--brand-navy, #002347);
+      color: #fff;
+      padding: 64px 24px;
+      border-bottom: 3px solid var(--brand-lime, #8fce2a);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(143, 206, 42, 0.15);
+      border: 1px solid var(--brand-lime);
+      color: var(--brand-lime);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .hero-title {
+      font-family: var(--font-heading, 'Montserrat', sans-serif);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 20px 0 12px;
+    }
+    .hero-desc {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--brand-lime, #8fce2a);
+      color: var(--brand-navy, #002347);
+      font-family: var(--font-heading, 'Montserrat', sans-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(143, 206, 42, 0.35);
+      transition: all 0.2s ease;
+    }
+    .hero-cta:hover {
+      background: #b8e96b;
+      transform: translateY(-2px);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+    .section-title {
+      font-family: var(--font-heading, 'Montserrat', sans-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--brand-navy);
+    }
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: var(--brand-lime);
+      border-radius: 2px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--brand-border, #dde4ee);
+      border-radius: 8px;
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .card:hover {
+      border-color: var(--brand-lime-deep, #4f7f12);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 35, 71, 0.08);
+    }
+    .card h3 {
+      font-family: var(--font-heading, 'Montserrat', sans-serif);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--brand-navy);
+      margin-bottom: 6px;
+    }
+    .card p {
+      font-size: 0.875rem;
+      color: var(--brand-muted, #4a5568);
+      margin-bottom: 16px;
+    }
+    .card .link-text {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--brand-lime-deep, #4f7f12);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .featured-card {
+      background: linear-gradient(135deg, #002347 0%, #003066 100%);
+      color: #fff;
+      border: 2px solid var(--brand-lime);
+      grid-column: 1 / -1;
+      padding: 28px;
+    }
+    .featured-card h3 { color: #fff; font-size: 1.5rem; }
+    .featured-card p { color: rgba(255, 255, 255, 0.85); font-size: 1rem; }
+    .featured-card .link-text { color: var(--brand-lime); font-size: 1rem; }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.875rem;
+      color: var(--brand-muted);
+      border-top: 1px solid var(--brand-border);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span>●</span> Design System Ativo
+      </div>
+      <h1 class="hero-title">Sentinela Saúde Ambiental</h1>
+      <p class="hero-desc">
+        Sistema de design e componentes para o site institucional de alta conversão. Dedetizadora em Franca/SP e região.
+      </p>
+      <a href="ui_kits/site/index.html" class="hero-cta">
+        <span>🚀 Abrir Preview do Site Completo</span>
+        <span>→</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">UI Kit Interativo</h2>
+    <div class="grid">
+      <a href="ui_kits/site/index.html" class="card featured-card">
+        <div>
+          <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--brand-lime); font-weight: 700;">Experiência Completa</span>
+          <h3 style="margin-top: 8px;">Portal Interativo do Site (Home, Pragas, B2B e Avaliação)</h3>
+          <p>Navegue pelas telas completas com simulação de fluxo real, integração WhatsApp, mapa GBP e validações de formulário.</p>
+        </div>
+        <span class="link-text">Acessar UI Kit do Site →</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Componentes do Sistema</h2>
+    <div class="grid">
+      <a href="components/badges/badges.card.html" class="card">
+        <div>
+          <h3>Badges & Eyebrows</h3>
+          <p>Eyebrow institucional, badge com ping pulsante e chips de filtros locais.</p>
+        </div>
+        <span class="link-text">Ver cartões →</span>
+      </a>
+      <a href="components/buttons/buttons.card.html" class="card">
+        <div>
+          <h3>Botões & CTAs</h3>
+          <p>Botões WhatsApp, Lima primário, Navy, Outline e Trio de Confiança.</p>
+        </div>
+        <span class="link-text">Ver cartões →</span>
+      </a>
+      <a href="components/cards/cards.card.html" class="card">
+        <div>
+          <h3>Cartões & Galeria</h3>
+          <p>FieldPhotoCard, ServiceRow, ProcessStep, NoteBar e TrustItem.</p>
+        </div>
+        <span class="link-text">Ver cartões →</span>
+      </a>
+      <a href="components/content/content.card.html" class="card">
+        <div>
+          <h3>Conteúdo & FAQ</h3>
+          <p>SectionHeading, PestTile com ícones vetorizados e FaqItem interativo.</p>
+        </div>
+        <span class="link-text">Ver cartões →</span>
+      </a>
+      <a href="components/content/gbp.card.html" class="card">
+        <div>
+          <h3>Google Business Profile (GBP)</h3>
+          <p>GbpMap com rota e selo Google Review 5 Estrelas SVG inline.</p>
+        </div>
+        <span class="link-text">Ver cartões →</span>
+      </a>
+      <a href="components/forms/forms.card.html" class="card">
+        <div>
+          <h3>Formulários</h3>
+          <p>TextField, SelectField e RadioPillGroup para agendamento.</p>
+        </div>
+        <span class="link-text">Ver cartões →</span>
+      </a>
+      <a href="components/icons/icons.card.html" class="card">
+        <div>
+          <h3>Ícones Autorais de Pragas</h3>
+          <p>Set exclusivo com 9 pragas (Escorpião, Barata, Cupim, etc.) e ícones de UI.</p>
+        </div>
+        <span class="link-text">Ver cartões →</span>
+      </a>
+      <a href="components/layout/layout.card.html" class="card">
+        <div>
+          <h3>Layout & Navegação</h3>
+          <p>SiteHeader com blur, SiteFooter institucional, WhatsAppFloat e MobileStickyBar.</p>
+        </div>
+        <span class="link-text">Ver cartões →</span>
+      </a>
+    </div>
+
+    <h2 class="section-title">Diretrizes de Marca & Design</h2>
+    <div class="grid">
+      <a href="guidelines/colors-marca.card.html" class="card">
+        <div>
+          <h3>Cores da Marca</h3>
+          <p>Navy #002347, Verde-Lima #8fce2a, Azul Swoosh e contraste de EPI.</p>
+        </div>
+        <span class="link-text">Ver guideline →</span>
+      </a>
+      <a href="guidelines/type-headings.card.html" class="card">
+        <div>
+          <h3>Tipografia</h3>
+          <p>Montserrat para títulos densos e DM Sans para corpo de texto legível.</p>
+        </div>
+        <span class="link-text">Ver guideline →</span>
+      </a>
+      <a href="guidelines/brand-fotografia.card.html" class="card">
+        <div>
+          <h3>Fotografia Real de Campo</h3>
+          <p>Registros reais em Franca/SP com técnicos em ação e equipamentos de segurança.</p>
+        </div>
+        <span class="link-text">Ver guideline →</span>
+      </a>
+      <a href="guidelines/spacing-ritmo.card.html" class="card">
+        <div>
+          <h3>Espaçamento & Grid</h3>
+          <p>Grade de 4px, container responsivo de 1200px e ritmo vertical de seções.</p>
+        </div>
+        <span class="link-text">Ver guideline →</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Sentinela Saúde Ambiental — Design System &copy; 2026. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

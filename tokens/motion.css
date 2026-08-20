@@ -1,0 +1,21 @@
+/* Movimento discreto: fade + slide curto, sem bounce em conteúdo.
+   Regra do repo: conteúdo nunca fica invisível esperando animação. */
+:root {
+  --duration-fast: 150ms;
+  --duration-base: 200ms;   /* transition-colors do header */
+  --duration-slow: 300ms;   /* menu mobile */
+  --duration-image: 500ms;  /* zoom suave em fotos de galeria */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --hover-image-scale: 1.03;
+  --press-scale: 0.98;
+}
+
+@keyframes sentinela-ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes sentinela-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}

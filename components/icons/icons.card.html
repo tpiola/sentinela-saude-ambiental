@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" viewport="700x240" name="Ícones" subtitle="Set de pragas autoral + ícones de UI + glifo WhatsApp" -->
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Ícones</title>
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../ds-preview-loader.js"></script>
+<style>body{margin:0;padding:18px;background:#fff;font-family:var(--font-body);color:var(--brand-navy)}
+.lbl{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-lime-deep);margin:16px 0 8px}
+.lbl:first-child{margin-top:0}
+.row{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end}
+.cell{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--brand-navy)}
+.cap{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-muted)}</style>
+</head><body><div id="root"></div>
+<script type="text/x-sentinela-jsx">
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+
+  const { PestIcon, UiIcon, WhatsAppIcon } = DS;
+  const pests = ["escorpiao","baratas","ratos","cupins","formigas","aranhas","mosquitos","moscas","caixa-dagua"];
+  const ui = ["phone","menu","close","chevron-down","arrow-right","pin","document","calendar","shield"];
+  root.render(
+    <div>
+      <p className="lbl">Pragas · 28px · navy</p>
+      <div className="row">{pests.map(n => <div className="cell" key={n}><PestIcon name={n} size={28} /><span className="cap">{n}</span></div>)}</div>
+      <p className="lbl">UI · 24px traço 2 · + WhatsApp</p>
+      <div className="row">
+        {ui.map(n => <div className="cell" key={n}><UiIcon name={n} /><span className="cap">{n}</span></div>)}
+        <div className="cell" style={{color:"var(--brand-whatsapp)"}}><WhatsAppIcon size={24} /><span className="cap">whatsapp</span></div>
+      </div>
+    </div>
+  );
+</script>
+<script>window.bootSentinela("../../").catch((e) => { document.getElementById("root").textContent = String(e); });</script>
+</body></html>

@@ -1,0 +1,23 @@
+Logo oficial
+============
+Copie o arquivo PNG do logo da empresa para:
+
+  logo-sentinela.png
+
+O hero também usa um componente SVG (escudo) até o PNG existir.
+
+Galeria e mídia do Facebook
+===========================
+Por padrão o site carrega fotos públicas do perfil (slug antigo Better
+Controle de Pragas) via URLs do fbcdn em src/lib/brand.ts.
+
+Para produção estável, baixe essas imagens e substitua pelos caminhos
+em /public/brand/gallery/ (evita links que o Facebook pode expirar).
+
+Vídeo do hero (MP4)
+===================
+Facebook não fornece MP4 direto nos Reels para uso em <video>. Opções:
+
+1) Exporte um reel pelo Facebook / Meta Business Suite e hospede o ficheiro como
+   site/public/brand/hero.mp4; aponte heroVideoUrl para essa rota.
+2) Ou defina NEXT_PUBLIC_HERO_VIDEO_URL no .env.local com um MP4 público.

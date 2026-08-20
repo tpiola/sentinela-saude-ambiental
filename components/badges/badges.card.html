@@ -1,0 +1,40 @@
+<!-- @dsCard group="Components" viewport="700x230" name="Eyebrow, Badge e Chip" subtitle="Rótulo de seção, pílula de urgência e pílula de bairro" -->
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Badges</title>
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../ds-preview-loader.js"></script>
+<style>body{margin:0;padding:18px;background:#fff;font-family:var(--font-body);color:var(--brand-navy)}
+.lbl{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-lime-deep);margin:16px 0 8px}
+.lbl:first-child{margin-top:0}
+.band{padding:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:12px}</style>
+</head><body><div id="root"></div>
+<script type="text/x-sentinela-jsx">
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+
+  const { Badge, Eyebrow, Chip } = DS;
+  root.render(
+    <div>
+      <div className="band" style={{background:"var(--brand-navy)"}}>
+        <Eyebrow tone="inverse">Dedetizadora em Franca SP · 11+ anos</Eyebrow>
+        <Badge pulse>Resposta &lt; 30 min · Emergência em Franca</Badge>
+      </div>
+      <div className="band" style={{background:"var(--brand-surface)"}}>
+        <Eyebrow rule>Sobre a Sentinela</Eyebrow>
+        <Eyebrow>Atendimento por diagnóstico</Eyebrow>
+        <Badge tone="light">Laudo conforme escopo</Badge>
+      </div>
+      <div className="band" style={{background:"#fff",marginBottom:0}}>
+        <Chip href="#">Franca — SP</Chip>
+        <Chip href="#">Batatais — SP</Chip>
+        <Chip>Orlândia — SP</Chip>
+        <Chip size="sm">Jardim Consolação</Chip>
+        <Chip size="sm">Vila Aparecida</Chip>
+      </div>
+    </div>
+  );
+</script>
+<script>window.bootSentinela("../../").catch((e) => { document.getElementById("root").textContent = String(e); });</script>
+</body></html>

@@ -1,0 +1,17 @@
+/* Radii — buttons/inputs 10px, cards 16–20px, pills 999px.
+   Note: source uses SHARP corners (no radius) on the two big Trajetória panels
+   — see --radius-panel: 0. Everything smaller than a full-width panel gets rounding. */
+
+:root {
+  --radius-none:   0;
+  --radius-xs:     4px;
+  --radius-sm:     6px;
+  --radius-md:     8px;
+  --radius-lg:     10px;   /* buttons, inputs */
+  --radius-xl:     12px;   /* icon tiles, small cards */
+  --radius-2xl:    16px;   /* project cards, provas cards */
+  --radius-3xl:    20px;   /* hero card / big containers */
+  --radius-pill:   999px;  /* badges, floating CTA */
+
+  --radius-panel:  0;      /* sharp-cornered timeline panels */
+}

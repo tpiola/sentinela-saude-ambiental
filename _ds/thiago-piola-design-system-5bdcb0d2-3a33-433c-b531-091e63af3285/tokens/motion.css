@@ -1,0 +1,18 @@
+/* Motion — quiet luxury: long, cubic-bezier(0.16, 1, 0.3, 1) ease-outs, no bounces.
+   Hover states lift 2–4px, buttons brighten & translate, cards tilt subtly.
+   Reduce-motion is respected app-wide (see base.css). */
+
+:root {
+  --ease-luxury:   cubic-bezier(0.16, 1, 0.3, 1);   /* @kind other */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);  /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);    /* @kind other */
+
+  --dur-fast: 200ms;   /* @kind other */
+  --dur-base: 350ms;   /* @kind other */
+  --dur-slow: 650ms;   /* @kind other */
+  --dur-xslow: 900ms;  /* @kind other */
+
+  --hover-lift-sm: translateY(-1px);  /* @kind other */
+  --hover-lift-md: translateY(-2px);  /* @kind other */
+  --hover-lift-lg: translateY(-4px);  /* @kind other */
+}

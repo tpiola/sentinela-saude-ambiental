@@ -1,0 +1,30 @@
+<!-- @dsCard group="Components" viewport="700x520" name="Prova social Google" subtitle="Selo SVG, trio de CTA e mapa do perfil GBP" -->
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Prova social Google</title>
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../ds-preview-loader.js"></script>
+<style>body{margin:0;padding:18px;background:#fff;font-family:var(--font-body);color:var(--brand-navy)}
+.lbl{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-lime-deep);margin:16px 0 8px}
+.lbl:first-child{margin-top:0}</style>
+</head><body><div id="root"></div>
+<script type="text/x-sentinela-jsx">
+  const { GoogleReviewBadge, TrustCtaTrio, GbpMap } = DS;
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <div>
+      <p className="lbl">Selo · fundo claro e fundo escuro</p>
+      <div style={{display:"flex",gap:24,alignItems:"center",flexWrap:"wrap"}}>
+        <GoogleReviewBadge />
+        <div style={{background:"var(--brand-navy)",color:"#fff",padding:"10px 14px"}}><GoogleReviewBadge /></div>
+      </div>
+      <p className="lbl">Trio obrigatório</p>
+      <TrustCtaTrio />
+      <p className="lbl">Mapa GBP (rodapé)</p>
+      <div style={{background:"var(--brand-navy)",padding:18}}><GbpMap /></div>
+    </div>
+  );
+</script>
+<script>window.bootSentinela("../../").catch((e) => { document.getElementById("root").textContent = String(e); });</script>
+</body></html>

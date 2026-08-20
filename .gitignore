@@ -1,0 +1,30 @@
+﻿# Dependências e Builds
+node_modules/
+.next/
+dist/
+build/
+out/
+
+# Vercel
+.vercel/
+
+# Variáveis de Ambiente e Segredos
+.env
+.env*.local
+.env.production
+.env.development
+
+# Logs e Temporários
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.system_generated/
+*.log
+
+# IDEs e Sistema Operacional
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.vercel

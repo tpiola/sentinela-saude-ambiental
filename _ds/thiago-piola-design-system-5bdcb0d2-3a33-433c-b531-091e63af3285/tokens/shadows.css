@@ -1,0 +1,19 @@
+/* Shadow system — three tiers + brand-glow lifts.
+   The source pattern: rest state carries a subtle shadow; hover lifts to medium +
+   translateY(-2px to -4px), often with a color-mix brand-tinted ring. */
+
+:root {
+  --shadow-subtle: 0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-medium: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
+  --shadow-strong: 0 16px 64px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08);
+
+  --shadow-brand-sm: 0 2px 12px var(--brand-glow), 0 1px 3px rgba(0,0,0,0.15);
+  --shadow-brand-md: 0 6px 24px var(--brand-glow), 0 2px 8px rgba(0,0,0,0.20);
+  --shadow-brand-lg: 0 12px 40px color-mix(in srgb, var(--brand) 12%, transparent),
+                     0 4px 16px  color-mix(in srgb, var(--brand) 6%,  transparent);
+
+  --shadow-card-hover: 0 24px 48px -16px color-mix(in srgb, var(--brand) 18%, transparent);
+
+  /* Ring / focus */
+  --ring-brand: 0 0 0 2px var(--brand), 0 0 0 5px color-mix(in srgb, var(--brand) 20%, transparent);
+}

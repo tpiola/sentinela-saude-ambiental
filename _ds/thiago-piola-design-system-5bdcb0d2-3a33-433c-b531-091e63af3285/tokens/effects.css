@@ -1,0 +1,214 @@
+/* Effects — glass, gradients, dividers, badges — the visual vocabulary the site
+   composes out of. All read from the token layer above. */
+
+/* ── Glass ─────────────────────────────────────────── */
+.glass-light {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.9);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+.dark .glass-light {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.glass {
+  background: color-mix(in srgb, var(--surface-elevated) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+/* ── Gradients ─────────────────────────────────────── */
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.dark .text-gradient-brand {
+  background: linear-gradient(135deg, #90c0ff 0%, #f99a4a 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.text-gradient-accent {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* ── Dividers ──────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.divider-brand {
+  height: 1px;
+  background: linear-gradient(90deg, transparent,
+    color-mix(in srgb, var(--brand) 30%, transparent), transparent);
+}
+
+/* ── Badges (pill eyebrows) ────────────────────────── */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--brand) 5%, transparent);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand);
+  border-radius: var(--radius-pill);
+}
+.dark .badge {
+  background: rgba(91,155,213,0.08);
+  border-color: rgba(91,155,213,0.20);
+  color: #7eb3e8;
+}
+
+/* ── Cards ─────────────────────────────────────────── */
+.card-elevated {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow var(--dur-base), transform var(--dur-base), border-color var(--dur-base);
+}
+.card-elevated:hover {
+  box-shadow: var(--shadow-medium);
+  transform: var(--hover-lift-md);
+  border-color: color-mix(in srgb, var(--brand) 20%, transparent);
+}
+.card-hover-premium {
+  transition: transform 400ms var(--ease-luxury),
+              box-shadow 400ms var(--ease-luxury),
+              border-color 400ms ease;
+  will-change: transform;
+}
+.card-hover-premium:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-brand-lg);
+  border-color: color-mix(in srgb, var(--brand) 25%, transparent);
+}
+
+/* ── Buttons (utility classes — the design-system Button component wraps these) ─ */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 28px;
+  background: var(--brand);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px; font-weight: var(--weight-semi);
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-brand-sm);
+  transition: box-shadow var(--dur-base), transform var(--dur-fast), filter var(--dur-fast);
+  cursor: pointer; text-decoration: none;
+}
+.btn-primary:hover {
+  box-shadow: var(--shadow-brand-md);
+  transform: var(--hover-lift-sm);
+  filter: brightness(1.08);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 28px;
+  background: color-mix(in srgb, var(--brand) 6%, transparent);
+  color: var(--brand);
+  font-family: var(--font-sans);
+  font-size: 13px; font-weight: var(--weight-semi);
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--brand) 20%, transparent);
+  transition: background var(--dur-base), border-color var(--dur-base), transform var(--dur-fast);
+  cursor: pointer; text-decoration: none;
+}
+.btn-secondary:hover {
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 35%, transparent);
+  transform: var(--hover-lift-sm);
+}
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: var(--weight-semi);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer; text-decoration: none;
+  transition: color var(--dur-base), background var(--dur-base);
+}
+.btn-ghost:hover {
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 6%, transparent);
+}
+
+/* ── Stat block (thin brand-colored bar to the left of a big number) ── */
+.stat-block { position: relative; padding-left: 1.25rem; }
+.stat-block::before {
+  content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 2px; height: 60%;
+  background: linear-gradient(to bottom, transparent, var(--brand), transparent);
+  border-radius: 2px;
+}
+.stat-value {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.04em; line-height: 1;
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: var(--weight-semi);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin-top: 4px;
+}
+
+/* ── Timeline ───────────────────────────────────────── */
+.timeline-item { position: relative; padding-left: 2rem; }
+.timeline-item::before {
+  content: ""; position: absolute; left: 0; top: 8px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 15%, transparent);
+}
+.timeline-item::after {
+  content: ""; position: absolute; left: 3.5px; top: 20px; bottom: -12px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--border), transparent);
+}
+.timeline-item:last-child::after { display: none; }
+
+/* ── Grid lines background ──────────────────────────── */
+.grid-lines {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Ambient orb ────────────────────────────────────── */
+.orb {
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ── Section eyebrow (dot + text) ───────────────────── */
+.dot-pulse {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor;
+  animation: dot-pulse-anim 2s ease-in-out infinite;
+}
+@keyframes dot-pulse-anim {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%     { opacity: 0.4; transform: scale(0.8); }
+}

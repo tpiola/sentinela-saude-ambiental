@@ -1,0 +1,36 @@
+<!-- @dsCard group="Components" viewport="700x320" name="Formulários" subtitle="TextField, SelectField, RadioPillGroup e submit" -->
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Formulários</title>
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../ds-preview-loader.js"></script>
+<style>body{margin:0;padding:18px;background:#fff;font-family:var(--font-body);color:var(--brand-navy)}
+.lbl{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brand-lime-deep);margin:16px 0 8px}
+.lbl:first-child{margin-top:0}
+body{background:var(--brand-surface)}</style>
+</head><body><div id="root"></div>
+<script type="text/x-sentinela-jsx">
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+
+  const { TextField, SelectField, RadioPillGroup, Button } = DS;
+  function App(){
+    const [form,setForm]=React.useState({problema:"Escorpiões",bairro:"",urgencia:"Hoje"});
+    const set=(k,v)=>setForm(s=>({...s,[k]:v}));
+    return (
+      <form style={{background:"#fff",border:"1px solid var(--brand-border)",padding:20}} onSubmit={e=>e.preventDefault()}>
+        <div style={{display:"grid",gap:16,gridTemplateColumns:"1fr 1fr"}}>
+          <SelectField id="problema" label="Qual é o problema?" options={["Escorpiões","Baratas ou formigas","Cupins","Roedores","Outro"]} value={form.problema} onChange={v=>set("problema",v)} style={{gridColumn:"1 / -1"}} />
+          <TextField id="bairro" label="Bairro ou cidade" placeholder="Ex.: Centro, Franca" value={form.bairro} onChange={v=>set("bairro",v)} />
+          <TextField id="bairro2" label="Bairro ou cidade" value="" error="Informe o bairro ou a cidade" />
+          <RadioPillGroup name="urgencia" legend="Quando precisa do atendimento?" options={["Hoje","Nesta semana","Quero orientação"]} value={form.urgencia} onChange={v=>set("urgencia",v)} style={{gridColumn:"1 / -1"}} />
+        </div>
+        <Button variant="lime" type="submit" fullWidth style={{marginTop:20}}>Continuar no WhatsApp</Button>
+      </form>
+    );
+  }
+  root.render(<App />);
+</script>
+<script>window.bootSentinela("../../").catch((e) => { document.getElementById("root").textContent = String(e); });</script>
+</body></html>
