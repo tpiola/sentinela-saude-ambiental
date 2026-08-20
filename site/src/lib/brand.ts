@@ -162,6 +162,11 @@ export const BRAND = {
       answer:
         "A ação e a necessidade de acompanhamento variam conforme a espécie, o produto, a intensidade da atividade e as condições do imóvel. A frequência é definida depois da inspeção.",
     },
+    {
+      question: "Procurei \"dedetizadora perto de mim\" — vocês atendem meu bairro?",
+      answer:
+        "Sim. A Sentinela atende Franca e municípios da região. Confirme seu bairro pelo WhatsApp e a equipe informa a disponibilidade do dia: a resposta costuma sair em poucos minutos, com rota e escopo confirmados antes da visita.",
+    },
   ],
 } as const;
 
