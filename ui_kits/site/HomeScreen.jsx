@@ -113,11 +113,11 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
           <div style={{ display: "grid", gap: 48, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))", alignItems: "center" }}>
             <div className="animate-fade-up">
               <h1 style={{ margin: 0, fontFamily: "var(--font-heading)", fontSize: "clamp(2.2rem, 4vw, 3.85rem)", fontWeight: 900, lineHeight: 1.08, letterSpacing: "-0.03em", color: "#fff" }}>
-                Encontrou escorpião ou pragas na sua casa em Franca?
+                Encontrou escorpião ou pragas no seu imóvel em Franca?
               </h1>
               
-              <p style={{ margin: "20px 0 0", fontSize: "1.1875rem", lineHeight: 1.65, color: "rgba(255,255,255,0.9)" }}>
-                Eliminamos no foco com <strong style={{ color: "var(--brand-lime)" }}>produto sem cheiro</strong>, barreira química residual e total segurança para crianças, sua família e animais de estimação.
+              <p style={{ margin: "20px 0 0", fontSize: "1.1875rem", lineHeight: 1.65, color: "rgba(255,255,255,0.92)" }}>
+                Eliminamos no foco em <strong style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: 3 }}>residências, condomínios e empresas</strong> com produto sem cheiro, barreira química residual e total segurança para crianças, sua família, colaboradores e animais de estimação.
               </p>
 
               {/* BOTAO DE AÇÃO: CHAMADA DE URGÊNCIA */}
@@ -143,19 +143,27 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
                 </a>
               </div>
 
-              {/* 3 ITENS EXCLUSIVOS DE PROVA */}
-              <div style={{ display: "grid", gap: 8, marginTop: 28, fontSize: "0.9375rem", color: "rgba(255,255,255,0.9)" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ color: "var(--brand-lime)", fontWeight: 800 }}>✓</span>
-                  <strong>Atendimento em tempo Record - Nossa missão é sua Família ou colaboradores fora de risco.</strong>
+              {/* 3 CARDS DE DESTAQUE PREMIUM COM VIDRO E BORDAS ILUMINADAS */}
+              <div style={{ display: "grid", gap: 10, marginTop: 28 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: "rgba(255,255,255,0.07)", borderRadius: 10, border: "1px solid rgba(143,206,42,0.3)", boxShadow: "0 4px 16px rgba(0,0,0,0.2)" }}>
+                  <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 26, height: 26, borderRadius: "50%", background: "var(--brand-lime)", color: "var(--brand-navy)", fontWeight: 900, fontSize: "0.875rem", flexShrink: 0 }}>✓</span>
+                  <strong style={{ fontSize: "0.9375rem", color: "#fff", lineHeight: 1.4 }}>
+                    Atendimento em tempo Record - Nossa missão é sua Família ou colaboradores fora de risco.
+                  </strong>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ color: "var(--brand-lime)", fontWeight: 800 }}>✓</span>
-                  <span>Produtos microencapsulados sem cheiro e sem manchas em pisos ou paredes.</span>
+
+                <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: "rgba(255,255,255,0.05)", borderRadius: 10, border: "1px solid rgba(255,255,255,0.12)" }}>
+                  <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 26, height: 26, borderRadius: "50%", background: "rgba(143,206,42,0.25)", color: "var(--brand-lime)", fontWeight: 900, fontSize: "0.875rem", flexShrink: 0 }}>✓</span>
+                  <span style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.4 }}>
+                    Produtos microencapsulados sem cheiro e sem manchas em pisos ou paredes.
+                  </span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ color: "var(--brand-lime)", fontWeight: 800 }}>✓</span>
-                  <span>Garantia técnica formal com laudo e conformidade com a Vigilância Sanitária.</span>
+
+                <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", background: "rgba(255,255,255,0.05)", borderRadius: 10, border: "1px solid rgba(255,255,255,0.12)" }}>
+                  <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 26, height: 26, borderRadius: "50%", background: "rgba(143,206,42,0.25)", color: "var(--brand-lime)", fontWeight: 900, fontSize: "0.875rem", flexShrink: 0 }}>✓</span>
+                  <span style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.4 }}>
+                    Garantia técnica formal com laudo e conformidade com a Vigilância Sanitária.
+                  </span>
                 </div>
               </div>
             </div>
@@ -218,27 +226,27 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
         </div>
       </section>
 
-      {/* BLOCO CIENTÍFICO / EDUCATIVO: POR QUE VENENO DE SUPERMERCADO PIORA O PROBLEMA */}
-      <section style={{ background: "var(--brand-surface)", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
+      {/* BLOCO CIENTÍFICO / EDUCATIVO: COM FUNDO DE PERIGO EM ALTA DEFINIÇÃO */}
+      <section style={{ position: "relative", padding: "80px 0", color: "#fff", background: `linear-gradient(to bottom, rgba(0, 14, 31, 0.94) 0%, rgba(10, 20, 38, 0.96) 100%), url(${A("campo/inspecao-caixa-visita-escorpiao-franca-sp.webp")}) center/cover no-repeat fixed`, borderBottom: "3px solid #dc2626" }}>
         <div className="container-responsive" style={{ padding: "0 24px" }}>
           <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center", marginBottom: 48 }}>
-            <span style={{ display: "inline-block", padding: "6px 14px", background: "rgba(220, 38, 38, 0.1)", color: "#b91c1c", borderRadius: 6, fontSize: "0.8125rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em" }}>
-              Alerta Técnico de Saúde Ambiental
+            <span style={{ display: "inline-block", padding: "6px 14px", background: "rgba(220, 38, 38, 0.25)", color: "#f87171", border: "1px solid rgba(220, 38, 38, 0.5)", borderRadius: 6, fontSize: "0.8125rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em" }}>
+              ⚠️ Alerta Técnico de Saúde Ambiental
             </span>
-            <h2 style={{ margin: "16px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.6rem)", fontWeight: 800, color: "var(--brand-navy)", lineHeight: 1.15 }}>
+            <h2 style={{ margin: "16px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.6rem)", fontWeight: 900, color: "#fff", lineHeight: 1.15 }}>
               Por que jogar veneno de supermercado piora a infestação de escorpiões?
             </h2>
-            <p style={{ margin: "16px 0 0", fontSize: "1.0625rem", lineHeight: 1.6, color: "var(--brand-muted)" }}>
+            <p style={{ margin: "16px 0 0", fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(255,255,255,0.85)" }}>
               O escorpião-amarelo (<em>Tityus serrulatus</em>) possui carapaça espessa de quitina e sensores que fecham a respiração ao detectar aerossóis comuns. O veneno barato não mata o escorpião; ele apenas o irrita e desaloja dos ralos e caixas de esgoto para dentro de quartos e salas.
             </p>
           </div>
 
           <div style={{ display: "grid", gap: 24, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))" }}>
-            <div style={{ background: "#fff", padding: 32, borderRadius: 12, border: "2px solid #fca5a5", boxShadow: "0 4px 14px rgba(0,0,0,0.03)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, color: "#dc2626", fontWeight: 800, fontSize: "1.125rem", marginBottom: 16 }}>
+            <div style={{ background: "rgba(20, 0, 0, 0.75)", backdropFilter: "blur(8px)", padding: 32, borderRadius: 12, border: "2px solid #dc2626", boxShadow: "0 8px 24px rgba(0,0,0,0.4)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, color: "#f87171", fontWeight: 900, fontSize: "1.125rem", marginBottom: 16 }}>
                 <span>❌ Inseticida Comum / Spray de Mercado</span>
               </div>
-              <ul style={{ paddingLeft: 20, margin: 0, color: "#4b5563", fontSize: "0.95rem", lineHeight: 1.7, display: "grid", gap: 10 }}>
+              <ul style={{ paddingLeft: 20, margin: 0, color: "rgba(255,255,255,0.85)", fontSize: "0.95rem", lineHeight: 1.7, display: "grid", gap: 10 }}>
                 <li><strong>Não elimina a carapaça do escorpião:</strong> a concentração é insuficiente para letalidade.</li>
                 <li><strong>Efeito desalojante perigoso:</strong> faz o escorpião fugir do esgoto e subir para a casa.</li>
                 <li><strong>Cheiro forte e toxicidade:</strong> irrita vias aéreas de crianças e pets.</li>
@@ -246,11 +254,11 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
               </ul>
             </div>
 
-            <div style={{ background: "linear-gradient(145deg, #002347 0%, #001730 100%)", color: "#fff", padding: 32, borderRadius: 12, border: "2px solid var(--brand-lime)", boxShadow: "0 8px 24px rgba(0,35,71,0.2)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, color: "var(--brand-lime)", fontWeight: 800, fontSize: "1.125rem", marginBottom: 16 }}>
+            <div style={{ background: "rgba(0, 24, 50, 0.8)", backdropFilter: "blur(8px)", color: "#fff", padding: 32, borderRadius: 12, border: "2px solid var(--brand-lime)", boxShadow: "0 8px 24px rgba(0,35,71,0.4)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, color: "var(--brand-lime)", fontWeight: 900, fontSize: "1.125rem", marginBottom: 16 }}>
                 <span>✓ Protocolo Técnico Sentinela Saúde Ambiental</span>
               </div>
-              <ul style={{ paddingLeft: 20, margin: 0, color: "rgba(255,255,255,0.9)", fontSize: "0.95rem", lineHeight: 1.7, display: "grid", gap: 10 }}>
+              <ul style={{ paddingLeft: 20, margin: 0, color: "rgba(255,255,255,0.92)", fontSize: "0.95rem", lineHeight: 1.7, display: "grid", gap: 10 }}>
                 <li><strong>Princípios ativos microencapsulados:</strong> grudam no corpo do escorpião e agem no sistema nervoso.</li>
                 <li><strong>Eliminação das baratas:</strong> corte da fonte primária de alimento que atrai os escorpiões.</li>
                 <li><strong>Aplicação técnica sem cheiro:</strong> segurança biológica total para animais e família.</li>
@@ -261,7 +269,7 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
         </div>
       </section>
 
-      {/* ATENDIMENTOS EM FRANCA E REGIÃO (TÍTULO ATUALIZADO) */}
+      {/* ATENDIMENTOS EM FRANCA E REGIÃO + BOTÃO COM FEIXE LUMINOSO PASSANDO */}
       <section style={{ background: "#ffffff", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
         <div className="container-responsive" style={{ padding: "0 24px" }}>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: 20, marginBottom: 40 }}>
@@ -273,9 +281,29 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
                 Atendimentos em Franca e Região
               </h2>
             </div>
-            <Button variant="whatsapp" href={wa("Olá! Gostaria de um orçamento para o meu bairro em Franca.")} target="_blank">
-              Consultar Atendimento no Meu Bairro
-            </Button>
+
+            {/* BOTÃO COM EFEITO DE FEIXE LUMINOSO PASSANDO */}
+            <a
+              href={wa("Olá! Gostaria de consultar o atendimento para o meu bairro em Franca/SP.")}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-sweep-highlight hover-lift"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "16px 28px",
+                background: "var(--brand-lime)",
+                color: "var(--brand-navy)",
+                borderRadius: 8,
+                fontWeight: 900,
+                fontSize: "1rem",
+                textDecoration: "none",
+                letterSpacing: "0.02em"
+              }}
+            >
+              <span>📍 Consultar Atendimento no Meu Bairro</span>
+            </a>
           </div>
 
           <div style={{ display: "grid", gap: 24, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))" }}>
@@ -337,21 +365,61 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
         </div>
       </section>
 
-      {/* CONTROLE POR PRAGA (TODOS OS TIPOS) */}
+      {/* BLOCO ESPECIALIDADES TÉCNICAS: DESIGN ENRIQUECIDO COM ANIMAÇÕES */}
       <section style={{ background: "#fff", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
         <div className="container-responsive" style={{ padding: "0 24px" }}>
-          <div style={{ textAlign: "center", maxWidth: 700, margin: "0 auto 40px" }}>
-            <span style={{ fontSize: "0.8125rem", fontWeight: 800, color: "var(--brand-lime-deep)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+          <div style={{ textAlign: "center", maxWidth: 740, margin: "0 auto 40px" }}>
+            <span style={{ fontSize: "0.8125rem", fontWeight: 800, color: "var(--brand-lime-deep)", textTransform: "uppercase", letterSpacing: "0.12em" }}>
               Especialidades Técnicas
             </span>
-            <h2 style={{ margin: "10px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, color: "var(--brand-navy)" }}>
+            <h2 style={{ margin: "10px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 900, color: "var(--brand-navy)" }}>
               Controle Especializado para Cada Espécie
             </h2>
+            <p style={{ margin: "10px auto 0", fontSize: "1rem", color: "var(--brand-muted)" }}>
+              Clique na praga para ver o diagnóstico técnico completo ou solicitar atendimento emergencial.
+            </p>
           </div>
 
-          <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))" }}>
-            {allPests.map(([kind, label]) => (
-              <PestTile key={kind} kind={kind} label={label} href={wa(`Olá! Gostaria de um orçamento para controle de ${label} em Franca/SP.`)} />
+          <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))" }}>
+            {[
+              { slug: "escorpiao", nome: "Escorpiões", desc: "Bloqueio de ralos e esgoto", icone: "🦂", cor: "#dc2626" },
+              { slug: "cupins", nome: "Cupins", desc: "Madeira seca e solo", icone: "🪵", cor: "#d97706" },
+              { slug: "baratas", nome: "Baratas", desc: "Esgoto e francesinhas", icone: "🪳", cor: "#9a3412" },
+              { slug: "ratos", nome: "Ratos", desc: "Roedores e ratazanas", icone: "🐀", cor: "#4b5563" },
+              { slug: "aranhas", nome: "Aranhas", desc: "Armadeiras e marrom", icone: "🕷️", cor: "#7c2d12" },
+              { slug: "formigas", nome: "Formigas", desc: "Cortadeiras e doceiras", icone: "🐜", cor: "#047857" },
+              { slug: "mosquitos", nome: "Mosquitos", desc: "Dengue e pernilongos", icone: "🦟", cor: "#0284c7" },
+              { slug: "pulgas", nome: "Pulgas & Pets", desc: "Carrapatos e pulgas", icone: "🐾", cor: "#9333ea" },
+              { slug: "vespas", nome: "Marimbondos", desc: "Abelhas e vespas", icone: "🐝", cor: "#eab308" },
+              { slug: "caixa-dagua", nome: "Caixa d'Água", desc: "Higienização e laudo", icone: "💧", cor: "#0284c7" }
+            ].map((p) => (
+              <a
+                key={p.slug}
+                href={`#${p.slug}`}
+                className="hover-lift"
+                style={{
+                  background: "var(--brand-surface)",
+                  padding: "20px",
+                  borderRadius: 12,
+                  border: "1px solid var(--border-default)",
+                  borderTop: `4px solid ${p.cor}`,
+                  textDecoration: "none",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+                  transition: "all 0.25s ease"
+                }}
+              >
+                <div>
+                  <span style={{ fontSize: "2rem", display: "block", marginBottom: 8 }}>{p.icone}</span>
+                  <strong style={{ display: "block", fontSize: "1.1rem", color: "var(--brand-navy)" }}>{p.nome}</strong>
+                  <span style={{ display: "block", fontSize: "0.8125rem", color: "var(--brand-muted)", marginTop: 4 }}>{p.desc}</span>
+                </div>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 4, marginTop: 16, fontSize: "0.8125rem", color: "var(--brand-lime-deep)", fontWeight: 800 }}>
+                  Ver protocolo →
+                </span>
+              </a>
             ))}
           </div>
         </div>

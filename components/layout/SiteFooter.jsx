@@ -1,5 +1,4 @@
 import React from "react";
-import { GbpMap } from "../content/GbpMap.jsx";
 import { SocialIcon } from "../icons/SocialIcons.jsx";
 
 const LINKS = [
@@ -29,7 +28,7 @@ const linkStyle = {
   transition: "color 0.2s ease, transform 0.2s ease",
 };
 
-/** Rodapé Premium Oficial: Degradê Sóbrio, Brasão, Atendimento + Mapa no topo, Redes Oficiais e QR Code */
+/** Rodapé Premium Oficial: Degradê Sóbrio, Brasão, Atendimento + Mapa no topo, Redes Oficiais, QR Code e Crédito */
 export function SiteFooter({
   logoSrc = "assets/logo-brasao.png",
   qrSrc = "assets/qrcode-whatsapp.png",
@@ -59,9 +58,9 @@ export function SiteFooter({
 
       <div style={{ margin: "0 auto", maxWidth: "76rem", padding: "1.5rem 1.5rem 3.5rem" }}>
         
-        {/* BLOCO SUPERIOR: ATENDIMENTO EM FRANCA E REGIÃO + MAPA FÍSICO */}
+        {/* BLOCO SUPERIOR: ATENDIMENTO EM FRANCA E REGIÃO + MAPA FÍSICO 100% OPERACIONAL */}
         <div style={{ margin: "1.5rem 0 3.5rem", borderRadius: 16, overflow: "hidden", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", padding: "28px" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem", marginBottom: 24 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem", marginBottom: 20 }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
                 <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--brand-lime)" }}></span>
@@ -69,26 +68,27 @@ export function SiteFooter({
               </div>
               <h2 style={{ margin: 0, fontSize: "1.35rem", fontWeight: 800, color: "#fff" }}>Atendimento em Franca e Região</h2>
               <p style={{ margin: "4px 0 0", fontSize: "0.9375rem", color: "rgba(255,255,255,0.7)" }}>
-                {addressFull} · Plantão de Atendimento Residencial, Comercial e Condomínios.
+                {addressFull} · Plantão para Residências, Condomínios e Empresas.
               </p>
             </div>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=-20.4967359,-47.4182681"
+              href="https://maps.google.com/maps?daddr=-20.4967359,-47.4182681"
               target="_blank"
               rel="noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 20px", background: "var(--brand-lime)", color: "var(--brand-navy)", borderRadius: 6, fontWeight: 800, textDecoration: "none", fontSize: "0.875rem" }}
+              className="hover-lift"
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 22px", background: "var(--brand-lime)", color: "var(--brand-navy)", borderRadius: 6, fontWeight: 800, textDecoration: "none", fontSize: "0.875rem", boxShadow: "0 4px 14px rgba(143,206,42,0.3)" }}
             >
-              📍 Traçar Rota no Google Maps
+              📍 Abrir Rota no Google Maps
             </a>
           </div>
 
-          {/* MAPA INTERATIVO OFICIAL EMBUTIDO */}
-          <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.15)" }}>
+          {/* MAPA GOOGLE EMBUTIDO DIRETO POR COORDENADAS */}
+          <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.2)", position: "relative", minHeight: 300, background: "#001020" }}>
             <iframe
-              title="Localização Sentinela Saúde Ambiental Franca SP"
-              src="https://maps.google.com/maps?q=Dedetizadora%20Sentinela%20Sa%C3%BAde%20Ambiental%20Franca%20SP&ll=-20.4967359,-47.4182681&z=16&output=embed"
+              title="Mapa de Localização Sentinela Saúde Ambiental Franca SP"
+              src="https://maps.google.com/maps?q=-20.4967359,-47.4182681&hl=pt-BR&z=16&output=embed"
               width="100%"
-              height="280"
+              height="300"
               style={{ border: 0, display: "block" }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -185,11 +185,16 @@ export function SiteFooter({
 
         </div>
 
-        {/* AVISO LEGAL E DIREITOS */}
+        {/* CRÉDITO PROFISSIONAL REI DAS VENDAS & AVISOS LEGAIS */}
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem", marginTop: "3.5rem", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "1.5rem" }}>
-          <p style={{ margin: 0, fontSize: "0.8125rem", color: "rgba(255,255,255,0.5)" }}>
-            © {year} Sentinela Saúde Ambiental · Todos os direitos reservados. CNPJ: {cnpj}
-          </p>
+          <div>
+            <p style={{ margin: 0, fontSize: "0.8125rem", color: "rgba(255,255,255,0.6)" }}>
+              © {year} Sentinela Saúde Ambiental · CNPJ: {cnpj}
+            </p>
+            <p style={{ margin: "4px 0 0", fontSize: "0.75rem", color: "rgba(255,255,255,0.45)" }}>
+              Plataforma desenvolvida por: <a href="https://www.reidasvendas.com.br" target="_blank" rel="noopener noreferrer" style={{ color: "var(--brand-lime)", textDecoration: "none", fontWeight: 700 }}>www.reidasvendas.com.br</a>
+            </p>
+          </div>
           <p style={{ margin: 0, maxWidth: "34rem", fontSize: "0.75rem", lineHeight: 1.5, color: "rgba(255,255,255,0.4)" }}>
             ⚠️ Alerta Sanitário: Em caso de picada de escorpião ou animal peçonhento, dirija-se imediatamente à UPA ou pronto-socorro. O controle de pragas elimina focos e impede novas infestações.
           </p>
