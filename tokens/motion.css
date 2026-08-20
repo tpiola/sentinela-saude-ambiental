@@ -62,32 +62,6 @@
   animation: sentinela-fade-up 0.6s var(--ease-out) forwards;
 }
 
-@keyframes sentinela-light-sweep {
-  0% { transform: translateX(-100%) rotate(25deg); opacity: 0; }
-  20% { opacity: 0.8; }
-  60% { opacity: 0.8; }
-  100% { transform: translateX(250%) rotate(25deg); opacity: 0; }
-}
-
-.btn-sweep-highlight {
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 0 2px rgba(143, 206, 42, 0.4), 0 8px 24px rgba(37, 211, 102, 0.25);
-  animation: sentinela-glow-pulse 2.5s infinite;
-}
-
-.btn-sweep-highlight::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 40px;
-  height: 200%;
-  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
-  animation: sentinela-light-sweep 3.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-}
-
 .animate-float {
   animation: sentinela-float 4s ease-in-out infinite;
 }
@@ -108,3 +82,4 @@
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0, 35, 71, 0.12);
 }
+
