@@ -1,5 +1,3 @@
-<!-- @dsCard group="Site institucional" viewport="1280x900" -->
-<!-- @startingPoint section="Site institucional" subtitle="Home, página de praga, empresas e formulário de avaliação" viewport="1280x900" -->
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -7,20 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sentinela Saúde Ambiental — UI kit do site</title>
 <link rel="stylesheet" href="../../styles.css">
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script>Babel.registerPreset("react-classic", { presets: [[Babel.availablePresets.react, { runtime: "classic" }]] });</script>
 <script src="../../ds-preview-loader.js"></script>
 <style>
-  body { margin: 0; background: #fff; padding-bottom: 0; }
-  .kit-missing { max-width: 620px; margin: 80px auto; border: 1px solid var(--brand-border); border-left: 2px solid var(--brand-lime); background: var(--brand-surface); padding: 24px; font-family: var(--font-body); color: var(--brand-navy); }
+  body { margin: 0; background: #fff; padding-bottom: 0; overflow-x: hidden; }
+  .kit-missing { max-width: 620px; margin: 80px auto; border: 1px solid var(--brand-border); border-left: 3px solid var(--brand-lime); background: var(--brand-surface); padding: 24px; font-family: var(--font-body); color: var(--brand-navy); }
 </style>
 </head>
 <body>
 <div id="root"></div>
 <script type="text/x-sentinela-jsx" src="HomeScreen.jsx"></script>
 <script type="text/x-sentinela-jsx" src="PestScreen.jsx"></script>
+<script type="text/x-sentinela-jsx" src="TermiteScreen.jsx"></script>
 <script type="text/x-sentinela-jsx" src="B2BScreen.jsx"></script>
 <script type="text/x-sentinela-jsx" src="ScheduleScreen.jsx"></script>
 <script type="text/x-sentinela-jsx">
@@ -31,6 +30,7 @@ function Kit() {
   const [screen, setScreen] = React.useState("home");
   const [scrolled, setScrolled] = React.useState(false);
   const [isMobile, setIsMobile] = React.useState(false);
+
   React.useEffect(() => {
     const mq = window.matchMedia("(max-width: 639px)");
     const sync = () => setIsMobile(mq.matches);
@@ -38,15 +38,18 @@ function Kit() {
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
   }, []);
+
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  React.useEffect(() => { window.scrollTo(0, 0); }, [screen]);
 
-  const { SiteHeader, SiteFooter, WhatsAppFloat, MobileStickyBar, TrustCtaTrio, GbpMap, gbpJsonLd } = DS;
+  React.useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [screen]);
+
+  const { SiteHeader, SiteFooter, WhatsAppFloat, MobileStickyBar, gbpJsonLd } = DS;
+
   React.useEffect(() => {
     let tag = document.getElementById("gbp-json-ld");
     if (!tag) {
@@ -57,16 +60,20 @@ function Kit() {
     }
     tag.textContent = JSON.stringify(gbpJsonLd());
   }, []);
+
   const nav = [
     { href: "#home", label: "Início" },
-    { href: "#praga", label: "Escorpião" },
-    { href: "#b2b", label: "Condomínios" },
-    { href: "#agendar", label: "Solicitar avaliação" },
+    { href: "#escorpiao", label: "Escorpiões" },
+    { href: "#cupins", label: "Cupins" },
+    { href: "#b2b", label: "Empresas & Condomínios" },
   ];
+
   const go = (s) => setScreen(s);
-  const Screens = window.SentinelaKit;
+  const Screens = window.SentinelaKit || {};
+
   const current =
-    screen === "praga" ? <Screens.PestScreen DS={DS} A={A} wa={wa} go={go} /> :
+    (screen === "escorpiao" || screen === "praga") ? <Screens.PestScreen DS={DS} A={A} wa={wa} go={go} /> :
+    screen === "cupins" ? <Screens.TermiteScreen DS={DS} A={A} wa={wa} go={go} /> :
     screen === "b2b" ? <Screens.B2BScreen DS={DS} A={A} wa={wa} go={go} /> :
     screen === "agendar" ? <Screens.ScheduleScreen DS={DS} A={A} wa={wa} go={go} /> :
     <Screens.HomeScreen DS={DS} A={A} wa={wa} go={go} />;
@@ -77,19 +84,11 @@ function Kit() {
       if (!a) return;
       e.preventDefault();
       const key = a.getAttribute("href").slice(1);
-      if (["home","praga","b2b","agendar"].includes(key)) go(key);
+      if (["home","escorpiao","praga","cupins","b2b","agendar"].includes(key)) go(key);
     }}>
-      <SiteHeader scrolled={scrolled} navLinks={nav} logoSrc={A("logo-brasao.png")} whatsappHref={wa()} />
+      <SiteHeader scrolled={scrolled} navLinks={nav} logoSrc={A("logo-brasao.png")} />
       {current}
-      <section style={{ background: "var(--brand-navy)", padding: "48px 0 56px" }}>
-        <div className="container-responsive" style={{ display: "grid", gap: 40, padding: "0 16px" }}>
-          <div style={{ maxWidth: 900, marginInline: "auto", width: "100%" }}>
-            <TrustCtaTrio onNavigate={go} showBadge={false} />
-          </div>
-          <GbpMap />
-        </div>
-      </section>
-      <SiteFooter logoSrc={A("logo-brasao.png")} year={2026} />
+      <SiteFooter logoSrc={A("logo-brasao.png")} qrSrc={A("qrcode-whatsapp.png")} year={2026} />
       {isMobile
         ? <MobileStickyBar whatsappHref={wa("Preciso de atendimento urgente. Pode me ajudar?")} />
         : <WhatsAppFloat href={wa("Preciso de atendimento urgente. Pode me ajudar?")} />}

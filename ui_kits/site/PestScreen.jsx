@@ -1,85 +1,160 @@
-/* Página de praga (escorpião) — recriação de app/pragas/[slug]/page-client.tsx. */
+/* PestScreen — Subpágina de Escorpiões & Animais Peçonhentos em Franca/SP */
 window.SentinelaKit = window.SentinelaKit || {};
 window.SentinelaKit.PestScreen = function PestScreen({ DS, A, wa, go }) {
-  const { Eyebrow, Badge, Button, WhatsAppIcon, SectionHeading, Card, ProcessStep, FaqItem, NoteBar, PestIcon } = DS;
+  const { Button, WhatsAppIcon, FaqItem } = DS;
   const [openFaq, setOpenFaq] = React.useState(0);
 
-  const sinais = [
-    ["Ralos e caixas de visita", "Abrigo úmido e escuro — o ponto de entrada mais comum em Franca."],
-    ["Entulho e material encostado na parede", "Pilhas de tijolo, madeira e vasos criam abrigo permanente no quintal."],
-    ["Frestas de rodapé e batente", "Passagem entre a área externa e o interior do imóvel."],
-    ["Muro divisório e jardim", "Área verde e serrapilheira sustentam a alimentação do escorpião."],
+  const perigos = [
+    {
+      nome: "Escorpião-Amarelo (Tityus serrulatus)",
+      risco: "Risco de Óbito em Crianças e Idosos",
+      desc: "O veneno ataca o sistema nervoso central em minutos, provocando dor insuportável, taquicardia e edema pulmonar. Reproduz-se por partenogênese (a fêmea gera até 40 filhotes sem macho).",
+      acao: "Tratamento de choque microencapsulado nas caixas de inspeção e esgoto.",
+      cor: "#dc2626"
+    },
+    {
+      nome: "Aranha-Marrom e Armadeira (Phoneutria)",
+      risco: "Necrose Tecidual e Dor Paralisante",
+      desc: "Costumam se esconder dentro de sapatos, toalhas, gavetas e entulhos de quintais em Franca. A picada da aranha-marrom gera necrose progressiva que destrói a pele.",
+      acao: "Pulverização perimetral e atomização em forros e frestas de alvenaria.",
+      cor: "#ea580c"
+    },
+    {
+      nome: "Marimbondos e Vespas Sociais",
+      risco: "Choque Anafilático e Fechamento de Glote",
+      desc: "Ataques em enxame com múltiplas ferroadas simultâneas. Extremamente perigosos para crianças alérgicas ou pessoas desavisadas em beirais e árvores.",
+      acao: "Remoção técnica especializada com vestimenta de proteção total.",
+      cor: "#f59e0b"
+    }
+  ];
+
+  const faqPest = [
+    ["Por que o escorpião é tão frequente em Franca?", "Franca possui ampla rede subterrânea de galerias pluviais antigas com alta densidade de baratas (alimento do escorpião). No calor e nas chuvas, o esgoto inunda e empurra os escorpiões para cima através de ralos, caixas de gordura e pias."],
+    ["Qual o primeiro socorro em caso de picada de escorpião?", "Lave o local com água e sabão e vá IMEDIATAMENTE para o pronto-socorro mais próximo (UPA Franca). Se possível e com segurança, tire foto do animal para identificação médica. Nunca faça torniquetes ou furos na pele."],
+    ["A aplicação da Sentinela impede o escorpião de subir?", "Sim. Criamos uma barreira química residual nas paredes das caixas de esgoto e ralos com inseticidas de laboratório que quebram a cutícula de quitina e causam a morte por contato prolongado."]
   ];
 
   return (
-    <main id="conteudo">
-      <section style={{ background: "var(--brand-navy)", color: "#fff", paddingTop: 88 }}>
-        <div className="container-responsive" style={{ display: "grid", gap: 40, gridTemplateColumns: "minmax(0,1.1fr) minmax(320px,.9fr)", alignItems: "center", padding: "48px 32px 56px" }}>
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <PestIcon name="escorpiao" size={36} style={{ color: "var(--brand-lime)" }} />
-              <Eyebrow tone="inverse">Controle de pragas · escorpião</Eyebrow>
+    <main id="conteudo-escorpiao" className="animate-fade-up">
+      {/* HERO URGÊNCIA ESCORPIÃO */}
+      <section style={{ position: "relative", background: "linear-gradient(175deg, #1f0505 0%, #001730 60%, #000c1a 100%)", color: "#fff", paddingTop: 96, paddingBottom: 64, borderBottom: "3px solid #dc2626" }}>
+        <div className="container-responsive" style={{ padding: "0 24px" }}>
+          
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "8px 16px", borderRadius: 999, background: "rgba(220, 38, 38, 0.15)", border: "1px solid rgba(220, 38, 38, 0.5)", marginBottom: 24 }}>
+            <span style={{ fontSize: "1.1rem" }}>⚠️</span>
+            <span style={{ fontSize: "0.8125rem", fontWeight: 800, color: "#f87171", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+              Emergência Sanitária · Risco Grave em Franca/SP
+            </span>
+          </div>
+
+          <div style={{ display: "grid", gap: 48, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))", alignItems: "center" }}>
+            <div>
+              <h1 style={{ margin: 0, fontFamily: "var(--font-heading)", fontSize: "clamp(2.2rem, 4vw, 3.85rem)", fontWeight: 900, lineHeight: 1.08, letterSpacing: "-0.03em", color: "#fff" }}>
+                Picada de escorpião é emergência médica e pode ser fatal.
+              </h1>
+              
+              <p style={{ margin: "20px 0 0", fontSize: "1.1875rem", lineHeight: 1.65, color: "rgba(255,255,255,0.9)" }}>
+                Não tente resolver com veneno de supermercado. Bloqueamos os ninhos nas caixas de inspeção com <strong style={{ color: "#f87171" }}>formulações de ação neurotóxica específica</strong> para eliminar o foco de imediato.
+              </p>
+
+              <div style={{ marginTop: 32, display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
+                <Button
+                  variant="whatsapp"
+                  size="lg"
+                  className="btn-whatsapp-glow hover-lift"
+                  href={wa("EMERGÊNCIA: Encontrei escorpião no imóvel em Franca/SP. Preciso de atendimento imediato!")}
+                  target="_blank"
+                  icon={<WhatsAppIcon size={22} />}
+                  style={{ padding: "18px 28px", fontSize: "1.0625rem", fontWeight: 800, borderRadius: 8, background: "#dc2626" }}
+                >
+                  Chamar Plantão Urgente no WhatsApp
+                </Button>
+                <a
+                  href="tel:16993747147"
+                  className="hover-lift"
+                  style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "18px 22px", background: "rgba(255,255,255,0.1)", color: "#fff", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: "0.95rem", border: "1px solid rgba(255,255,255,0.25)" }}
+                >
+                  📞 (16) 99374-7147
+                </a>
+              </div>
+
+              <div style={{ marginTop: 24, fontSize: "0.85rem", color: "rgba(255,255,255,0.75)" }}>
+                ✓ Atendimento prioritário para residências com crianças e animais de estimação.
+              </div>
             </div>
-            <h1 style={{ margin: "20px 0 0", maxWidth: "22ch", fontFamily: "var(--font-heading)", fontSize: "clamp(2.25rem,3.8vw,3.5rem)", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.04em", color: "#fff" }}>
-              Controle de escorpião em Franca e região
-            </h1>
-            <p style={{ margin: "20px 0 0", maxWidth: "58ch", fontSize: "1.0625rem", lineHeight: 1.75, color: "var(--text-on-inverse-muted)" }}>
-              Escorpião não se resolve com aplicação genérica: o trabalho começa pela inspeção dos abrigos e acessos do imóvel. A Sentinela mapeia ralos, caixas de visita, muros e entulho antes de definir o tratamento.
-            </p>
-            <div style={{ marginTop: 20 }}><Badge pulse>Atendimento prioritário em Franca</Badge></div>
-            <div style={{ display: "flex", gap: 12, marginTop: 28, flexWrap: "wrap" }}>
-              <Button variant="whatsapp" size="lg" className="btn-whatsapp-glow" href={wa("Encontrei escorpião no imóvel em Franca/SP. Meu bairro é:")} target="_blank" icon={<WhatsAppIcon size={20} />}>Chamar Atendimento Urgente</Button>
-              <Button variant="outline-light" size="lg" onClick={() => go("agendar")}>Solicitar inspeção</Button>
+
+            <div style={{ position: "relative" }}>
+              <div style={{ borderRadius: 16, overflow: "hidden", border: "2px solid #dc2626", boxShadow: "0 24px 60px rgba(0,0,0,0.5)" }}>
+                <img
+                  src={A("campo/inspecao-caixa-visita-escorpiao-franca-sp.webp")}
+                  alt="Inspeção e controle de escorpião em caixa de esgoto em Franca SP"
+                  style={{ width: "100%", height: 420, objectFit: "cover", display: "block" }}
+                />
+                <div style={{ position: "absolute", insetInline: 0, bottom: 0, padding: 20, background: "linear-gradient(to top, rgba(20,0,0,0.95) 0%, rgba(20,0,0,0.7) 60%, transparent 100%)" }}>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "#f87171", textTransform: "uppercase", letterSpacing: "0.1em" }}>Inspeção em Caixa de Visita</span>
+                  <p style={{ margin: "4px 0 0", color: "#fff", fontWeight: 700, fontSize: "1.1rem" }}>Eliminação de abrigos subterrâneos em Franca/SP</p>
+                </div>
+              </div>
             </div>
           </div>
-          <figure style={{ position: "relative", margin: 0, minHeight: 420, overflow: "hidden", border: "1px solid var(--border-inverse)" }}>
-            <img src={A("campo/escorpiao-residencial-baldassari-franca-sp.webp")} alt="Controle de escorpião em residência no Residencial Baldassari, Franca SP" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-            <figcaption style={{ position: "absolute", insetInline: 0, bottom: 0, padding: 20, paddingTop: 72, background: "var(--overlay-photo)" }}>
-              <p style={{ margin: 0, fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--brand-lime)" }}>Residencial Baldassari · Franca SP</p>
-              <p style={{ margin: "4px 0 0", fontFamily: "var(--font-heading)", fontSize: "1.125rem", fontWeight: 600, color: "#fff" }}>Atendimento com foco em escorpião</p>
-            </figcaption>
-          </figure>
         </div>
       </section>
 
-      <section style={{ background: "#fff", padding: "80px 0" }}>
-        <div className="container-responsive" style={{ padding: "0 32px" }}>
-          <SectionHeading eyebrow="O que a equipe procura" title="Onde o escorpião se abriga no seu imóvel" lead="A inspeção percorre os pontos onde a espécie realmente se instala. Sem esse mapeamento, o tratamento não se sustenta." />
-          <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(2,1fr)", marginTop: 40 }}>
-            {sinais.map(([t, d]) => (
-              <Card key={t} surface="muted" accent="left" padding="1.25rem">
-                <h3 style={{ margin: 0, fontFamily: "var(--font-heading)", fontSize: "1.125rem", fontWeight: 700, color: "var(--brand-navy)" }}>{t}</h3>
-                <p style={{ margin: "8px 0 0", fontSize: "0.9375rem", lineHeight: 1.6, color: "var(--brand-muted)" }}>{d}</p>
-              </Card>
+      {/* BLOCO DE PRAGAS PERIGOSAS */}
+      <section style={{ background: "#ffffff", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
+        <div className="container-responsive" style={{ padding: "0 24px" }}>
+          <div style={{ maxWidth: 840, margin: "0 auto", textAlign: "center", marginBottom: 48 }}>
+            <span style={{ fontSize: "0.8125rem", fontWeight: 800, color: "#dc2626", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+              Espécies Críticas em Franca
+            </span>
+            <h2 style={{ margin: "12px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, color: "var(--brand-navy)" }}>
+              Animais Peçonhentos e os Riscos para Sua Família
+            </h2>
+          </div>
+
+          <div style={{ display: "grid", gap: 24, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))" }}>
+            {perigos.map((p, idx) => (
+              <div key={idx} style={{ background: "var(--brand-surface)", padding: 32, borderRadius: 12, borderTop: `4px solid ${p.cor}`, borderRight: "1px solid var(--border-default)", borderBottom: "1px solid var(--border-default)", borderLeft: "1px solid var(--border-default)" }} className="hover-lift">
+                <span style={{ fontSize: "0.75rem", fontWeight: 800, color: p.cor, textTransform: "uppercase", letterSpacing: "0.08em" }}>{p.risco}</span>
+                <h3 style={{ margin: "8px 0 0", fontSize: "1.25rem", color: "var(--brand-navy)", fontWeight: 800 }}>{p.nome}</h3>
+                <p style={{ margin: "12px 0 0", fontSize: "0.9375rem", lineHeight: 1.6, color: "var(--brand-muted)" }}>{p.desc}</p>
+                <div style={{ marginTop: 20, padding: "12px 16px", background: "#fff", borderRadius: 8, border: "1px solid var(--border-default)" }}>
+                  <strong style={{ color: "var(--brand-navy)", fontSize: "0.8125rem" }}>Protocolo Sentinela:</strong>
+                  <p style={{ margin: "4px 0 0", fontSize: "0.8125rem", color: "var(--brand-muted)" }}>{p.acao}</p>
+                </div>
+              </div>
             ))}
           </div>
-          <div style={{ marginTop: 32 }}>
-            <NoteBar ctaLabel="Falar no WhatsApp" href={wa()}>
-              Em caso de picada, procure atendimento de saúde imediatamente. O controle de pragas não substitui atendimento médico.
-            </NoteBar>
+
+          {/* CTA INTERCALADO */}
+          <div style={{ marginTop: 48, textAlign: "center" }}>
+            <Button variant="whatsapp" size="lg" className="btn-whatsapp-glow hover-lift" href={wa("Olá, Rogério! Encontrei animal peçonhento em casa e preciso de vistoria urgente.")} target="_blank">
+              Falar Agora com o Rogério no WhatsApp
+            </Button>
           </div>
         </div>
       </section>
 
-      <section style={{ background: "var(--brand-navy)", padding: "80px 0" }}>
-        <div className="container-responsive" style={{ padding: "0 32px" }}>
-          <SectionHeading tone="inverse" eyebrow="Protocolo de escorpião" title="Como a Sentinela conduz o atendimento" />
-          <ol style={{ display: "grid", gap: 24, gridTemplateColumns: "repeat(3,1fr)", margin: "48px 0 0", padding: 0 }}>
-            <ProcessStep number="01" title="Inspeção dos acessos" text="Ralos, caixas de visita, rodapés, muro e área externa são abertos e avaliados um a um." />
-            <ProcessStep number="02" title="Tratamento definido pela ocorrência" text="Método e produto registrado escolhidos conforme abrigo, estrutura e circulação de pessoas e animais." />
-            <ProcessStep number="03" title="Orientação preventiva" text="Vedação, destinação de entulho e cuidados de rotina para não recriar o abrigo." ctaLabel="Chamar no WhatsApp" href={wa()} />
-          </ol>
-        </div>
-      </section>
+      {/* FAQ ESCORPIÃO */}
+      <section style={{ background: "var(--brand-surface)", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
+        <div className="container-responsive" style={{ maxWidth: 840, padding: "0 24px" }}>
+          <div style={{ textAlign: "center", marginBottom: 40 }}>
+            <h2 style={{ margin: 0, fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.4rem)", fontWeight: 800, color: "var(--brand-navy)" }}>
+              Dúvidas sobre Escorpiões e Picadas
+            </h2>
+          </div>
 
-      <section style={{ background: "var(--brand-surface)", padding: "80px 0" }}>
-        <div style={{ margin: "0 auto", maxWidth: "48rem", padding: "0 24px" }}>
-          <SectionHeading align="center" eyebrow="Dúvidas sobre escorpião" title="O que fazer e o que evitar" />
-          <ul style={{ display: "grid", gap: 12, listStyle: "none", margin: "40px 0 0", padding: 0 }}>
-            {[["Encontrei um escorpião. O que devo fazer?", "Mantenha distância, afaste pessoas e animais e não tente capturá-lo com as mãos. Em caso de picada, procure atendimento de saúde imediatamente."], ["Uma aplicação resolve para sempre?", "Não. A frequência depende da espécie, da estrutura do imóvel e das condições do entorno; ela é definida depois da inspeção."], ["Precisa sair de casa durante o serviço?", "A equipe informa antes do atendimento a preparação, o afastamento e os cuidados necessários para pessoas, animais e alimentos."]].map(([q, a], i) => (
-              <FaqItem key={q} question={q} answer={a} open={openFaq === i} onToggle={() => setOpenFaq(openFaq === i ? null : i)} />
+          <div style={{ display: "grid", gap: 12 }}>
+            {faqPest.map(([q, a], idx) => (
+              <FaqItem
+                key={idx}
+                question={q}
+                answer={a}
+                open={openFaq === idx}
+                onToggle={() => setOpenFaq(openFaq === idx ? -1 : idx)}
+              />
             ))}
-          </ul>
+          </div>
         </div>
       </section>
     </main>
