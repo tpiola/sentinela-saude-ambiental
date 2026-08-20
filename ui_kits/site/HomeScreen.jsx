@@ -382,16 +382,16 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
 
           <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))" }}>
             {[
-              { slug: "escorpiao", nome: "Escorpiões", desc: "Bloqueio de ralos e esgoto", icone: "🦂", cor: "#dc2626" },
-              { slug: "cupins", nome: "Cupins", desc: "Madeira seca e solo", icone: "🪵", cor: "#d97706" },
-              { slug: "baratas", nome: "Baratas", desc: "Esgoto e francesinhas", icone: "🪳", cor: "#9a3412" },
-              { slug: "ratos", nome: "Ratos", desc: "Roedores e ratazanas", icone: "🐀", cor: "#4b5563" },
-              { slug: "aranhas", nome: "Aranhas", desc: "Armadeiras e marrom", icone: "🕷️", cor: "#7c2d12" },
-              { slug: "formigas", nome: "Formigas", desc: "Cortadeiras e doceiras", icone: "🐜", cor: "#047857" },
-              { slug: "mosquitos", nome: "Mosquitos", desc: "Dengue e pernilongos", icone: "🦟", cor: "#0284c7" },
-              { slug: "pulgas", nome: "Pulgas & Pets", desc: "Carrapatos e pulgas", icone: "🐾", cor: "#9333ea" },
-              { slug: "vespas", nome: "Marimbondos", desc: "Abelhas e vespas", icone: "🐝", cor: "#eab308" },
-              { slug: "caixa-dagua", nome: "Caixa d'Água", desc: "Higienização e laudo", icone: "💧", cor: "#0284c7" }
+              { slug: "escorpiao", nome: "Escorpiões", desc: "Bloqueio de ralos e esgoto", cor: "#dc2626" },
+              { slug: "cupins", nome: "Cupins", desc: "Madeira seca e solo", cor: "#d97706" },
+              { slug: "baratas", nome: "Baratas", desc: "Esgoto e francesinhas", cor: "#9a3412" },
+              { slug: "ratos", nome: "Ratos", desc: "Roedores e ratazanas", cor: "#4b5563" },
+              { slug: "aranhas", nome: "Aranhas", desc: "Armadeiras e marrom", cor: "#7c2d12" },
+              { slug: "formigas", nome: "Formigas", desc: "Cortadeiras e doceiras", cor: "#047857" },
+              { slug: "mosquitos", nome: "Mosquitos", desc: "Dengue e pernilongos", cor: "#0284c7" },
+              { slug: "pulgas", nome: "Pulgas & Pets", desc: "Carrapatos e pulgas", cor: "#9333ea" },
+              { slug: "vespas", nome: "Marimbondos", desc: "Abelhas e vespas", cor: "#eab308" },
+              { slug: "caixa-dagua", nome: "Caixa d'Água", desc: "Higienização e laudo", cor: "#0284c7" }
             ].map((p) => (
               <a
                 key={p.slug}
@@ -412,8 +412,10 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
                 }}
               >
                 <div>
-                  <span style={{ fontSize: "2rem", display: "block", marginBottom: 8 }}>{p.icone}</span>
-                  <strong style={{ display: "block", fontSize: "1.1rem", color: "var(--brand-navy)" }}>{p.nome}</strong>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                    <span style={{ width: 10, height: 10, borderRadius: "50%", background: p.cor }}></span>
+                    <strong style={{ fontSize: "1.1rem", color: "var(--brand-navy)" }}>{p.nome}</strong>
+                  </div>
                   <span style={{ display: "block", fontSize: "0.8125rem", color: "var(--brand-muted)", marginTop: 4 }}>{p.desc}</span>
                 </div>
                 <span style={{ display: "inline-flex", alignItems: "center", gap: 4, marginTop: 16, fontSize: "0.8125rem", color: "var(--brand-lime-deep)", fontWeight: 800 }}>

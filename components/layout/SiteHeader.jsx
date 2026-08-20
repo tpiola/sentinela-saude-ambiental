@@ -10,16 +10,16 @@ const NAV = [
 ];
 
 const ALL_PESTS = [
-  { href: "#escorpiao", label: "Escorpiões & Animais Peçonhentos", icon: "🦂" },
-  { href: "#cupins", label: "Cupins (Madeira Seca & Solo)", icon: "🪵" },
-  { href: "#baratas", label: "Baratas (Esgoto & Francesinha)", icon: "🪳" },
-  { href: "#ratos", label: "Ratos & Roedores Urbanos", icon: "🐀" },
-  { href: "#aranhas", label: "Aranhas (Armadeira & Marrom)", icon: "🕷️" },
-  { href: "#formigas", label: "Formigas Cortadeiras & Caseiras", icon: "🐜" },
-  { href: "#mosquitos", label: "Mosquitos, Pernilongos & Dengue", icon: "🦟" },
-  { href: "#pulgas", label: "Pulgas & Carrapatos em Pets", icon: "🐾" },
-  { href: "#vespas", label: "Marimbondos, Abelhas & Vespas", icon: "🐝" },
-  { href: "#caixa-dagua", label: "Higienização de Caixa d'Água", icon: "💧" },
+  { href: "#escorpiao", label: "Escorpiões & Animais Peçonhentos" },
+  { href: "#cupins", label: "Cupins (Madeira Seca & Solo)" },
+  { href: "#baratas", label: "Baratas (Esgoto & Francesinha)" },
+  { href: "#ratos", label: "Ratos & Roedores Urbanos" },
+  { href: "#aranhas", label: "Aranhas (Armadeira & Marrom)" },
+  { href: "#formigas", label: "Formigas Cortadeiras & Caseiras" },
+  { href: "#mosquitos", label: "Mosquitos, Pernilongos & Dengue" },
+  { href: "#pulgas", label: "Pulgas & Carrapatos em Pets" },
+  { href: "#vespas", label: "Marimbondos, Abelhas & Vespas" },
+  { href: "#caixa-dagua", label: "Higienização de Caixa d'Água" },
 ];
 
 /** Header Premium Fixo Navy Translúcido com Menu Completo de Pragas e Animações */
@@ -143,7 +143,7 @@ export function SiteHeader({
                       e.currentTarget.style.color = "rgba(255,255,255,0.88)";
                     }}
                   >
-                    <span>{p.icon}</span>
+                    <span style={{ color: "var(--brand-lime)", fontSize: "0.75rem" }}>▪</span>
                     <span>{p.label}</span>
                   </a>
                 ))}
@@ -260,7 +260,7 @@ export function SiteHeader({
                   onClick={() => setMenuOpen(false)}
                   style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.8125rem", textDecoration: "none", padding: "4px 0" }}
                 >
-                  {p.icon} {p.label.split(" ")[0]}
+                  ▪ {p.label.split(" ")[0]}
                 </a>
               ))}
             </div>

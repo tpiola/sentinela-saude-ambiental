@@ -143,8 +143,8 @@ export function SiteFooter({
                 <a href={`mailto:${email}`} style={linkStyle} onMouseOver={(e) => e.currentTarget.style.color = "var(--brand-lime)"} onMouseOut={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.85)"}>
                   <span style={{ color: "var(--brand-lime)" }}><SocialIcon name="email" size={22} /></span>
                   <div>
-                    <strong style={{ color: "rgba(255,255,255,0.9)", display: "block", fontSize: "0.8125rem", textTransform: "uppercase" }}>E-mail</strong>
-                    <span style={{ wordBreak: "break-all" }}>{email}</span>
+                    <strong style={{ color: "rgba(255,255,255,0.9)", display: "block", fontSize: "0.75rem", textTransform: "uppercase" }}>E-mail</strong>
+                    <span style={{ fontSize: "0.8125rem", whiteSpace: "nowrap", display: "inline-block" }}>{email}</span>
                   </div>
                 </a>
               </li>

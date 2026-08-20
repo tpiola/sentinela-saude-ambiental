@@ -146,7 +146,7 @@ window.SentinelaKit.PestCatalogScreen = function PestCatalogScreen({ DS, A, wa, 
           </p>
         </div>
 
-        {/* NAVEGAÇÃO INTERATIVA ENTRE AS 10 PRAGAS */}
+        {/* NAVEGAÇÃO INTERATIVA ENTRE AS 10 PRAGAS (SEM EMOJIS, DESIGN SÓBRIO) */}
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 8, marginBottom: 40 }}>
           {Object.entries(PEST_DETAILS).map(([key, item]) => {
             const active = selected === key;
@@ -157,7 +157,7 @@ window.SentinelaKit.PestCatalogScreen = function PestCatalogScreen({ DS, A, wa, 
                 onClick={() => setSelected(key)}
                 className="hover-lift"
                 style={{
-                  padding: "10px 16px",
+                  padding: "10px 18px",
                   borderRadius: 8,
                   border: active ? `2px solid ${item.cor}` : "1px solid var(--border-default)",
                   background: active ? "#001833" : "#ffffff",
@@ -172,7 +172,7 @@ window.SentinelaKit.PestCatalogScreen = function PestCatalogScreen({ DS, A, wa, 
                   transition: "all 0.2s ease"
                 }}
               >
-                <span>{item.icone}</span>
+                <span style={{ width: 8, height: 8, borderRadius: "50%", background: item.cor }}></span>
                 <span>{item.titulo.split(" ")[0]}</span>
               </button>
             );
@@ -189,7 +189,7 @@ window.SentinelaKit.PestCatalogScreen = function PestCatalogScreen({ DS, A, wa, 
             </div>
 
             <h2 style={{ margin: 0, fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 2.5vw, 2.2rem)", fontWeight: 900, color: "var(--brand-navy)" }}>
-              {p.icone} {p.titulo}
+              {p.titulo}
             </h2>
             <span style={{ display: "block", marginTop: 4, fontSize: "0.875rem", color: "var(--brand-muted)", fontStyle: "italic" }}>
               {p.especie}
