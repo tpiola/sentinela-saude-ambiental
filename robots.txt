@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://www.sentinelasaudeambiental.com.br/sitemap.xml
