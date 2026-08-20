@@ -5,6 +5,7 @@
     "components/icons/WhatsAppIcon.jsx",
     "components/icons/UiIcon.jsx",
     "components/icons/PestIcon.jsx",
+    "components/icons/SocialIcons.jsx",
     "components/buttons/Button.jsx",
     "components/badges/Eyebrow.jsx",
     "components/badges/Badge.jsx",
@@ -24,6 +25,7 @@
     "components/buttons/TrustCta.jsx",
     "components/forms/TextField.jsx",
     "components/forms/RadioPillGroup.jsx",
+    "components/feedback/LgpdBanner.jsx",
     "components/layout/Logo.jsx",
     "components/layout/SiteHeader.jsx",
     "components/layout/SiteFooter.jsx",
@@ -32,10 +34,10 @@
   ];
 
   const NAMES = [
-    "WhatsAppIcon", "UiIcon", "PestIcon", "Button", "Eyebrow", "Badge", "Chip",
+    "WhatsAppIcon", "UiIcon", "PestIcon", "SocialIcon", "Button", "Eyebrow", "Badge", "Chip",
     "Card", "FieldPhotoCard", "ServiceRow", "ProcessStep", "TrustItem", "AccentStat",
     "NoteBar", "FaqItem", "PestTile", "SectionHeading", "TextField", "SelectField",
-    "RadioPillGroup", "Logo", "LogoSwoosh", "SiteHeader", "SiteFooter",
+    "RadioPillGroup", "LgpdBanner", "Logo", "LogoSwoosh", "SiteHeader", "SiteFooter",
     "GoogleReviewBadge", "GbpMap", "gbpJsonLd", "TrustCta", "TrustCtaTrio",
     "WhatsAppFloat", "MobileStickyBar",
   ];
@@ -58,45 +60,52 @@
 
     const sources = await Promise.all(
       FILES.map((path) => fetch(base + path).then((r) => {
-        if (!r.ok) throw new Error("Falha ao carregar " + path);
+        if (!r.ok) throw new Error("HTTP " + r.status + " ao carregar " + path);
         return r.text();
-      })),
+      }))
     );
 
-    const merged = sources
-      .map((src) =>
-        src
-          .split("\n")
-          .filter((line) => !/^\s*import\b/.test(line))
-          .map((line) => line.replace(/^export\s+(default\s+)?/, ""))
-          .join("\n"),
-      )
-      .join("\n");
+    const transformed = sources.map((code) => {
+      const stripped = code
+        .replace(/^import\s+[^;]+;\s*/gm, "")
+        .replace(/^export\s+default\s+/gm, "")
+        .replace(/^export\s+/gm, "");
+      return Babel.transform(stripped, {
+        presets: ["react-classic"],
+        filename: "ds-inline.jsx",
+      }).code;
+    });
 
-    const code =
-      "(function (React) {\n" + merged + "\nreturn {" + NAMES.join(", ") + "};\n})";
-    const compiled = Babel.transform(code, { presets: [[Babel.availablePresets.react, { runtime: "classic" }]] }).code;
-    // eslint-disable-next-line no-eval
-    return eval(compiled)(window.React);
+    const runner = new Function(
+      "React",
+      "ReactDOM",
+      `
+      var exports = {};
+      ${transformed.join("\n\n")}
+      return { ${NAMES.join(", ")} };
+    `
+    );
+
+    return runner(window.React, window.ReactDOM);
   };
 
-  /**
-   * Compila e executa todos os <script type="text/jsx"> da página (inline ou com src),
-   * injetando DS, React e ReactDOM. Substitui o processamento automático do Babel.
-   */
   window.bootSentinela = async function bootSentinela(base) {
-    const DS = await window.loadSentinelaDS(base);
-    const blocks = Array.from(document.querySelectorAll('script[type="text/x-sentinela-jsx"]'));
-    for (const block of blocks) {
-      const source = block.src
-        ? await fetch(block.src).then((r) => r.text())
-        : block.textContent;
-      const compiled = Babel.transform(source, {
-        presets: [[Babel.availablePresets.react, { runtime: "classic" }]],
+    window.DS = await window.loadSentinelaDS(base);
+    const scripts = document.querySelectorAll('script[type="text/x-sentinela-jsx"]');
+    for (const s of scripts) {
+      let code = "";
+      if (s.src) {
+        const res = await fetch(s.src);
+        if (!res.ok) throw new Error("HTTP " + res.status + " ao carregar " + s.src);
+        code = await res.text();
+      } else {
+        code = s.textContent;
+      }
+      const out = Babel.transform(code, {
+        presets: ["react-classic"],
+        filename: s.src || "app.jsx",
       }).code;
-      // eslint-disable-next-line no-new-func
-      new Function("DS", "React", "ReactDOM", compiled)(DS, window.React, window.ReactDOM);
+      new Function("DS", "React", "ReactDOM", out)(window.DS, window.React, window.ReactDOM);
     }
-    return DS;
   };
 })();

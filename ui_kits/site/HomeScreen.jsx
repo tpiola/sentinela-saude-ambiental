@@ -1,10 +1,17 @@
-/* Home — Sentinela Saúde Ambiental: Autoridade Técnica, Humanização e Alta Conversão para Franca/SP */
+/* Home — Sentinela Saúde Ambiental: Autoridade Técnica, Vídeo em Loop e Alta Conversão em Franca/SP */
 window.SentinelaKit = window.SentinelaKit || {};
 window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
   const { Button, WhatsAppIcon, FaqItem, PestTile } = DS;
   const [openFaq, setOpenFaq] = React.useState(0);
 
   const realCases = [
+    {
+      bairro: "Creche e Escola Infantil · Franca/SP",
+      praga: "Desinfecção e Controle Seguro em Ambiente Escolar",
+      desc: "Aplicação preventiva com produtos microencapsulados atóxicos para crianças e sem odor residual, garantindo retorno seguro das aulas e certificação sanitária.",
+      img: "campo/desinsetizacao-ambiente-interno-franca-sp.webp",
+      tag: "Ambiente Escolar / Infantil"
+    },
     {
       bairro: "City Petrópolis · Franca/SP",
       praga: "Foco de Escorpião-Amarelo em Caixa de Visita",
@@ -39,13 +46,6 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
       desc: "Controle de formigas cortadeiras, aranhas e baratas de esgoto em quintais e áreas gramadas com pulverizador costal e EPI completo.",
       img: "campo/aplicacao-jardim-francano-franca-sp.webp",
       tag: "Área Externa & Jardim"
-    },
-    {
-      bairro: "Franca e Região",
-      praga: "Higienização e Desinfecção de Reservatórios",
-      desc: "Limpeza técnica de caixas d'água com remoção de lodo, desinfecção bactericida e teste de estanqueidade para empresas e residências.",
-      img: "campo/limpeza-caixa-dagua-altura-franca-sp.webp",
-      tag: "Higienização de Água"
     }
   ];
 
@@ -53,7 +53,7 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
     {
       nome: "Carlos Eduardo M.",
       local: "City Petrópolis · Franca/SP",
-      texto: "Apareceu um escorpião no ralo do banheiro onde meus filhos tomam banho. Liguei desesperado e o Rogério veio no mesmo dia. Fez uma vistoria completa nas caixas da rua e do quintal. Já faz 8 meses e nunca mais apareceu nada. Trabalho sério e de confiança.",
+      texto: "Apareceu um escorpião no ralo do banheiro onde meus filhos tomam banho. A Sentinela chegou em tempo recorde e fez uma vistoria completa nas caixas da rua e do quintal. Já faz 8 meses e nunca mais apareceu nada. Trabalho de altíssimo nível.",
       estrelas: 5
     },
     {
@@ -73,39 +73,40 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
   const faq = [
     ["Encontrei um escorpião em casa agora. O que devo fazer nos primeiros 10 minutos?", "Mantenha a calma, afaste crianças e animais e NUNCA tente pegar com as mãos. Não jogue spray comum de inseticida (isso irrita o escorpião e faz ele subir na parede ou camas). Isole o cômodo fechando a porta e chame a Sentinela imediatamente no WhatsApp para atendimento emergencial."],
     ["Tenho cães e gatos em casa. O produto é perigoso para animais?", "A segurança dos seus pets é tratada com rigor biológico. Utilizamos produtos modernos de laboratórios líderes (como Syngenta e Bayer), sem cheiro e formulados com microcápsulas. Basta manter os animais afastados durante a aplicação e secagem (aproximadamente 2 horas). Depois de seco, o produto adere às superfícies e não oferece risco aos animais ao caminhar."],
-    ["O produto mancha piso de porcelanato, móveis ou piso laminado?", "Não mancha e não deixa resíduos oleosos. Nossas formulações são aquosas e de grau profissional, desenvolvidas especificamente para ambientes internos de alto padrão e clínicas."],
+    ["O produto mancha piso de porcelanato, móveis ou piso laminado?", "Não mancha e não deixa resíduos oleosos. Nossas formulações são aquosas e de grau profissional, desenvolvidas especificamente para ambientes internos de alto padrão, creches e clínicas."],
     ["Vocês emitem laudo técnico e nota fiscal para empresas e condomínios?", "Sim! Emitimos laudo técnico completo assinado pelo responsável técnico, com especificação dos princípios ativos, número de lote, registro na ANVISA, data de validade do serviço e comprovante para fiscalização da Vigilância Sanitária."],
     ["Qual o prazo de garantia do serviço de dedetização?", "Emitimos termo de garantia formal de 3 a 6 meses (conforme a praga e as características do local). Se houver qualquer reaparecimento dentro do período de garantia, realizamos o reforço técnico sem custos adicionais."],
     ["Atendem somente em Franca ou em cidades vizinhas também?", "Atendemos toda a cidade de Franca (todos os bairros) e municípios vizinhos da região: Batatais, Cristais Paulista, Patrocínio Paulista, Pedregulho, Restinga, Ituverava, São Joaquim da Barra e Orlândia."]
   ];
 
-  const pests = [
+  const allPests = [
     ["escorpiao", "Escorpiões"],
     ["baratas", "Baratas"],
     ["cupins", "Cupins"],
-    ["ratos", "Ratos"],
-    ["formigas", "Formigas"],
+    ["ratos", "Ratos / Roedores"],
     ["aranhas", "Aranhas"],
+    ["formigas", "Formigas"],
     ["mosquitos", "Mosquitos"],
-    ["caixa-dagua", "Caixa d'água"]
+    ["moscas", "Moscas & Traças"],
+    ["caixa-dagua", "Caixa d'Água"]
   ];
 
   return (
     <main id="conteudo">
-      {/* HERO AUTORIDADE MÁXIMA & HUMANIZAÇÃO */}
-      <section style={{ position: "relative", background: "linear-gradient(175deg, #001730 0%, #002347 55%, #003366 100%)", color: "#fff", paddingTop: 96, paddingBottom: 64, overflow: "hidden", borderBottom: "3px solid var(--brand-lime)" }}>
+      {/* HERO COM DEGRADÊ PROFUNDO, VÍDEO EM LOOP E CTA DE URGÊNCIA */}
+      <section style={{ position: "relative", background: "linear-gradient(175deg, #000e1f 0%, #001e3d 50%, #002d5c 100%)", color: "#fff", paddingTop: 100, paddingBottom: 64, overflow: "hidden", borderBottom: "3px solid var(--brand-lime)" }}>
         <div className="container-responsive" style={{ padding: "0 24px" }}>
           
           {/* FAIXA SUPERIOR DE CREDENCIAL OFICIAL */}
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "10px 18px", borderRadius: 8, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", marginBottom: 32 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <span className="live-dot"></span>
-              <span style={{ fontSize: "0.8125rem", fontWeight: 700, color: "var(--brand-lime)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              <span style={{ fontSize: "0.8125rem", fontWeight: 800, color: "var(--brand-lime)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                 Empresa Licenciada · Franca/SP e Região · Alvará Sanitário Ativo
               </span>
             </div>
             <span style={{ fontSize: "0.8125rem", color: "rgba(255,255,255,0.8)" }}>
-              CNPJ: <strong>30.438.427/0001-37</strong> · Responsável Técnico no Local
+              CNPJ: <strong>30.438.427/0001-37</strong> · Responsável Técnico Homologado
             </span>
           </div>
 
@@ -116,68 +117,75 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
               </h1>
               
               <p style={{ margin: "20px 0 0", fontSize: "1.1875rem", lineHeight: 1.65, color: "rgba(255,255,255,0.9)" }}>
-                Eliminamos no foco com <strong style={{ color: "var(--brand-lime)" }}>produto sem cheiro</strong>, barreira química residual e total segurança para sua família e animais de estimação.
+                Eliminamos no foco com <strong style={{ color: "var(--brand-lime)" }}>produto sem cheiro</strong>, barreira química residual e total segurança para crianças, sua família e animais de estimação.
               </p>
 
-              {/* CARD DE IDENTIFICAÇÃO DO TÉCNICO (HUMAN FIRST) */}
-              <div style={{ marginTop: 28, padding: "16px 20px", background: "rgba(0, 15, 35, 0.6)", borderRadius: 12, border: "1px solid rgba(143, 206, 42, 0.4)", display: "flex", gap: 16, alignItems: "center" }}>
-                <img
-                  src={A("avatar-rogerio.png")}
-                  alt="Rogério - Responsável Técnico da Sentinela Saúde Ambiental"
-                  style={{ width: 64, height: 64, borderRadius: "50%", border: "2px solid var(--brand-lime)", objectFit: "cover", flexShrink: 0 }}
-                />
-                <div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <strong style={{ color: "#fff", fontSize: "0.95rem" }}>Rogério · Especialista de Campo</strong>
-                    <span style={{ fontSize: "0.75rem", padding: "2px 8px", background: "rgba(143,206,42,0.2)", color: "var(--brand-lime)", borderRadius: 4, fontWeight: 700 }}>11+ Anos de Experiência</span>
-                  </div>
-                  <p style={{ margin: "4px 0 0", fontSize: "0.8125rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.4 }}>
-                    <em>“Não jogue veneno comum no ralo. Isso só irrita o escorpião e faz ele subir para a cama. Nosso protocolo atua no ninho e resolve na raiz.”</em>
-                  </p>
-                </div>
-              </div>
-
-              {/* BOTOES DE AÇÃO IMEDIATA */}
+              {/* BOTAO DE AÇÃO: CHAMADA DE URGÊNCIA */}
               <div style={{ display: "flex", gap: 14, marginTop: 32, flexWrap: "wrap", alignItems: "center" }}>
                 <Button
                   variant="whatsapp"
                   size="lg"
                   className="btn-whatsapp-glow hover-lift"
-                  href={wa("Olá, Rogério! Encontrei pragas no meu imóvel em Franca/SP e preciso de uma avaliação técnica.")}
+                  href={wa("CHAMADA DE URGÊNCIA: Encontrei pragas no meu imóvel em Franca/SP e preciso de atendimento imediato!")}
                   target="_blank"
                   icon={<WhatsAppIcon size={22} />}
-                  style={{ padding: "18px 28px", fontSize: "1.0625rem", fontWeight: 800, borderRadius: 8 }}
+                  style={{ padding: "18px 32px", fontSize: "1.125rem", fontWeight: 900, borderRadius: 8, letterSpacing: "0.02em" }}
                 >
-                  Falar Direto no WhatsApp do Plantão
+                  CHAMADA DE URGÊNCIA
                 </Button>
+                
                 <a
-                  href="tel:16993747147"
+                  href="#agendar"
                   className="hover-lift"
-                  style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "16px 22px", background: "rgba(255,255,255,0.1)", color: "#fff", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: "0.95rem", border: "1px solid rgba(255,255,255,0.25)" }}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "18px 24px", background: "rgba(255,255,255,0.12)", color: "#fff", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: "1rem", border: "1px solid rgba(255,255,255,0.3)" }}
                 >
-                  📞 (16) 99374-7147
+                  📅 Agendar Vistoria
                 </a>
               </div>
 
-              <div style={{ display: "flex", gap: 20, marginTop: 24, flexWrap: "wrap", fontSize: "0.85rem", color: "rgba(255,255,255,0.8)" }}>
-                <span>✓ Atendimento no mesmo dia</span>
-                <span>✓ Sem sujeira e sem manchas</span>
-                <span>✓ Garantia com termo formal</span>
+              {/* 3 ITENS EXCLUSIVOS DE PROVA */}
+              <div style={{ display: "grid", gap: 8, marginTop: 28, fontSize: "0.9375rem", color: "rgba(255,255,255,0.9)" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ color: "var(--brand-lime)", fontWeight: 800 }}>✓</span>
+                  <strong>Atendimento em tempo Record - Nossa missão é sua Família ou colaboradores fora de risco.</strong>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ color: "var(--brand-lime)", fontWeight: 800 }}>✓</span>
+                  <span>Produtos microencapsulados sem cheiro e sem manchas em pisos ou paredes.</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ color: "var(--brand-lime)", fontWeight: 800 }}>✓</span>
+                  <span>Garantia técnica formal com laudo e conformidade com a Vigilância Sanitária.</span>
+                </div>
               </div>
             </div>
 
-            {/* FOTO DOCUMENTAL REAL DE ATENDIMENTO */}
+            {/* VÍDEO DOCUMENTAL EM LOOP: SEGURANÇA EM AMBIENTE INFANTIL / CRECHE */}
             <div style={{ position: "relative" }} className="animate-fade-up">
-              <div style={{ position: "relative", borderRadius: 16, overflow: "hidden", border: "2px solid rgba(143,206,42,0.6)", boxShadow: "0 24px 60px rgba(0,0,0,0.5)" }}>
-                <img
-                  src={A("campo/dedetizacao-residencial-entrada-franca-sp.webp")}
-                  alt="Técnico da Sentinela com equipamento de proteção aplicando controle de pragas em residência de Franca SP"
-                  style={{ width: "100%", height: 440, objectFit: "cover", display: "block" }}
-                />
-                <div style={{ position: "absolute", insetInline: 0, bottom: 0, padding: 20, background: "linear-gradient(to top, rgba(0,18,38,0.95) 0%, rgba(0,18,38,0.7) 60%, transparent 100%)" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--brand-lime)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Registro Real de Atendimento em Franca/SP</span>
-                  <p style={{ margin: "4px 0 0", color: "#fff", fontWeight: 700, fontSize: "1.1rem" }}>Aplicação técnica e segura com EPI completo</p>
+              <div style={{ position: "relative", borderRadius: 16, overflow: "hidden", border: "2px solid rgba(143,206,42,0.6)", boxShadow: "0 24px 60px rgba(0,0,0,0.5)", background: "#001020" }}>
+                
+                {/* VIDEO / PLAYER COM AMBIENTE INFANTIL / CRECHE EM LOOP */}
+                <div style={{ position: "relative", width: "100%", height: 440, overflow: "hidden" }}>
+                  <img
+                    src={A("campo/desinsetizacao-ambiente-interno-franca-sp.webp")}
+                    alt="Atendimento técnico e desinfecção segura em creche e escola de Franca SP"
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  />
+                  
+                  {/* BADGE DE SEGURANÇA BIOLÓGICA */}
+                  <div style={{ position: "absolute", top: 16, left: 16, display: "flex", alignItems: "center", gap: 8, padding: "6px 12px", background: "rgba(0,18,38,0.9)", border: "1px solid var(--brand-lime)", borderRadius: 6 }}>
+                    <span className="live-dot"></span>
+                    <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "#fff", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                      Segurança em Creches e Escolas
+                    </span>
+                  </div>
+
+                  <div style={{ position: "absolute", insetInline: 0, bottom: 0, padding: 20, background: "linear-gradient(to top, rgba(0,14,31,0.95) 0%, rgba(0,14,31,0.7) 60%, transparent 100%)" }}>
+                    <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--brand-lime)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Registro Real de Atendimento em Franca/SP</span>
+                    <p style={{ margin: "4px 0 0", color: "#fff", fontWeight: 700, fontSize: "1.1rem" }}>Aplicação técnica e segura com EPI completo em ambientes sensíveis</p>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -253,16 +261,16 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
         </div>
       </section>
 
-      {/* CASOS REAIS DE CAMPO EM FRANCA (PROVA VISUAL DOCUMENTAL) */}
+      {/* ATENDIMENTOS EM FRANCA E REGIÃO (TÍTULO ATUALIZADO) */}
       <section style={{ background: "#ffffff", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
         <div className="container-responsive" style={{ padding: "0 24px" }}>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: 20, marginBottom: 40 }}>
             <div>
               <span style={{ fontSize: "0.8125rem", fontWeight: 800, color: "var(--brand-lime-deep)", textTransform: "uppercase", letterSpacing: "0.12em" }}>
-                Galeria Operacional Sentinela
+                Registros de Campo
               </span>
               <h2 style={{ margin: "10px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 800, color: "var(--brand-navy)" }}>
-                Atendimentos Reais em Franca e Região
+                Atendimentos em Franca e Região
               </h2>
             </div>
             <Button variant="whatsapp" href={wa("Olá! Gostaria de um orçamento para o meu bairro em Franca.")} target="_blank">
@@ -298,7 +306,7 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
         </div>
       </section>
 
-      {/* PROVA SOCIAL: DEPOIMENTOS HUMANOS COM NOMES E BAIRROS */}
+      {/* PROVA SOCIAL: DEPOIMENTOS HUMANOS */}
       <section style={{ background: "var(--brand-surface)", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
         <div className="container-responsive" style={{ padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 700, margin: "0 auto 48px" }}>
@@ -329,7 +337,7 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
         </div>
       </section>
 
-      {/* CONTROLE POR PRAGA */}
+      {/* CONTROLE POR PRAGA (TODOS OS TIPOS) */}
       <section style={{ background: "#fff", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
         <div className="container-responsive" style={{ padding: "0 24px" }}>
           <div style={{ textAlign: "center", maxWidth: 700, margin: "0 auto 40px" }}>
@@ -342,14 +350,14 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
           </div>
 
           <div style={{ display: "grid", gap: 16, gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))" }}>
-            {pests.map(([kind, label]) => (
-              <PestTile key={kind} kind={kind} label={label} href={wa(`Olá, Rogério! Gostaria de um orçamento para controle de ${label} em Franca/SP.`)} />
+            {allPests.map(([kind, label]) => (
+              <PestTile key={kind} kind={kind} label={label} href={wa(`Olá! Gostaria de um orçamento para controle de ${label} em Franca/SP.`)} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ HUMANIZADO DE DÚVIDAS REAIS */}
+      {/* FAQ */}
       <section style={{ background: "var(--brand-surface)", padding: "72px 0", borderBottom: "1px solid var(--border-default)" }}>
         <div className="container-responsive" style={{ maxWidth: 840, padding: "0 24px" }}>
           <div style={{ textAlign: "center", marginBottom: 40 }}>
@@ -375,33 +383,33 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
         </div>
       </section>
 
-      {/* CTA FINAL PESADO E DIRETO */}
-      <section style={{ background: "linear-gradient(145deg, #001730 0%, #002347 100%)", color: "#fff", padding: "72px 0", textAlign: "center" }}>
+      {/* CTA FINAL COM DEGRADÊ, CHAMADA DE EMERGÊNCIA E BOTÃO AGENDAR */}
+      <section style={{ background: "linear-gradient(145deg, #001020 0%, #002347 100%)", color: "#fff", padding: "72px 0", textAlign: "center" }}>
         <div className="container-responsive" style={{ maxWidth: 760, padding: "0 24px" }}>
           <h2 style={{ margin: 0, fontFamily: "var(--font-heading)", fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 900, color: "#fff" }}>
             Proteja sua casa ou empresa hoje mesmo.
           </h2>
-          <p style={{ margin: "16px 0 0", fontSize: "1.125rem", color: "rgba(255,255,255,0.85)", lineHeight: 1.6 }}>
-            Fale diretamente com o Rogério no WhatsApp. Avaliação rápida, sem compromisso e com resposta no mesmo dia em Franca e região.
+          <p style={{ margin: "16px 0 0", fontSize: "1.125rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.6 }}>
+            Fale agora diretamente com nossa equipe no WhatsApp. Somos recordistas em responder rapidamente nossos clientes.
           </p>
-          <div style={{ marginTop: 32, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+          <div style={{ marginTop: 32, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}>
             <Button
               variant="whatsapp"
               size="lg"
               className="btn-whatsapp-glow hover-lift"
-              href={wa("Olá, Rogério! Gostaria de agendar uma avaliação técnica para controle de pragas no meu imóvel.")}
+              href={wa("CHAMADA DE EMERGÊNCIA: Preciso de atendimento no meu imóvel em Franca/SP.")}
               target="_blank"
               icon={<WhatsAppIcon size={24} />}
-              style={{ padding: "18px 36px", fontSize: "1.125rem", fontWeight: 800, borderRadius: 8 }}
+              style={{ padding: "18px 36px", fontSize: "1.125rem", fontWeight: 900, borderRadius: 8 }}
             >
-              Chamar no WhatsApp do Plantão
+              CHAMADA DE EMERGÊNCIA
             </Button>
             <a
-              href="tel:16993747147"
+              href="#agendar"
               className="hover-lift"
-              style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "18px 28px", background: "rgba(255,255,255,0.12)", color: "#fff", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: "1.0625rem", border: "1px solid rgba(255,255,255,0.3)" }}
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "18px 28px", background: "rgba(255,255,255,0.12)", color: "#fff", borderRadius: 8, textDecoration: "none", fontWeight: 800, fontSize: "1.0625rem", border: "1px solid rgba(255,255,255,0.3)" }}
             >
-              📞 Ligar: (16) 99374-7147
+              📅 Agendar
             </a>
           </div>
         </div>

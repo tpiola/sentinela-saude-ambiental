@@ -74,7 +74,7 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [screen]);
 
-  const { SiteHeader, SiteFooter, WhatsAppFloat, MobileStickyBar, gbpJsonLd } = DS;
+  const { SiteHeader, SiteFooter, WhatsAppFloat, MobileStickyBar, LgpdBanner, gbpJsonLd } = DS;
 
   React.useEffect(() => {
     let tag = document.getElementById("gbp-json-ld");
@@ -86,13 +86,6 @@ function App() {
     }
     tag.textContent = JSON.stringify(gbpJsonLd());
   }, []);
-
-  const nav = [
-    { href: "#home", label: "Início" },
-    { href: "#escorpiao", label: "Escorpiões" },
-    { href: "#cupins", label: "Cupins" },
-    { href: "#b2b", label: "Empresas & Condomínios" },
-  ];
 
   const go = (s) => setScreen(s);
   const Screens = window.SentinelaKit || {};
@@ -112,7 +105,7 @@ function App() {
       const key = a.getAttribute("href").slice(1);
       if (["home","escorpiao","praga","cupins","b2b","agendar"].includes(key)) go(key);
     }}>
-      <SiteHeader scrolled={scrolled} navLinks={nav} logoSrc={A("logo-brasao.png")} />
+      <SiteHeader scrolled={scrolled} logoSrc={A("logo-brasao.png")} />
       
       {current}
 
@@ -125,6 +118,8 @@ function App() {
           <WhatsAppFloat href={wa("Olá! Gostaria de tirar uma dúvida sobre controle de pragas.")} />
         )
       )}
+
+      <LgpdBanner />
     </div>
   );
 }
