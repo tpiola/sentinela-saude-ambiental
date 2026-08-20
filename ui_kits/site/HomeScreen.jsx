@@ -37,18 +37,18 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
     <main id="conteudo">
       {/* HERO SECTION DE ALTA CONVERSÃO */}
       <section style={{ position: "relative", background: "linear-gradient(170deg, #001b38 0%, #002347 60%, #003066 100%)", color: "#fff", paddingTop: 88, overflow: "hidden" }}>
-        <div className="container-responsive" style={{ display: "grid", gap: 40, gridTemplateColumns: "minmax(0,1.1fr) minmax(360px,.9fr)", alignItems: "center", padding: "48px 32px 64px" }}>
-          <div style={{ maxWidth: 740, zIndex: 2 }}>
+        <div className="container-responsive" style={{ display: "grid", gap: 40, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))", alignItems: "center", padding: "48px 24px 64px" }}>
+          <div style={{ maxWidth: 740, zIndex: 2 }} className="animate-fade-up">
             
             {/* BADGE DE PLANTÃO ATIVO */}
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "6px 14px", borderRadius: 999, background: "rgba(37, 211, 102, 0.12)", border: "1px solid rgba(37, 211, 102, 0.4)", marginBottom: 18 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "8px 16px", borderRadius: 999, background: "rgba(37, 211, 102, 0.14)", border: "1px solid rgba(37, 211, 102, 0.5)", marginBottom: 18 }} className="animate-radar">
               <span className="live-dot"></span>
-              <span style={{ fontSize: "0.8125rem", fontWeight: 700, color: "var(--brand-lime)", textTransform: "uppercase", letterSpacing: "0.12em" }}>
+              <span style={{ fontSize: "0.8125rem", fontWeight: 800, color: "var(--brand-lime)", textTransform: "uppercase", letterSpacing: "0.12em" }}>
                 Plantão Ativo · Resposta em até 15 min em Franca e região
               </span>
             </div>
 
-            <h1 style={{ margin: "12px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(2.25rem, 4.2vw, 4.25rem)", fontWeight: 800, lineHeight: 1.05, letterSpacing: "-0.04em", color: "#fff" }}>
+            <h1 style={{ margin: "12px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(2.15rem, 4.2vw, 4.25rem)", fontWeight: 800, lineHeight: 1.06, letterSpacing: "-0.04em", color: "#fff" }}>
               Livre-se de escorpiões, baratas e cupins hoje mesmo em Franca.
             </h1>
 
@@ -61,17 +61,18 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
               <Button
                 variant="whatsapp"
                 size="lg"
-                className="btn-whatsapp-glow"
+                className="btn-whatsapp-glow hover-lift"
                 href={wa("Olá, Sentinela! Gostaria de um orçamento gratuito para controle de pragas no meu imóvel em Franca/SP.")}
                 target="_blank"
                 icon={<WhatsAppIcon size={22} />}
-                style={{ padding: "16px 28px", fontSize: "1.0625rem", fontWeight: 700, borderRadius: 8 }}
+                style={{ padding: "16px 28px", fontSize: "1.0625rem", fontWeight: 800, borderRadius: 8, boxShadow: "0 8px 24px rgba(37, 211, 102, 0.35)" }}
               >
                 Solicitar Orçamento Grátis no WhatsApp
               </Button>
               <Button
                 variant="outline-light"
                 size="lg"
+                className="hover-lift"
                 onClick={() => go("agendar")}
                 style={{ padding: "16px 24px", fontSize: "1rem", borderRadius: 8 }}
               >
@@ -79,34 +80,36 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
               </Button>
             </div>
 
-            <p style={{ margin: "14px 0 0", fontSize: "0.875rem", color: "var(--text-on-inverse-muted)", display: "flex", alignItems: "center", gap: 8 }}>
+            <p style={{ margin: "16px 0 0", fontSize: "0.875rem", color: "var(--text-on-inverse-muted)", display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
               <span>🕒 Atendimento rápido:</span>
               <strong style={{ color: "#fff" }}>Segunda a Sábado das 07h às 19h · Domingo das 08h às 17h</strong>
             </p>
 
             {/* DIFERENCIAIS DE CONFIANÇA */}
             <ul style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", listStyle: "none", margin: "28px 0 0", padding: "20px 0 0", borderTop: "1px solid var(--border-inverse)", fontSize: "0.875rem", color: "var(--text-on-inverse-muted)" }}>
-              <li style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                <span style={{ color: "var(--brand-lime)", fontWeight: 700, fontSize: "1.1rem" }}>✓</span>
+              <li style={{ display: "flex", gap: 8, alignItems: "center" }} className="hover-lift">
+                <span style={{ color: "var(--brand-lime)", fontWeight: 800, fontSize: "1.2rem" }}>✓</span>
                 <span>Orçamento 100% gratuito</span>
               </li>
-              <li style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                <span style={{ color: "var(--brand-lime)", fontWeight: 700, fontSize: "1.1rem" }}>✓</span>
+              <li style={{ display: "flex", gap: 8, alignItems: "center" }} className="hover-lift">
+                <span style={{ color: "var(--brand-lime)", fontWeight: 800, fontSize: "1.2rem" }}>✓</span>
                 <span>Seguro para pets e crianças</span>
               </li>
-              <li style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                <span style={{ color: "var(--brand-lime)", fontWeight: 700, fontSize: "1.1rem" }}>✓</span>
+              <li style={{ display: "flex", gap: 8, alignItems: "center" }} className="hover-lift">
+                <span style={{ color: "var(--brand-lime)", fontWeight: 800, fontSize: "1.2rem" }}>✓</span>
                 <span>Laudo técnico e garantia</span>
               </li>
             </ul>
           </div>
 
-          {/* FOTO HERO COM REGISTRO REAL */}
-          <figure style={{ position: "relative", margin: 0, minHeight: 520, borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,0.2)", boxShadow: "0 20px 50px rgba(0,0,0,0.3)" }}>
+          {/* FOTO HERO COM REGISTRO REAL E EFEITO LIFT */}
+          <figure style={{ position: "relative", margin: 0, minHeight: 460, borderRadius: 16, overflow: "hidden", border: "1px solid rgba(255,255,255,0.2)", boxShadow: "0 24px 60px rgba(0,0,0,0.35)" }} className="hover-lift animate-fade-up">
             <img
               src={A("campo/dedetizacao-residencial-entrada-franca-sp.webp")}
               alt="Técnico da Sentinela aplicando controle de pragas na porta de residência em Franca SP"
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }}
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", transition: "transform 0.6s ease" }}
+              onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.04)"}
+              onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}
             />
             <figcaption style={{ position: "absolute", insetInline: 0, bottom: 0, padding: 24, paddingTop: 96, background: "linear-gradient(to top, rgba(0,20,40,0.95) 0%, rgba(0,20,40,0.6) 60%, transparent 100%)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
@@ -120,49 +123,51 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
       </section>
 
       {/* TRUST STRIP COM GOOGLE 5.0 ESTRELAS */}
-      <section aria-label="Informações de atendimento e reputação" style={{ borderBlock: "1px solid var(--border-default)", background: "#fff", boxShadow: "0 4px 12px rgba(0,0,0,0.03)" }}>
-        <dl className="container-responsive" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", margin: 0, padding: "0 32px" }}>
-          <TrustItem label="WhatsApp Direto" value="(16) 99374-7147" href={wa()} />
-          <TrustItem label="Reputação Google" value="5.0 ★ Avaliações Máximas" style={{ paddingLeft: 20, borderLeft: "1px solid var(--border-default)" }} />
-          <TrustItem label="Experiência Comprovada" value="11+ Anos · Câmara de Franca" style={{ paddingLeft: 20, borderLeft: "1px solid var(--border-default)" }} />
-          <TrustItem label="Região Atendida" value="Franca e Cidades Vizinhas" style={{ paddingLeft: 20, borderLeft: "1px solid var(--border-default)" }} />
+      <section aria-label="Informações de atendimento e reputação" style={{ borderBlock: "1px solid var(--border-default)", background: "#fff", boxShadow: "0 4px 16px rgba(0,0,0,0.04)" }}>
+        <dl className="container-responsive" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", margin: 0, padding: "0 24px" }}>
+          <div className="hover-lift" style={{ padding: "16px" }}><TrustItem label="WhatsApp Direto" value="(16) 99374-7147" href={wa()} /></div>
+          <div className="hover-lift" style={{ padding: "16px", borderLeft: "1px solid var(--border-default)" }}><TrustItem label="Reputação Google" value="5.0 ★ Avaliações Máximas" /></div>
+          <div className="hover-lift" style={{ padding: "16px", borderLeft: "1px solid var(--border-default)" }}><TrustItem label="Experiência Comprovada" value="11+ Anos · Câmara de Franca" /></div>
+          <div className="hover-lift" style={{ padding: "16px", borderLeft: "1px solid var(--border-default)" }}><TrustItem label="Região Atendida" value="Franca e Cidades Vizinhas" /></div>
         </dl>
       </section>
 
-      {/* NOVA SEÇÃO: DIAGNÓSTICO RÁPIDO POR FOTO/VÍDEO NO WHATSAPP */}
+      {/* NOVA SEÇÃO: DIAGNÓSTICO RÁPIDO POR FOTO/VÍDEO NO WHATSAPP COM GLOW */}
       <section style={{ background: "var(--brand-surface)", padding: "64px 0", borderBottom: "1px solid var(--border-default)" }}>
-        <div className="container-responsive" style={{ padding: "0 32px" }}>
-          <div style={{ background: "linear-gradient(135deg, #ffffff 0%, #f7fafc 100%)", border: "2px solid var(--brand-lime)", borderRadius: 16, padding: "40px 36px", boxShadow: "0 12px 36px rgba(0,35,71,0.06)", display: "grid", gap: 32, gridTemplateColumns: "minmax(0, 1.2fr) minmax(280px, 0.8fr)", alignItems: "center" }}>
+        <div className="container-responsive" style={{ padding: "0 24px" }}>
+          <div style={{ background: "linear-gradient(135deg, #ffffff 0%, #f7fafc 100%)", border: "2px solid var(--brand-lime)", borderRadius: 16, padding: "40px 32px", boxShadow: "0 16px 40px rgba(0,35,71,0.08)", display: "grid", gap: 32, gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", alignItems: "center" }} className="hover-lift">
             <div>
-              <span style={{ display: "inline-block", padding: "4px 12px", background: "rgba(143, 206, 42, 0.2)", borderRadius: 6, color: "var(--brand-lime-deep)", fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.14em" }}>
+              <span style={{ display: "inline-block", padding: "6px 14px", background: "rgba(143, 206, 42, 0.2)", borderRadius: 999, color: "var(--brand-lime-deep)", fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.14em" }}>
                 Avaliação Rápida Sem Custo
               </span>
-              <h2 style={{ margin: "12px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 2.8vw, 2.5rem)", fontWeight: 800, color: "var(--brand-navy)", lineHeight: 1.15 }}>
+              <h2 style={{ margin: "14px 0 0", fontFamily: "var(--font-heading)", fontSize: "clamp(1.75rem, 2.8vw, 2.5rem)", fontWeight: 800, color: "var(--brand-navy)", lineHeight: 1.15 }}>
                 Viu um inseto ou sinal de praga? Envie a foto no WhatsApp.
               </h2>
               <p style={{ margin: "14px 0 0", fontSize: "1.0625rem", lineHeight: 1.6, color: "var(--brand-muted)" }}>
                 Não sabe qual espécie é ou qual o melhor tratamento? Tire uma foto ou grave um vídeo rápido. Nosso técnico identifica na hora e passa o valor sem que você precise esperar dias por uma visita.
               </p>
-              <div style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(3, 1fr)", marginTop: 24 }}>
-                <div style={{ padding: 12, background: "#fff", borderRadius: 8, border: "1px solid var(--border-default)" }}>
+              <div style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", marginTop: 24 }}>
+                <div style={{ padding: 14, background: "#fff", borderRadius: 10, border: "1px solid var(--border-default)", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }} className="hover-lift">
                   <strong style={{ color: "var(--brand-navy)", display: "block", fontSize: "0.875rem" }}>1. Fotografe</strong>
                   <span style={{ fontSize: "0.8125rem", color: "var(--brand-muted)" }}>Tire foto da praga ou do local afetado</span>
                 </div>
-                <div style={{ padding: 12, background: "#fff", borderRadius: 8, border: "1px solid var(--border-default)" }}>
+                <div style={{ padding: 14, background: "#fff", borderRadius: 10, border: "1px solid var(--border-default)", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }} className="hover-lift">
                   <strong style={{ color: "var(--brand-navy)", display: "block", fontSize: "0.875rem" }}>2. Envie no WhatsApp</strong>
                   <span style={{ fontSize: "0.8125rem", color: "var(--brand-muted)" }}>Clique no botão e envie a imagem</span>
                 </div>
-                <div style={{ padding: 12, background: "#fff", borderRadius: 8, border: "1px solid var(--border-default)" }}>
+                <div style={{ padding: 14, background: "#fff", borderRadius: 10, border: "1px solid var(--border-default)", boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }} className="hover-lift">
                   <strong style={{ color: "var(--brand-navy)", display: "block", fontSize: "0.875rem" }}>3. Receba o Laudo</strong>
                   <span style={{ fontSize: "0.8125rem", color: "var(--brand-muted)" }}>Diagnóstico e orçamento imediato</span>
                 </div>
               </div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "center", background: "var(--brand-navy)", padding: 32, borderRadius: 12, color: "#fff", textAlign: "center" }}>
-              <WhatsAppIcon size={48} style={{ color: "#25D366" }} />
+            <div style={{ display: "flex", flexDirection: "column", gap: 16, alignItems: "center", background: "linear-gradient(145deg, #002347 0%, #001730 100%)", padding: "36px 28px", borderRadius: 14, color: "#fff", textAlign: "center", boxShadow: "0 12px 32px rgba(0,35,71,0.25)" }} className="hover-lift">
+              <div className="animate-float">
+                <WhatsAppIcon size={52} style={{ color: "#25D366", filter: "drop-shadow(0 4px 12px rgba(37, 211, 102, 0.4))" }} />
+              </div>
               <div>
-                <h3 style={{ margin: 0, color: "#fff", fontSize: "1.25rem", fontWeight: 700 }}>Orçamento via WhatsApp</h3>
+                <h3 style={{ margin: 0, color: "#fff", fontSize: "1.35rem", fontWeight: 800 }}>Orçamento via WhatsApp</h3>
                 <p style={{ margin: "6px 0 0", fontSize: "0.875rem", color: "var(--text-on-inverse-muted)" }}>Resposta em minutos com atendimento humanizado</p>
               </div>
               <Button
@@ -171,8 +176,8 @@ window.SentinelaKit.HomeScreen = function HomeScreen({ DS, A, wa, go }) {
                 fullWidth
                 href={wa("Olá! Tenho uma foto da praga/local e gostaria da avaliação de vocês.")}
                 target="_blank"
-                className="btn-whatsapp-glow"
-                style={{ padding: "16px 20px", fontWeight: 700 }}
+                className="btn-whatsapp-glow hover-lift"
+                style={{ padding: "16px 20px", fontWeight: 800, borderRadius: 8, fontSize: "1rem" }}
               >
                 Enviar Foto no WhatsApp Agora
               </Button>

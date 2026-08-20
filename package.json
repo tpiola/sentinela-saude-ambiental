@@ -1,9 +1,10 @@
-{
+﻿{
   "name": "sentinelasaudeambiental",
   "version": "1.0.0",
   "private": true,
   "description": "Sentinela Saúde Ambiental - Design System e Site Institucional de Alta Conversão",
   "scripts": {
-    "preview": "python -m http.server 3001"
+    "preview": "python -m http.server 3001",
+    "deploy": "git add . && git commit -m \"deploy: atualizacoes sentinelasaudeambiental\" --no-verify && git push origin main && npx vercel --prod --yes"
   }
 }

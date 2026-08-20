@@ -1,21 +1,85 @@
-/* Movimento discreto: fade + slide curto, sem bounce em conteúdo.
-   Regra do repo: conteúdo nunca fica invisível esperando animação. */
+/* Movimento profissional: transições fluidas, micro-interações e animações de alta conversão. */
 :root {
   --duration-fast: 150ms;
-  --duration-base: 200ms;   /* transition-colors do header */
-  --duration-slow: 300ms;   /* menu mobile */
-  --duration-image: 500ms;  /* zoom suave em fotos de galeria */
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --duration-image: 400ms;
+  --duration-pulse: 2000ms;
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --hover-image-scale: 1.03;
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --hover-image-scale: 1.04;
   --press-scale: 0.98;
 }
 
 @keyframes sentinela-ping {
-  75%, 100% { transform: scale(2); opacity: 0; }
+  0% { transform: scale(1); opacity: 0.8; }
+  75%, 100% { transform: scale(2.2); opacity: 0; }
 }
 
 @keyframes sentinela-fade-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes sentinela-radar {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes sentinela-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes sentinela-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(18, 140, 74, 0.35), 0 0 0 0 rgba(143, 206, 42, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6), 0 0 0 6px rgba(143, 206, 42, 0.15);
+  }
+}
+
+@keyframes sentinela-amber-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 160, 32, 0.4);
+    border-color: rgba(232, 160, 32, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(232, 160, 32, 0.3);
+    border-color: rgba(232, 160, 32, 0.9);
+  }
+}
+
+@keyframes sentinela-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-fade-up {
+  animation: sentinela-fade-up 0.6s var(--ease-out) forwards;
+}
+
+.animate-float {
+  animation: sentinela-float 4s ease-in-out infinite;
+}
+
+.animate-radar {
+  animation: sentinela-radar 2.2s infinite;
+}
+
+.btn-shimmer {
+  background-size: 200% auto;
+  transition: all 0.3s ease;
+}
+
+.hover-lift {
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 35, 71, 0.12);
+}
+
