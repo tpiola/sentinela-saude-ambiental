@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sentinela Saúde Ambiental — Dedetizadora em Franca SP</title>
-  <meta name="description" content="Dedetizadora em Franca/SP e região. Eliminação de escorpiões, baratas, cupins e roedores com produtos sem cheiro, laudo técnico e atendimento de emergência.">
+  <meta name="description" content="Dedetizadora em Franca/SP e região. Eliminação de escorpiões, baratas, cupins, ratos, aranhas e mosquitos com produtos sem cheiro, laudo técnico e atendimento de emergência.">
   <link rel="canonical" href="https://www.sentinelasaudeambiental.com.br/">
   <meta property="og:url" content="https://www.sentinelasaudeambiental.com.br/">
   <meta property="og:title" content="Sentinela Saúde Ambiental — Dedetizadora em Franca SP">
@@ -35,6 +35,7 @@
 <script type="text/x-sentinela-jsx" src="ui_kits/site/HomeScreen.jsx"></script>
 <script type="text/x-sentinela-jsx" src="ui_kits/site/PestScreen.jsx"></script>
 <script type="text/x-sentinela-jsx" src="ui_kits/site/TermiteScreen.jsx"></script>
+<script type="text/x-sentinela-jsx" src="ui_kits/site/PestCatalogScreen.jsx"></script>
 <script type="text/x-sentinela-jsx" src="ui_kits/site/B2BScreen.jsx"></script>
 <script type="text/x-sentinela-jsx" src="ui_kits/site/ScheduleScreen.jsx"></script>
 
@@ -42,8 +43,11 @@
 const A = (p) => "assets/" + p;
 const wa = (msg) => "https://wa.me/5516993747147?text=" + encodeURIComponent("Olá, Sentinela! " + (msg || "Acessei o site e gostaria de solicitar um orçamento para controle de pragas em Franca/SP."));
 
+const KNOWN_PESTS = ["escorpiao", "cupins", "baratas", "ratos", "aranhas", "formigas", "mosquitos", "pulgas", "vespas", "caixa-dagua"];
+
 function App() {
   const [screen, setScreen] = React.useState("home");
+  const [selectedPest, setSelectedPest] = React.useState("escorpiao");
   const [scrolled, setScrolled] = React.useState(false);
   const [isMobile, setIsMobile] = React.useState(false);
   const [hideFloatingWa, setHideFloatingWa] = React.useState(false);
@@ -72,7 +76,7 @@ function App() {
 
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [screen]);
+  }, [screen, selectedPest]);
 
   const { SiteHeader, SiteFooter, WhatsAppFloat, MobileStickyBar, LgpdBanner, gbpJsonLd } = DS;
 
@@ -87,15 +91,24 @@ function App() {
     tag.textContent = JSON.stringify(gbpJsonLd());
   }, []);
 
-  const go = (s) => setScreen(s);
+  const go = (s, pest = null) => {
+    if (pest) setSelectedPest(pest);
+    setScreen(s);
+  };
+  
   const Screens = window.SentinelaKit || {};
 
-  const current =
-    (screen === "escorpiao" || screen === "praga") ? <Screens.PestScreen DS={DS} A={A} wa={wa} go={go} /> :
-    screen === "cupins" ? <Screens.TermiteScreen DS={DS} A={A} wa={wa} go={go} /> :
-    screen === "b2b" ? <Screens.B2BScreen DS={DS} A={A} wa={wa} go={go} /> :
-    screen === "agendar" ? <Screens.ScheduleScreen DS={DS} A={A} wa={wa} go={go} /> :
-    <Screens.HomeScreen DS={DS} A={A} wa={wa} go={go} />;
+  let current;
+  if (screen === "pragas" || KNOWN_PESTS.includes(screen)) {
+    const pestKey = KNOWN_PESTS.includes(screen) ? screen : selectedPest;
+    current = <Screens.PestCatalogScreen DS={DS} A={A} wa={wa} go={go} initialPest={pestKey} />;
+  } else if (screen === "b2b") {
+    current = <Screens.B2BScreen DS={DS} A={A} wa={wa} go={go} />;
+  } else if (screen === "agendar") {
+    current = <Screens.ScheduleScreen DS={DS} A={A} wa={wa} go={go} />;
+  } else {
+    current = <Screens.HomeScreen DS={DS} A={A} wa={wa} go={go} />;
+  }
 
   return (
     <div className="sentinela-app" onClick={(e) => {
@@ -103,7 +116,11 @@ function App() {
       if (!a) return;
       e.preventDefault();
       const key = a.getAttribute("href").slice(1);
-      if (["home","escorpiao","praga","cupins","b2b","agendar"].includes(key)) go(key);
+      if (KNOWN_PESTS.includes(key)) {
+        go("pragas", key);
+      } else if (["home", "b2b", "agendar", "pragas"].includes(key)) {
+        go(key);
+      }
     }}>
       <SiteHeader scrolled={scrolled} logoSrc={A("logo-brasao.png")} />
       

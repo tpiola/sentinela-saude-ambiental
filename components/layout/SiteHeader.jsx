@@ -12,14 +12,14 @@ const NAV = [
 const ALL_PESTS = [
   { href: "#escorpiao", label: "Escorpiões & Animais Peçonhentos", icon: "🦂" },
   { href: "#cupins", label: "Cupins (Madeira Seca & Solo)", icon: "🪵" },
-  { href: "#home", label: "Baratas (Esgoto & Francesinha)", icon: "🪳" },
-  { href: "#home", label: "Ratos & Roedores Urbanos", icon: "🐀" },
-  { href: "#escorpiao", label: "Aranhas (Armadeira & Marrom)", icon: "🕷️" },
-  { href: "#home", label: "Formigas Cortadeiras & Caseiras", icon: "🐜" },
-  { href: "#home", label: "Mosquitos & Pernilongos", icon: "🦟" },
-  { href: "#home", label: "Pulgas & Carrapatos em Pets", icon: "🐾" },
-  { href: "#escorpiao", label: "Marimbondos, Abelhas & Vespas", icon: "🐝" },
-  { href: "#home", label: "Higienização de Caixa d'Água", icon: "💧" },
+  { href: "#baratas", label: "Baratas (Esgoto & Francesinha)", icon: "🪳" },
+  { href: "#ratos", label: "Ratos & Roedores Urbanos", icon: "🐀" },
+  { href: "#aranhas", label: "Aranhas (Armadeira & Marrom)", icon: "🕷️" },
+  { href: "#formigas", label: "Formigas Cortadeiras & Caseiras", icon: "🐜" },
+  { href: "#mosquitos", label: "Mosquitos, Pernilongos & Dengue", icon: "🦟" },
+  { href: "#pulgas", label: "Pulgas & Carrapatos em Pets", icon: "🐾" },
+  { href: "#vespas", label: "Marimbondos, Abelhas & Vespas", icon: "🐝" },
+  { href: "#caixa-dagua", label: "Higienização de Caixa d'Água", icon: "💧" },
 ];
 
 /** Header Premium Fixo Navy Translúcido com Menu Completo de Pragas e Animações */
@@ -59,7 +59,7 @@ export function SiteHeader({
         {/* LOGO */}
         <Logo variant="compact" tone="dark" href="#home" logoSrc={logoSrc} />
 
-        {/* NAVEGAÇÃO DESKTOP COM DROPDOWN DE TODAS AS PRAGAS */}
+        {/* NAVEGAÇÃO DESKTOP COM DROPDOWN DE TODAS AS 10 PRAGAS */}
         <nav aria-label="Principal" style={{ display: "flex", alignItems: "center", gap: "1.25rem", fontSize: "0.9375rem", fontWeight: 700, color: "rgba(255,255,255,0.9)" }}>
           <a
             href="#home"
@@ -70,7 +70,7 @@ export function SiteHeader({
             Início
           </a>
 
-          {/* MENU DROPDOWN DE TODAS AS PRAGAS */}
+          {/* MENU DROPDOWN DE TODAS AS 10 PRAGAS */}
           <div
             style={{ position: "relative" }}
             onMouseEnter={() => setPestsOpen(true)}
@@ -105,7 +105,7 @@ export function SiteHeader({
                   position: "absolute",
                   top: "100%",
                   left: "-20px",
-                  width: "300px",
+                  width: "320px",
                   background: "#001833",
                   border: "1px solid rgba(143,206,42,0.4)",
                   borderRadius: 10,
@@ -117,7 +117,7 @@ export function SiteHeader({
                 }}
               >
                 <div style={{ padding: "6px 16px", fontSize: "0.6875rem", fontWeight: 800, color: "var(--brand-lime)", textTransform: "uppercase", letterSpacing: "0.12em", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-                  Catálogo de Pragas Atendidas
+                  Catálogo Técnico (10 Espécies)
                 </div>
                 {pestLinks.map((p) => (
                   <a
