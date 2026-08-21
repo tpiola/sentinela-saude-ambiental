@@ -6,7 +6,6 @@ import { TrustStrip } from "@/components/sections/trust-strip";
 import { GallerySection } from "@/components/sections/gallery-section";
 import { B2BSection } from "@/components/sections/b2b-section";
 import { PertoDeMimSection } from "@/components/sections/perto-de-mim-section";
-import { AreaAtendimentoSection } from "@/components/sections/area-atendimento-section";
 import { FaqSection } from "@/components/sections/faq-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { SiteFooter } from "@/components/site-footer";
@@ -32,7 +31,6 @@ export default function Home() {
         <GallerySection />
         <B2BSection />
         <PertoDeMimSection />
-        <AreaAtendimentoSection />
         <FaqSection />
         <CtaFinal />
       </main>
