@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
+import { ScrollTopButton } from "@/components/scroll-top-button";
 import { VercelTelemetry } from "@/components/vercel-telemetry";
 import { BRAND } from "@/lib/brand";
 import { getSiteUrl } from "@/lib/site";
@@ -102,6 +103,7 @@ export default function RootLayout({
         {children}
         <CookieBanner />
         <MobileStickyBar />
+        <ScrollTopButton />
         <VercelTelemetry />
       </body>
     </html>

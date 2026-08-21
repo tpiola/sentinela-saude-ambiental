@@ -117,6 +117,9 @@ export function PestPageClient({ pest }: { pest: PestData }) {
                 Se houve picada ou surgiram sintomas, procure atendimento de saúde
                 imediatamente. A inspeção ambiental é uma etapa separada do cuidado
                 médico.
+                <span className="mt-2 block text-xs text-white/45">
+                  Emergência: SAMU 192 · Bombeiros 193
+                </span>
               </p>
             )}
           </div>

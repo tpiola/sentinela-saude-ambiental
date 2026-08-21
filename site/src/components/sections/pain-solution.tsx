@@ -19,7 +19,7 @@ const services = [
     number: "03",
     title: "Cupins",
     context: "Sinais em móveis, batentes, forros, estruturas e áreas externas.",
-    response: "Vistoria para identificar o tipo de cupim antes de indicar o tratamento.",
+    response: "Visita para identificar o tipo de cupim antes de indicar o tratamento.",
     href: "/pragas/cupins",
   },
   {

@@ -9,16 +9,30 @@ const WA_MSG =
 
 export function WhatsAppFloat() {
   const [show, setShow] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setShow(true), 1500);
     return () => clearTimeout(t);
   }, []);
 
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { threshold: 0.12 },
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
+  const visible = show && !footerVisible;
+
   return (
     <div className="fixed right-4 bottom-20 z-[60] hidden items-end gap-3 sm:flex md:right-8 md:bottom-8">
       <AnimatePresence>
-        {show && (
+        {visible && (
           <motion.a
             href={whatsappHref(WA_MSG)}
             data-track="whatsapp_float_click"

@@ -25,7 +25,7 @@ const guides = [
     href: "/pragas/baratas",
   },
   {
-    title: "Sinais de cupim que merecem uma vistoria",
+    title: "Sinais de cupim que merecem uma visita",
     description:
       "Asas, resíduos, túneis e danos aparentes podem indicar diferentes tipos de ocorrência.",
     href: "/pragas/cupins",

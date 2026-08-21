@@ -1,9 +1,9 @@
 import { SovereignHero } from "@/components/sovereign-hero";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
+import { EmpresaVideoBanner } from "@/components/sections/empresa-video-banner";
 import { PainSolution } from "@/components/sections/pain-solution";
 import { TrustStrip } from "@/components/sections/trust-strip";
-import { ProcessTimeline } from "@/components/sections/process-timeline";
 import { GallerySection } from "@/components/sections/gallery-section";
 import { B2BSection } from "@/components/sections/b2b-section";
 import { PertoDeMimSection } from "@/components/sections/perto-de-mim-section";
@@ -27,10 +27,10 @@ export default function Home() {
       <JsonLdLocalBusiness />
       <SiteHeader />
       <main id="conteudo">
+        <EmpresaVideoBanner />
         <SovereignHero />
         <TrustStrip />
         <PainSolution />
-        <ProcessTimeline />
         <GallerySection />
         <B2BSection />
         <PertoDeMimSection />

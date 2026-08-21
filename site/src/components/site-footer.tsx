@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BRAND, mapsDirectionsUrl } from "@/lib/brand";
+import { BRAND, mapsDirectionsUrl, whatsappHref } from "@/lib/brand";
+import { MapEmbed } from "@/components/map-embed";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -98,7 +99,35 @@ export function SiteFooter() {
                 </a>
               </li>
             </ul>
+
+            <div className="mt-5 flex items-center gap-4">
+              <div className="shrink-0 bg-white p-1.5">
+                <Image
+                  src="/qr-whatsapp.png"
+                  alt="QR Code para chamar a Sentinela no WhatsApp"
+                  width={104}
+                  height={104}
+                  className="h-[104px] w-[104px]"
+                />
+              </div>
+              <p className="text-xs leading-5 text-white/50">
+                Aponte a câmera do celular para falar direto com a equipe no
+                WhatsApp —{" "}
+                <a
+                  href={whatsappHref()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[color:var(--brand-lime)] underline underline-offset-2"
+                >
+                  {BRAND.phoneDisplay}
+                </a>
+              </p>
+            </div>
           </div>
+        </div>
+
+        <div className="mt-10">
+          <MapEmbed title="Onde estamos — Sentinela Saúde Ambiental" />
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center md:flex-row md:justify-between">

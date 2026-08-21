@@ -18,7 +18,7 @@ const pestDropdownItems = [
 const navLinks = [
   { href: "/", label: "Início" },
   { href: "/servicos", label: "Serviços" },
-  { href: "/condominio", label: "Condomínios" },
+  { href: "/condominio", label: "Empresas e Condomínios" },
   { href: "/sobre", label: "Sobre" },
   { href: "/faq", label: "Dúvidas" },
 ];
