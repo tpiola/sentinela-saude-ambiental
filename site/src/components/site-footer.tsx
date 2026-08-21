@@ -48,6 +48,9 @@ export function SiteFooter() {
               Controle de pragas com inspeção, orientação preventiva e registro do
               serviço conforme o escopo contratado.
             </p>
+            <div className="mt-4 max-w-[240px]">
+              <MapEmbed title="Onde estamos" />
+            </div>
           </div>
 
           <nav aria-label="Links do rodapé">
@@ -124,10 +127,6 @@ export function SiteFooter() {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="mt-10">
-          <MapEmbed title="Onde estamos — Sentinela Saúde Ambiental" />
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center md:flex-row md:justify-between">
