@@ -89,9 +89,9 @@ export function buildLocalBusinessGraph() {
             closes: "17:00",
           },
         ],
-        // Nota: um link para o Google Maps só entra aqui com um
-        // query_place_id verificado (Place ID) — uma URL de busca por texto
-        // não identifica a empresa de forma inequívoca conforme o schema.org.
+        // hasMap aponta para a ficha real do Google (Place ID verificado).
+        hasMap:
+          "https://www.google.com/maps/search/?api=1&query=Sentinela+Sa%C3%BAde+Ambiental+Franca+SP&query_place_id=0xb70cb762d1af984f",
         sameAs: [BRAND.instagramUrl, BRAND.facebookUrl],
         hasOfferCatalog: {
           "@type": "OfferCatalog",

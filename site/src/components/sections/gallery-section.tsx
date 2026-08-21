@@ -36,7 +36,7 @@ const galleryItems = [
     desc: "Avaliação prioritária de possíveis acessos, abrigos e condições favoráveis à ocorrência de escorpiões.",
   },
   {
-    src: "/media/sentinela/drive/servico-vila-santa-terezinha-franca-sp.webp",
+    src: "/media/sentinela/drive/02-trabalho-campo.jpg",
     alt: "Serviço de controle de pragas na Vila Santa Terezinha em Franca SP",
     bairro: "Vila Santa Terezinha",
     desc: "Registro de serviço com diagnóstico inicial, execução orientada e recomendações preventivas ao cliente.",

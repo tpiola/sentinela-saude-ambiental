@@ -23,8 +23,8 @@ export const BRAND = {
   addressFull:
     "Av. Pedro Calandria Fernandes, 1300 — Franca/SP, CEP 14407-350",
   geo: {
-    latitude: -20.5401,
-    longitude: -47.4009,
+    latitude: -20.4967359,
+    longitude: -47.4182681,
   },
   openingHours: {
     weekdays: "Segunda a Sábado: 07:00 às 19:00",
@@ -133,7 +133,7 @@ export const BRAND = {
       desc: "Cronograma preventivo, registros do atendimento e acompanhamento para empresas e condomínios.",
       icon: "building",
       imageUrl:
-        "/media/sentinela/drive/servico-vila-santa-terezinha-franca-sp.webp",
+        "/media/sentinela/drive/02-trabalho-campo.jpg",
     },
   ],
   faq: [
