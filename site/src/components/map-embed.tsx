@@ -7,10 +7,12 @@ import {
 
 type MapEmbedProps = {
   title?: string;
+  compact?: boolean;
 };
 
 export function MapEmbed({
   title = "Como chegar — mapa interativo",
+  compact = false,
 }: MapEmbedProps) {
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   const query =
@@ -21,6 +23,30 @@ export function MapEmbed({
     : mapsEmbedUrl();
 
   const directionsUrl = mapsDirectionsUrl();
+
+  if (compact) {
+    return (
+      <a
+        href={directionsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Abrir localização da ${BRAND.name} no GPS`}
+        className="group relative block overflow-hidden rounded-xl ring-1 ring-white/20"
+      >
+        <iframe
+          title={`Mapa — ${BRAND.name}`}
+          className="pointer-events-none h-36 w-full"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen={false}
+          src={embedSrc}
+          tabIndex={-1}
+        />
+        <span className="pointer-events-none absolute inset-0 bg-[color:var(--brand-navy)]/0 transition group-hover:bg-[color:var(--brand-navy)]/10" />
+      </a>
+    );
+  }
+
   const searchUrl = mapsSearchUrl();
 
   return (

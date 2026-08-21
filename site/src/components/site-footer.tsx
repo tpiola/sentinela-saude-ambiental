@@ -49,7 +49,7 @@ export function SiteFooter() {
               serviço conforme o escopo contratado.
             </p>
             <div className="mt-4 max-w-[240px]">
-              <MapEmbed title="Onde estamos" />
+              <MapEmbed compact />
             </div>
           </div>
 

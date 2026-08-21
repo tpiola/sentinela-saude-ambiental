@@ -38,12 +38,12 @@ export function B2BSection() {
               <div className="py-6"><dt className="font-[family-name:var(--font-heading)] text-lg font-bold">Documentação técnica</dt><dd className="mt-2 text-sm leading-6 text-white/65">Comprovante de execução com informações aplicáveis ao serviço contratado.</dd></div>
               <div className="py-6"><dt className="font-[family-name:var(--font-heading)] text-lg font-bold">Rotina preservada</dt><dd className="mt-2 text-sm leading-6 text-white/65">Agendamento e orientações para reduzir interferências na operação.</dd></div>
             </dl>
-            <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3 border-t border-white/20 pt-6">
+            <div className="mt-8 flex flex-wrap gap-3 border-t border-white/20 pt-6">
               {sectors.map((sector) => (
                 <Link
                   key={sector.href}
                   href={sector.href}
-                  className="text-sm font-medium text-white/70 underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white"
+                  className="inline-flex min-h-10 items-center rounded-full border border-white/20 px-4 text-sm font-semibold text-white/80 transition hover:border-[color:var(--brand-accent-blue)] hover:bg-[color:var(--brand-accent-blue)]/15 hover:text-white"
                 >
                   {sector.label}
                 </Link>

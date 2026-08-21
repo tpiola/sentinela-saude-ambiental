@@ -65,7 +65,7 @@ export function PainSolution() {
           {services.map((service) => (
             <article
               key={service.title}
-              className="grid gap-5 py-8 sm:grid-cols-[64px_minmax(0,0.8fr)_minmax(0,1.2fr)_auto] sm:items-start"
+              className="group grid gap-5 py-8 transition-colors duration-300 hover:bg-gradient-to-r hover:from-[color:var(--brand-navy)]/[0.04] hover:via-[color:var(--brand-accent-blue)]/[0.04] hover:to-transparent sm:grid-cols-[64px_minmax(0,0.8fr)_minmax(0,1.2fr)_auto] sm:items-start"
             >
               <span className="font-mono text-sm font-bold text-[color:var(--brand-green-deep)]" aria-hidden="true">
                 {service.number}
@@ -83,7 +83,7 @@ export function PainSolution() {
               </p>
               <Link
                 href={service.href}
-                className="inline-flex min-h-11 items-center justify-center whitespace-nowrap border-b-2 border-[color:var(--brand-lime)] px-1 text-sm font-bold text-[color:var(--brand-navy)] hover:border-[color:var(--brand-navy)] focus-visible:outline-2 focus-visible:outline-offset-4"
+                className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-full border border-[color:var(--brand-navy)]/20 px-5 text-sm font-bold text-[color:var(--brand-navy)] transition group-hover:border-[color:var(--brand-accent-blue)] group-hover:text-[color:var(--brand-accent-blue)] focus-visible:outline-2 focus-visible:outline-offset-4"
               >
                 Ver orientação
               </Link>
