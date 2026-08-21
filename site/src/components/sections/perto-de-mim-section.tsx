@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import { locations } from "@/lib/growth-content";
+import { BairroSelector } from "@/components/bairro-selector";
 
 const cityLocationSlug = new Map(
   locations.map((page) => [page.title.replace("Dedetização em ", ""), page.slug]),
@@ -50,24 +51,7 @@ export function PertoDeMimSection() {
           </div>
 
           <div className="lg:border-l lg:border-[color:var(--brand-border)] lg:pl-8">
-            <h3 className="font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
-              Bairros atendidos em Franca
-            </h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {BRAND.servicedBairros.map((bairro) => (
-                <a
-                  key={bairro}
-                  href={whatsappHref(
-                    `Olá, Sentinela! Procurei por dedetizadora perto de mim. Meu bairro é ${bairro}, em Franca/SP.`,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-[color:var(--brand-border)] bg-white px-3 py-1.5 text-xs font-semibold text-[color:var(--brand-navy)] transition hover:border-[color:var(--brand-green-deep)] hover:bg-[color:var(--brand-lime)]"
-                >
-                  {bairro}
-                </a>
-              ))}
-            </div>
+            <BairroSelector />
 
             <h3 className="mt-8 font-[family-name:var(--font-heading)] text-lg font-bold text-[color:var(--brand-navy)]">
               Municípios da região
