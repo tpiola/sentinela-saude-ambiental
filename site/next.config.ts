@@ -63,6 +63,26 @@ const nextConfig: NextConfig = {
         destination: "/pragas/escorpiao",
         permanent: true,
       },
+      // URLs limpas de alta conversão (SEO local: "praga-franca")
+      ...[
+        ["escorpiao-franca", "/pragas/escorpiao"],
+        ["barata-franca", "/pragas/baratas"],
+        ["baratas-franca", "/pragas/baratas"],
+        ["cupim-franca", "/pragas/cupins"],
+        ["cupins-franca", "/pragas/cupins"],
+        ["rato-franca", "/pragas/ratos"],
+        ["ratos-franca", "/pragas/ratos"],
+        ["aranha-franca", "/pragas/aranhas"],
+        ["formiga-franca", "/pragas/formigas"],
+        ["mosquito-franca", "/pragas/mosquitos"],
+        ["dedetizacao-condominio-franca", "/condominio"],
+        ["dedetizadora-franca", "/"],
+        ["dedetizacao-franca", "/"],
+      ].map(([source, destination]) => ({
+        source: `/${source}`,
+        destination,
+        permanent: true,
+      })),
       ...[
         ["barata", "baratas"],
         ["rato", "ratos"],
