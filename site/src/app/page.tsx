@@ -1,4 +1,4 @@
-import { ScrollCraftHero } from "@/components/scroll-craft-hero";
+import { SovereignHero } from "@/components/sovereign-hero";
 import { JsonLdLocalBusiness } from "@/components/json-ld";
 import { SiteHeader } from "@/components/site-header";
 import { PainSolution } from "@/components/sections/pain-solution";
@@ -25,7 +25,7 @@ export default function Home() {
       <JsonLdLocalBusiness />
       <SiteHeader />
       <main id="conteudo">
-        <ScrollCraftHero />
+        <SovereignHero />
         <TrustStrip />
         <PainSolution />
         <GallerySection />
