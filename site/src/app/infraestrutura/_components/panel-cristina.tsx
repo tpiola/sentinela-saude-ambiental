@@ -202,6 +202,49 @@ export function PanelCristina() {
       </div>
 
       <Card>
+        <SectionTitle
+          title="Webhook de auto-resposta (WhatsApp Cloud API)"
+          subtitle="Configuração para a Cristina responder automaticamente no WhatsApp"
+        />
+        <div className="space-y-3 text-sm leading-6 text-brand-muted">
+          <p>
+            A Cristina já tem o roteiro de vendas pronto. Para ela responder
+            <strong className="text-brand-navy"> automaticamente</strong> às
+            mensagens recebidas no WhatsApp, conecte o webhook abaixo na Meta
+            (WhatsApp Business → Configurações → Webhooks).
+          </p>
+          <div className="rounded-lg bg-brand-surface p-3">
+            <p className="text-xs font-bold uppercase tracking-wide text-brand-muted">
+              URL do webhook
+            </p>
+            <code className="mt-1 block break-all font-mono text-xs text-brand-navy">
+              https://www.sentinelasaudeambiental.com.br/api/infraestrutura/whatsapp-webhook
+            </code>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-3">
+            {[
+              { k: "WHATSAPP_VERIFY_TOKEN", d: "Token de verificação (você define)" },
+              { k: "WHATSAPP_ACCESS_TOKEN", d: "Token de acesso da Meta" },
+              { k: "WHATSAPP_PHONE_NUMBER_ID", d: "ID do número do WhatsApp" },
+            ].map((env) => (
+              <div key={env.k} className="rounded-lg border border-brand-border p-3">
+                <code className="block break-all font-mono text-xs font-bold text-brand-navy">
+                  {env.k}
+                </code>
+                <p className="mt-1 text-xs text-brand-muted">{env.d}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs">
+            Essas 3 variáveis são adicionadas nas{" "}
+            <strong className="text-brand-navy">Environment Variables</strong>{" "}
+            do projeto na Vercel. Sem elas, o webhook responde apenas com os
+            templates manuais abaixo.
+          </p>
+        </div>
+      </Card>
+
+      <Card>
         <SectionTitle title="Contato da Cristina" />
         <p className="text-sm text-brand-muted">
           Número de destino:{" "}

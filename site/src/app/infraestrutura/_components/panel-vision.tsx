@@ -79,6 +79,9 @@ export function PanelVision() {
   const [preview, setPreview] = useState<string | null>(null);
   const [categoria, setCategoria] = useState<string>(CATEGORIAS[0]);
   const [observacao, setObservacao] = useState("");
+  const [analysis, setAnalysis] = useState<string | null>(null);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -87,11 +90,52 @@ export function PanelVision() {
     };
   }, [preview]);
 
-  function handleFile(event: React.ChangeEvent<HTMLInputElement>) {
+  async function handleFile(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
     if (preview) URL.revokeObjectURL(preview);
-    setPreview(URL.createObjectURL(file));
+    const objectUrl = URL.createObjectURL(file);
+    setPreview(objectUrl);
+    setAnalysis(null);
+    setError(null);
+
+    // Converte para base64 e chama a IA de visão
+    setAnalyzing(true);
+    try {
+      const base64 = await fileToBase64(file);
+      const response = await fetch("/api/infraestrutura/vision", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: base64 }),
+      });
+      const data = (await response.json()) as {
+        ok: boolean;
+        analysis?: string;
+        error?: string;
+      };
+      if (data.ok && data.analysis) {
+        setAnalysis(data.analysis);
+      } else {
+        setError(data.error ?? "Não foi possível analisar a imagem.");
+      }
+    } catch {
+      setError("Falha ao processar a imagem. Tente novamente.");
+    } finally {
+      setAnalyzing(false);
+    }
+  }
+
+  function fileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result as string;
+        // Remove o prefixo "data:image/...;base64,"
+        resolve(result.split(",")[1] ?? result);
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
   }
 
   function openTriage() {
@@ -188,6 +232,35 @@ export function PanelVision() {
               </>
             )}
           </div>
+
+          {analyzing && (
+            <div className="mt-4 flex items-center gap-3 rounded-lg bg-brand-surface p-4">
+              <span className="h-4 w-4 animate-spin rounded-full border-2 border-brand-navy border-t-transparent" />
+              <p className="text-sm font-bold text-brand-navy">
+                Analisando a foto com IA…
+              </p>
+            </div>
+          )}
+
+          {error && (
+            <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4">
+              <p className="text-sm font-bold text-red-700">⚠️ {error}</p>
+            </div>
+          )}
+
+          {analysis && (
+            <div className="mt-4 rounded-lg border border-brand-lime/40 bg-brand-surface p-4">
+              <div className="flex items-center justify-between gap-2">
+                <p className="text-sm font-bold text-brand-navy">
+                  🤖 Análise da IA
+                </p>
+                <Badge tone="lime">Identificado</Badge>
+              </div>
+              <pre className="mt-3 whitespace-pre-wrap font-sans text-sm leading-6 text-brand-navy">
+                {analysis}
+              </pre>
+            </div>
+          )}
 
           <label className="mt-4 block">
             <span className="text-sm font-bold text-brand-navy">Categoria</span>
