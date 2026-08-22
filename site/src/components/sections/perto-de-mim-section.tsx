@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import { locations } from "@/lib/growth-content";
 import { BairroSelector } from "@/components/bairro-selector";
+import { Reveal } from "@/components/reveal";
 
 const cityLocationSlug = new Map(
   locations.map((page) => [page.title.replace("Dedetização em ", ""), page.slug]),
@@ -16,12 +17,14 @@ export function PertoDeMimSection() {
       <div className="mx-auto max-w-5xl px-4 md:px-6">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)] lg:items-start">
           <div>
+            <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[color:var(--brand-green-deep)]">
               Dedetizadora perto de mim
             </p>
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold leading-tight text-[color:var(--brand-navy)] md:text-4xl">
               Procurou &ldquo;dedetizadora perto de mim&rdquo;? A Sentinela já atende o seu bairro.
             </h2>
+            </Reveal>
             <div className="mt-4 space-y-4 leading-7 text-[color:var(--brand-muted)]">
               <p>
                 Quando alguém busca &ldquo;controle de pragas perto de mim&rdquo; ou

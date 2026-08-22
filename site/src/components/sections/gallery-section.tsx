@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { whatsappHref } from "@/lib/brand";
+import { Reveal } from "@/components/reveal";
 
 const galleryItems = [
   {
@@ -50,12 +51,14 @@ export function GallerySection() {
     <section id="galeria" className="scroll-mt-28 bg-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="text-center">
+          <Reveal>
           <p className="text-xs font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
             Registros de atendimento
           </p>
           <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-[color:var(--brand-navy)] md:text-4xl">
             Serviços realizados em Franca
           </h2>
+          </Reveal>
           <p className="mx-auto mt-4 max-w-2xl text-[color:var(--brand-muted)]">
             Imagens do trabalho da equipe em diferentes regiões da cidade. Os
             detalhes de cada serviço variam conforme a ocorrência e o imóvel.

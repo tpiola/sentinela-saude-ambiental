@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { BRAND, whatsappHref } from "@/lib/brand";
+import { Reveal } from "@/components/reveal";
 
 const highlights = [
   "Inspeção técnica para residências, empresas e condomínios.",
@@ -66,6 +67,7 @@ export function AboutSection() {
           </div>
 
           <div className="order-1 lg:order-2">
+            <Reveal>
             <p className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[color:var(--brand-green-deep)]">
               <span className="h-0.5 w-8 bg-[color:var(--brand-lime)]" />
               Sobre a Sentinela
@@ -73,6 +75,7 @@ export function AboutSection() {
             <h2 className="font-[family-name:var(--font-heading)] text-3xl font-bold tracking-tight text-[color:var(--brand-navy)] md:text-4xl lg:text-5xl">
               Controle de pragas com diagnóstico e responsabilidade.
             </h2>
+            </Reveal>
             <p className="mt-6 text-lg leading-relaxed text-[color:var(--brand-muted)]">
               A <strong className="text-[color:var(--brand-navy)]">{BRAND.name}</strong>{" "}
               atende Franca e municípios da região. O trabalho começa pela leitura

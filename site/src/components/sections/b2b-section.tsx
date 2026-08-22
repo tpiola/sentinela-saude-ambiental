@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { whatsappHref } from "@/lib/brand";
+import { Reveal } from "@/components/reveal";
 
 const sectors = [
   { label: "Condomínios", href: "/mercados/condominios" },
@@ -16,10 +17,12 @@ export function B2BSection() {
       <div className="container-responsive">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)]">
           <div className="min-w-0">
+            <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-lime)]">Controle preventivo</p>
             <h2 id="b2b-title" className="mt-4 max-w-[14ch] min-w-0 [overflow-wrap:anywhere] font-[family-name:var(--font-heading)] text-4xl font-bold leading-tight tracking-[-0.035em] sm:text-5xl">
               Continuidade para ambientes que não podem parar.
             </h2>
+            </Reveal>
             <p className="mt-6 max-w-2xl text-base leading-7 text-white/70">
               Acompanhamento para empresas e condomínios com escopo definido, cronograma preventivo e registro do serviço executado.
             </p>

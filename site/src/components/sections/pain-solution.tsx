@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/reveal";
 
 const services = [
   {
@@ -44,6 +45,7 @@ export function PainSolution() {
       <div className="container-responsive">
         <div className="grid gap-8 border-b border-[color:var(--brand-border)] pb-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:items-end">
           <div className="min-w-0">
+            <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-green-deep)]">
               Atendimento por diagnóstico
             </p>
@@ -53,6 +55,7 @@ export function PainSolution() {
             >
               Primeiro identificamos. Depois tratamos.
             </h2>
+            </Reveal>
           </div>
           <p className="max-w-2xl text-base leading-7 text-[color:var(--brand-muted)] lg:justify-self-end">
             Cada ocorrência exige uma leitura diferente do ambiente. A Sentinela
