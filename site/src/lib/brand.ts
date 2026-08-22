@@ -133,7 +133,7 @@ export const BRAND = {
       desc: "Cronograma preventivo, registros do atendimento e acompanhamento para empresas e condomínios.",
       icon: "building",
       imageUrl:
-        "/media/sentinela/drive/02-trabalho-campo.jpg",
+        "/media/sentinela/facebook/images/02-trabalho-campo.jpg",
     },
   ],
   faq: [

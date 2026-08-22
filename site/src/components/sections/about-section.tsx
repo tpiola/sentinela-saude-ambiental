@@ -22,7 +22,7 @@ const miniGallery = [
     alt: "Atendimento empresarial no Parque Progresso em Franca SP",
   },
   {
-    src: "/media/sentinela/drive/02-trabalho-campo.jpg",
+    src: "/media/sentinela/facebook/images/02-trabalho-campo.jpg",
     alt: "Serviço na Vila Santa Terezinha em Franca SP",
   },
 ] as const;
