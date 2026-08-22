@@ -3,7 +3,9 @@ import { DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { CookieBanner } from "@/components/cookie-banner";
+import { InfraestruturaTracker } from "@/components/infraestrutura-tracker";
 import { MobileStickyBar } from "@/components/mobile-sticky-bar";
+import { PublicSiteChrome } from "@/components/public-site-chrome";
 import { ScrollTopButton } from "@/components/scroll-top-button";
 import { VercelTelemetry } from "@/components/vercel-telemetry";
 import { BRAND } from "@/lib/brand";
@@ -100,10 +102,13 @@ export default function RootLayout({
           Pular para o conteúdo
         </a>
         <Analytics />
+        <InfraestruturaTracker />
         {children}
-        <CookieBanner />
-        <MobileStickyBar />
-        <ScrollTopButton />
+        <PublicSiteChrome>
+          <CookieBanner />
+          <MobileStickyBar />
+          <ScrollTopButton />
+        </PublicSiteChrome>
         <VercelTelemetry />
       </body>
     </html>
