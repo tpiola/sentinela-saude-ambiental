@@ -9,7 +9,7 @@ export const BRAND = {
   region: "Franca e região — SP",
   phoneDisplay: "(16) 99374-7147",
   phoneE164: "5516993747147",
-  email: "sentinelasaudeambiental@gmail.com",
+  email: "contato@sentinelasaudeambiental.com.br",
   instagramUrl: "https://www.instagram.com/sentinelasaudeambiental/",
   facebookUrl: "https://www.facebook.com/sentinelasaudeambiental",
   cnpj: "30.438.427/0001-37",
