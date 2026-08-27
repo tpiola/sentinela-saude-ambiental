@@ -144,6 +144,9 @@ export function SiteFooter() {
               Rei das Vendas
             </a>
           </p>
+          <p className="text-xs text-white/30">
+            Construído por Hermes Agent
+          </p>
         </div>
       </div>
     </footer>

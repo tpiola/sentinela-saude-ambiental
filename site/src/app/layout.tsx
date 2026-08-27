@@ -38,6 +38,7 @@ export const metadata: Metadata = {
   creator: BRAND.name,
   publisher: BRAND.name,
   category: "Saúde ambiental",
+  generator: "Hermes Agent",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16" },
