@@ -2,12 +2,17 @@ import { createHash, timingSafeEqual } from "node:crypto";
 
 /**
  * Autenticação da área restrita /infraestrutura.
- * Credenciais fixas definidas pelo cliente. O token gravado no cookie é um
- * hash SHA-256 de `usuario:senha`, para não trafegar a senha em texto plano.
+ * Credenciais vindas de variáveis de ambiente (Vercel env), nunca hardcoded.
+ * O token gravado no cookie é um hash SHA-256 de `usuario:senha`, para não
+ * trafegar a senha em texto plano.
+ *
+ * Fail-closed: se as env vars não estiverem configuradas, o acesso é negado
+ * (usuário/senha vazios nunca casam com nada).
  */
 
-export const INFRAESTRUTURA_USER = "sentinela";
-export const INFRAESTRUTURA_PASSWORD = "SENTINELA_SENHA_REMOVIDA";
+export const INFRAESTRUTURA_USER = process.env.INFRAESTRUTURA_USER ?? "";
+export const INFRAESTRUTURA_PASSWORD =
+  process.env.INFRAESTRUTURA_PASSWORD ?? "";
 
 export const AUTH_COOKIE_NAME = "sentinela_auth";
 export const AUTH_COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 dias
