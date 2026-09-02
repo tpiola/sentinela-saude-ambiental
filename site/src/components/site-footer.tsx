@@ -134,18 +134,15 @@ export function SiteFooter() {
             © {year} {BRAND.name}. CNPJ: {BRAND.cnpj}
           </p>
           <p className="text-xs text-white/40">
-            Sistema criado por{" "}
+            Criado por{" "}
             <a
-              href="https://www.reidasvendas.com.br"
+              href="https://reidasvendas.com.br"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[color:var(--brand-lime)] underline underline-offset-2"
             >
-              Rei das Vendas
+              reidasvendas.com.br
             </a>
-          </p>
-          <p className="text-xs text-white/30">
-            Construído por Hermes Agent
           </p>
         </div>
       </div>
