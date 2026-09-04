@@ -1,10 +1,12 @@
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { JsonLd } from "@/components/json-ld";
 import { StatsMarquee } from "@/components/sections/stats-marquee";
 import { AboutSection } from "@/components/sections/about-section";
 import { CtaFinal } from "@/components/sections/cta-final";
 import { SiteFooter } from "@/components/site-footer";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { buildAboutPageGraph } from "@/lib/seo-schema";
 
 export const metadata = buildPageMetadata({
   title: "Empresa de controle de pragas em Franca SP",
@@ -16,6 +18,7 @@ export const metadata = buildPageMetadata({
 export default function SobrePage() {
   return (
     <>
+      <JsonLd data={buildAboutPageGraph("/sobre")} />
       <SiteHeader />
       <main id="conteudo" className="pt-20">
         <section className="bg-[color:var(--brand-navy)] py-14 text-white sm:py-20">

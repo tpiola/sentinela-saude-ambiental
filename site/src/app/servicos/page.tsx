@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { JsonLd } from "@/components/json-ld";
 import { ServicesGrid } from "@/components/sections/services-grid";
 import { B2BSection } from "@/components/sections/b2b-section";
 import { ProcessTimeline } from "@/components/sections/process-timeline";
@@ -8,6 +9,7 @@ import { AreaAtendimentoSection } from "@/components/sections/area-atendimento-s
 import { CtaFinal } from "@/components/sections/cta-final";
 import { SiteFooter } from "@/components/site-footer";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { buildServicesPageGraph } from "@/lib/seo-schema";
 
 export const metadata = buildPageMetadata({
   title: "Serviços de dedetização em Franca SP",
@@ -19,6 +21,7 @@ export const metadata = buildPageMetadata({
 export default function ServicosPage() {
   return (
     <>
+      <JsonLd data={buildServicesPageGraph("/servicos")} />
       <SiteHeader />
       <main id="conteudo" className="pt-20">
         <section className="bg-[color:var(--brand-navy)] py-14 text-white sm:py-20">

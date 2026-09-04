@@ -1,8 +1,10 @@
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { JsonLd } from "@/components/json-ld";
 import { BRAND, whatsappHref } from "@/lib/brand";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { buildContactPageGraph } from "@/lib/seo-schema";
 
 export const metadata = buildPageMetadata({
   title: "Contato e avaliação",
@@ -14,6 +16,7 @@ export const metadata = buildPageMetadata({
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={buildContactPageGraph("/contato")} />
       <SiteHeader />
       <main
         id="conteudo"

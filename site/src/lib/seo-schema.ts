@@ -121,3 +121,127 @@ export function buildLocalBusinessGraph() {
     ],
   };
 }
+
+/** /servicos — catálogo de serviços com âncoras no organograma local. */
+export function buildServicesPageGraph(path: string) {
+  const url = `${siteUrl}${path}`;
+  const serviceItems = BRAND.services.map((service, index) => ({
+    "@type": "Service",
+    "@id": `${url}#servico-${service.id}`,
+    position: index + 1,
+    name: service.title,
+    description: service.desc,
+    url,
+    provider: { "@id": `${siteUrl}/#organization` },
+    areaServed: { "@type": "City", name: "Franca" },
+  }));
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: "Serviços de dedetização em Franca SP",
+        description:
+          "Conheça os serviços de controle de pragas da Sentinela para residências, empresas e condomínios em Franca e região.",
+        inLanguage: "pt-BR",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": `${url}#catalogo` },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${url}#catalogo`,
+        name: "Serviços de controle de pragas",
+        itemListElement: serviceItems,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Início", item: `${siteUrl}/` },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Serviços",
+            item: url,
+          },
+        ],
+      },
+    ],
+  };
+}
+
+/** /sobre — página institucional ligada à entidade LocalBusiness persistente. */
+export function buildAboutPageGraph(path: string) {
+  const url = `${siteUrl}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: "Empresa de controle de pragas em Franca SP",
+        description:
+          "Conheça a Sentinela Saúde Ambiental, empresa de controle de pragas com atendimento em Franca e municípios da região.",
+        inLanguage: "pt-BR",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": `${siteUrl}/#organization` },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${siteUrl}${BRAND.logoPath}`,
+        },
+      },
+      { "@id": `${siteUrl}/#organization` },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Início", item: `${siteUrl}/` },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Sobre",
+            item: url,
+          },
+        ],
+      },
+    ],
+  };
+}
+
+/** /contato — página de contato ligada à entidade LocalBusiness persistente. */
+export function buildContactPageGraph(path: string) {
+  const url = `${siteUrl}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: "Contato e avaliação",
+        description:
+          "Solicite avaliação para controle de pragas em Franca e região pelo WhatsApp ou telefone.",
+        inLanguage: "pt-BR",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": `${siteUrl}/#organization` },
+      },
+      { "@id": `${siteUrl}/#organization` },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Início", item: `${siteUrl}/` },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Contato",
+            item: url,
+          },
+        ],
+      },
+    ],
+  };
+}
