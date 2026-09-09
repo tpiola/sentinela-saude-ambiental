@@ -32,10 +32,10 @@ export function CookieBanner() {
       role="dialog"
       aria-label="Preferências de privacidade"
       aria-describedby="cookie-description"
-      className="fixed inset-x-3 bottom-20 z-[90] mx-auto max-w-3xl border border-[color:var(--brand-border)] bg-white p-4 shadow-2xl sm:bottom-5 sm:p-5"
+      className="fixed inset-x-3 bottom-20 z-[90] mx-auto max-w-md border border-[color:var(--brand-border)] bg-white p-3.5 shadow-2xl sm:bottom-5 sm:right-5 sm:left-auto sm:inset-x-auto sm:max-w-sm sm:p-4"
     >
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-        <p id="cookie-description" className="flex-1 text-sm leading-6 text-[color:var(--brand-muted)]">
+      <div className="flex flex-col gap-3 sm:flex-col">
+        <p id="cookie-description" className="text-[13px] leading-5 text-[color:var(--brand-muted)]">
           Usamos cookies de medição para entender campanhas e melhorar o atendimento.
           Você pode recusar sem perder funcionalidades.{" "}
           <Link href="/privacidade" className="font-semibold text-[color:var(--brand-navy)] underline underline-offset-4">
@@ -46,14 +46,14 @@ export function CookieBanner() {
           <button
             type="button"
             onClick={() => choose("rejected")}
-            className="min-h-11 whitespace-nowrap border border-[color:var(--brand-border)] px-4 text-sm font-semibold text-[color:var(--brand-navy)] hover:bg-[color:var(--brand-surface)] focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="min-h-10 flex-1 whitespace-nowrap border border-[color:var(--brand-border)] px-3 text-[13px] font-semibold text-[color:var(--brand-navy)] hover:bg-[color:var(--brand-surface)] focus-visible:outline-2 focus-visible:outline-offset-2"
           >
             Recusar
           </button>
           <button
             type="button"
             onClick={() => choose("accepted")}
-            className="min-h-11 whitespace-nowrap bg-[color:var(--brand-navy)] px-5 text-sm font-bold text-white hover:bg-[color:var(--brand-navy-soft)] focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="min-h-10 flex-1 whitespace-nowrap bg-[color:var(--brand-navy)] px-3 text-[13px] font-bold text-white hover:bg-[color:var(--brand-navy-soft)] focus-visible:outline-2 focus-visible:outline-offset-2"
           >
             Aceitar medição
           </button>
