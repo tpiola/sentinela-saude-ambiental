@@ -8,38 +8,38 @@ import { Reveal } from "@/components/reveal";
 const galleryItems = [
   {
     src: "/media/sentinela/drive/dedetizacao-centro-franca-sp.webp",
-    alt: "Equipe em serviço de controle de pragas no Centro de Franca SP",
-    bairro: "Centro",
+    alt: "Equipe em serviço de controle de pragas em imóvel comercial em Franca SP",
+    title: "Atendimento comercial",
     desc: "Registro de atendimento em imóvel comercial, com inspeção do ambiente e orientação sobre as medidas adotadas.",
   },
   {
     src: "/media/sentinela/drive/aplicacao-jardim-francano-franca-sp.webp",
-    alt: "Aplicação de controle de pragas no Jardim Francano em Franca SP",
-    bairro: "Jardim Francano",
+    alt: "Aplicação de controle de pragas em imóvel residencial em Franca SP",
+    title: "Atendimento residencial",
     desc: "Atendimento residencial com preparação do local e orientações específicas para pessoas e animais.",
   },
   {
     src: "/media/sentinela/drive/controle-pragas-city-petropolis-franca-sp.webp",
-    alt: "Controle de pragas no City Petrópolis em Franca SP",
-    bairro: "City Petrópolis",
+    alt: "Inspeção de controle de pragas em imóvel em Franca SP",
+    title: "Inspeção e tratamento",
     desc: "Inspeção e tratamento direcionado conforme os sinais e as condições encontrados no imóvel.",
   },
   {
     src: "/media/sentinela/drive/dedetizacao-parque-progresso-franca-sp.webp",
-    alt: "Atendimento empresarial de controle de pragas no Parque Progresso em Franca SP",
-    bairro: "Parque Progresso",
+    alt: "Atendimento empresarial de controle de pragas em Franca SP",
+    title: "Atendimento empresarial",
     desc: "Atendimento empresarial com escopo preventivo, registros do serviço e recomendações operacionais.",
   },
   {
     src: "/media/sentinela/drive/escorpiao-residencial-baldassari-franca-sp.webp",
-    alt: "Inspeção para controle de escorpiões no Residencial Baldassari em Franca SP",
-    bairro: "Residencial Baldassari",
+    alt: "Inspeção para controle de escorpiões em imóvel em Franca SP",
+    title: "Controle de escorpiões",
     desc: "Avaliação prioritária de possíveis acessos, abrigos e condições favoráveis à ocorrência de escorpiões.",
   },
   {
     src: "/media/sentinela/facebook/images/02-trabalho-campo.jpg",
-    alt: "Serviço de controle de pragas na Vila Santa Terezinha em Franca SP",
-    bairro: "Vila Santa Terezinha",
+    alt: "Serviço de controle de pragas em campo em Franca SP",
+    title: "Serviço em campo",
     desc: "Registro de serviço com diagnóstico inicial, execução orientada e recomendações preventivas ao cliente.",
   },
 ] as const;
@@ -60,7 +60,7 @@ export function GallerySection() {
           </h2>
           </Reveal>
           <p className="mx-auto mt-4 max-w-2xl text-[color:var(--brand-muted)]">
-            Imagens do trabalho da equipe em diferentes regiões da cidade. Os
+            Imagens do trabalho da equipe em atendimentos reais. Os
             detalhes de cada serviço variam conforme a ocorrência e o imóvel.
           </p>
         </div>
@@ -70,7 +70,7 @@ export function GallerySection() {
             const isExpanded = expanded === index;
             return (
               <article
-                key={item.bairro}
+                key={item.src}
                 className="overflow-hidden rounded-2xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)]"
               >
                 <div className="relative h-56 w-full overflow-hidden">
@@ -82,15 +82,11 @@ export function GallerySection() {
                     loading="lazy"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
-                  <span className="absolute bottom-3 left-3 rounded-full bg-[color:var(--brand-lime)] px-3 py-1 text-xs font-bold text-black">
-                    {item.bairro}
-                  </span>
                 </div>
 
                 <div className="p-4">
                   <h3 className="text-sm font-semibold text-[color:var(--brand-navy)]">
-                    {item.bairro} — Franca SP
+                    {item.title}
                   </h3>
                   <button
                     type="button"
@@ -109,7 +105,7 @@ export function GallerySection() {
                       </p>
                       <a
                         href={whatsappHref(
-                          `Olá! Vi um registro de atendimento no ${item.bairro} e gostaria de solicitar uma avaliação.`,
+                          "Olá! Vi os registros de atendimento no site e gostaria de solicitar uma avaliação.",
                         )}
                         target="_blank"
                         rel="noopener noreferrer"
