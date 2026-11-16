@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { readVerifiedMetaPayload } from "@/lib/meta-webhook";
+
+export const runtime = "nodejs";
 
 /**
  * Webhook do WhatsApp Cloud API — a "Cristina" responde automaticamente.
@@ -7,6 +10,7 @@ import { NextResponse } from "next/server";
  *   WHATSAPP_VERIFY_TOKEN     — token de verificação do webhook (Meta)
  *   WHATSAPP_ACCESS_TOKEN     — token de acesso da Meta (WhatsApp Cloud API)
  *   WHATSAPP_PHONE_NUMBER_ID  — ID do número de telefone (WhatsApp Business)
+ *   META_APP_SECRET          — App Secret da Meta para autenticar cada POST
  */
 
 const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN ?? "";
@@ -112,7 +116,7 @@ export async function GET(request: Request) {
   const token = searchParams.get("hub.verify_token");
   const challenge = searchParams.get("hub.challenge");
 
-  if (mode === "subscribe" && token === VERIFY_TOKEN && challenge) {
+  if (VERIFY_TOKEN && mode === "subscribe" && token === VERIFY_TOKEN && challenge) {
     return new Response(challenge, { status: 200 });
   }
 
@@ -121,12 +125,11 @@ export async function GET(request: Request) {
 
 // Recebimento de mensagens (POST)
 export async function POST(request: Request) {
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ ok: false }, { status: 400 });
+  const verified = await readVerifiedMetaPayload(request, process.env.META_APP_SECRET);
+  if (!verified.ok) {
+    return NextResponse.json({ ok: false }, { status: verified.status });
   }
+  const body = verified.body;
 
   const entries = (body as { entry?: Array<{ changes?: Array<{ value?: { messages?: Array<{ from?: string; text?: { body?: string } }> } }> }> })?.entry ?? [];
 
